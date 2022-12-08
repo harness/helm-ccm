@@ -1,0 +1,45 @@
+apiVersion: v1
+entries:
+  ccm:
+  - apiVersion: v2
+    appVersion: 1.546.0
+    created: "2022-12-08T10:37:05.441825764Z"
+    dependencies:
+    - name: nextgen-ce
+      repository: file://nextgen-ce
+      version: 0.1.x
+    - name: event-service
+      repository: file://event-service
+      version: 0.1.x
+    - name: anomaly-detection
+      repository: file://anomaly-detection
+      version: 0.1.x
+    - name: cloud-info
+      repository: file://cloud-info
+      version: 0.1.x
+    - name: telescopes
+      repository: file://telescopes
+      version: 0.1.x
+    - name: batch-processing
+      repository: file://batch-processing
+      version: 0.1.x
+    - name: lwd-faktory
+      repository: file://lightwingFaktory
+      version: 0.1.x
+    - name: lwd
+      repository: file://lightwingAPI
+      version: 0.1.x
+    - name: lwd-worker
+      repository: file://lightwingFaktoryWorker
+      version: 0.1.x
+    - name: lwd-autocud
+      repository: file://lightwingAutocud
+      version: 0.1.x
+    description: A Helm chart for Harness Cloud Cost Management (CCM) module
+    digest: 7ca214c63aef9b01260fe75980ccb214ab382ceb29e3482e82a38b2f67803d6a
+    name: ccm
+    type: application
+    urls:
+    - https://github.com/harness/helm-ccm/releases/download/ccm-0.3.1/ccm-0.3.1.tgz
+    version: 0.3.1
+generated: "2022-12-08T10:37:05.441834564Z"
