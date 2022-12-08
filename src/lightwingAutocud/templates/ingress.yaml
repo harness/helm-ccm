@@ -1,0 +1,31 @@
+{{- if .Values.global.ingress.enabled -}}
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: lwd-autocud
+  annotations:
+    nginx.ingress.kubernetes.io/rewrite-target: /
+spec:
+  ingressClassName: {{ .Values.global.ingress.className | quote }}
+  rules:
+    - http:
+        paths:
+          - backend:
+              service:
+                name: lwd-autocud
+                port:
+                  number: {{ .Values.service.port }}
+            path: /lw/co/api
+            pathType: ImplementationSpecific
+    {{- range .Values.global.ingress.hosts }}
+      host: {{ . | quote }}
+    {{- end }}
+  {{- if .Values.global.ingress.tls.enabled }}
+  tls:
+    - hosts:
+        {{- range .Values.global.ingress.hosts }}
+        - {{ . | quote }}
+        {{- end }}
+      secretName: {{ .Values.global.ingress.tls.secretName }}
+  {{- end }}
+{{- end }}

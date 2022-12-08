@@ -1,0 +1,174 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: lwd-autocud
+  namespace: {{ .Release.Namespace }}
+  labels:
+    {{- include "lwd-autocud.labels" . | nindent 4 }}
+spec:
+  {{- if not .Values.autoscaling.enabled }}
+  replicas: {{ .Values.replicaCount }}
+  {{- end }}
+  strategy:
+    type: RollingUpdate
+    rollingUpdate:
+      maxSurge: {{.Values.maxSurge}}
+      maxUnavailable: {{.Values.maxUnavailable}}
+  selector:
+    matchLabels:
+      {{- include "lwd-autocud.selectorLabels" . | nindent 6 }}
+  template:
+    metadata:
+      {{- with .Values.podAnnotations }}
+      annotations:
+        {{- toYaml . | nindent 8 }}
+      {{- end }}
+      labels:
+        app: lwd-autocud
+        {{- include "lwd-autocud.selectorLabels" . | nindent 8 }}
+    spec:
+      {{- with .Values.imagePullSecrets }}
+      imagePullSecrets:
+        {{- toYaml . | nindent 8 }}
+      {{- end }}
+      serviceAccountName: {{ include "lwd-autocud.serviceAccountName" . }}
+      securityContext:
+        {{- toYaml .Values.podSecurityContext | nindent 8 }}
+      initContainers:
+      - name: wait-for-lwd
+        image: {{ include "common.images.image" (dict "imageRoot" .Values.waitForInitContainer.image "global" .Values.global) }}
+        imagePullPolicy: IfNotPresent
+        args:
+          - "pod"
+          - "-lapp=lwd"
+      containers:
+        - name: lwd-autocud
+          securityContext:
+            {{- toYaml .Values.securityContext | nindent 12 }}
+          image: {{ include "common.images.image" (dict "imageRoot" .Values.image "global" .Values.global) }}
+          command: ["cod","--verbose"]
+          ports:
+          - containerPort: 9090
+          livenessProbe:
+            httpGet:
+              path: /
+              port: 9090
+            initialDelaySeconds: 20
+            timeoutSeconds: 5
+            periodSeconds: 15
+            failureThreshold: 20
+          readinessProbe:
+            httpGet:
+              path: /health
+              port: 9090
+            initialDelaySeconds: 10
+            timeoutSeconds: 5
+            periodSeconds: 15
+            failureThreshold: 6
+          env:
+            - name: LIGHTWING_CACHE_ADDR
+              value: {{ .Values.redisUrl }}
+            - name: LIGHTWING_CLOUD-CONNECTOR_TYPE
+              value: "harness"
+            - name: LIGHTWING_CLOUD-CONNECTOR_REMOTE_HOST
+              value: {{ .Values.global.loadbalancerURL }}
+            - name: LIGHTWING_CLOUD-CONNECTOR_CONNECTOR_DETAILS_ROUTE
+              value: ng/api/connectors/%s?accountIdentifier=%s
+            - name: LIGHTWING_CLOUD-CONNECTOR_CFT_PATH_ROUTE
+              value: ng/api/connectors/getceawstemplateurl?accountIdentifier=%s
+            - name: LIGHTWING_APIHOST
+              value: {{ .Values.global.loadbalancerURL }}/lw/api
+            - name: LIGHTWING_AWSMASTER_REGION
+              value: {{ .Values.aws.region }}
+            - name: LIGHTWING_CLOUD-CONNECTOR_AZURE_CLIENT_ID
+              value: {{ .Values.azure.clientId }}
+            - name: LIGHTWING_GCPCOST_SVC_ACC_KEY_PATH
+              value: "/opt/harness/svc/ce_batch_gcp_credentials.json"
+            - name: LIGHTWING_UPSTREAM_APIHOST
+              value: {{ .Values.global.loadbalancerURL }}/lw/api
+            - name: LIGHTWING_GCP_CLOUD_SCHEDULER_SERVICE_ACC_KEY_PATH
+              value: "/opt/harness/svc/ce_batch_gcp_credentials.json"
+            - name: LIGHTWING_GCP_CLOUD_SCHEDULER_PARENT_PATH
+              value: projects/{{ .Values.LIGHTWING_GCPCOST_PROJECT }}/locations/us-central1
+            - name: LIGHTWING_GCPCOST_PROJECT
+              value: {{ .Values.LIGHTWING_GCPCOST_PROJECT }}
+            - name: LIGHTWING_CLOUD-CONNECTOR_REMOTE_API_TOKEN_SECRET
+              value: IC04LYMBf1lDP5oeY4hupxd4HJhLmN6azUku3xEbeE3SUx5G3ZYzhbiwVtK4i7AmqyU9OZkwB4v8E9qM
+            - name: LIGHTWING_AWSMASTER_SECRET_KEY
+              valueFrom:
+                secretKeyRef:
+                  name: {{ .Values.lwdAutocudSecrets.secretName }}
+                  key: {{ .Values.lwdAutocudSecrets.lightwingAwsmasterSecretKey }}
+            - name: LIGHTWING_AWSMASTER_ACCESS_KEY
+              valueFrom:
+                secretKeyRef:
+                  name: {{ .Values.lwdAutocudSecrets.secretName }}
+                  key: {{ .Values.lwdAutocudSecrets.lightwingAwsmasterAccessKey }}
+            - name: LIGHTWING_CLOUD-CONNECTOR_IDENTITY_SERVICE_SECRET
+              value: HVSKUYqD4e5Rxu12hFDdCJKGM64sxgEynvdDhaOHaTHhwwn0K4Ttr0uoOxSsEVYNrUU=
+            - name: LIGHTWING_CLOUD-CONNECTOR_AZURE_CLIENT_SECRET
+              valueFrom:
+                secretKeyRef:
+                  name: {{ .Values.lwdAutocudSecrets.secretName }}
+                  key: {{ .Values.lwdAutocudSecrets.lightwingCloudConnectorAzureClientSecret }}
+            - name: LIGHTWING_AWS-GOV-MASTER_SECRET_KEY
+              valueFrom:
+                secretKeyRef:
+                  name: {{ .Values.lwdAutocudSecrets.secretName }}
+                  key: {{ .Values.lwdAutocudSecrets.lightwingAwsGovmasterSecretKey }}
+            - name: LIGHTWING_AWS-GOV-MASTER_ACCESS_KEY
+              valueFrom:
+                secretKeyRef:
+                  name: {{ .Values.lwdAutocudSecrets.secretName }}
+                  key: {{ .Values.lwdAutocudSecrets.lightwingAwsGovmasterAccessKey }}
+            - name: LIGHTWING_METRICS_SEGMENT
+              valueFrom:
+                secretKeyRef:
+                  name: {{ .Values.lwdAutocudSecrets.secretName }}
+                  key: {{ .Values.lwdAutocudSecrets.lightwingMetricsSegment }}
+            - name: DB_PASSWORD
+              valueFrom:
+                secretKeyRef:
+                  name: {{ .Values.postgresPassword.name }}
+                  key: {{ .Values.postgresPassword.key }}
+            - name: LIGHTWING_DB_CONNECTION
+              value: "host=postgres.{{ .Release.Namespace }}.svc.cluster.local user=postgres password=$(DB_PASSWORD) dbname=postgres sslmode=disable"
+            - name: FAKTORY_PASSWORD
+              valueFrom:
+                secretKeyRef:
+                  name: {{ .Values.lwdAutocudSecrets.secretName }}
+                  key: {{ .Values.lwdAutocudSecrets.faktoryPassword }}
+            - name: FAKTORY_URL
+              value: tcp://$(FAKTORY_PASSWORD):@lwd-faktory.{{ .Release.Namespace }}.svc.cluster.local:7419
+          volumeMounts:
+          - name: secret-mount
+            mountPath: /opt/harness/svc
+      volumes:
+      - name: secret-mount
+        secret:
+          secretName: lwd-autocud-secret-mount
+          items:
+          - key: ce-batch-gcp-credentials
+            path: ce_batch_gcp_credentials.json
+      affinity:
+        podAntiAffinity:
+          requiredDuringSchedulingIgnoredDuringExecution:
+          - labelSelector:
+              matchExpressions:
+              - key: app
+                operator: In
+                values:
+                - lwd-autocud
+            topologyKey: "kubernetes.io/hostname"
+      {{- with .Values.nodeSelector }}
+      nodeSelector:
+        {{- toYaml . | nindent 8 }}
+      {{- end }}
+      {{- with .Values.affinity }}
+      affinity:
+        {{- toYaml . | nindent 8 }}
+      {{- end }}
+      {{- with .Values.tolerations }}
+      tolerations:
+        {{- toYaml . | nindent 8 }}
+      {{- end }}

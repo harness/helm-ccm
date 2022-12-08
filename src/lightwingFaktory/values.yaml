@@ -1,0 +1,79 @@
+# Default values for lwd-faktory
+# This is a YAML-formatted file.
+# Declare variables to be passed into your templates.
+global:
+  loadbalancerURL: "https://test"
+  ingress:
+    enabled: false
+    className: harness
+    hosts:
+      - my-host.example.org
+    tls:
+      enabled: true
+      secretName: ''
+
+replicaCount: 1
+
+image:
+  registry: docker.io
+  repository: contribsys/faktory
+  pullPolicy: Always
+  # Overrides the image tag whose default is the chart appVersion.
+  tag: "1.6.1"
+  digest: ""
+
+faktory:
+  password:
+    name: lwd-secrets
+    key: FAKTORY_PASSWORD
+
+nameOverride: ""
+fullnameOverride: ""
+
+serviceAccount:
+  create: false
+  annotations: {}
+  name: "harness-default"
+
+podAnnotations: {}
+
+podSecurityContext: {}
+
+securityContext: {}
+
+service:
+  type: ClusterIP
+  dashboard:
+    port: 7420
+    name: "dashboard"
+  api:
+    port: 7419
+    name: "api"
+
+ingress:
+  className: nginx
+
+autoscaling:
+  enabled: false
+  minReplicas: 1
+  maxReplicas: 2
+  targetCPUUtilizationPercentage: 80
+
+nodeSelector: {}
+
+tolerations: []
+
+affinity: {}
+
+persistentVolume:
+  storage:
+    models: "20Gi"
+  accessModes: "ReadWriteOnce"
+
+resources:
+  limits:
+    cpu: 2
+    memory: "4Gi"
+  requests:
+    cpu: 2
+    memory: "4Gi"

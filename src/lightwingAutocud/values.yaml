@@ -1,0 +1,106 @@
+# Default values for lwd-autocud
+# This is a YAML-formatted file.
+# Declare variables to be passed into your templates.
+global:
+  loadbalancerURL: "https://test"
+  ingress:
+    enabled: false
+    className: harness
+    hosts:
+      - my-host.example.org
+    tls:
+      enabled: true
+      secretName: ''
+
+replicaCount: 2
+
+maxSurge: 100%
+
+maxUnavailable: 0
+
+java:
+  memory: "4096m"
+  memoryLimit: "4096m"
+
+image:
+  registry: docker.io
+  repository: harness/lightwing-signed
+  pullPolicy: IfNotPresent
+  tag: "main-1.1.564"
+  digest: ""
+
+waitForInitContainer:
+  image:
+    registry: docker.io
+    repository: harness/helm-init-container
+    pullPolicy: IfNotPresent
+    tag: "latest"
+    digest: ""
+
+postgresPassword:
+  name: postgres
+  key: postgres-password
+
+lwdAutocudSecrets:
+  secretName: lwd-secrets
+  faktoryPassword: FAKTORY_PASSWORD
+  lightwingAwsmasterAccessKey: LIGHTWING_AWSMASTER_ACCESS_KEY
+  lightwingAwsmasterSecretKey: LIGHTWING_AWSMASTER_SECRET_KEY
+  lightwingAwsGovmasterAccessKey: LIGHTWING_AWS-GOV-MASTER_ACCESS_KEY
+  lightwingAwsGovmasterSecretKey: LIGHTWING_AWS-GOV-MASTER_SECRET_KEY
+  lightwingCloudConnectorAzureClientSecret: LIGHTWING_CLOUD-CONNECTOR_AZURE_CLIENT_SECRET
+  lightwingMetricsSegment: LIGHTWING_METRICS_SEGMENT
+
+ce-batch-gcp-credentials: ""
+
+aws:
+  region: "us-east-1"
+
+azure:
+  clientId: ""
+
+redisUrl: "redis://localhost:6379"
+
+nameOverride: ""
+fullnameOverride: ""
+
+serviceAccount:
+  create: false
+  annotations: {}
+  name: "harness-default"
+
+podAnnotations: {}
+
+podSecurityContext: {}
+
+securityContext: {}
+
+service:
+  type: ClusterIP
+  port: 9090
+
+ingress:
+  className: nginx
+
+autoscaling:
+  enabled: false
+  minReplicas: 1
+  maxReplicas: 2
+  targetCPUUtilizationPercentage: 80
+  targetMemoryUtilizationPercentage: 80
+
+nodeSelector: {}
+
+tolerations: []
+
+affinity: {}
+
+LIGHTWING_GCPCOST_PROJECT: "placeHolder"
+
+resources:
+  limits:
+    cpu: 2
+    memory: "4Gi"
+  requests:
+    cpu: 2
+    memory: "4Gi"

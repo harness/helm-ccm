@@ -1,0 +1,93 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: lwd-faktory
+  namespace: {{ .Release.Namespace }}
+  labels:
+    {{- include "lwd-faktory.labels" . | nindent 4 }}
+spec:
+  {{- if not .Values.autoscaling.enabled }}
+  replicas: {{ .Values.replicaCount }}
+  {{- end }}
+  strategy:
+    type: Recreate
+  selector:
+    matchLabels:
+      {{- include "lwd-faktory.selectorLabels" . | nindent 6 }}
+  template:
+    metadata:
+      {{- with .Values.podAnnotations }}
+      annotations:
+        {{- toYaml . | nindent 8 }}
+      {{- end }}
+      labels:
+        app: lwd-faktory
+        {{- include "lwd-faktory.selectorLabels" . | nindent 8 }}
+    spec:
+      {{- with .Values.imagePullSecrets }}
+      imagePullSecrets:
+        {{- toYaml . | nindent 8 }}
+      {{- end }}
+      serviceAccountName: {{ include "lwd-faktory.serviceAccountName" . }}
+      securityContext:
+        {{- toYaml .Values.podSecurityContext | nindent 8 }}
+      containers:
+        - name: lwd-faktory
+          args:
+          - -w
+          - :7420
+          - -b
+          - :7419
+          - -e
+          - production
+          command:
+          - /faktory
+          securityContext:
+            {{- toYaml .Values.securityContext | nindent 12 }}
+          image: {{ include "common.images.image" (dict "imageRoot" .Values.image "global" .Values.global) }}
+          imagePullPolicy: {{ .Values.image.pullPolicy }}
+          livenessProbe:
+            failureThreshold: 6
+            initialDelaySeconds: 30
+            periodSeconds: 10
+            successThreshold: 1
+            tcpSocket:
+              port: 7419
+            timeoutSeconds: 5
+          env:
+            - name: FAKTORY_PASSWORD
+              valueFrom:
+                secretKeyRef:
+                  name: {{ .Values.faktory.password.name }}
+                  key: {{ .Values.faktory.password.key }}
+          volumeMounts:
+          - name: lwd-faktory-mount
+            mountPath: /var/lib/faktory
+      restartPolicy: Always
+      volumes:
+      - name: lwd-faktory-mount
+        persistentVolumeClaim:
+          claimName: lwd-faktory
+          readOnly: false
+      affinity:
+        podAntiAffinity:
+          requiredDuringSchedulingIgnoredDuringExecution:
+          - labelSelector:
+              matchExpressions:
+              - key: app
+                operator: In
+                values:
+                - lwd-faktory
+            topologyKey: "kubernetes.io/hostname"
+      {{- with .Values.nodeSelector }}
+      nodeSelector:
+        {{- toYaml . | nindent 8 }}
+      {{- end }}
+      {{- with .Values.affinity }}
+      affinity:
+        {{- toYaml . | nindent 8 }}
+      {{- end }}
+      {{- with .Values.tolerations }}
+      tolerations:
+        {{- toYaml . | nindent 8 }}
+      {{- end }}
