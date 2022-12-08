@@ -1,0 +1,14 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: lwd-autocud
+  namespace: {{ .Release.Namespace }}
+  labels:
+    {{- include "lwd-autocud.labels" . | nindent 4 }}
+spec:
+  type: {{ .Values.service.type }}
+  ports:
+    - port: {{ .Values.service.port }}
+      protocol: TCP
+  selector:
+    {{- include "lwd-autocud.selectorLabels" . | nindent 4 }}

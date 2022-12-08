@@ -1,0 +1,132 @@
+apiVersion: apps/v1
+kind: StatefulSet
+metadata:
+  name: batch-processing
+  namespace: {{ .Release.Namespace }}
+  labels:
+    {{- include "batch-processing.labels" . | nindent 4 }}
+spec:
+  serviceName: "batch-processing"
+  {{- if not .Values.autoscaling.enabled }}
+  replicas: {{ .Values.replicaCount }}
+  {{- end }}
+  selector:
+    matchLabels:
+      {{- include "batch-processing.selectorLabels" . | nindent 6 }}
+  template:
+    metadata:
+      {{- with .Values.podAnnotations }}
+      annotations:
+        {{- toYaml . | nindent 8 }}
+      {{- end }}
+      labels:
+        app: batch-processing
+        {{- include "batch-processing.selectorLabels" . | nindent 8 }}
+    spec:
+      {{- with .Values.imagePullSecrets }}
+      imagePullSecrets:
+        {{- toYaml . | nindent 8 }}
+      {{- end }}
+      serviceAccountName: {{ include "batch-processing.serviceAccountName" . }}
+      securityContext:
+        {{- toYaml .Values.podSecurityContext | nindent 8 }}
+      initContainers:
+      #nextgen-ce should take care of ng-manager, mongo & timescale
+      - name: wait-for-nextgen-ce
+        image: {{ include "common.images.image" (dict "imageRoot" .Values.waitForInitContainer.image "global" .Values.global) }}
+        imagePullPolicy: IfNotPresent
+        args:
+          - "pod"
+          - "-lapp=nextgen-ce"
+      - name: wait-for-telescopes
+        image: {{ include "common.images.image" (dict "imageRoot" .Values.waitForInitContainer.image "global" .Values.global) }}
+        imagePullPolicy: IfNotPresent
+        args:
+          - "pod"
+          - "-lapp=telescopes"
+      - name: wait-for-cloud-info
+        image: {{ include "common.images.image" (dict "imageRoot" .Values.waitForInitContainer.image "global" .Values.global) }}
+        imagePullPolicy: IfNotPresent
+        args:
+          - "pod"
+          - "-lapp=ce-cloud-info"
+      - name: wait-for-anomaly-detection
+        image: {{ include "common.images.image" (dict "imageRoot" .Values.waitForInitContainer.image "global" .Values.global) }}
+        imagePullPolicy: IfNotPresent
+        args:
+          - "pod"
+          - "-lapp=ce-anomaly-detection"
+      terminationGracePeriodSeconds: 30
+      containers:
+        - name: batch-processing
+          securityContext:
+            {{- toYaml .Values.securityContext | nindent 12 }}
+          image: {{ include "common.images.image" (dict "imageRoot" .Values.image "global" .Values.global) }}
+          imagePullPolicy: {{ .Values.image.pullPolicy }}
+          envFrom:
+            - configMapRef:
+                name: batch-processing
+            - secretRef:
+                name: batch-processing
+          env:
+            - name: MONGODB_USERNAME
+              valueFrom:
+                secretKeyRef:
+                  name: {{ .Values.mongoSecrets.userName.name }}
+                  key: {{ .Values.mongoSecrets.userName.key }}
+            - name: MONGODB_PASSWORD
+              valueFrom:
+                secretKeyRef:
+                  name: {{ .Values.mongoSecrets.password.name }}
+                  key: {{ .Values.mongoSecrets.password.key }}
+            - name: MONGO_URI
+              value: {{ include "harnesscommon.database.mongo" (dict "database" "harness" "context" $) }}
+            - name: EVENTS_MONGO_URI
+              value: {{ include "harnesscommon.database.mongo" (dict "database" "events" "context" $) }}
+            - name : TIMESCALEDB_PASSWORD
+              valueFrom:
+                secretKeyRef:
+                  name: {{ .Values.timescaleSecret.password.name }}
+                  key: {{ .Values.timescaleSecret.password.key }}
+            - name : TIMESCALEDB_USERNAME
+              value: postgres
+            - name: TIMESCALEDB_URI
+              value: 'jdbc:postgresql://timescaledb-single-chart.{{ .Release.Namespace }}:5432/harness'
+            - name: POD_NAME
+              value: batch-processing
+          volumeMounts:
+          - name: secret-mount
+            mountPath: /opt/harness/svc
+      volumes:
+      - name: secret-mount
+        secret:
+          secretName: batch-processing-secret-mount
+          items:
+          - key: ce-batch-gcp-credentials
+            path: ce_batch_gcp_credentials.json
+          - key: ce-gcp-home-project-creds
+            path: ce-gcp-home-project-creds.json
+          - key: cloud-data-store
+            path: cloud_data_store.json
+      affinity:
+        podAntiAffinity:
+          requiredDuringSchedulingIgnoredDuringExecution:
+          - labelSelector:
+              matchExpressions:
+              - key: app
+                operator: In
+                values:
+                - batch-processing
+            topologyKey: "kubernetes.io/hostname"
+      {{- with .Values.nodeSelector }}
+      nodeSelector:
+        {{- toYaml . | nindent 8 }}
+      {{- end }}
+      {{- with .Values.affinity }}
+      affinity:
+        {{- toYaml . | nindent 8 }}
+      {{- end }}
+      {{- with .Values.tolerations }}
+      tolerations:
+        {{- toYaml . | nindent 8 }}
+      {{- end }}
