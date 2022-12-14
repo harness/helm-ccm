@@ -47,8 +47,44 @@ jobs:
       #       echo "::set-output name=changed::true"
       #     fi
 
-      - name: Run chart-testing (lint)
-        working-directory: ./src/batch-processing
+      - name: Run chart-testing anomaly-detection (lint)
+        working-directory: ./src/ccm/anomaly-detection
+        run: ct lint --target-branch=develop --charts=. --chart-repos=harness-common=https://harness.github.io/helm-common,common=https://charts.bitnami.com/bitnami --validate-maintainers=false
+
+      - name: Run chart-testing batch-processing (lint)
+        working-directory: ./src/ccm/batch-processing
+        run: ct lint --target-branch=develop --charts=. --chart-repos=harness-common=https://harness.github.io/helm-common,common=https://charts.bitnami.com/bitnami --validate-maintainers=false
+
+      - name: Run chart-testing cloud-info (lint)
+        working-directory: ./src/ccm/cloud-info
+        run: ct lint --target-branch=develop --charts=. --chart-repos=harness-common=https://harness.github.io/helm-common,common=https://charts.bitnami.com/bitnami --validate-maintainers=false
+
+      - name: Run chart-testing event-service (lint)
+        working-directory: ./src/ccm/event-service
+        run: ct lint --target-branch=develop --charts=. --chart-repos=harness-common=https://harness.github.io/helm-common,common=https://charts.bitnami.com/bitnami --validate-maintainers=false
+
+      - name: Run chart-testing lightwingAPI (lint)
+        working-directory: ./src/ccm/lightwingAPI
+        run: ct lint --target-branch=develop --charts=. --chart-repos=harness-common=https://harness.github.io/helm-common,common=https://charts.bitnami.com/bitnami --validate-maintainers=false
+
+      - name: Run chart-testing lightwingAutocud (lint)
+        working-directory: ./src/ccm/lightwingAutocud
+        run: ct lint --target-branch=develop --charts=. --chart-repos=harness-common=https://harness.github.io/helm-common,common=https://charts.bitnami.com/bitnami --validate-maintainers=false
+
+      - name: Run chart-testing lightwingFaktory (lint)
+        working-directory: ./src/ccm/lightwingFaktory
+        run: ct lint --target-branch=develop --charts=. --chart-repos=harness-common=https://harness.github.io/helm-common,common=https://charts.bitnami.com/bitnami --validate-maintainers=false
+
+      - name: Run chart-testing lightwingFaktoryWorker (lint)
+        working-directory: ./src/ccm/lightwingFaktoryWorker
+        run: ct lint --target-branch=develop --charts=. --chart-repos=harness-common=https://harness.github.io/helm-common,common=https://charts.bitnami.com/bitnami --validate-maintainers=false
+
+      - name: Run chart-testing nextgen-ce (lint)
+        working-directory: ./src/ccm/nextgen-ce
+        run: ct lint --target-branch=develop --charts=. --chart-repos=harness-common=https://harness.github.io/helm-common,common=https://charts.bitnami.com/bitnami --validate-maintainers=false
+
+      - name: Run chart-testing telescopes (lint)
+        working-directory: ./src/ccm/telescopes
         run: ct lint --target-branch=develop --charts=. --chart-repos=harness-common=https://harness.github.io/helm-common,common=https://charts.bitnami.com/bitnami --validate-maintainers=false
 
       # - name: Create kind cluster/search

@@ -6,8 +6,8 @@ metadata:
 data:
   DEPLOY_MODE: "KUBERNETES_ONPREM"
   MEMORY: {{ .Values.java.memory | quote }}
-  REPLICA: {{ .Values.replicaCount | quote }}
-  ISOLATED_REPLICA: {{ .Values.isolatedReplica | quote }}
+  REPLICA: "1"
+  ISOLATED_REPLICA: "0"
   MONGO_READ_PREF_NAME: "secondary"
   MONGO_READ_PREF_TAGS: "nodeType=ANALYTICS"
   MONGO_INDEX_MANAGER_MODE: "MANUAL"
@@ -25,8 +25,8 @@ data:
   BANZAI_CONFIG_PORT: "8082"
   METRICS_COLLECTION_DISABLED: "true"
   BANZAI_RECOMMENDER_BASEURL: "http://telescopes.{{ .Release.Namespace }}.svc.cluster.local:9090/"
-  NG_MANAGER_SERVICE_HTTP_CLIENT_CONFIG_BASE_URL: "http://ng-manager.{{ .Release.Namespace }}.svc.cluster.local:7090/ng/api/"
-  CE_NG_SERVICE_HTTP_CLIENT_CONFIG_BASE_URL: "http://nextgen-ce.{{ .Release.Namespace }}.svc.cluster.local:6340/ccm/api/"
+  NG_MANAGER_SERVICE_HTTP_CLIENT_CONFIG_BASE_URL: "http://ng-manager.{{ .Release.Namespace }}.svc.cluster.local:7090/"
+  CE_NG_SERVICE_HTTP_CLIENT_CONFIG_BASE_URL: "http://nextgen-ce.{{ .Release.Namespace }}.svc.cluster.local:6340/"
   CONNECTOR_HEALTH_UPDATE_CRON: "0 0 10 * * ?"
   GCP_PROJECT_ID: {{ .Values.GCP_PROJECT_ID  | quote}}
   SMTP_HOST: {{ .Values.smtp.host | quote}}

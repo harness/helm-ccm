@@ -16,7 +16,7 @@ dependencies:
   version: 0.1.12
 - name: batch-processing
   repository: file://batch-processing
-  version: 0.1.6
+  version: 0.1.9
 - name: lwd-faktory
   repository: file://lightwingFaktory
   version: 0.1.6
@@ -29,5 +29,5 @@ dependencies:
 - name: lwd-autocud
   repository: file://lightwingAutocud
   version: 0.1.1
-digest: sha256:d5b797c9d6077d829e38f0da76aa2ff0e5812910b456d979d2940e658517969e
-generated: "2022-12-08T15:20:09.518942+05:30"
+digest: sha256:d1a66b4a9b589b2803e63fabe7d8c853783d6a866bd27a76377fff8a7e095c6e
+generated: "2022-12-14T12:05:30.988884+05:30"
