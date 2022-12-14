@@ -6,8 +6,8 @@ metadata:
 data:
   DEPLOY_MODE: "KUBERNETES_ONPREM"
   MEMORY: {{ .Values.java.memory | quote }}
-  REPLICA: {{ .Values.replicaCount | quote }}
-  ISOLATED_REPLICA: {{ .Values.isolatedReplica | quote }}
+  REPLICA: "1"
+  ISOLATED_REPLICA: "0"
   MONGO_READ_PREF_NAME: "secondary"
   MONGO_READ_PREF_TAGS: "nodeType=ANALYTICS"
   MONGO_INDEX_MANAGER_MODE: "MANUAL"
