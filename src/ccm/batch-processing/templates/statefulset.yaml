@@ -93,7 +93,9 @@ spec:
             - name: TIMESCALEDB_URI
               value: 'jdbc:postgresql://timescaledb-single-chart.{{ .Release.Namespace }}:5432/harness'
             - name: POD_NAME
-              value: batch-processing
+              valueFrom:
+                fieldRef:
+                  fieldPath: metadata.name
           volumeMounts:
           - name: secret-mount
             mountPath: /opt/harness/svc
