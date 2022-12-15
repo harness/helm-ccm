@@ -625,3 +625,22 @@ telescopes:
     requests:
       cpu: "512m"
       memory: "1024Mi"
+
+clickhouse:
+  fullnameOverride: "clickhouse"
+  replicaCount: 3
+  shards: 1
+  image:
+    tag: 22.11.2-debian-11-r0
+  resources:
+    limits:
+      cpu: "16000m"
+      memory: "6Gi"
+    requests:
+      cpu: "16000m"
+      memory: "6Gi"
+  persistence:
+    size: 1Ti
+  zookeeper:
+    replicaCount: 3
+    fullnameOverride: "zookeeper"
