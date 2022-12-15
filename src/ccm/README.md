@@ -2,7 +2,7 @@
 
 A Helm chart for Harness Cloud Cost Management (CCM) module
 
-![Version: 0.3.2](https://img.shields.io/badge/Version-0.3.2-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square) ![AppVersion: 1.546.0](https://img.shields.io/badge/AppVersion-1.546.0-informational?style=flat-square)
+![Version: 0.3.3](https://img.shields.io/badge/Version-0.3.3-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square) ![AppVersion: 1.546.0](https://img.shields.io/badge/AppVersion-1.546.0-informational?style=flat-square)
 
 ## Usage
 
@@ -12,7 +12,7 @@ Use the following dependency to add this chart repository to your Helm installat
 dependencies:
     - name: ccm
       repository: https://harness.github.io/helm-ccm
-      version: 0.3.2
+      version: 0.3.3
 ```
 
 ## Values
@@ -101,6 +101,17 @@ dependencies:
 | batch-processing.waitForInitContainer.image.registry | string | `"docker.io"` |  |
 | batch-processing.waitForInitContainer.image.repository | string | `"harness/helm-init-container"` |  |
 | batch-processing.waitForInitContainer.image.tag | string | `"latest"` |  |
+| clickhouse.fullnameOverride | string | `"clickhouse"` |  |
+| clickhouse.image.tag | string | `"22.11.2-debian-11-r0"` |  |
+| clickhouse.persistence.size | string | `"1Ti"` |  |
+| clickhouse.replicaCount | int | `3` |  |
+| clickhouse.resources.limits.cpu | string | `"16000m"` |  |
+| clickhouse.resources.limits.memory | string | `"6Gi"` |  |
+| clickhouse.resources.requests.cpu | string | `"16000m"` |  |
+| clickhouse.resources.requests.memory | string | `"6Gi"` |  |
+| clickhouse.shards | int | `1` |  |
+| clickhouse.zookeeper.fullnameOverride | string | `"zookeeper"` |  |
+| clickhouse.zookeeper.replicaCount | int | `3` |  |
 | cloud-info.CLOUD_INFO_CONFIG | string | `""` |  |
 | cloud-info.CLOUD_INFO_GCP_CREDS | string | `""` |  |
 | cloud-info.affinity | object | `{}` |  |

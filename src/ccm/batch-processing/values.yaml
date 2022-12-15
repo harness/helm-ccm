@@ -24,7 +24,7 @@ image:
   repository: harness/batch-processing-signed
   pullPolicy: Always
   # Overrides the image tag whose default is the chart appVersion.
-  tag: "77500"
+  tag: "77905-000"
   digest: ""
 
 waitForInitContainer:

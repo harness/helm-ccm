@@ -16,7 +16,7 @@ dependencies:
   version: 0.1.12
 - name: batch-processing
   repository: file://batch-processing
-  version: 0.1.9
+  version: 0.1.10
 - name: lwd-faktory
   repository: file://lightwingFaktory
   version: 0.1.6
@@ -29,5 +29,8 @@ dependencies:
 - name: lwd-autocud
   repository: file://lightwingAutocud
   version: 0.1.1
-digest: sha256:d1a66b4a9b589b2803e63fabe7d8c853783d6a866bd27a76377fff8a7e095c6e
-generated: "2022-12-14T12:05:30.988884+05:30"
+- name: clickhouse
+  repository: https://charts.bitnami.com/bitnami
+  version: 2.1.0
+digest: sha256:bc0f9e256f8644b7e56a25889bcd8e9e8e2e17bbb63af4752ad1e2617c85fbb4
+generated: "2022-12-15T11:42:56.806715+05:30"
