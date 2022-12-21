@@ -1,6 +1,6 @@
 apiVersion: v2
-name: ccm
-description: A Helm chart for Harness Cloud Cost Management (CCM) module
+name: cloud-info
+description: A Helm chart for Kubernetes
 
 # A chart can be either an 'application' or a 'library' chart.
 #
@@ -15,46 +15,20 @@ type: application
 # This is the chart version. This version number should be incremented each time you make changes
 # to the chart and its templates, including the app version.
 # Versions are expected to follow Semantic Versioning (https://semver.org/)
-version: 0.3.5
+
+version: 0.1.14
 
 # This is the version number of the application being deployed. This version number should be
 # incremented each time you make changes to the application. Versions are not expected to
 # follow Semantic Versioning. They should reflect the version the application is using.
 # It is recommended to use it with quotes.
-appVersion: "1.546.0"
+# TODO What is this app version?
+appVersion: "1.773.0"
 
 dependencies:
-- name: nextgen-ce
-  version: 0.1.x
-  repository: "file://../nextgen-ce"
-- name: event-service
-  version: 0.1.x
-  repository: "file://../event-service"
-- name: anomaly-detection
-  version: 0.1.x
-  repository: "file://../anomaly-detection"
-- name: cloud-info
-  version: 0.1.x
-  repository: "file://../cloud-info"
-- name: telescopes
-  version: 0.1.x
-  repository: "file://../telescopes"
-- name: batch-processing
-  version: 0.1.x
-  repository: "file://../batch-processing"
-- name: lwd-faktory
-  version: 0.1.x
-  repository: "file://../lightwingFaktory"
-- name: lwd
-  version: 0.1.x
-  repository: "file://../lightwingAPI"
-- name: lwd-worker
-  version: 0.1.x
-  repository: "file://../lightwingFaktoryWorker"
-- name: lwd-autocud
-  version: 0.1.x
-  repository: "file://../lightwingAutocud"
-- name: clickhouse
-  version: 2.1.0
-  repository: https://charts.bitnami.com/bitnami
-
+  - name: harness-common
+    version: 1.x.x
+    repository: https://harness.github.io/helm-common
+  - name: common
+    version: 2.x.x
+    repository: https://charts.bitnami.com/bitnami

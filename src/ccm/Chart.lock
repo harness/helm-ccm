@@ -1,36 +1,36 @@
 dependencies:
 - name: nextgen-ce
-  repository: file://nextgen-ce
-  version: 0.1.15
+  repository: file://../nextgen-ce
+  version: 0.1.16
 - name: event-service
-  repository: file://event-service
-  version: 0.1.4
+  repository: file://../event-service
+  version: 0.1.5
 - name: anomaly-detection
-  repository: file://anomaly-detection
-  version: 0.1.8
+  repository: file://../anomaly-detection
+  version: 0.1.9
 - name: cloud-info
-  repository: file://cloud-info
-  version: 0.1.13
+  repository: file://../cloud-info
+  version: 0.1.14
 - name: telescopes
-  repository: file://telescopes
-  version: 0.1.12
+  repository: file://../telescopes
+  version: 0.1.13
 - name: batch-processing
-  repository: file://batch-processing
-  version: 0.1.10
+  repository: file://../batch-processing
+  version: 0.1.11
 - name: lwd-faktory
-  repository: file://lightwingFaktory
-  version: 0.1.6
+  repository: file://../lightwingFaktory
+  version: 0.1.7
 - name: lwd
-  repository: file://lightwingAPI
-  version: 0.1.6
+  repository: file://../lightwingAPI
+  version: 0.1.7
 - name: lwd-worker
-  repository: file://lightwingFaktoryWorker
-  version: 0.1.3
+  repository: file://../lightwingFaktoryWorker
+  version: 0.1.4
 - name: lwd-autocud
-  repository: file://lightwingAutocud
-  version: 0.1.1
+  repository: file://../lightwingAutocud
+  version: 0.1.2
 - name: clickhouse
   repository: https://charts.bitnami.com/bitnami
   version: 2.1.0
-digest: sha256:bc0f9e256f8644b7e56a25889bcd8e9e8e2e17bbb63af4752ad1e2617c85fbb4
-generated: "2022-12-15T11:42:56.806715+05:30"
+digest: sha256:dd93c0de90b2553cf0bfb146f81aae98fb35f6407c2bac5ed8bba36775a2ba5a
+generated: "2022-12-21T23:59:00.892101+05:30"
