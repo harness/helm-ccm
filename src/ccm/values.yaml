@@ -627,6 +627,7 @@ telescopes:
       memory: "1024Mi"
 
 clickhouse:
+  enabled: false
   fullnameOverride: "clickhouse"
   image:
     tag: 22.11.2-debian-11-r0
