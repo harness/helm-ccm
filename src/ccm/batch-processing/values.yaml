@@ -94,8 +94,6 @@ tolerations: []
 
 affinity: {}
 
-uiServerUrl: "https://app.harness.io"
-
 GCP_PROJECT_ID: "placeHolder"
 
 resources:
