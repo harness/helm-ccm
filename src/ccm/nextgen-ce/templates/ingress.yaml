@@ -4,7 +4,8 @@ kind: Ingress
 metadata:
   name: nextgen-ce
   annotations:
-    nginx.ingress.kubernetes.io/rewrite-target: /ccm/api/$2
+    nginx.ingress.kubernetes.io/use-regex: "true"
+    nginx.ingress.kubernetes.io/rewrite-target: /ccm/api$1$2
 spec:
   ingressClassName: {{ .Values.global.ingress.className | quote }}
   rules:

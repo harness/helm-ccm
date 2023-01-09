@@ -4,7 +4,8 @@ kind: Ingress
 metadata:
   name: lwd-autocud
   annotations:
-    nginx.ingress.kubernetes.io/rewrite-target: /
+    nginx.ingress.kubernetes.io/use-regex: "true"
+    nginx.ingress.kubernetes.io/rewrite-target: /$2
 spec:
   ingressClassName: {{ .Values.global.ingress.className | quote }}
   rules:
@@ -15,7 +16,7 @@ spec:
                 name: lwd-autocud
                 port:
                   number: {{ .Values.service.port }}
-            path: /lw/co/api
+            path: /lw/co/api(/|$)(.*)
             pathType: ImplementationSpecific
     {{- range .Values.global.ingress.hosts }}
       host: {{ . | quote }}
