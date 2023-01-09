@@ -4,7 +4,8 @@ kind: Ingress
 metadata:
   name: event-service-api
   annotations:
-    nginx.ingress.kubernetes.io/rewrite-target: /ccmevent
+    nginx.ingress.kubernetes.io/use-regex: "true"
+    nginx.ingress.kubernetes.io/rewrite-target: /ccmevent$1$2
 spec:
   ingressClassName: {{ .Values.global.ingress.className | quote }}
   rules:
@@ -15,7 +16,7 @@ spec:
                 name: event-service
                 port:
                   number: {{ .Values.service.port }}
-            path: /ccmevent
+            path: /ccmevent(/|$)(.*)
             pathType: ImplementationSpecific
     {{- range .Values.global.ingress.hosts }}
       host: {{ . | quote }}
