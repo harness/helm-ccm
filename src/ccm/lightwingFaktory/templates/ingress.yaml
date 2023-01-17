@@ -5,6 +5,7 @@ metadata:
   name: lwd-faktory
   annotations:
     nginx.ingress.kubernetes.io/configuration-snippet: proxy_set_header X-Script-Name /lw/faktory;
+    nginx.ingress.kubernetes.io/rewrite-target: $2
 spec:
   ingressClassName: {{ .Values.global.ingress.className | quote }}
   rules:
@@ -15,7 +16,7 @@ spec:
                 name: lwd-faktory
                 port:
                   number: {{ .Values.service.dashboard.port }}
-            path: /lw/faktory
+            path: /lw/faktory(/|$)(.*)
             pathType: ImplementationSpecific
     {{- range .Values.global.ingress.hosts }}
       host: {{ . | quote }}

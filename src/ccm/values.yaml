@@ -1,8 +1,8 @@
 global:
   istio:
-    enabled: true
+    enabled: false
     gateway:
-      create: true
+      create: false
     virtualService:
       gateways:
       hosts:
