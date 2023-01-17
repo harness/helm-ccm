@@ -11,7 +11,13 @@ global:
     tls:
       enabled: true
       secretName: ''
-
+  istio:
+    enabled: false
+    gateway:
+      create: false
+    virtualService:
+      gateways:
+      hosts:
 replicaCount: 1
 
 java:
