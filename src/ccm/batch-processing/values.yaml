@@ -94,7 +94,13 @@ tolerations: []
 
 affinity: {}
 
-GCP_PROJECT_ID: "placeHolder"
+cloudProviderConfig:
+  GCP_PROJECT_ID: "placeHolder"
+  DATA_PIPELINE_CONFIG_GCS_BASE_PATH: "gs://awscustomerbillingdata-onprem"
+  CLUSTER_DATA_GCS_BUCKET: "clusterdata-onprem"
+  CLUSTER_DATA_GCS_BACKUP_BUCKET: "clusterdata-onprem-backup"
+  S3_SYNC_CONFIG_BUCKET_NAME: "ccm-service-data-bucket"
+  S3_SYNC_CONFIG_REGION: "us-east-1"
 
 resources:
   limits:

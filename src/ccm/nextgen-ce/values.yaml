@@ -102,7 +102,12 @@ tolerations: []
 
 affinity: {}
 
-GCP_PROJECT_ID: "placeHolder"
+cloudProviderConfig:
+  GCP_PROJECT_ID: "placeHolder"
+  AZURE_APP_CLIENT_ID: "0211763d-24fb-4d63-865d-92f86f77e908"
+  AWS_GOV_CLOUD_ACCOUNT_ID: "147449478367"
+  AWS_GOV_CLOUD_REGION_NAME: "us-gov-west-1"
+  AWS_GOV_CLOUD_TEMPLATE_LINK: "https://continuous-efficiency.s3.us-east-2.amazonaws.com/setup/v1/ng/HarnessAWSTemplate.yaml"
 
 resources:
   limits:

@@ -15,7 +15,6 @@ A Helm chart for Kubernetes
 
 | Key | Type | Default | Description |
 |-----|------|---------|-------------|
-| GCP_PROJECT_ID | string | `"placeHolder"` |  |
 | affinity | object | `{}` |  |
 | autoscaling.enabled | bool | `false` |  |
 | autoscaling.maxReplicas | int | `2` |  |
@@ -25,6 +24,12 @@ A Helm chart for Kubernetes
 | awsSecret.S3_SYNC_CONFIG_SECRETKEY | string | `""` |  |
 | ceBatchGCPCredentials | string | `""` |  |
 | ceGCPHomeProjectCreds | string | `""` |  |
+| cloudProviderConfig.CLUSTER_DATA_GCS_BACKUP_BUCKET | string | `"clusterdata-onprem-backup"` |  |
+| cloudProviderConfig.CLUSTER_DATA_GCS_BUCKET | string | `"clusterdata-onprem"` |  |
+| cloudProviderConfig.DATA_PIPELINE_CONFIG_GCS_BASE_PATH | string | `"gs://awscustomerbillingdata-onprem"` |  |
+| cloudProviderConfig.GCP_PROJECT_ID | string | `"placeHolder"` |  |
+| cloudProviderConfig.S3_SYNC_CONFIG_BUCKET_NAME | string | `"ccm-service-data-bucket"` |  |
+| cloudProviderConfig.S3_SYNC_CONFIG_REGION | string | `"us-east-1"` |  |
 | fullnameOverride | string | `""` |  |
 | global.ingress.className | string | `"harness"` |  |
 | global.ingress.enabled | bool | `false` |  |

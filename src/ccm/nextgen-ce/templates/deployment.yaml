@@ -58,14 +58,14 @@ spec:
             httpGet:
               path: /ccm/api/health
               port: {{ .Values.service.port }}
-            initialDelaySeconds: 180
+            initialDelaySeconds: 30
             failureThreshold: 10
             periodSeconds: 15
           readinessProbe:
             httpGet:
               path: /ccm/api/health
               port: {{ .Values.service.port }}
-            initialDelaySeconds: 180
+            initialDelaySeconds: 30
             failureThreshold: 10
             periodSeconds: 15
           envFrom:

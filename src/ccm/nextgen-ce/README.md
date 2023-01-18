@@ -15,7 +15,6 @@ A Helm chart for Kubernetes
 
 | Key | Type | Default | Description |
 |-----|------|---------|-------------|
-| GCP_PROJECT_ID | string | `"placeHolder"` |  |
 | affinity | object | `{}` |  |
 | autoscaling.enabled | bool | `false` |  |
 | autoscaling.maxReplicas | int | `2` |  |
@@ -28,12 +27,21 @@ A Helm chart for Kubernetes
 | awsSecret.AWS_TEMPLATE_LINK | string | `""` |  |
 | awsSecret.CE_AWS_TEMPLATE_URL | string | `""` |  |
 | ceng-gcp-credentials | string | `""` |  |
+| cloudProviderConfig.AWS_GOV_CLOUD_ACCOUNT_ID | string | `"147449478367"` |  |
+| cloudProviderConfig.AWS_GOV_CLOUD_REGION_NAME | string | `"us-gov-west-1"` |  |
+| cloudProviderConfig.AWS_GOV_CLOUD_TEMPLATE_LINK | string | `"https://continuous-efficiency.s3.us-east-2.amazonaws.com/setup/v1/ng/HarnessAWSTemplate.yaml"` |  |
+| cloudProviderConfig.AZURE_APP_CLIENT_ID | string | `"0211763d-24fb-4d63-865d-92f86f77e908"` |  |
+| cloudProviderConfig.GCP_PROJECT_ID | string | `"placeHolder"` |  |
 | fullnameOverride | string | `""` |  |
 | global.ingress.className | string | `"harness"` |  |
 | global.ingress.enabled | bool | `false` |  |
 | global.ingress.hosts[0] | string | `"my-host.example.org"` |  |
 | global.ingress.tls.enabled | bool | `true` |  |
 | global.ingress.tls.secretName | string | `""` |  |
+| global.istio.enabled | bool | `false` |  |
+| global.istio.gateway.create | bool | `false` |  |
+| global.istio.virtualService.gateways | string | `nil` |  |
+| global.istio.virtualService.hosts | string | `nil` |  |
 | global.loadbalancerURL | string | `"https://test"` |  |
 | image.digest | string | `""` |  |
 | image.pullPolicy | string | `"IfNotPresent"` |  |
