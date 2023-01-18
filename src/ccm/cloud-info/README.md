@@ -28,6 +28,10 @@ A Helm chart for Kubernetes
 | global.ingress.hosts[0] | string | `"my-host.example.org"` |  |
 | global.ingress.tls.enabled | bool | `true` |  |
 | global.ingress.tls.secretName | string | `""` |  |
+| global.istio.enabled | bool | `false` |  |
+| global.istio.gateway.create | bool | `false` |  |
+| global.istio.virtualService.gateways | string | `nil` |  |
+| global.istio.virtualService.hosts | string | `nil` |  |
 | global.loadbalancerURL | string | `"https://test"` |  |
 | image.digest | string | `""` |  |
 | image.pullPolicy | string | `"IfNotPresent"` |  |
