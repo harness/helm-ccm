@@ -28,7 +28,7 @@ spec:
     - uri:
         prefix: /ccmevent/
     rewrite:
-      uri: /ccmevent/
+      uri: /ccmevent
     route:
     - destination:
         port:

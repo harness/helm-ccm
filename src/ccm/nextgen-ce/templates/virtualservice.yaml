@@ -28,7 +28,7 @@ spec:
     - uri:
         prefix: /ccm/api/
     rewrite:
-      uri: /ccm/api/
+      uri: /ccm/api
     route:
     - destination:
         port:
