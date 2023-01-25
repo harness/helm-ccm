@@ -24,6 +24,9 @@ A Helm chart for Kubernetes
 | awsSecret.S3_SYNC_CONFIG_SECRETKEY | string | `""` |  |
 | ceBatchGCPCredentials | string | `""` |  |
 | ceGCPHomeProjectCreds | string | `""` |  |
+| clickhouse.password.key | string | `"admin-password"` |  |
+| clickhouse.password.name | string | `"clickhouse"` |  |
+| clickhouse.username | string | `"default"` |  |
 | cloudProviderConfig.CLUSTER_DATA_GCS_BACKUP_BUCKET | string | `"clusterdata-onprem-backup"` |  |
 | cloudProviderConfig.CLUSTER_DATA_GCS_BUCKET | string | `"clusterdata-onprem"` |  |
 | cloudProviderConfig.DATA_PIPELINE_CONFIG_GCS_BASE_PATH | string | `"gs://awscustomerbillingdata-onprem"` |  |

@@ -96,6 +96,13 @@ spec:
               valueFrom:
                 fieldRef:
                   fieldPath: metadata.name
+            - name : CLICKHOUSE_USERNAME
+              value: {{ .Values.clickhouse.username | quote}}
+            - name: CLICKHOUSE_PASSWORD
+              valueFrom:
+                secretKeyRef:
+                  name: {{ .Values.clickhouse.password.name }}
+                  key: {{ .Values.clickhouse.password.key }}
           volumeMounts:
           - name: secret-mount
             mountPath: /opt/harness/svc
