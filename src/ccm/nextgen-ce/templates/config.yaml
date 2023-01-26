@@ -7,9 +7,9 @@ data:
   LOGGING_LEVEL: "INFO"
   MANAGER_TARGET: "harness-manager:9879"
   MANAGER_AUTHORITY: "harness-manager:9879"
-  MANAGER_CLIENT_BASEURL: "http://harness-manager.{{ .Release.Namespace }}.svc.cluster.local:9090/"
+  MANAGER_CLIENT_BASEURL: "http://harness-manager.{{ .Release.Namespace }}.svc.cluster.local:9090/api/"
   NG_MANAGER_CLIENT_BASEURL: "http://ng-manager.{{ .Release.Namespace }}.svc.cluster.local:7090/"
-  MANAGER_URL: "http://harness-manager.{{ .Release.Namespace }}.svc.cluster.local:9090/"
+  MANAGER_URL: "http://harness-manager.{{ .Release.Namespace }}.svc.cluster.local:9090/api/"
   DEPLOY_MODE: "KUBERNETES_ONPREM"
   CE_NEXTGEN_PORT: {{ .Values.service.port | quote}}
   EVENTS_FRAMEWORK_REDIS_URL: "redis://localhost:6379"
