@@ -21,7 +21,7 @@ data:
   GOOGLE_CREDENTIALS_PATH: "/opt/harness/svc/ceng_gcp_credentials.json"
   GOOGLE_APPLICATION_CREDENTIALS: "/opt/harness/svc/ceng_gcp_credentials.json"
   CE_GCP_CREDENTIALS_PATH: "/opt/harness/svc/ceng_gcp_credentials.json"
-  STACK_DRIVER_LOGGING_ENABLED: "false"
+  STACK_DRIVER_LOGGING_ENABLED: {{ .Values.stackDriverLoggingEnabled  | quote}}
   EVENTS_MONGO_INDEX_MANAGER_MODE: "MANUAL"
   GCP_PROJECT_ID: {{ .Values.cloudProviderConfig.GCP_PROJECT_ID  | quote}}
   AZURE_APP_CLIENT_ID: {{ .Values.cloudProviderConfig.AZURE_APP_CLIENT_ID  | quote}}

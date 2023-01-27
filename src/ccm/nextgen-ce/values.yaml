@@ -21,6 +21,8 @@ global:
 
 replicaCount: 2
 
+stackDriverLoggingEnabled: false
+
 maxSurge: 100%
 
 maxUnavailable: 0

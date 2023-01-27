@@ -12,9 +12,11 @@ global:
       enabled: true
       secretName: ''
 
-replicaCount: 2
+replicaCount: 1
 
-isolatedReplica: 2
+isolatedReplica: 0
+
+stackDriverLoggingEnabled: false
 
 java:
   memory: "7168"
