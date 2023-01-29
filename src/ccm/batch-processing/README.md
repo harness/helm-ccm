@@ -44,7 +44,7 @@ A Helm chart for Kubernetes
 | image.pullPolicy | string | `"Always"` |  |
 | image.registry | string | `"docker.io"` |  |
 | image.repository | string | `"harness/batch-processing-signed"` |  |
-| image.tag | string | `"77905-000"` |  |
+| image.tag | string | `"78300"` |  |
 | isolatedReplica | int | `0` |  |
 | java.memory | string | `"7168"` |  |
 | mongoSecrets.password.key | string | `"mongodb-root-password"` |  |
@@ -74,6 +74,7 @@ A Helm chart for Kubernetes
 | timescaleSecret.password.key | string | `"timescaledbPostgresPassword"` |  |
 | timescaleSecret.password.name | string | `"harness-secrets"` |  |
 | tolerations | list | `[]` |  |
+| uiServerUrl | string | `"https://app.harness.io"` |  |
 | waitForInitContainer.image.digest | string | `""` |  |
 | waitForInitContainer.image.pullPolicy | string | `"IfNotPresent"` |  |
 | waitForInitContainer.image.registry | string | `"docker.io"` |  |

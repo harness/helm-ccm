@@ -26,7 +26,7 @@ image:
   repository: harness/batch-processing-signed
   pullPolicy: Always
   # Overrides the image tag whose default is the chart appVersion.
-  tag: "77905-000"
+  tag: "78300"
   digest: ""
 
 waitForInitContainer:
@@ -95,6 +95,8 @@ nodeSelector: {}
 tolerations: []
 
 affinity: {}
+
+uiServerUrl: "https://app.harness.io"
 
 cloudProviderConfig:
   GCP_PROJECT_ID: "placeHolder"

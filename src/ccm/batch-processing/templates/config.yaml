@@ -6,10 +6,10 @@ metadata:
 data:
   DEPLOY_MODE: "KUBERNETES_ONPREM"
   MEMORY: {{ .Values.java.memory | quote }}
-  REPLICA:{{ .Values.replicaCount | quote }}
+  REPLICA: {{ .Values.replicaCount | quote }}
   ISOLATED_REPLICA: {{ .Values.isolatedReplica | quote }}
-  MONGO_INDEX_MANAGER_MODE: "MANUAL"
-  EVEMTS_MONGO_INDEX_MANAGER_MODE: "MANUAL"
+  MONGO_INDEX_MANAGER_MODE: "AUTO"
+  EVEMTS_MONGO_INDEX_MANAGER_MODE: "AUTO"
   GOOGLE_CREDENTIALS_PATH: "/opt/harness/svc/ce_batch_gcp_credentials.json"
   CE_GCP_CREDENTIALS_PATH: "/opt/harness/svc/ce_batch_gcp_credentials.json"
   GOOGLE_APPLICATION_CREDENTIALS: "/opt/harness/svc/ce_gcp_home_project_creds.json"

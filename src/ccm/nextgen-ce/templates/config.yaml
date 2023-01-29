@@ -16,13 +16,13 @@ data:
   EVENTS_FRAMEWORK_USE_SENTINEL: "true"
   EVENTS_FRAMEWORK_SENTINEL_MASTER_NAME: "harness-redis"
   EVENTS_FRAMEWORK_REDIS_SENTINELS: "redis://redis-sentinel-harness-announce-0.{{ .Release.Namespace }}:26379,redis://redis-sentinel-harness-announce-1.{{ .Release.Namespace }}:26379,redis://redis-sentinel-harness-announce-2.{{ .Release.Namespace }}:26379"
-  EVENTS_FRAMEWORK_ENV_NAMESPACE: {{ .Release.Namespace }}
+  EVENTS_FRAMEWORK_ENV_NAMESPACE: ""
   EVENTS_FRAMEWORK_REDIS_SSL_ENABLED: "false"
   GOOGLE_CREDENTIALS_PATH: "/opt/harness/svc/ceng_gcp_credentials.json"
   GOOGLE_APPLICATION_CREDENTIALS: "/opt/harness/svc/ceng_gcp_credentials.json"
   CE_GCP_CREDENTIALS_PATH: "/opt/harness/svc/ceng_gcp_credentials.json"
   STACK_DRIVER_LOGGING_ENABLED: {{ .Values.stackDriverLoggingEnabled  | quote}}
-  EVENTS_MONGO_INDEX_MANAGER_MODE: "MANUAL"
+  EVENTS_MONGO_INDEX_MANAGER_MODE: "AUTO"
   GCP_PROJECT_ID: {{ .Values.cloudProviderConfig.GCP_PROJECT_ID  | quote}}
   AZURE_APP_CLIENT_ID: {{ .Values.cloudProviderConfig.AZURE_APP_CLIENT_ID  | quote}}
   AZURE_ENABLE_FILE_CHECK_AT_SOURCE: "true"
