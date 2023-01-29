@@ -113,7 +113,6 @@ batch-processing:
   nodeSelector: {}
   tolerations: []
   affinity: {}
-  uiServerUrl: "https://app.harness.io"
   cloudProviderConfig:
     GCP_PROJECT_ID: "placeHolder"
     DATA_PIPELINE_CONFIG_GCS_BASE_PATH: "gs://awscustomerbillingdata-onprem"

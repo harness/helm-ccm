@@ -74,7 +74,6 @@ A Helm chart for Kubernetes
 | timescaleSecret.password.key | string | `"timescaledbPostgresPassword"` |  |
 | timescaleSecret.password.name | string | `"harness-secrets"` |  |
 | tolerations | list | `[]` |  |
-| uiServerUrl | string | `"https://app.harness.io"` |  |
 | waitForInitContainer.image.digest | string | `""` |  |
 | waitForInitContainer.image.pullPolicy | string | `"IfNotPresent"` |  |
 | waitForInitContainer.image.registry | string | `"docker.io"` |  |

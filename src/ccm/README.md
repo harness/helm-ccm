@@ -104,7 +104,6 @@ dependencies:
 | batch-processing.timescaleSecret.password.key | string | `"timescaledbPostgresPassword"` |  |
 | batch-processing.timescaleSecret.password.name | string | `"harness-secrets"` |  |
 | batch-processing.tolerations | list | `[]` |  |
-| batch-processing.uiServerUrl | string | `"https://app.harness.io"` |  |
 | batch-processing.waitForInitContainer.image.digest | string | `""` |  |
 | batch-processing.waitForInitContainer.image.pullPolicy | string | `"IfNotPresent"` |  |
 | batch-processing.waitForInitContainer.image.registry | string | `"docker.io"` |  |
