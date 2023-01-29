@@ -2,7 +2,7 @@
 
 A Helm chart for Harness Cloud Cost Management (CCM) module
 
-![Version: 0.3.9](https://img.shields.io/badge/Version-0.3.9-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square) ![AppVersion: 1.546.0](https://img.shields.io/badge/AppVersion-1.546.0-informational?style=flat-square)
+![Version: 0.3.10](https://img.shields.io/badge/Version-0.3.10-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square) ![AppVersion: 1.546.0](https://img.shields.io/badge/AppVersion-1.546.0-informational?style=flat-square)
 
 ## Usage
 
@@ -12,7 +12,7 @@ Use the following dependency to add this chart repository to your Helm installat
 dependencies:
     - name: ccm
       repository: https://harness.github.io/helm-ccm
-      version: 0.3.9
+      version: 0.3.10
 ```
 
 ## Values
@@ -51,7 +51,6 @@ dependencies:
 | anomaly-detection.serviceAccount.create | bool | `false` |  |
 | anomaly-detection.serviceAccount.name | string | `"harness-default"` |  |
 | anomaly-detection.tolerations | list | `[]` |  |
-| batch-processing.GCP_PROJECT_ID | string | `"placeHolder"` |  |
 | batch-processing.affinity | object | `{}` |  |
 | batch-processing.autoscaling.enabled | bool | `false` |  |
 | batch-processing.autoscaling.maxReplicas | int | `2` |  |
@@ -61,13 +60,22 @@ dependencies:
 | batch-processing.awsSecret.S3_SYNC_CONFIG_SECRETKEY | string | `""` |  |
 | batch-processing.ceBatchGCPCredentials | string | `""` |  |
 | batch-processing.ceGCPHomeProjectCreds | string | `""` |  |
+| batch-processing.clickhouse.password.key | string | `"admin-password"` |  |
+| batch-processing.clickhouse.password.name | string | `"clickhouse"` |  |
+| batch-processing.clickhouse.username | string | `"default"` |  |
+| batch-processing.cloudProviderConfig.CLUSTER_DATA_GCS_BACKUP_BUCKET | string | `"clusterdata-onprem-backup"` |  |
+| batch-processing.cloudProviderConfig.CLUSTER_DATA_GCS_BUCKET | string | `"clusterdata-onprem"` |  |
+| batch-processing.cloudProviderConfig.DATA_PIPELINE_CONFIG_GCS_BASE_PATH | string | `"gs://awscustomerbillingdata-onprem"` |  |
+| batch-processing.cloudProviderConfig.GCP_PROJECT_ID | string | `"placeHolder"` |  |
+| batch-processing.cloudProviderConfig.S3_SYNC_CONFIG_BUCKET_NAME | string | `"ccm-service-data-bucket"` |  |
+| batch-processing.cloudProviderConfig.S3_SYNC_CONFIG_REGION | string | `"us-east-1"` |  |
 | batch-processing.fullnameOverride | string | `""` |  |
 | batch-processing.image.digest | string | `""` |  |
 | batch-processing.image.pullPolicy | string | `"Always"` |  |
 | batch-processing.image.registry | string | `"docker.io"` |  |
 | batch-processing.image.repository | string | `"harness/batch-processing-signed"` |  |
-| batch-processing.image.tag | string | `"77500"` |  |
-| batch-processing.isolatedReplica | int | `2` |  |
+| batch-processing.image.tag | string | `"78300"` |  |
+| batch-processing.isolatedReplica | int | `0` |  |
 | batch-processing.java.memory | string | `"7168"` |  |
 | batch-processing.mongoSecrets.password.key | string | `"mongodb-root-password"` |  |
 | batch-processing.mongoSecrets.password.name | string | `"mongodb-replicaset-chart"` |  |
@@ -77,7 +85,7 @@ dependencies:
 | batch-processing.nodeSelector | object | `{}` |  |
 | batch-processing.podAnnotations | object | `{}` |  |
 | batch-processing.podSecurityContext | object | `{}` |  |
-| batch-processing.replicaCount | int | `2` |  |
+| batch-processing.replicaCount | int | `1` |  |
 | batch-processing.resources.limits.cpu | int | `1` |  |
 | batch-processing.resources.limits.memory | string | `"8192Mi"` |  |
 | batch-processing.resources.requests.cpu | int | `1` |  |
@@ -91,11 +99,11 @@ dependencies:
 | batch-processing.smtp.host | string | `""` |  |
 | batch-processing.smtp.password | string | `""` |  |
 | batch-processing.smtp.user | string | `""` |  |
+| batch-processing.stackDriverLoggingEnabled | bool | `false` |  |
 | batch-processing.storageObjectAdmin | string | `""` |  |
 | batch-processing.timescaleSecret.password.key | string | `"timescaledbPostgresPassword"` |  |
 | batch-processing.timescaleSecret.password.name | string | `"harness-secrets"` |  |
 | batch-processing.tolerations | list | `[]` |  |
-| batch-processing.uiServerUrl | string | `"https://app.harness.io"` |  |
 | batch-processing.waitForInitContainer.image.digest | string | `""` |  |
 | batch-processing.waitForInitContainer.image.pullPolicy | string | `"IfNotPresent"` |  |
 | batch-processing.waitForInitContainer.image.registry | string | `"docker.io"` |  |
@@ -106,7 +114,7 @@ dependencies:
 | clickhouse.fullnameOverride | string | `"clickhouse"` |  |
 | clickhouse.image.tag | string | `"22.11.2-debian-11-r0"` |  |
 | clickhouse.persistence.size | string | `"1Ti"` |  |
-| clickhouse.replicaCount | int | `2` |  |
+| clickhouse.replicaCount | int | `1` |  |
 | clickhouse.resources.limits.cpu | string | `"16000m"` |  |
 | clickhouse.resources.limits.memory | string | `"6Gi"` |  |
 | clickhouse.resources.requests.cpu | string | `"16000m"` |  |
@@ -114,7 +122,7 @@ dependencies:
 | clickhouse.shards | int | `1` |  |
 | clickhouse.zookeeper.enabled | bool | `true` |  |
 | clickhouse.zookeeper.fullnameOverride | string | `"clickhouse-zookeeper"` |  |
-| clickhouse.zookeeper.replicaCount | int | `2` |  |
+| clickhouse.zookeeper.replicaCount | int | `1` |  |
 | cloud-info.CLOUD_INFO_CONFIG | string | `""` |  |
 | cloud-info.CLOUD_INFO_GCP_CREDS | string | `""` |  |
 | cloud-info.affinity | object | `{}` |  |
@@ -191,6 +199,7 @@ dependencies:
 | event-service.serviceAccount.annotations | object | `{}` |  |
 | event-service.serviceAccount.create | bool | `false` |  |
 | event-service.serviceAccount.name | string | `"harness-default"` |  |
+| event-service.stackDriverLoggingEnabled | bool | `false` |  |
 | event-service.timescaleSecret.password.key | string | `"timescaledbPostgresPassword"` |  |
 | event-service.timescaleSecret.password.name | string | `"harness-secrets"` |  |
 | event-service.tolerations | list | `[]` |  |
@@ -397,7 +406,6 @@ dependencies:
 | lwd.waitForInitContainer.image.registry | string | `"docker.io"` |  |
 | lwd.waitForInitContainer.image.repository | string | `"harness/helm-init-container"` |  |
 | lwd.waitForInitContainer.image.tag | string | `"latest"` |  |
-| nextgen-ce.GCP_PROJECT_ID | string | `"placeHolder"` |  |
 | nextgen-ce.affinity | object | `{}` |  |
 | nextgen-ce.autoscaling.enabled | bool | `false` |  |
 | nextgen-ce.autoscaling.maxReplicas | int | `2` |  |
@@ -410,12 +418,17 @@ dependencies:
 | nextgen-ce.awsSecret.AWS_TEMPLATE_LINK | string | `""` |  |
 | nextgen-ce.awsSecret.CE_AWS_TEMPLATE_URL | string | `""` |  |
 | nextgen-ce.ceng-gcp-credentials | string | `""` |  |
+| nextgen-ce.cloudProviderConfig.AWS_GOV_CLOUD_ACCOUNT_ID | string | `"147449478367"` |  |
+| nextgen-ce.cloudProviderConfig.AWS_GOV_CLOUD_REGION_NAME | string | `"us-gov-west-1"` |  |
+| nextgen-ce.cloudProviderConfig.AWS_GOV_CLOUD_TEMPLATE_LINK | string | `"https://continuous-efficiency.s3.us-east-2.amazonaws.com/setup/v1/ng/HarnessAWSTemplate.yaml"` |  |
+| nextgen-ce.cloudProviderConfig.AZURE_APP_CLIENT_ID | string | `"0211763d-24fb-4d63-865d-92f86f77e908"` |  |
+| nextgen-ce.cloudProviderConfig.GCP_PROJECT_ID | string | `"placeHolder"` |  |
 | nextgen-ce.fullnameOverride | string | `""` |  |
 | nextgen-ce.image.digest | string | `""` |  |
 | nextgen-ce.image.pullPolicy | string | `"IfNotPresent"` |  |
 | nextgen-ce.image.registry | string | `"docker.io"` |  |
 | nextgen-ce.image.repository | string | `"harness/ce-nextgen-signed"` |  |
-| nextgen-ce.image.tag | string | `"77300"` |  |
+| nextgen-ce.image.tag | string | `"78400"` |  |
 | nextgen-ce.ingress.className | string | `"nginx"` |  |
 | nextgen-ce.java.memory | string | `"4096m"` |  |
 | nextgen-ce.java.memoryLimit | string | `"4096m"` |  |
@@ -440,6 +453,7 @@ dependencies:
 | nextgen-ce.serviceAccount.annotations | object | `{}` |  |
 | nextgen-ce.serviceAccount.create | bool | `false` |  |
 | nextgen-ce.serviceAccount.name | string | `"harness-default"` |  |
+| nextgen-ce.stackDriverLoggingEnabled | bool | `false` |  |
 | nextgen-ce.timescaleSecret.password.key | string | `"timescaledbPostgresPassword"` |  |
 | nextgen-ce.timescaleSecret.password.name | string | `"harness-secrets"` |  |
 | nextgen-ce.tolerations | list | `[]` |  |

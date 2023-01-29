@@ -44,8 +44,8 @@ A Helm chart for Kubernetes
 | image.pullPolicy | string | `"Always"` |  |
 | image.registry | string | `"docker.io"` |  |
 | image.repository | string | `"harness/batch-processing-signed"` |  |
-| image.tag | string | `"77905-000"` |  |
-| isolatedReplica | int | `2` |  |
+| image.tag | string | `"78300"` |  |
+| isolatedReplica | int | `0` |  |
 | java.memory | string | `"7168"` |  |
 | mongoSecrets.password.key | string | `"mongodb-root-password"` |  |
 | mongoSecrets.password.name | string | `"mongodb-replicaset-chart"` |  |
@@ -55,7 +55,7 @@ A Helm chart for Kubernetes
 | nodeSelector | object | `{}` |  |
 | podAnnotations | object | `{}` |  |
 | podSecurityContext | object | `{}` |  |
-| replicaCount | int | `2` |  |
+| replicaCount | int | `1` |  |
 | resources.limits.cpu | int | `1` |  |
 | resources.limits.memory | string | `"8192Mi"` |  |
 | resources.requests.cpu | int | `1` |  |
@@ -69,6 +69,7 @@ A Helm chart for Kubernetes
 | smtp.host | string | `""` |  |
 | smtp.password | string | `""` |  |
 | smtp.user | string | `""` |  |
+| stackDriverLoggingEnabled | bool | `false` |  |
 | storageObjectAdmin | string | `""` |  |
 | timescaleSecret.password.key | string | `"timescaledbPostgresPassword"` |  |
 | timescaleSecret.password.name | string | `"harness-secrets"` |  |

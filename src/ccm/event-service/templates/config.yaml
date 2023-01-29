@@ -5,11 +5,9 @@ metadata:
   namespace: {{ .Release.Namespace }}
 data:
   LOGGING_LEVEL: "INFO"
-  MONGO_READ_PREF_NAME: "secondary"
-  MONGO_READ_PREF_TAGS: "nodeType=ANALYTICS"
-  MONGO_INDEX_MANAGER_MODE: "MANUAL"
-  EVEMTS_MONGO_INDEX_MANAGER_MODE: "MANUAL"
+  MONGO_INDEX_MANAGER_MODE: "AUTO"
+  EVEMTS_MONGO_INDEX_MANAGER_MODE: "AUTO"
   DEPLOY_MODE: "KUBERNETES_ONPREM"
   GOOGLE_APPLICATION_CREDENTIALS: /opt/harness/svc/ce_gcp_home_project_creds.json
-  STACK_DRIVER_LOGGING_ENABLED: "false"
+  STACK_DRIVER_LOGGING_ENABLED: {{ .Values.stackDriverLoggingEnabled | quote }}
   MEMORY: {{ .Values.java.memory | quote }}

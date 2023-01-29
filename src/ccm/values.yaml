@@ -52,8 +52,9 @@ anomaly-detection:
       memory: "2048Mi"
 
 batch-processing:
-  replicaCount: 2
-  isolatedReplica: 2
+  replicaCount: 1
+  isolatedReplica: 0
+  stackDriverLoggingEnabled: false
   java:
     memory: "7168"
   image:
@@ -61,7 +62,7 @@ batch-processing:
     repository: harness/batch-processing-signed
     pullPolicy: Always
     # Overrides the image tag whose default is the chart appVersion.
-    tag: "77500"
+    tag: "78300"
     digest: ""
   waitForInitContainer:
     image:
@@ -112,8 +113,18 @@ batch-processing:
   nodeSelector: {}
   tolerations: []
   affinity: {}
-  uiServerUrl: "https://app.harness.io"
-  GCP_PROJECT_ID: "placeHolder"
+  cloudProviderConfig:
+    GCP_PROJECT_ID: "placeHolder"
+    DATA_PIPELINE_CONFIG_GCS_BASE_PATH: "gs://awscustomerbillingdata-onprem"
+    CLUSTER_DATA_GCS_BUCKET: "clusterdata-onprem"
+    CLUSTER_DATA_GCS_BACKUP_BUCKET: "clusterdata-onprem-backup"
+    S3_SYNC_CONFIG_BUCKET_NAME: "ccm-service-data-bucket"
+    S3_SYNC_CONFIG_REGION: "us-east-1"
+  clickhouse:
+    username: "default"
+    password:
+      name: clickhouse
+      key: admin-password
   resources:
     limits:
       cpu: 1
@@ -169,8 +180,10 @@ cloud-info:
     requests:
       cpu: 2
       memory: "5120Mi"
+
 event-service:
   replicaCount: 2
+  stackDriverLoggingEnabled: false
   maxSurge: 100%
   maxUnavailable: 0
   java:
@@ -515,6 +528,7 @@ lwd-worker:
 
 nextgen-ce:
   replicaCount: 2
+  stackDriverLoggingEnabled: false
   maxSurge: 100%
   maxUnavailable: 0
   java:
@@ -525,7 +539,7 @@ nextgen-ce:
     repository: harness/ce-nextgen-signed
     pullPolicy: IfNotPresent
     # Overrides the image tag whose default is the chart appVersion.
-    tag: "77300"
+    tag: "78400"
     digest: ""
   waitForInitContainer:
     image:
@@ -576,7 +590,12 @@ nextgen-ce:
   nodeSelector: {}
   tolerations: []
   affinity: {}
-  GCP_PROJECT_ID: "placeHolder"
+  cloudProviderConfig:
+    GCP_PROJECT_ID: "placeHolder"
+    AZURE_APP_CLIENT_ID: "0211763d-24fb-4d63-865d-92f86f77e908"
+    AWS_GOV_CLOUD_ACCOUNT_ID: "147449478367"
+    AWS_GOV_CLOUD_REGION_NAME: "us-gov-west-1"
+    AWS_GOV_CLOUD_TEMPLATE_LINK: "https://continuous-efficiency.s3.us-east-2.amazonaws.com/setup/v1/ng/HarnessAWSTemplate.yaml"
   resources:
     limits:
       cpu: 2
@@ -785,10 +804,10 @@ clickhouse:
       </prometheus>
       {{- end }}
     </clickhouse>
-  replicaCount: 2
+  replicaCount: 1
   shards: 1
   
   zookeeper:
     enabled: true
     fullnameOverride: "clickhouse-zookeeper"
-    replicaCount: 2
+    replicaCount: 1

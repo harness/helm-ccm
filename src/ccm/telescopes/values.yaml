@@ -18,6 +18,7 @@ global:
     virtualService:
       gateways:
       hosts:
+
 replicaCount: 1
 
 java:

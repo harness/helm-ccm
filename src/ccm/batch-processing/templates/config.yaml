@@ -6,10 +6,10 @@ metadata:
 data:
   DEPLOY_MODE: "KUBERNETES_ONPREM"
   MEMORY: {{ .Values.java.memory | quote }}
-  REPLICA: "1"
-  ISOLATED_REPLICA: "0"
-  MONGO_INDEX_MANAGER_MODE: "MANUAL"
-  EVEMTS_MONGO_INDEX_MANAGER_MODE: "MANUAL"
+  REPLICA: {{ .Values.replicaCount | quote }}
+  ISOLATED_REPLICA: {{ .Values.isolatedReplica | quote }}
+  MONGO_INDEX_MANAGER_MODE: "AUTO"
+  EVEMTS_MONGO_INDEX_MANAGER_MODE: "AUTO"
   GOOGLE_CREDENTIALS_PATH: "/opt/harness/svc/ce_batch_gcp_credentials.json"
   CE_GCP_CREDENTIALS_PATH: "/opt/harness/svc/ce_batch_gcp_credentials.json"
   GOOGLE_APPLICATION_CREDENTIALS: "/opt/harness/svc/ce_gcp_home_project_creds.json"
@@ -38,7 +38,7 @@ data:
   CONNECTOR_HEALTH_UPDATE_JOB_ENABLED: "true"
   DATA_PIPELINE_CONFIG_GCP_PROJECT_ID: {{ .Values.cloudProviderConfig.GCP_PROJECT_ID  | quote}}
   DATA_PIPELINE_CONFIG_GCS_BASE_PATH: {{ .Values.cloudProviderConfig.DATA_PIPELINE_CONFIG_GCS_BASE_PATH  | quote}}
-  STACK_DRIVER_LOGGING_ENABLED: "false"
+  STACK_DRIVER_LOGGING_ENABLED: {{ .Values.stackDriverLoggingEnabled | quote }}
   NEXT_GEN_MANAGER_SECRET: IC04LYMBf1lDP5oeY4hupxd4HJhLmN6azUku3xEbeE3SUx5G3ZYzhbiwVtK4i7AmqyU9OZkwB4v8E9qM
   CE_NG_SERVICE_SECRET: IC04LYMBf1lDP5oeY4hupxd4HJhLmN6azUku3xEbeE3SUx5G3ZYzhbiwVtK4i7AmqyU9OZkwB4v8E9qM
   CLICKHOUSE_URL: "jdbc:ch://clickhouse.{{ .Release.Namespace }}.svc.cluster.local:8123"

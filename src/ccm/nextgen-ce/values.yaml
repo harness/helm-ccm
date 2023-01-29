@@ -21,6 +21,8 @@ global:
 
 replicaCount: 2
 
+stackDriverLoggingEnabled: false
+
 maxSurge: 100%
 
 maxUnavailable: 0
@@ -34,7 +36,7 @@ image:
   repository: harness/ce-nextgen-signed
   pullPolicy: IfNotPresent
   # Overrides the image tag whose default is the chart appVersion.
-  tag: "77300"
+  tag: "78400"
   digest: ""
 
 waitForInitContainer:
