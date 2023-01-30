@@ -17,8 +17,11 @@ dependencies:
 - name: batch-processing
   repository: file://batch-processing
   version: 0.1.10
+- name: ng-ce-ui
+  repository: file://ng-ce-ui
+  version: 0.1.0
 - name: clickhouse
   repository: https://charts.bitnami.com/bitnami
   version: 2.1.0
-digest: sha256:0430fca26d4b15a7ab66aaa0d537def9307c40571038468d8e4b0c34e52f637e
-generated: "2023-01-17T11:12:11.776677+05:30"
+digest: sha256:d224778250d18b1cbf5330b70a24e6af4949dbd4316958eb58340a7fad6bc458
+generated: "2023-01-31T00:17:52.217626+05:30"

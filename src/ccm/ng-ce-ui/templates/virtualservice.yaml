@@ -1,0 +1,37 @@
+{{- if .Values.global.istio.enabled }}
+{{- $fullName := include "ng-ce-ui.fullname" . -}}
+apiVersion: networking.istio.io/v1beta1
+kind: VirtualService
+metadata:
+  name: ng-ce-ui
+  namespace: {{ .Release.Namespace }}
+  labels:
+    app.kubernetes.io/instance: {{ .Release.Name }}
+spec:
+  gateways:
+    {{- if .Values.global.istio.gateway.create }}
+    - istio-system/public
+    {{- else }}
+    {{- range .Values.global.istio.virtualService.gateways }}
+    - {{ . }}
+    {{- end }}
+    {{- end }}
+  hosts:
+    {{- range .Values.global.istio.virtualService.hosts }}
+    - {{ . }}
+    {{- end }}
+  http:
+  - name: ng-ce-ui
+    match:
+    - uri:
+        prefix: /ccmui
+    - uri:
+        prefix: /ccmui/
+    rewrite:
+      uri: /
+    route:
+    - destination:
+        port:
+          number: {{ .Values.service.port }}
+        host: ng-ce-ui
+{{ end }}

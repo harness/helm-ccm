@@ -609,6 +609,50 @@ nextgen-ce:
       cpu: 2
       memory: "5120Mi"
 
+ng-ce-ui:
+  replicaCount: 2
+  maxSurge: 100%
+  maxUnavailable: 0
+  image:
+    registry: docker.io
+    repository: harness/ng-ce-ui-signed
+    pullPolicy: Always
+    # Overrides the image tag whose default is the chart appVersion.
+    tag: "0.22.3"
+    digest: ""
+  nameOverride: ""
+  fullnameOverride: ""
+  serviceAccount:
+    create: false
+    annotations: {}
+    name: "harness-default"
+  podAnnotations: {
+    cluster-autoscaler.kubernetes.io/safe-to-evict: "true"
+  }
+  podSecurityContext: {}
+  securityContext: {}
+  service:
+    type: ClusterIP
+    port: 80
+    portName: ng-ce-ui-port
+  ingress:
+    className: nginx
+  autoscaling:
+    enabled: false
+    minReplicas: 1
+    maxReplicas: 2
+    targetCPUUtilizationPercentage: 80
+  nodeSelector: {}
+  tolerations: []
+  affinity: {}
+  resources:
+    limits:
+      cpu: 1
+      memory: "512Mi"
+    requests:
+      cpu: 1
+      memory: "512Mi"
+
 telescopes:
   replicaCount: 1
   java:
