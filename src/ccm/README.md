@@ -2,7 +2,7 @@
 
 A Helm chart for Harness Cloud Cost Management (CCM) module
 
-![Version: 0.3.10](https://img.shields.io/badge/Version-0.3.10-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square) ![AppVersion: 1.546.0](https://img.shields.io/badge/AppVersion-1.546.0-informational?style=flat-square)
+![Version: 0.3.11](https://img.shields.io/badge/Version-0.3.11-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square) ![AppVersion: 1.546.0](https://img.shields.io/badge/AppVersion-1.546.0-informational?style=flat-square)
 
 ## Usage
 
@@ -12,7 +12,7 @@ Use the following dependency to add this chart repository to your Helm installat
 dependencies:
     - name: ccm
       repository: https://harness.github.io/helm-ccm
-      version: 0.3.10
+      version: 0.3.11
 ```
 
 ## Values
@@ -418,6 +418,9 @@ dependencies:
 | nextgen-ce.awsSecret.AWS_TEMPLATE_LINK | string | `""` |  |
 | nextgen-ce.awsSecret.CE_AWS_TEMPLATE_URL | string | `""` |  |
 | nextgen-ce.ceng-gcp-credentials | string | `""` |  |
+| nextgen-ce.clickhouse.password.key | string | `"admin-password"` |  |
+| nextgen-ce.clickhouse.password.name | string | `"clickhouse"` |  |
+| nextgen-ce.clickhouse.username | string | `"default"` |  |
 | nextgen-ce.cloudProviderConfig.AWS_GOV_CLOUD_ACCOUNT_ID | string | `"147449478367"` |  |
 | nextgen-ce.cloudProviderConfig.AWS_GOV_CLOUD_REGION_NAME | string | `"us-gov-west-1"` |  |
 | nextgen-ce.cloudProviderConfig.AWS_GOV_CLOUD_TEMPLATE_LINK | string | `"https://continuous-efficiency.s3.us-east-2.amazonaws.com/setup/v1/ng/HarnessAWSTemplate.yaml"` |  |

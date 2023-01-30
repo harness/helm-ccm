@@ -27,6 +27,9 @@ A Helm chart for Kubernetes
 | awsSecret.AWS_TEMPLATE_LINK | string | `""` |  |
 | awsSecret.CE_AWS_TEMPLATE_URL | string | `""` |  |
 | ceng-gcp-credentials | string | `""` |  |
+| clickhouse.password.key | string | `"admin-password"` |  |
+| clickhouse.password.name | string | `"clickhouse"` |  |
+| clickhouse.username | string | `"default"` |  |
 | cloudProviderConfig.AWS_GOV_CLOUD_ACCOUNT_ID | string | `"147449478367"` |  |
 | cloudProviderConfig.AWS_GOV_CLOUD_REGION_NAME | string | `"us-gov-west-1"` |  |
 | cloudProviderConfig.AWS_GOV_CLOUD_TEMPLATE_LINK | string | `"https://continuous-efficiency.s3.us-east-2.amazonaws.com/setup/v1/ng/HarnessAWSTemplate.yaml"` |  |
