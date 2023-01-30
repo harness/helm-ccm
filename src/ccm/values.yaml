@@ -615,7 +615,7 @@ ng-ce-ui:
   maxUnavailable: 0
   image:
     registry: docker.io
-    repository: harness/ng-ce-ui-signed
+    repository: harness/ng-ce-ui
     pullPolicy: Always
     # Overrides the image tag whose default is the chart appVersion.
     tag: "0.22.3"

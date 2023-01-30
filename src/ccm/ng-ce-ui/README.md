@@ -33,7 +33,7 @@ A Helm chart for Kubernetes
 | image.digest | string | `""` |  |
 | image.pullPolicy | string | `"Always"` |  |
 | image.registry | string | `"docker.io"` |  |
-| image.repository | string | `"harness/ng-ce-ui-signed"` |  |
+| image.repository | string | `"harness/ng-ce-ui"` |  |
 | image.tag | string | `"0.22.3"` |  |
 | ingress.className | string | `"nginx"` |  |
 | maxSurge | string | `"100%"` |  |
