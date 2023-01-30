@@ -95,6 +95,13 @@ spec:
               value: postgres
             - name: TIMESCALEDB_URI
               value: 'jdbc:postgresql://timescaledb-single-chart.{{ .Release.Namespace }}:5432/harness'
+            - name : CLICKHOUSE_USERNAME
+              value: {{ .Values.clickhouse.username | quote}}
+            - name: CLICKHOUSE_PASSWORD
+              valueFrom:
+                secretKeyRef:
+                  name: {{ .Values.clickhouse.password.name }}
+                  key: {{ .Values.clickhouse.password.key }}
           volumeMounts:
           - name: secret-mount
             mountPath: /opt/harness/svc
