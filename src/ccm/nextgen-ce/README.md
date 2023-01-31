@@ -27,6 +27,7 @@ A Helm chart for Kubernetes
 | awsSecret.AWS_TEMPLATE_LINK | string | `""` |  |
 | awsSecret.CE_AWS_TEMPLATE_URL | string | `""` |  |
 | ceng-gcp-credentials | string | `""` |  |
+| clickhouse.enabled | bool | `false` |  |
 | clickhouse.password.key | string | `"admin-password"` |  |
 | clickhouse.password.name | string | `"clickhouse"` |  |
 | clickhouse.username | string | `"default"` |  |

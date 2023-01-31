@@ -105,6 +105,7 @@ cloudProviderConfig:
   S3_SYNC_CONFIG_REGION: "us-east-1"
 
 clickhouse:
+  enabled: false
   username: "default"
   password:
     name: clickhouse
