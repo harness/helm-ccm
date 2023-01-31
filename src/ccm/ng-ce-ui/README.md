@@ -40,7 +40,7 @@ A Helm chart for Kubernetes
 | maxUnavailable | int | `0` |  |
 | nameOverride | string | `""` |  |
 | nodeSelector | object | `{}` |  |
-| podAnnotations."cluster-autoscaler.kubernetes.io/safe-to-evict" | string | `"true"` |  |
+| podAnnotations | object | `{}` |  |
 | podSecurityContext | object | `{}` |  |
 | replicaCount | int | `2` |  |
 | resources.limits.cpu | int | `1` |  |

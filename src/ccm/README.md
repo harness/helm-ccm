@@ -481,7 +481,7 @@ dependencies:
 | ng-ce-ui.maxUnavailable | int | `0` |  |
 | ng-ce-ui.nameOverride | string | `""` |  |
 | ng-ce-ui.nodeSelector | object | `{}` |  |
-| ng-ce-ui.podAnnotations."cluster-autoscaler.kubernetes.io/safe-to-evict" | string | `"true"` |  |
+| ng-ce-ui.podAnnotations | object | `{}` |  |
 | ng-ce-ui.podSecurityContext | object | `{}` |  |
 | ng-ce-ui.replicaCount | int | `2` |  |
 | ng-ce-ui.resources.limits.cpu | int | `1` |  |

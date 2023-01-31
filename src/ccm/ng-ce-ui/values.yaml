@@ -41,9 +41,7 @@ serviceAccount:
   annotations: {}
   name: "harness-default"
 
-podAnnotations: {
-  cluster-autoscaler.kubernetes.io/safe-to-evict: "true"
-}
+podAnnotations: {}
 
 podSecurityContext: {}
 
