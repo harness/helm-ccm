@@ -2,7 +2,7 @@
 
 A Helm chart for Harness Cloud Cost Management (CCM) module
 
-![Version: 0.3.11](https://img.shields.io/badge/Version-0.3.11-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square) ![AppVersion: 1.546.0](https://img.shields.io/badge/AppVersion-1.546.0-informational?style=flat-square)
+![Version: 0.3.12](https://img.shields.io/badge/Version-0.3.12-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square) ![AppVersion: 1.546.0](https://img.shields.io/badge/AppVersion-1.546.0-informational?style=flat-square)
 
 ## Usage
 
@@ -12,7 +12,7 @@ Use the following dependency to add this chart repository to your Helm installat
 dependencies:
     - name: ccm
       repository: https://harness.github.io/helm-ccm
-      version: 0.3.11
+      version: 0.3.12
 ```
 
 ## Values
@@ -465,6 +465,37 @@ dependencies:
 | nextgen-ce.waitForInitContainer.image.registry | string | `"docker.io"` |  |
 | nextgen-ce.waitForInitContainer.image.repository | string | `"harness/helm-init-container"` |  |
 | nextgen-ce.waitForInitContainer.image.tag | string | `"latest"` |  |
+| ng-ce-ui.affinity | object | `{}` |  |
+| ng-ce-ui.autoscaling.enabled | bool | `false` |  |
+| ng-ce-ui.autoscaling.maxReplicas | int | `2` |  |
+| ng-ce-ui.autoscaling.minReplicas | int | `1` |  |
+| ng-ce-ui.autoscaling.targetCPUUtilizationPercentage | int | `80` |  |
+| ng-ce-ui.fullnameOverride | string | `""` |  |
+| ng-ce-ui.image.digest | string | `""` |  |
+| ng-ce-ui.image.pullPolicy | string | `"Always"` |  |
+| ng-ce-ui.image.registry | string | `"docker.io"` |  |
+| ng-ce-ui.image.repository | string | `"harness/ng-ce-ui"` |  |
+| ng-ce-ui.image.tag | string | `"0.22.3"` |  |
+| ng-ce-ui.ingress.className | string | `"nginx"` |  |
+| ng-ce-ui.maxSurge | string | `"100%"` |  |
+| ng-ce-ui.maxUnavailable | int | `0` |  |
+| ng-ce-ui.nameOverride | string | `""` |  |
+| ng-ce-ui.nodeSelector | object | `{}` |  |
+| ng-ce-ui.podAnnotations | object | `{}` |  |
+| ng-ce-ui.podSecurityContext | object | `{}` |  |
+| ng-ce-ui.replicaCount | int | `2` |  |
+| ng-ce-ui.resources.limits.cpu | int | `1` |  |
+| ng-ce-ui.resources.limits.memory | string | `"512Mi"` |  |
+| ng-ce-ui.resources.requests.cpu | int | `1` |  |
+| ng-ce-ui.resources.requests.memory | string | `"512Mi"` |  |
+| ng-ce-ui.securityContext | object | `{}` |  |
+| ng-ce-ui.service.port | int | `80` |  |
+| ng-ce-ui.service.portName | string | `"ng-ce-ui-port"` |  |
+| ng-ce-ui.service.type | string | `"ClusterIP"` |  |
+| ng-ce-ui.serviceAccount.annotations | object | `{}` |  |
+| ng-ce-ui.serviceAccount.create | bool | `false` |  |
+| ng-ce-ui.serviceAccount.name | string | `"harness-default"` |  |
+| ng-ce-ui.tolerations | list | `[]` |  |
 | telescopes.affinity | object | `{}` |  |
 | telescopes.autoscaling.enabled | bool | `false` |  |
 | telescopes.autoscaling.maxReplicas | int | `2` |  |
