@@ -121,6 +121,7 @@ batch-processing:
     S3_SYNC_CONFIG_BUCKET_NAME: "ccm-service-data-bucket"
     S3_SYNC_CONFIG_REGION: "us-east-1"
   clickhouse:
+    enabled: false
     username: "default"
     password:
       name: clickhouse
@@ -597,6 +598,7 @@ nextgen-ce:
     AWS_GOV_CLOUD_REGION_NAME: "us-gov-west-1"
     AWS_GOV_CLOUD_TEMPLATE_LINK: "https://continuous-efficiency.s3.us-east-2.amazonaws.com/setup/v1/ng/HarnessAWSTemplate.yaml"
   clickhouse:
+    enabled: false
     username: "default"
     password:
       name: clickhouse

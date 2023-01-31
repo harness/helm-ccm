@@ -2,7 +2,7 @@
 
 A Helm chart for Harness Cloud Cost Management (CCM) module
 
-![Version: 0.3.12](https://img.shields.io/badge/Version-0.3.12-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square) ![AppVersion: 1.546.0](https://img.shields.io/badge/AppVersion-1.546.0-informational?style=flat-square)
+![Version: 0.3.13](https://img.shields.io/badge/Version-0.3.13-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square) ![AppVersion: 1.546.0](https://img.shields.io/badge/AppVersion-1.546.0-informational?style=flat-square)
 
 ## Usage
 
@@ -12,7 +12,7 @@ Use the following dependency to add this chart repository to your Helm installat
 dependencies:
     - name: ccm
       repository: https://harness.github.io/helm-ccm
-      version: 0.3.12
+      version: 0.3.13
 ```
 
 ## Values
@@ -60,6 +60,7 @@ dependencies:
 | batch-processing.awsSecret.S3_SYNC_CONFIG_SECRETKEY | string | `""` |  |
 | batch-processing.ceBatchGCPCredentials | string | `""` |  |
 | batch-processing.ceGCPHomeProjectCreds | string | `""` |  |
+| batch-processing.clickhouse.enabled | bool | `false` |  |
 | batch-processing.clickhouse.password.key | string | `"admin-password"` |  |
 | batch-processing.clickhouse.password.name | string | `"clickhouse"` |  |
 | batch-processing.clickhouse.username | string | `"default"` |  |
@@ -418,6 +419,7 @@ dependencies:
 | nextgen-ce.awsSecret.AWS_TEMPLATE_LINK | string | `""` |  |
 | nextgen-ce.awsSecret.CE_AWS_TEMPLATE_URL | string | `""` |  |
 | nextgen-ce.ceng-gcp-credentials | string | `""` |  |
+| nextgen-ce.clickhouse.enabled | bool | `false` |  |
 | nextgen-ce.clickhouse.password.key | string | `"admin-password"` |  |
 | nextgen-ce.clickhouse.password.name | string | `"clickhouse"` |  |
 | nextgen-ce.clickhouse.username | string | `"default"` |  |
