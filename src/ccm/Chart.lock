@@ -10,7 +10,7 @@ dependencies:
   version: 0.1.8
 - name: cloud-info
   repository: file://cloud-info
-  version: 0.1.13
+  version: 0.1.14
 - name: telescopes
   repository: file://telescopes
   version: 0.1.12
@@ -23,5 +23,5 @@ dependencies:
 - name: clickhouse
   repository: https://charts.bitnami.com/bitnami
   version: 2.1.0
-digest: sha256:d224778250d18b1cbf5330b70a24e6af4949dbd4316958eb58340a7fad6bc458
-generated: "2023-01-31T00:17:52.217626+05:30"
+digest: sha256:0f51d8c35f03c57338ebfa7c258bf3ad41945c013600470dfa06a4c08c191978
+generated: "2023-02-01T16:36:41.245358+05:30"
