@@ -24,8 +24,6 @@ spec:
   - name: cloud-info
     match:
     - uri:
-        prefix: /ccm/public-pricing
-    - uri:
         prefix: /ccm/public-pricing/
     rewrite:
       uri: /
