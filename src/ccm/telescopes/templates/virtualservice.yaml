@@ -24,9 +24,10 @@ spec:
   - name: telescopes
     match:
     - uri:
-        prefix: /ccm/recommendations
-    - uri:
         prefix: /ccm/recommendations/
+    - uri:
+        prefix: /ccm/recommendations
+    name: telescopes
     rewrite:
       uri: /
     route:
