@@ -3,6 +3,42 @@ entries:
   ccm:
   - apiVersion: v2
     appVersion: 1.546.0
+    created: "2023-02-03T02:17:28.090201622Z"
+    dependencies:
+    - name: nextgen-ce
+      repository: file://nextgen-ce
+      version: 0.1.x
+    - name: event-service
+      repository: file://event-service
+      version: 0.1.x
+    - name: anomaly-detection
+      repository: file://anomaly-detection
+      version: 0.1.x
+    - name: cloud-info
+      repository: file://cloud-info
+      version: 0.1.x
+    - name: telescopes
+      repository: file://telescopes
+      version: 0.1.x
+    - name: batch-processing
+      repository: file://batch-processing
+      version: 0.1.x
+    - name: ng-ce-ui
+      repository: file://ng-ce-ui
+      version: 0.1.x
+    - condition: clickhouse.enabled
+      name: clickhouse
+      repository: https://charts.bitnami.com/bitnami
+      version: 2.1.0
+    description: A Helm chart for Harness Cloud Cost Management (CCM) module
+    digest: 2f7031eba740fbfda00badec2cb9dbc17545d01f844299c17a89d9079a428537
+    name: ccm
+    type: application
+    urls:
+    - https://github.com/harness/helm-ccm/releases/download/ccm-0.3.16/ccm-0.3.16.tgz
+    version: 0.3.16
+  - apiVersion: v2
+    appVersion: 1.546.0
     created: "2023-02-02T11:13:42.689891591Z"
     dependencies:
     - name: nextgen-ce
@@ -570,4 +606,4 @@ entries:
     urls:
     - https://github.com/harness/helm-ccm/releases/download/ccm-0.3.1/ccm-0.3.1.tgz
     version: 0.3.1
-generated: "2023-02-02T11:13:42.69014659Z"
+generated: "2023-02-03T02:17:28.09044582Z"
