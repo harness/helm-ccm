@@ -72,5 +72,5 @@ Create the name of the service account to use
 {{- end }}
 
 {{- define "event-service.generateMountSecrets" }}
-    ce-gcp-home-project-creds: {{ include "common.secrets.passwords.manage" (dict "secret" "eventsvc-secret-mount" "key" "ce-gcp-home-project-creds" "providedValues" (list "ce-gcp-home-project-creds") "length" 10 "context" $) }}
+    ce-gcp-home-project-creds: {{ include "harnesscommon.secrets.passwords.manage" (dict "secret" "eventsvc-secret-mount" "key" "ce-gcp-home-project-creds" "providedValues" (list "ce-gcp-home-project-creds") "length" 10 "context" $) }}
 {{- end }}

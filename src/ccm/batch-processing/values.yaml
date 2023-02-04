@@ -11,6 +11,8 @@ global:
     tls:
       enabled: true
       secretName: ''
+  smtpCreateSecret:
+    enabled: false
 
 replicaCount: 1
 

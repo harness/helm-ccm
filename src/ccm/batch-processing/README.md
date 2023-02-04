@@ -41,6 +41,7 @@ A Helm chart for Kubernetes
 | global.ingress.tls.enabled | bool | `true` |  |
 | global.ingress.tls.secretName | string | `""` |  |
 | global.loadbalancerURL | string | `"https://test"` |  |
+| global.smtpCreateSecret.enabled | bool | `false` |  |
 | image.digest | string | `""` |  |
 | image.pullPolicy | string | `"Always"` |  |
 | image.registry | string | `"docker.io"` |  |

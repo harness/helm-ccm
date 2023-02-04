@@ -72,5 +72,5 @@ Create the name of the service account to use
 {{- end }}
 
 {{- define "lwd.generateMountSecrets" }}
-    ce-batch-gcp-credentials: {{ include "common.secrets.passwords.manage" (dict "secret" "lwd-secret-mount" "key" "ce-batch-gcp-credentials" "providedValues" (list "ce-batch-gcp-credentials") "length" 10 "context" $) }}
+    ce-batch-gcp-credentials: {{ include "harnesscommon.secrets.passwords.manage" (dict "secret" "lwd-secret-mount" "key" "ce-batch-gcp-credentials" "providedValues" (list "ce-batch-gcp-credentials") "length" 10 "context" $) }}
 {{- end }}

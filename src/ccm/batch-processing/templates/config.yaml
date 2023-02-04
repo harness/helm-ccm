@@ -24,12 +24,9 @@ data:
   METRICS_COLLECTION_DISABLED: "true"
   BANZAI_RECOMMENDER_BASEURL: "http://telescopes.{{ .Release.Namespace }}.svc.cluster.local:9090/"
   NG_MANAGER_SERVICE_HTTP_CLIENT_CONFIG_BASE_URL: "http://ng-manager.{{ .Release.Namespace }}.svc.cluster.local:7090/"
-  CE_NG_SERVICE_HTTP_CLIENT_CONFIG_BASE_URL: "http://nextgen-ce.{{ .Release.Namespace }}.svc.cluster.local:6340/"
+  CE_NG_SERVICE_HTTP_CLIENT_CONFIG_BASE_URL: "http://nextgen-ce.{{ .Release.Namespace }}.svc.cluster.local:6340/ccm/api/"
   CONNECTOR_HEALTH_UPDATE_CRON: "0 0 10 * * ?"
   GCP_PROJECT_ID: {{ .Values.cloudProviderConfig.GCP_PROJECT_ID  | quote}}
-  SMTP_HOST: {{ .Values.smtp.host | quote}}
-  SMTP_USERNAME: {{ .Values.smtp.user | quote}}
-  SMTP_PASSWORD: {{ .Values.smtp.password | quote}}
   CLUSTER_DATA_GCS_BUCKET: {{ .Values.cloudProviderConfig.CLUSTER_DATA_GCS_BUCKET  | quote}}
   CLUSTER_DATA_GCS_BACKUP_BUCKET: {{ .Values.cloudProviderConfig.CLUSTER_DATA_GCS_BACKUP_BUCKET  | quote}}
   GCP_USE_NEW_PIPELINE: "true"
