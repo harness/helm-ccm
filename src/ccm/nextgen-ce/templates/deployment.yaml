@@ -87,7 +87,7 @@ spec:
             - name: EVENTS_MONGO_DB_URL
               value: {{ include "harnesscommon.database.mongo" (dict "database" "events" "context" $) }}
             - name: NOTIFICATION_MONGO_URI
-              value: {{ include "harnesscommon.database.mongo" (dict "database" "notification" "context" $) }}
+              value: {{ include "harnesscommon.database.mongo" (dict "database" "notifications" "context" $) }}
             - name : TIMESCALEDB_PASSWORD
               valueFrom:
                 secretKeyRef:
