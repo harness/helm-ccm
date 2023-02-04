@@ -31,31 +31,19 @@ spec:
       securityContext:
         {{- toYaml .Values.podSecurityContext | nindent 8 }}
       initContainers:
-      #nextgen-ce should take care of ng-manager, mongo & timescale
-      - name: wait-for-nextgen-ce
+      #waits only for mongo & timescale to start
+      - name: wait-for-mongo
         image: {{ include "common.images.image" (dict "imageRoot" .Values.waitForInitContainer.image "global" .Values.global) }}
         imagePullPolicy: IfNotPresent
         args:
           - "pod"
-          - "-lapp=nextgen-ce"
-      - name: wait-for-telescopes
+          - "-lapp=mongodb-replicaset"
+      - name: wait-for-timescale
         image: {{ include "common.images.image" (dict "imageRoot" .Values.waitForInitContainer.image "global" .Values.global) }}
         imagePullPolicy: IfNotPresent
         args:
           - "pod"
-          - "-lapp=telescopes"
-      - name: wait-for-cloud-info
-        image: {{ include "common.images.image" (dict "imageRoot" .Values.waitForInitContainer.image "global" .Values.global) }}
-        imagePullPolicy: IfNotPresent
-        args:
-          - "pod"
-          - "-lapp=ce-cloud-info"
-      - name: wait-for-anomaly-detection
-        image: {{ include "common.images.image" (dict "imageRoot" .Values.waitForInitContainer.image "global" .Values.global) }}
-        imagePullPolicy: IfNotPresent
-        args:
-          - "pod"
-          - "-lapp=ce-anomaly-detection"
+          - "-lapp=timescaledb-single-chart"
       terminationGracePeriodSeconds: 30
       containers:
         - name: batch-processing
