@@ -35,19 +35,19 @@ spec:
       securityContext:
         {{- toYaml .Values.podSecurityContext | nindent 8 }}
       initContainers:
-      #ng-manager should take care of mongo, cg-manager, redis & timescale
-      - name: wait-for-ng-manager
+      #waits only for mongo & timescale to start
+      - name: wait-for-mongo
         image: {{ include "common.images.image" (dict "imageRoot" .Values.waitForInitContainer.image "global" .Values.global) }}
         imagePullPolicy: IfNotPresent
         args:
           - "pod"
-          - "-lapp=ng-manager"
-      - name: wait-for-access-control
+          - "-lapp=mongodb-replicaset"
+      - name: wait-for-timescale
         image: {{ include "common.images.image" (dict "imageRoot" .Values.waitForInitContainer.image "global" .Values.global) }}
         imagePullPolicy: IfNotPresent
         args:
           - "pod"
-          - "-lapp=access-control"
+          - "-lapp=timescaledb-single-chart"
       containers:
         - name: nextgen-ce
           securityContext:
@@ -86,6 +86,8 @@ spec:
                   key: {{ .Values.mongoSecrets.password.key }}
             - name: EVENTS_MONGO_DB_URL
               value: {{ include "harnesscommon.database.mongo" (dict "database" "events" "context" $) }}
+            - name: NOTIFICATION_MONGO_URI
+              value: {{ include "harnesscommon.database.mongo" (dict "database" "notification" "context" $) }}
             - name : TIMESCALEDB_PASSWORD
               valueFrom:
                 secretKeyRef:

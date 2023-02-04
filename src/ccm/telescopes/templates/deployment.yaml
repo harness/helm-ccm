@@ -29,13 +29,6 @@ spec:
       serviceAccountName: {{ include "telescopes.serviceAccountName" . }}
       securityContext:
         {{- toYaml .Values.podSecurityContext | nindent 8 }}
-      initContainers:
-      - name: wait-for-cloud-info
-        image: {{ include "common.images.image" (dict "imageRoot" .Values.waitForInitContainer.image "global" .Values.global) }}
-        imagePullPolicy: IfNotPresent
-        args:
-          - "pod"
-          - "-lapp=ce-cloud-info"
       containers:
         - name: telescopes
           securityContext:
