@@ -56,6 +56,10 @@ spec:
                 name: batch-processing
             - secretRef:
                 name: batch-processing
+            {{- if .Values.global.smtpCreateSecret.enabled }}
+            - secretRef:
+                name: smtp-secret
+            {{- end }}
           env:
             - name: MONGODB_USERNAME
               valueFrom:

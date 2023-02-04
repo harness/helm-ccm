@@ -1,4 +1,6 @@
 global:
+  smtpCreateSecret:
+    enabled: false
   istio:
     enabled: false
     gateway:

@@ -2,7 +2,7 @@
 
 A Helm chart for Harness Cloud Cost Management (CCM) module
 
-![Version: 0.3.17](https://img.shields.io/badge/Version-0.3.17-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square) ![AppVersion: 1.546.0](https://img.shields.io/badge/AppVersion-1.546.0-informational?style=flat-square)
+![Version: 0.3.18](https://img.shields.io/badge/Version-0.3.18-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square) ![AppVersion: 1.546.0](https://img.shields.io/badge/AppVersion-1.546.0-informational?style=flat-square)
 
 ## Usage
 
@@ -12,7 +12,7 @@ Use the following dependency to add this chart repository to your Helm installat
 dependencies:
     - name: ccm
       repository: https://harness.github.io/helm-ccm
-      version: 0.3.17
+      version: 0.3.18
 ```
 
 ## Values
@@ -213,6 +213,7 @@ dependencies:
 | global.istio.gateway.create | bool | `false` |  |
 | global.istio.virtualService.gateways | string | `nil` |  |
 | global.istio.virtualService.hosts | string | `nil` |  |
+| global.smtpCreateSecret.enabled | bool | `false` |  |
 | lwd-autocud.LIGHTWING_GCPCOST_PROJECT | string | `"placeHolder"` |  |
 | lwd-autocud.affinity | object | `{}` |  |
 | lwd-autocud.autoscaling.enabled | bool | `false` |  |
