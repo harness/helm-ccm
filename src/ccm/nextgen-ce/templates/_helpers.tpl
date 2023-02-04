@@ -72,14 +72,14 @@ Create the name of the service account to use
 {{- end }}
 
 {{- define "nextgen-ce.generateSecrets" }}
-    AWS_ACCESS_KEY: {{ include "common.secrets.passwords.manage" (dict "secret" "nextgen-ce" "key" "AWS_ACCESS_KEY" "providedValues" (list "awsSecret.AWS_ACCESS_KEY") "length" 10 "context" $) }}
-    AWS_SECRET_KEY: {{ include "common.secrets.passwords.manage" (dict "secret" "nextgen-ce" "key" "AWS_SECRET_KEY" "providedValues" (list "awsSecret.AWS_SECRET_KEY") "length" 10 "context" $) }}
-    AWS_ACCOUNT_ID: {{ include "common.secrets.passwords.manage" (dict "secret" "nextgen-ce" "key" "AWS_ACCOUNT_ID" "providedValues" (list "awsSecret.AWS_ACCOUNT_ID") "length" 10 "context" $) }}
-    AWS_DESTINATION_BUCKET: {{ include "common.secrets.passwords.manage" (dict "secret" "nextgen-ce" "key" "AWS_DESTINATION_BUCKET" "providedValues" (list "awsSecret.AWS_DESTINATION_BUCKET") "length" 10 "context" $) }}
-    AWS_TEMPLATE_LINK: {{ include "common.secrets.passwords.manage" (dict "secret" "nextgen-ce" "key" "AWS_TEMPLATE_LINK" "providedValues" (list "awsSecret.AWS_TEMPLATE_LINK") "length" 10 "context" $) }}
-    CE_AWS_TEMPLATE_URL: {{ include "common.secrets.passwords.manage" (dict "secret" "nextgen-ce" "key" "CE_AWS_TEMPLATE_URL" "providedValues" (list "awsSecret.CE_AWS_TEMPLATE_URL") "length" 10 "context" $) }}
+    AWS_ACCESS_KEY: {{ include "harnesscommon.secrets.passwords.manage" (dict "secret" "nextgen-ce" "key" "AWS_ACCESS_KEY" "providedValues" (list "awsSecret.AWS_ACCESS_KEY") "length" 10 "context" $) }}
+    AWS_SECRET_KEY: {{ include "harnesscommon.secrets.passwords.manage" (dict "secret" "nextgen-ce" "key" "AWS_SECRET_KEY" "providedValues" (list "awsSecret.AWS_SECRET_KEY") "length" 10 "context" $) }}
+    AWS_ACCOUNT_ID: {{ include "harnesscommon.secrets.passwords.manage" (dict "secret" "nextgen-ce" "key" "AWS_ACCOUNT_ID" "providedValues" (list "awsSecret.AWS_ACCOUNT_ID") "length" 10 "context" $) }}
+    AWS_DESTINATION_BUCKET: {{ include "harnesscommon.secrets.passwords.manage" (dict "secret" "nextgen-ce" "key" "AWS_DESTINATION_BUCKET" "providedValues" (list "awsSecret.AWS_DESTINATION_BUCKET") "length" 10 "context" $) }}
+    AWS_TEMPLATE_LINK: {{ include "harnesscommon.secrets.passwords.manage" (dict "secret" "nextgen-ce" "key" "AWS_TEMPLATE_LINK" "providedValues" (list "awsSecret.AWS_TEMPLATE_LINK") "length" 10 "context" $) }}
+    CE_AWS_TEMPLATE_URL: {{ include "harnesscommon.secrets.passwords.manage" (dict "secret" "nextgen-ce" "key" "CE_AWS_TEMPLATE_URL" "providedValues" (list "awsSecret.CE_AWS_TEMPLATE_URL") "length" 10 "context" $) }}
 {{- end }}
 
 {{- define "nextgen-ce.generateMountSecrets" }}
-    ceng-gcp-credentials: {{ include "common.secrets.passwords.manage" (dict "secret" "ceng-secret-mount" "key" "ceng-gcp-credentials" "providedValues" (list "ceng-gcp-credentials") "length" 10 "context" $) }}
+    ceng-gcp-credentials: {{ include "harnesscommon.secrets.passwords.manage" (dict "secret" "ceng-secret-mount" "key" "ceng-gcp-credentials" "providedValues" (list "ceng-gcp-credentials") "length" 10 "context" $) }}
 {{- end }}
