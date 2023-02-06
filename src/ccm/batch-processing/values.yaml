@@ -106,6 +106,9 @@ cloudProviderConfig:
   S3_SYNC_CONFIG_BUCKET_NAME: "ccm-service-data-bucket"
   S3_SYNC_CONFIG_REGION: "us-east-1"
 
+awsAccountTagsCollectionJobConfig:
+  enabled: true
+
 clickhouse:
   enabled: false
   username: "default"

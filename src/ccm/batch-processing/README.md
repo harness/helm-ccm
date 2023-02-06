@@ -20,6 +20,7 @@ A Helm chart for Kubernetes
 | autoscaling.maxReplicas | int | `2` |  |
 | autoscaling.minReplicas | int | `1` |  |
 | autoscaling.targetCPUUtilizationPercentage | int | `80` |  |
+| awsAccountTagsCollectionJobConfig.enabled | bool | `true` |  |
 | awsSecret.S3_SYNC_CONFIG_ACCESSKEY | string | `""` |  |
 | awsSecret.S3_SYNC_CONFIG_SECRETKEY | string | `""` |  |
 | ceBatchGCPCredentials | string | `""` |  |

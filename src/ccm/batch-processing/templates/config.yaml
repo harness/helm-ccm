@@ -42,3 +42,4 @@ data:
   {{- if .Values.clickhouse.enabled }}
   CLICKHOUSE_URL: "jdbc:ch://clickhouse.{{ .Release.Namespace }}.svc.cluster.local:8123"
   {{- end }}
+  AWS_ACCOUNT_TAGS_COLLECTION_JOB_ENABLED: {{ .Values.awsAccountTagsCollectionJobConfig.enabled | quote }}
