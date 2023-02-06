@@ -2,7 +2,7 @@
 
 A Helm chart for Harness Cloud Cost Management (CCM) module
 
-![Version: 0.3.19](https://img.shields.io/badge/Version-0.3.19-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square) ![AppVersion: 1.546.0](https://img.shields.io/badge/AppVersion-1.546.0-informational?style=flat-square)
+![Version: 0.3.20](https://img.shields.io/badge/Version-0.3.20-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square) ![AppVersion: 1.546.0](https://img.shields.io/badge/AppVersion-1.546.0-informational?style=flat-square)
 
 ## Usage
 
@@ -12,7 +12,7 @@ Use the following dependency to add this chart repository to your Helm installat
 dependencies:
     - name: ccm
       repository: https://harness.github.io/helm-ccm
-      version: 0.3.19
+      version: 0.3.20
 ```
 
 ## Values
@@ -56,6 +56,7 @@ dependencies:
 | batch-processing.autoscaling.maxReplicas | int | `2` |  |
 | batch-processing.autoscaling.minReplicas | int | `1` |  |
 | batch-processing.autoscaling.targetCPUUtilizationPercentage | int | `80` |  |
+| batch-processing.awsAccountTagsCollectionJobConfig.enabled | bool | `true` |  |
 | batch-processing.awsSecret.S3_SYNC_CONFIG_ACCESSKEY | string | `""` |  |
 | batch-processing.awsSecret.S3_SYNC_CONFIG_SECRETKEY | string | `""` |  |
 | batch-processing.ceBatchGCPCredentials | string | `""` |  |
