@@ -48,10 +48,10 @@ anomaly-detection:
   resources:
     limits:
       cpu: "1024m"
-      memory: "2048Mi"
+      memory: "2Gi"
     requests:
       cpu: "1024m"
-      memory: "2048Mi"
+      memory: "2Gi"
 
 batch-processing:
   replicaCount: 1
@@ -139,11 +139,11 @@ batch-processing:
       key: admin-password
   resources:
     limits:
-      cpu: 1
-      memory: "8192Mi"
+      cpu: "1024m"
+      memory: "10Gi"
     requests:
-      cpu: 1
-      memory: "8192Mi"
+      cpu: "1024m"
+      memory: "10Gi"
 
 cloud-info:
   replicaCount: 2
@@ -187,11 +187,11 @@ cloud-info:
   CLOUD_INFO_CONFIG: ""
   resources:
     limits:
-      cpu: 2
-      memory: "5120Mi"
+      cpu: "2048m"
+      memory: "2Gi"
     requests:
-      cpu: 2
-      memory: "5120Mi"
+      cpu: "2048m"
+      memory: "2Gi"
 
 event-service:
   replicaCount: 2
@@ -262,10 +262,10 @@ event-service:
   resources:
     limits:
       cpu: "512m"
-      memory: "1440Mi"
+      memory: "1840Mi"
     requests:
       cpu: "512m"
-      memory: "1440Mi"
+      memory: "1840Mi"
   autoscaling:
     enabled: true
     minReplicas: 1
@@ -624,10 +624,10 @@ nextgen-ce:
   resources:
     limits:
       cpu: 2
-      memory: "5120Mi"
+      memory: "5Gi"
     requests:
       cpu: 2
-      memory: "5120Mi"
+      memory: "5Gi"
 
 ng-ce-ui:
   replicaCount: 2
@@ -716,10 +716,10 @@ telescopes:
   resources:
     limits:
       cpu: "512m"
-      memory: "1024Mi"
+      memory: "1Gi"
     requests:
       cpu: "512m"
-      memory: "1024Mi"
+      memory: "1Gi"
 
 clickhouse:
   enabled: false
@@ -728,11 +728,11 @@ clickhouse:
     tag: 22.11.2-debian-11-r0
   resources:
     limits:
-      cpu: "16000m"
-      memory: "6Gi"
+      cpu: 16
+      memory: "8Gi"
     requests:
-      cpu: "16000m"
-      memory: "6Gi"
+      cpu: 16
+      memory: "8Gi"
   persistence:
     size: 1Ti
   defaultConfigurationOverrides: |

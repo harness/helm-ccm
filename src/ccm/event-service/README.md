@@ -56,9 +56,9 @@ A Helm chart for Kubernetes
 | redislabsCATruststore | string | `"test"` |  |
 | replicaCount | int | `2` |  |
 | resources.limits.cpu | string | `"512m"` |  |
-| resources.limits.memory | string | `"1440Mi"` |  |
+| resources.limits.memory | string | `"1840Mi"` |  |
 | resources.requests.cpu | string | `"512m"` |  |
-| resources.requests.memory | string | `"1440Mi"` |  |
+| resources.requests.memory | string | `"1840Mi"` |  |
 | securityContext | object | `{}` |  |
 | service.port | int | `7280` |  |
 | service.port2 | int | `9889` |  |

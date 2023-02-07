@@ -44,9 +44,9 @@ A Helm chart for Kubernetes
 | podSecurityContext | object | `{}` |  |
 | replicaCount | int | `1` |  |
 | resources.limits.cpu | string | `"512m"` |  |
-| resources.limits.memory | string | `"1024Mi"` |  |
+| resources.limits.memory | string | `"1Gi"` |  |
 | resources.requests.cpu | string | `"512m"` |  |
-| resources.requests.memory | string | `"1024Mi"` |  |
+| resources.requests.memory | string | `"1Gi"` |  |
 | securityContext | object | `{}` |  |
 | service.port | int | `9090` |  |
 | service.type | string | `"ClusterIP"` |  |

@@ -2,7 +2,7 @@
 
 A Helm chart for Harness Cloud Cost Management (CCM) module
 
-![Version: 0.3.21](https://img.shields.io/badge/Version-0.3.21-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square) ![AppVersion: 1.546.0](https://img.shields.io/badge/AppVersion-1.546.0-informational?style=flat-square)
+![Version: 0.3.22](https://img.shields.io/badge/Version-0.3.22-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square) ![AppVersion: 1.546.0](https://img.shields.io/badge/AppVersion-1.546.0-informational?style=flat-square)
 
 ## Usage
 
@@ -12,7 +12,7 @@ Use the following dependency to add this chart repository to your Helm installat
 dependencies:
     - name: ccm
       repository: https://harness.github.io/helm-ccm
-      version: 0.3.21
+      version: 0.3.22
 ```
 
 ## Values
@@ -41,9 +41,9 @@ dependencies:
 | anomaly-detection.podSecurityContext | object | `{}` |  |
 | anomaly-detection.replicaCount | int | `2` |  |
 | anomaly-detection.resources.limits.cpu | string | `"1024m"` |  |
-| anomaly-detection.resources.limits.memory | string | `"2048Mi"` |  |
+| anomaly-detection.resources.limits.memory | string | `"2Gi"` |  |
 | anomaly-detection.resources.requests.cpu | string | `"1024m"` |  |
-| anomaly-detection.resources.requests.memory | string | `"2048Mi"` |  |
+| anomaly-detection.resources.requests.memory | string | `"2Gi"` |  |
 | anomaly-detection.securityContext | object | `{}` |  |
 | anomaly-detection.service.port | int | `8081` |  |
 | anomaly-detection.service.type | string | `"ClusterIP"` |  |
@@ -93,10 +93,10 @@ dependencies:
 | batch-processing.podAnnotations | object | `{}` |  |
 | batch-processing.podSecurityContext | object | `{}` |  |
 | batch-processing.replicaCount | int | `1` |  |
-| batch-processing.resources.limits.cpu | int | `1` |  |
-| batch-processing.resources.limits.memory | string | `"8192Mi"` |  |
-| batch-processing.resources.requests.cpu | int | `1` |  |
-| batch-processing.resources.requests.memory | string | `"8192Mi"` |  |
+| batch-processing.resources.limits.cpu | string | `"1024m"` |  |
+| batch-processing.resources.limits.memory | string | `"10Gi"` |  |
+| batch-processing.resources.requests.cpu | string | `"1024m"` |  |
+| batch-processing.resources.requests.memory | string | `"10Gi"` |  |
 | batch-processing.securityContext | object | `{}` |  |
 | batch-processing.service.port | int | `6340` |  |
 | batch-processing.service.type | string | `"ClusterIP"` |  |
@@ -122,10 +122,10 @@ dependencies:
 | clickhouse.image.tag | string | `"22.11.2-debian-11-r0"` |  |
 | clickhouse.persistence.size | string | `"1Ti"` |  |
 | clickhouse.replicaCount | int | `1` |  |
-| clickhouse.resources.limits.cpu | string | `"16000m"` |  |
-| clickhouse.resources.limits.memory | string | `"6Gi"` |  |
-| clickhouse.resources.requests.cpu | string | `"16000m"` |  |
-| clickhouse.resources.requests.memory | string | `"6Gi"` |  |
+| clickhouse.resources.limits.cpu | int | `16` |  |
+| clickhouse.resources.limits.memory | string | `"8Gi"` |  |
+| clickhouse.resources.requests.cpu | int | `16` |  |
+| clickhouse.resources.requests.memory | string | `"8Gi"` |  |
 | clickhouse.shards | int | `1` |  |
 | clickhouse.zookeeper.enabled | bool | `true` |  |
 | clickhouse.zookeeper.fullnameOverride | string | `"clickhouse-zookeeper"` |  |
@@ -153,10 +153,10 @@ dependencies:
 | cloud-info.podAnnotations | object | `{}` |  |
 | cloud-info.podSecurityContext | object | `{}` |  |
 | cloud-info.replicaCount | int | `2` |  |
-| cloud-info.resources.limits.cpu | int | `2` |  |
-| cloud-info.resources.limits.memory | string | `"5120Mi"` |  |
-| cloud-info.resources.requests.cpu | int | `2` |  |
-| cloud-info.resources.requests.memory | string | `"5120Mi"` |  |
+| cloud-info.resources.limits.cpu | string | `"2048m"` |  |
+| cloud-info.resources.limits.memory | string | `"2Gi"` |  |
+| cloud-info.resources.requests.cpu | string | `"2048m"` |  |
+| cloud-info.resources.requests.memory | string | `"2Gi"` |  |
 | cloud-info.securityContext | object | `{}` |  |
 | cloud-info.service.port | int | `8082` |  |
 | cloud-info.service.targetPort | int | `8000` |  |
@@ -196,9 +196,9 @@ dependencies:
 | event-service.redislabsCATruststore | string | `"test"` |  |
 | event-service.replicaCount | int | `2` |  |
 | event-service.resources.limits.cpu | string | `"512m"` |  |
-| event-service.resources.limits.memory | string | `"1440Mi"` |  |
+| event-service.resources.limits.memory | string | `"1840Mi"` |  |
 | event-service.resources.requests.cpu | string | `"512m"` |  |
-| event-service.resources.requests.memory | string | `"1440Mi"` |  |
+| event-service.resources.requests.memory | string | `"1840Mi"` |  |
 | event-service.securityContext | object | `{}` |  |
 | event-service.service.port | int | `7280` |  |
 | event-service.service.port2 | int | `9889` |  |
@@ -461,9 +461,9 @@ dependencies:
 | nextgen-ce.podSecurityContext | object | `{}` |  |
 | nextgen-ce.replicaCount | int | `2` |  |
 | nextgen-ce.resources.limits.cpu | int | `2` |  |
-| nextgen-ce.resources.limits.memory | string | `"5120Mi"` |  |
+| nextgen-ce.resources.limits.memory | string | `"5Gi"` |  |
 | nextgen-ce.resources.requests.cpu | int | `2` |  |
-| nextgen-ce.resources.requests.memory | string | `"5120Mi"` |  |
+| nextgen-ce.resources.requests.memory | string | `"5Gi"` |  |
 | nextgen-ce.securityContext | object | `{}` |  |
 | nextgen-ce.service.port | int | `6340` |  |
 | nextgen-ce.service.type | string | `"ClusterIP"` |  |
@@ -530,9 +530,9 @@ dependencies:
 | telescopes.podSecurityContext | object | `{}` |  |
 | telescopes.replicaCount | int | `1` |  |
 | telescopes.resources.limits.cpu | string | `"512m"` |  |
-| telescopes.resources.limits.memory | string | `"1024Mi"` |  |
+| telescopes.resources.limits.memory | string | `"1Gi"` |  |
 | telescopes.resources.requests.cpu | string | `"512m"` |  |
-| telescopes.resources.requests.memory | string | `"1024Mi"` |  |
+| telescopes.resources.requests.memory | string | `"1Gi"` |  |
 | telescopes.securityContext | object | `{}` |  |
 | telescopes.service.port | int | `9090` |  |
 | telescopes.service.type | string | `"ClusterIP"` |  |

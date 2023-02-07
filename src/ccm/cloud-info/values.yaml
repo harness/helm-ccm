@@ -78,8 +78,8 @@ CLOUD_INFO_CONFIG: ""
 
 resources:
   limits:
-    cpu: 2
-    memory: "5120Mi"
+    cpu: "2048m"
+    memory: "2Gi"
   requests:
-    cpu: 2
-    memory: "5120Mi"
+    cpu: "2048m"
+    memory: "2Gi"
