@@ -489,7 +489,7 @@ dependencies:
 | ng-ce-ui.image.pullPolicy | string | `"Always"` |  |
 | ng-ce-ui.image.registry | string | `"docker.io"` |  |
 | ng-ce-ui.image.repository | string | `"harness/ng-ce-ui"` |  |
-| ng-ce-ui.image.tag | string | `"0.22.3"` |  |
+| ng-ce-ui.image.tag | string | `"0.23.8"` |  |
 | ng-ce-ui.ingress.className | string | `"nginx"` |  |
 | ng-ce-ui.maxSurge | string | `"100%"` |  |
 | ng-ce-ui.maxUnavailable | int | `0` |  |
