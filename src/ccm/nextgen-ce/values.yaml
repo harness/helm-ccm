@@ -129,7 +129,7 @@ clickhouse:
 resources:
   limits:
     cpu: 2
-    memory: "5120Mi"
+    memory: "5Gi"
   requests:
     cpu: 2
-    memory: "5120Mi"
+    memory: "5Gi"

@@ -64,10 +64,10 @@ A Helm chart for Kubernetes
 | podAnnotations | object | `{}` |  |
 | podSecurityContext | object | `{}` |  |
 | replicaCount | int | `1` |  |
-| resources.limits.cpu | int | `1` |  |
-| resources.limits.memory | string | `"8192Mi"` |  |
-| resources.requests.cpu | int | `1` |  |
-| resources.requests.memory | string | `"8192Mi"` |  |
+| resources.limits.cpu | string | `"1024m"` |  |
+| resources.limits.memory | string | `"10Gi"` |  |
+| resources.requests.cpu | string | `"1024m"` |  |
+| resources.requests.memory | string | `"10Gi"` |  |
 | securityContext | object | `{}` |  |
 | service.port | int | `6340` |  |
 | service.type | string | `"ClusterIP"` |  |

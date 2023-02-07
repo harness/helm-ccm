@@ -48,10 +48,10 @@ A Helm chart for Kubernetes
 | podAnnotations | object | `{}` |  |
 | podSecurityContext | object | `{}` |  |
 | replicaCount | int | `2` |  |
-| resources.limits.cpu | int | `2` |  |
-| resources.limits.memory | string | `"5120Mi"` |  |
-| resources.requests.cpu | int | `2` |  |
-| resources.requests.memory | string | `"5120Mi"` |  |
+| resources.limits.cpu | string | `"2048m"` |  |
+| resources.limits.memory | string | `"2Gi"` |  |
+| resources.requests.cpu | string | `"2048m"` |  |
+| resources.requests.memory | string | `"2Gi"` |  |
 | securityContext | object | `{}` |  |
 | service.port | int | `8082` |  |
 | service.targetPort | int | `8000` |  |
