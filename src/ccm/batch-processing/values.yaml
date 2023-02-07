@@ -28,7 +28,15 @@ image:
   repository: harness/batch-processing-signed
   pullPolicy: Always
   # Overrides the image tag whose default is the chart appVersion.
-  tag: "78300"
+  tag: "78200-000"
+  digest: ""
+
+imageClickhouseEnabled:
+  registry: docker.io
+  repository: harness/batch-processing-signed
+  pullPolicy: Always
+  # Overrides the image tag whose default is the chart appVersion.
+  tag: "80002"
   digest: ""
 
 waitForInitContainer:
