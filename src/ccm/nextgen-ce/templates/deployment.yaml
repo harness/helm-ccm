@@ -52,7 +52,11 @@ spec:
         - name: nextgen-ce
           securityContext:
             {{- toYaml .Values.securityContext | nindent 12 }}
+          {{- if .Values.clickhouse.enabled }}
+          image: {{ include "common.images.image" (dict "imageRoot" .Values.imageClickhouseEnabled "global" .Values.global) }}
+          {{- else }}
           image: {{ include "common.images.image" (dict "imageRoot" .Values.image "global" .Values.global) }}
+          {{- end }}
           imagePullPolicy: {{ .Values.image.pullPolicy }}
           livenessProbe:
             httpGet:

@@ -51,7 +51,12 @@ A Helm chart for Kubernetes
 | image.pullPolicy | string | `"IfNotPresent"` |  |
 | image.registry | string | `"docker.io"` |  |
 | image.repository | string | `"harness/ce-nextgen-signed"` |  |
-| image.tag | string | `"78400"` |  |
+| image.tag | string | `"78300-000"` |  |
+| imageClickhouseEnabled.digest | string | `""` |  |
+| imageClickhouseEnabled.pullPolicy | string | `"Always"` |  |
+| imageClickhouseEnabled.registry | string | `"docker.io"` |  |
+| imageClickhouseEnabled.repository | string | `"harness/ce-nextgen-signed"` |  |
+| imageClickhouseEnabled.tag | string | `"9000363-000"` |  |
 | ingress.className | string | `"nginx"` |  |
 | java.memory | string | `"4096m"` |  |
 | java.memoryLimit | string | `"4096m"` |  |
