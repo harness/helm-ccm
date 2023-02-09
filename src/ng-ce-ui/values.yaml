@@ -1,0 +1,80 @@
+# Default values for ng-ce-ui
+# This is a YAML-formatted file.
+# Declare variables to be passed into your templates.
+global:
+  loadbalancerURL: "https://test"
+  ingress:
+    enabled: false
+    className: harness
+    hosts:
+      - my-host.example.org
+    tls:
+      enabled: true
+      secretName: ''
+  istio:
+    enabled: false
+    gateway:
+      create: false
+    virtualService:
+      gateways:
+      hosts:
+  # image pull secrets to use for every image
+  imagePullSecrets: []
+
+replicaCount: 2
+
+maxSurge: 100%
+
+maxUnavailable: 0
+
+image:
+  registry: docker.io
+  repository: harness/ng-ce-ui
+  pullPolicy: Always
+  # Overrides the image tag whose default is the chart appVersion.
+  tag: "0.23.8"
+  digest: ""
+  # image pull secrets to use for ng-ce-ui image
+  imagePullSecrets: []
+
+nameOverride: ""
+fullnameOverride: ""
+
+serviceAccount:
+  create: false
+  annotations: {}
+  name: "harness-default"
+
+podAnnotations: {}
+
+podSecurityContext: {}
+
+securityContext: {}
+
+service:
+  type: ClusterIP
+  port: 80
+  portName: ng-ce-ui-port
+
+ingress:
+  className: nginx
+
+autoscaling:
+  enabled: false
+  minReplicas: 1
+  maxReplicas: 2
+  targetCPUUtilizationPercentage: 80
+
+nodeSelector: {}
+
+tolerations: []
+
+affinity: {}
+
+resources:
+  limits:
+    cpu: 1
+    memory: "512Mi"
+  requests:
+    cpu: 1
+    memory: "512Mi"
