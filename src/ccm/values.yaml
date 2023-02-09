@@ -8,6 +8,8 @@ global:
     virtualService:
       gateways:
       hosts:
+  # image pull secrets to use for every image
+  imagePullSecrets: []
 
 anomaly-detection:
   replicaCount: 2
@@ -873,7 +875,7 @@ clickhouse:
     </clickhouse>
   replicaCount: 1
   shards: 1
-  
+
   zookeeper:
     enabled: true
     fullnameOverride: "clickhouse-zookeeper"

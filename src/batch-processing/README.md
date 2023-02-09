@@ -36,6 +36,7 @@ A Helm chart for Kubernetes
 | cloudProviderConfig.S3_SYNC_CONFIG_BUCKET_NAME | string | `"ccm-service-data-bucket"` |  |
 | cloudProviderConfig.S3_SYNC_CONFIG_REGION | string | `"us-east-1"` |  |
 | fullnameOverride | string | `""` |  |
+| global.imagePullSecrets | list | `[]` |  |
 | global.ingress.className | string | `"harness"` |  |
 | global.ingress.enabled | bool | `false` |  |
 | global.ingress.hosts[0] | string | `"my-host.example.org"` |  |
@@ -44,11 +45,13 @@ A Helm chart for Kubernetes
 | global.loadbalancerURL | string | `"https://test"` |  |
 | global.smtpCreateSecret.enabled | bool | `false` |  |
 | image.digest | string | `""` |  |
+| image.imagePullSecrets | list | `[]` |  |
 | image.pullPolicy | string | `"Always"` |  |
 | image.registry | string | `"docker.io"` |  |
 | image.repository | string | `"harness/batch-processing-signed"` |  |
 | image.tag | string | `"78200-000"` |  |
 | imageClickhouseEnabled.digest | string | `""` |  |
+| imageClickhouseEnabled.imagePullSecrets | list | `[]` |  |
 | imageClickhouseEnabled.pullPolicy | string | `"Always"` |  |
 | imageClickhouseEnabled.registry | string | `"docker.io"` |  |
 | imageClickhouseEnabled.repository | string | `"harness/batch-processing-signed"` |  |

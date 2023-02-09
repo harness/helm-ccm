@@ -20,6 +20,7 @@ A Helm chart for Kubernetes
 | autoscaling.minReplicas | int | `2` |  |
 | autoscaling.targetCPUUtilizationPercentage | int | `70` |  |
 | fullnameOverride | string | `""` |  |
+| global.imagePullSecrets | list | `[]` |  |
 | global.ingress.className | string | `"harness"` |  |
 | global.ingress.enabled | bool | `false` |  |
 | global.ingress.hosts[0] | string | `"my-host.example.org"` |  |
@@ -27,6 +28,7 @@ A Helm chart for Kubernetes
 | global.ingress.tls.secretName | string | `""` |  |
 | global.loadbalancerURL | string | `"https://test"` |  |
 | image.digest | string | `""` |  |
+| image.imagePullSecrets | list | `[]` |  |
 | image.pullPolicy | string | `"IfNotPresent"` |  |
 | image.registry | string | `"docker.io"` |  |
 | image.repository | string | `"harness/ce-anomaly-detection-signed"` |  |

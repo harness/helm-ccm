@@ -22,6 +22,7 @@ A Helm chart for Kubernetes
 | faktory.password.key | string | `"FAKTORY_PASSWORD"` |  |
 | faktory.password.name | string | `"lwd-secrets"` |  |
 | fullnameOverride | string | `""` |  |
+| global.imagePullSecrets | list | `[]` |  |
 | global.ingress.className | string | `"harness"` |  |
 | global.ingress.enabled | bool | `false` |  |
 | global.ingress.hosts[0] | string | `"my-host.example.org"` |  |
@@ -33,6 +34,7 @@ A Helm chart for Kubernetes
 | global.istio.virtualService.hosts | string | `nil` |  |
 | global.loadbalancerURL | string | `"https://test"` |  |
 | image.digest | string | `""` |  |
+| image.imagePullSecrets | list | `[]` |  |
 | image.pullPolicy | string | `"Always"` |  |
 | image.registry | string | `"docker.io"` |  |
 | image.repository | string | `"contribsys/faktory"` |  |

@@ -23,6 +23,7 @@ A Helm chart for Kubernetes
 | autoscaling.minReplicas | int | `1` |  |
 | autoscaling.targetCPUUtilizationPercentage | int | `80` |  |
 | fullnameOverride | string | `""` |  |
+| global.imagePullSecrets | list | `[]` |  |
 | global.ingress.className | string | `"harness"` |  |
 | global.ingress.enabled | bool | `false` |  |
 | global.ingress.hosts[0] | string | `"my-host.example.org"` |  |
@@ -34,6 +35,7 @@ A Helm chart for Kubernetes
 | global.istio.virtualService.hosts | string | `nil` |  |
 | global.loadbalancerURL | string | `"https://test"` |  |
 | image.digest | string | `""` |  |
+| image.imagePullSecrets | list | `[]` |  |
 | image.pullPolicy | string | `"IfNotPresent"` |  |
 | image.registry | string | `"docker.io"` |  |
 | image.repository | string | `"harness/ce-cloud-info-signed"` |  |

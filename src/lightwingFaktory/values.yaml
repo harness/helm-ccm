@@ -18,6 +18,8 @@ global:
     virtualService:
       gateways:
       hosts:
+  # image pull secrets to use for every image
+  imagePullSecrets: []
 replicaCount: 1
 
 image:
@@ -27,6 +29,8 @@ image:
   # Overrides the image tag whose default is the chart appVersion.
   tag: "1.6.1"
   digest: ""
+  # image pull secrets to use for faktory image
+  imagePullSecrets: []
 
 faktory:
   password:

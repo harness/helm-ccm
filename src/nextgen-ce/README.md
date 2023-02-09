@@ -37,6 +37,7 @@ A Helm chart for Kubernetes
 | cloudProviderConfig.AZURE_APP_CLIENT_ID | string | `"0211763d-24fb-4d63-865d-92f86f77e908"` |  |
 | cloudProviderConfig.GCP_PROJECT_ID | string | `"placeHolder"` |  |
 | fullnameOverride | string | `""` |  |
+| global.imagePullSecrets | list | `[]` |  |
 | global.ingress.className | string | `"harness"` |  |
 | global.ingress.enabled | bool | `false` |  |
 | global.ingress.hosts[0] | string | `"my-host.example.org"` |  |
@@ -48,11 +49,13 @@ A Helm chart for Kubernetes
 | global.istio.virtualService.hosts | string | `nil` |  |
 | global.loadbalancerURL | string | `"https://test"` |  |
 | image.digest | string | `""` |  |
+| image.imagePullSecrets | list | `[]` |  |
 | image.pullPolicy | string | `"IfNotPresent"` |  |
 | image.registry | string | `"docker.io"` |  |
 | image.repository | string | `"harness/ce-nextgen-signed"` |  |
 | image.tag | string | `"78300-000"` |  |
 | imageClickhouseEnabled.digest | string | `""` |  |
+| imageClickhouseEnabled.imagePullSecrets | list | `[]` |  |
 | imageClickhouseEnabled.pullPolicy | string | `"Always"` |  |
 | imageClickhouseEnabled.registry | string | `"docker.io"` |  |
 | imageClickhouseEnabled.repository | string | `"harness/ce-nextgen-signed"` |  |
@@ -86,6 +89,7 @@ A Helm chart for Kubernetes
 | timescaleSecret.password.name | string | `"harness-secrets"` |  |
 | tolerations | list | `[]` |  |
 | waitForInitContainer.image.digest | string | `""` |  |
+| waitForInitContainer.image.imagePullSecrets | list | `[]` |  |
 | waitForInitContainer.image.pullPolicy | string | `"IfNotPresent"` |  |
 | waitForInitContainer.image.registry | string | `"docker.io"` |  |
 | waitForInitContainer.image.repository | string | `"harness/helm-init-container"` |  |

@@ -215,6 +215,7 @@ dependencies:
 | event-service.waitForInitContainer.image.registry | string | `"docker.io"` |  |
 | event-service.waitForInitContainer.image.repository | string | `"harness/helm-init-container"` |  |
 | event-service.waitForInitContainer.image.tag | string | `"latest"` |  |
+| global.imagePullSecrets | list | `[]` |  |
 | global.istio.enabled | bool | `false` |  |
 | global.istio.gateway.create | bool | `false` |  |
 | global.istio.virtualService.gateways | string | `nil` |  |

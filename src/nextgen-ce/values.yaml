@@ -18,6 +18,8 @@ global:
     virtualService:
       gateways:
       hosts:
+  # image pull secrets to use for every image
+  imagePullSecrets: []
 
 replicaCount: 2
 
@@ -38,6 +40,8 @@ image:
   # Overrides the image tag whose default is the chart appVersion.
   tag: "78300-000"
   digest: ""
+  # image pull secrets to use for ce-nextgen image
+  imagePullSecrets: []
 
 imageClickhouseEnabled:
   registry: docker.io
@@ -46,6 +50,8 @@ imageClickhouseEnabled:
   # Overrides the image tag whose default is the chart appVersion.
   tag: "9000363-000"
   digest: ""
+  # image pull secrets to use for ce-nextgen image
+  imagePullSecrets: []
 
 waitForInitContainer:
   image:
@@ -54,6 +60,8 @@ waitForInitContainer:
     pullPolicy: IfNotPresent
     tag: "latest"
     digest: ""
+    # image pull secrets to use for helm-init-container image
+    imagePullSecrets: []
 
 mongoSecrets:
   userName:

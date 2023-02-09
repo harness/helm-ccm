@@ -18,6 +18,8 @@ global:
     virtualService:
       gateways:
       hosts:
+  # image pull secrets to use for every image
+  imagePullSecrets: []
 
 replicaCount: 1
 
@@ -32,6 +34,8 @@ image:
   # Overrides the image tag whose default is the chart appVersion.
   tag: "10100"
   digest: ""
+  # image pull secrets to use for telescopes image
+  imagePullSecrets: []
 
 waitForInitContainer:
   image:
@@ -40,6 +44,8 @@ waitForInitContainer:
     pullPolicy: IfNotPresent
     tag: "latest"
     digest: ""
+    # image pull secrets to use for helm-init-container image
+    imagePullSecrets: []
 
 nameOverride: ""
 fullnameOverride: ""

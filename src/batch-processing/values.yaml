@@ -13,6 +13,8 @@ global:
       secretName: ''
   smtpCreateSecret:
     enabled: false
+  # image pull secrets to use for every image
+  imagePullSecrets: []
 
 replicaCount: 1
 
@@ -30,6 +32,8 @@ image:
   # Overrides the image tag whose default is the chart appVersion.
   tag: "78200-000"
   digest: ""
+  # image pull secrets to use for batch-processing image
+  imagePullSecrets: []
 
 imageClickhouseEnabled:
   registry: docker.io
@@ -38,6 +42,8 @@ imageClickhouseEnabled:
   # Overrides the image tag whose default is the chart appVersion.
   tag: "80002"
   digest: ""
+  # image pull secrets to use for batch-processing image
+  imagePullSecrets: []
 
 waitForInitContainer:
   image:
