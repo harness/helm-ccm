@@ -52,16 +52,16 @@ dependencies:
 - name: lwd-faktory
   condition: global.lwd.enabled
   version: 0.1.x
-  repository: "file://lightwingFaktory"
+  repository: "file://../lightwingFaktory"
 - name: lwd
   condition: global.lwd.enabled
   version: 0.1.x
-  repository: "file://lightwingAPI"
+  repository: "file://../lightwingAPI"
 - name: lwd-worker
   condition: global.lwd.enabled
   version: 0.1.x
-  repository: "file://lightwingFaktoryWorker"
+  repository: "file://../lightwingFaktoryWorker"
 - name: lwd-autocud
   condition: global.lwd.enabled
   version: 0.1.x
-  repository: "file://lightwingAutocud"
+  repository: "file://../lightwingAutocud"
