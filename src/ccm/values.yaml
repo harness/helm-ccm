@@ -875,7 +875,6 @@ clickhouse:
     </clickhouse>
   replicaCount: 1
   shards: 1
-
   zookeeper:
     enabled: true
     fullnameOverride: "clickhouse-zookeeper"

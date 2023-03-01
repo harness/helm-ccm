@@ -18,7 +18,7 @@ global:
     virtualService:
       gateways:
       hosts:
-  # image pull secrets to use for every image
+# image pull secrets to use for every image
   imagePullSecrets: []
 
 replicaCount: 1
@@ -31,10 +31,10 @@ image:
   registry: docker.io
   repository: harness/telescopes-signed
   pullPolicy: IfNotPresent
-  # Overrides the image tag whose default is the chart appVersion.
+# Overrides the image tag whose default is the chart appVersion.
   tag: "10100"
   digest: ""
-  # image pull secrets to use for telescopes image
+# image pull secrets to use for telescopes image
   imagePullSecrets: []
 
 waitForInitContainer:
@@ -44,7 +44,7 @@ waitForInitContainer:
     pullPolicy: IfNotPresent
     tag: "latest"
     digest: ""
-    # image pull secrets to use for helm-init-container image
+  # image pull secrets to use for helm-init-container image
     imagePullSecrets: []
 
 nameOverride: ""
@@ -73,7 +73,7 @@ autoscaling:
   minReplicas: 1
   maxReplicas: 2
   targetCPUUtilizationPercentage: 80
-  # targetMemoryUtilizationPercentage: 80
+# targetMemoryUtilizationPercentage: 80
 
 nodeSelector: {}
 

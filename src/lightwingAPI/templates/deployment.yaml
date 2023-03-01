@@ -50,7 +50,7 @@ spec:
         args:
           - "pod"
           - "-lapp=lwd-migrate"
-      #nextgen-ce should take care of ng-manager, access-control, cg-manager, redis
+    #nextgen-ce should take care of ng-manager, access-control, cg-manager, redis
       - name: wait-for-nextgen-ce
         image: {{ include "common.images.image" (dict "imageRoot" .Values.waitForInitContainer.image "global" .Values.global) }}
         imagePullPolicy: IfNotPresent

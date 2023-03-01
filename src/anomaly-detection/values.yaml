@@ -11,7 +11,7 @@ global:
     tls:
       enabled: true
       secretName: ''
-  # image pull secrets to use for every image
+# image pull secrets to use for every image
   imagePullSecrets: []
 
 replicaCount: 2
@@ -28,10 +28,10 @@ image:
   registry: docker.io
   repository: harness/ce-anomaly-detection-signed
   pullPolicy: IfNotPresent
-  # Overrides the image tag whose default is the chart appVersion.
+# Overrides the image tag whose default is the chart appVersion.
   tag: "12"
   digest: ""
-  # image pull secrets to use for ce-anomaly-detection image
+# image pull secrets to use for ce-anomaly-detection image
   imagePullSecrets: []
 
 nameOverride: ""
