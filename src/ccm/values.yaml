@@ -8,7 +8,7 @@ global:
     virtualService:
       gateways:
       hosts:
-# image pull secrets to use for every image
+  # image pull secrets to use for every image
   imagePullSecrets: []
 
 anomaly-detection:
@@ -22,7 +22,7 @@ anomaly-detection:
     registry: docker.io
     repository: harness/ce-anomaly-detection-signed
     pullPolicy: IfNotPresent
-  # Overrides the image tag whose default is the chart appVersion.
+    # Overrides the image tag whose default is the chart appVersion.
     tag: "12"
     digest: ""
   nameOverride: ""
@@ -65,14 +65,14 @@ batch-processing:
     registry: docker.io
     repository: harness/batch-processing-signed
     pullPolicy: Always
-  # Overrides the image tag whose default is the chart appVersion.
+    # Overrides the image tag whose default is the chart appVersion.
     tag: "78200-000"
     digest: ""
   imageClickhouseEnabled:
     registry: docker.io
     repository: harness/batch-processing-signed
     pullPolicy: Always
-  # Overrides the image tag whose default is the chart appVersion.
+    # Overrides the image tag whose default is the chart appVersion.
     tag: "80002"
     digest: ""
   waitForInitContainer:
@@ -120,7 +120,7 @@ batch-processing:
     minReplicas: 1
     maxReplicas: 2
     targetCPUUtilizationPercentage: 80
-  # targetMemoryUtilizationPercentage: 80
+    # targetMemoryUtilizationPercentage: 80
   nodeSelector: {}
   tolerations: []
   affinity: {}
@@ -158,7 +158,7 @@ cloud-info:
     registry: docker.io
     repository: harness/ce-cloud-info-signed
     pullPolicy: IfNotPresent
-  # Overrides the image tag whose default is the chart appVersion.
+    # Overrides the image tag whose default is the chart appVersion.
     tag: "0.19.0"
     digest: ""
   nameOverride: ""
@@ -181,7 +181,7 @@ cloud-info:
     minReplicas: 1
     maxReplicas: 2
     targetCPUUtilizationPercentage: 80
-  # targetMemoryUtilizationPercentage: 80
+    # targetMemoryUtilizationPercentage: 80
   nodeSelector: {}
   tolerations: []
   affinity: {}
@@ -206,7 +206,7 @@ event-service:
     registry: docker.io
     repository: harness/event-service-signed
     pullPolicy: Always
-  # Overrides the image tag whose default is the chart appVersion.
+    # Overrides the image tag whose default is the chart appVersion.
     tag: "77317"
     digest: ""
   waitForInitContainer:
@@ -238,23 +238,23 @@ event-service:
   redislabsCATruststore: "test"
   defaultInternalImageConnector: "test"
   serviceAccount:
-  # Specifies whether a service account should be created
+    # Specifies whether a service account should be created
     create: false
-  # Annotations to add to the service account
+    # Annotations to add to the service account
     annotations: {}
-  # The name of the service account to use.
-  # If not set and create is true, a name is generated using the fullname template
+    # The name of the service account to use.
+    # If not set and create is true, a name is generated using the fullname template
     name: "harness-default"
   podAnnotations: {}
   podSecurityContext: {}
-  # fsGroup: 2000
+    # fsGroup: 2000
   securityContext: {}
-  # capabilities:
-  #   drop:
-  #   - ALL
-  # readOnlyRootFilesystem: true
-  # runAsNonRoot: true
-  # runAsUser: 1000
+    # capabilities:
+    #   drop:
+    #   - ALL
+    # readOnlyRootFilesystem: true
+    # runAsNonRoot: true
+    # runAsUser: 1000
   service:
     type: ClusterIP
     port: 7280
@@ -273,7 +273,7 @@ event-service:
     minReplicas: 1
     maxReplicas: 2
     targetCPUUtilizationPercentage: 80
-  # targetMemoryUtilizationPercentage: 80
+    # targetMemoryUtilizationPercentage: 80
   nodeSelector: {}
   tolerations: []
   affinity: {}
@@ -424,7 +424,7 @@ lwd-faktory:
     registry: docker.io
     repository: contribsys/faktory
     pullPolicy: Always
-  # Overrides the image tag whose default is the chart appVersion.
+    # Overrides the image tag whose default is the chart appVersion.
     tag: "1.6.1"
     digest: ""
   faktory:
@@ -552,14 +552,14 @@ nextgen-ce:
     registry: docker.io
     repository: harness/ce-nextgen-signed
     pullPolicy: IfNotPresent
-  # Overrides the image tag whose default is the chart appVersion.
+    # Overrides the image tag whose default is the chart appVersion.
     tag: "78300-000"
     digest: ""
   imageClickhouseEnabled:
     registry: docker.io
     repository: harness/ce-nextgen-signed
     pullPolicy: Always
-  # Overrides the image tag whose default is the chart appVersion.
+    # Overrides the image tag whose default is the chart appVersion.
     tag: "9000363-000"
     digest: ""
   waitForInitContainer:
@@ -607,7 +607,7 @@ nextgen-ce:
     minReplicas: 1
     maxReplicas: 2
     targetCPUUtilizationPercentage: 80
-  # targetMemoryUtilizationPercentage: 80
+    # targetMemoryUtilizationPercentage: 80
   nodeSelector: {}
   tolerations: []
   affinity: {}
@@ -639,7 +639,7 @@ ng-ce-ui:
     registry: docker.io
     repository: harness/ng-ce-ui
     pullPolicy: Always
-  # Overrides the image tag whose default is the chart appVersion.
+    # Overrides the image tag whose default is the chart appVersion.
     tag: "0.23.8"
     digest: ""
   nameOverride: ""
@@ -682,7 +682,7 @@ telescopes:
     registry: docker.io
     repository: harness/telescopes-signed
     pullPolicy: IfNotPresent
-  # Overrides the image tag whose default is the chart appVersion.
+    # Overrides the image tag whose default is the chart appVersion.
     tag: "10100"
     digest: ""
   waitForInitContainer:
@@ -711,7 +711,7 @@ telescopes:
     minReplicas: 1
     maxReplicas: 2
     targetCPUUtilizationPercentage: 80
-  # targetMemoryUtilizationPercentage: 80
+    # targetMemoryUtilizationPercentage: 80
   nodeSelector: {}
   tolerations: []
   affinity: {}
@@ -875,7 +875,6 @@ clickhouse:
     </clickhouse>
   replicaCount: 1
   shards: 1
-
   zookeeper:
     enabled: true
     fullnameOverride: "clickhouse-zookeeper"
