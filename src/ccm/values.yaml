@@ -10,6 +10,8 @@ global:
       hosts:
   # image pull secrets to use for every image
   imagePullSecrets: []
+  lwd:
+    enabled: false
 
 anomaly-detection:
   replicaCount: 2
