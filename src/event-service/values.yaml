@@ -18,7 +18,7 @@ global:
     virtualService:
       gateways:
       hosts:
-  # image pull secrets to use for every image
+# image pull secrets to use for every image
   imagePullSecrets: []
 
 replicaCount: 2
@@ -36,10 +36,10 @@ image:
   registry: docker.io
   repository: harness/event-service-signed
   pullPolicy: Always
-  # Overrides the image tag whose default is the chart appVersion.
+# Overrides the image tag whose default is the chart appVersion.
   tag: "77317"
   digest: ""
-  # image pull secrets to use for event-service image
+# image pull secrets to use for event-service image
   imagePullSecrets: []
 
 waitForInitContainer:
@@ -49,7 +49,7 @@ waitForInitContainer:
     pullPolicy: IfNotPresent
     tag: "latest"
     digest: ""
-    # image pull secrets to use for helm-init-container image
+# image pull secrets to use for helm-init-container image
     imagePullSecrets: []
 
 eventSvcServiceAccounts:
@@ -81,26 +81,26 @@ redislabsCATruststore: "test"
 defaultInternalImageConnector: "test"
 
 serviceAccount:
-  # Specifies whether a service account should be created
+# Specifies whether a service account should be created
   create: false
-  # Annotations to add to the service account
+# Annotations to add to the service account
   annotations: {}
-  # The name of the service account to use.
-  # If not set and create is true, a name is generated using the fullname template
+# The name of the service account to use.
+# If not set and create is true, a name is generated using the fullname template
   name: "harness-default"
 
 podAnnotations: {}
 
 podSecurityContext: {}
-  # fsGroup: 2000
+# fsGroup: 2000
 
 securityContext: {}
-  # capabilities:
-  #   drop:
-  #   - ALL
-  # readOnlyRootFilesystem: true
-  # runAsNonRoot: true
-  # runAsUser: 1000
+# capabilities:
+#   drop:
+#   - ALL
+# readOnlyRootFilesystem: true
+# runAsNonRoot: true
+# runAsUser: 1000
 
 service:
   type: ClusterIP
@@ -123,7 +123,7 @@ autoscaling:
   minReplicas: 1
   maxReplicas: 2
   targetCPUUtilizationPercentage: 80
-  # targetMemoryUtilizationPercentage: 80
+# targetMemoryUtilizationPercentage: 80
 
 nodeSelector: {}
 

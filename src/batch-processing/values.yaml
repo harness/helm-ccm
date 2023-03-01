@@ -13,7 +13,7 @@ global:
       secretName: ''
   smtpCreateSecret:
     enabled: false
-  # image pull secrets to use for every image
+# image pull secrets to use for every image
   imagePullSecrets: []
 
 replicaCount: 1
@@ -29,20 +29,20 @@ image:
   registry: docker.io
   repository: harness/batch-processing-signed
   pullPolicy: Always
-  # Overrides the image tag whose default is the chart appVersion.
+# Overrides the image tag whose default is the chart appVersion.
   tag: "78200-000"
   digest: ""
-  # image pull secrets to use for batch-processing image
+# image pull secrets to use for batch-processing image
   imagePullSecrets: []
 
 imageClickhouseEnabled:
   registry: docker.io
   repository: harness/batch-processing-signed
   pullPolicy: Always
-  # Overrides the image tag whose default is the chart appVersion.
+# Overrides the image tag whose default is the chart appVersion.
   tag: "80002"
   digest: ""
-  # image pull secrets to use for batch-processing image
+# image pull secrets to use for batch-processing image
   imagePullSecrets: []
 
 waitForInitContainer:
@@ -104,7 +104,7 @@ autoscaling:
   minReplicas: 1
   maxReplicas: 2
   targetCPUUtilizationPercentage: 80
-  # targetMemoryUtilizationPercentage: 80
+# targetMemoryUtilizationPercentage: 80
 
 nodeSelector: {}
 

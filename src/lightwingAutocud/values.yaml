@@ -18,7 +18,7 @@ global:
     virtualService:
       gateways:
       hosts:
-  # image pull secrets to use for every image
+# image pull secrets to use for every image
   imagePullSecrets: []
 replicaCount: 2
 
@@ -36,7 +36,7 @@ image:
   pullPolicy: IfNotPresent
   tag: "main-1.1.564"
   digest: ""
-  # image pull secrets to use for lightwing image
+# image pull secrets to use for lightwing image
   imagePullSecrets: []
 
 waitForInitContainer:
@@ -46,7 +46,7 @@ waitForInitContainer:
     pullPolicy: IfNotPresent
     tag: "latest"
     digest: ""
-    # image pull secrets to use for lightwing image
+  # image pull secrets to use for lightwing image
     imagePullSecrets: []
 
 postgresPassword:

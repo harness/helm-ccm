@@ -18,7 +18,7 @@ global:
     virtualService:
       gateways:
       hosts:
-  # image pull secrets to use for every image
+# image pull secrets to use for every image
   imagePullSecrets: []
 replicaCount: 1
 
@@ -26,10 +26,10 @@ image:
   registry: docker.io
   repository: contribsys/faktory
   pullPolicy: Always
-  # Overrides the image tag whose default is the chart appVersion.
+# Overrides the image tag whose default is the chart appVersion.
   tag: "1.6.1"
   digest: ""
-  # image pull secrets to use for faktory image
+# image pull secrets to use for faktory image
   imagePullSecrets: []
 
 faktory:

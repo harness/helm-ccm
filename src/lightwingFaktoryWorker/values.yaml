@@ -11,7 +11,7 @@ global:
     tls:
       enabled: true
       secretName: ''
-  # image pull secrets to use for every image
+# image pull secrets to use for every image
   imagePullSecrets: []
 
 replicaCount: 3
@@ -30,7 +30,7 @@ image:
   pullPolicy: IfNotPresent
   tag: "main-1.1.791"
   digest: ""
-  # image pull secrets to use for lightwing image
+# image pull secrets to use for lightwing image
   imagePullSecrets: []
 
 waitForInitContainer:
@@ -40,7 +40,7 @@ waitForInitContainer:
     pullPolicy: IfNotPresent
     tag: "latest"
     digest: ""
-    # image pull secrets to use for helm-init-container image
+  # image pull secrets to use for helm-init-container image
     imagePullSecrets: []
 
 postgresPassword:
