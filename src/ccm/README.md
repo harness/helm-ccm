@@ -2,7 +2,7 @@
 
 A Helm chart for Harness Cloud Cost Management (CCM) module
 
-![Version: 0.3.22](https://img.shields.io/badge/Version-0.3.22-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square) ![AppVersion: 1.546.0](https://img.shields.io/badge/AppVersion-1.546.0-informational?style=flat-square)
+![Version: 0.4.0](https://img.shields.io/badge/Version-0.4.0-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square) ![AppVersion: 1.546.0](https://img.shields.io/badge/AppVersion-1.546.0-informational?style=flat-square)
 
 ## Usage
 
@@ -12,7 +12,7 @@ Use the following dependency to add this chart repository to your Helm installat
 dependencies:
     - name: ccm
       repository: https://harness.github.io/helm-ccm
-      version: 0.3.22
+      version: 0.4.0
 ```
 
 ## Values
@@ -215,6 +215,7 @@ dependencies:
 | event-service.waitForInitContainer.image.registry | string | `"docker.io"` |  |
 | event-service.waitForInitContainer.image.repository | string | `"harness/helm-init-container"` |  |
 | event-service.waitForInitContainer.image.tag | string | `"latest"` |  |
+| global.imagePullSecrets | list | `[]` |  |
 | global.istio.enabled | bool | `false` |  |
 | global.istio.gateway.create | bool | `false` |  |
 | global.istio.virtualService.gateways | string | `nil` |  |

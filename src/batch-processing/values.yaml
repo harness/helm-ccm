@@ -1,0 +1,139 @@
+# Default values for batch-processing
+# This is a YAML-formatted file.
+# Declare variables to be passed into your templates.
+global:
+  loadbalancerURL: "https://test"
+  ingress:
+    enabled: false
+    className: harness
+    hosts:
+      - my-host.example.org
+    tls:
+      enabled: true
+      secretName: ''
+  smtpCreateSecret:
+    enabled: false
+  # image pull secrets to use for every image
+  imagePullSecrets: []
+
+replicaCount: 1
+
+isolatedReplica: 0
+
+stackDriverLoggingEnabled: false
+
+java:
+  memory: "7168"
+
+image:
+  registry: docker.io
+  repository: harness/batch-processing-signed
+  pullPolicy: Always
+  # Overrides the image tag whose default is the chart appVersion.
+  tag: "78200-000"
+  digest: ""
+  # image pull secrets to use for batch-processing image
+  imagePullSecrets: []
+
+imageClickhouseEnabled:
+  registry: docker.io
+  repository: harness/batch-processing-signed
+  pullPolicy: Always
+  # Overrides the image tag whose default is the chart appVersion.
+  tag: "80002"
+  digest: ""
+  # image pull secrets to use for batch-processing image
+  imagePullSecrets: []
+
+waitForInitContainer:
+  image:
+    registry: docker.io
+    repository: harness/helm-init-container
+    pullPolicy: IfNotPresent
+    tag: "latest"
+    digest: ""
+
+mongoSecrets:
+  userName:
+    name: harness-secrets
+    key: mongodbUsername
+  password:
+    name: mongodb-replicaset-chart
+    key: mongodb-root-password
+
+timescaleSecret:
+  password:
+    name: harness-secrets
+    key: timescaledbPostgresPassword
+
+smtp:
+  host: ""
+  password: ""
+  user: ""
+
+ceBatchGCPCredentials: ""
+
+ceGCPHomeProjectCreds: ""
+
+storageObjectAdmin: ""
+
+awsSecret:
+  S3_SYNC_CONFIG_ACCESSKEY: ""
+  S3_SYNC_CONFIG_SECRETKEY: ""
+
+nameOverride: ""
+fullnameOverride: ""
+
+serviceAccount:
+  create: false
+  annotations: {}
+  name: "harness-default"
+
+podAnnotations: {}
+
+podSecurityContext: {}
+
+securityContext: {}
+
+service:
+  type: ClusterIP
+  port: 6340
+
+autoscaling:
+  enabled: false
+  minReplicas: 1
+  maxReplicas: 2
+  targetCPUUtilizationPercentage: 80
+  # targetMemoryUtilizationPercentage: 80
+
+nodeSelector: {}
+
+tolerations: []
+
+affinity: {}
+
+cloudProviderConfig:
+  GCP_PROJECT_ID: "placeHolder"
+  DATA_PIPELINE_CONFIG_GCS_BASE_PATH: "gs://awscustomerbillingdata-onprem"
+  CLUSTER_DATA_GCS_BUCKET: "clusterdata-onprem"
+  CLUSTER_DATA_GCS_BACKUP_BUCKET: "clusterdata-onprem-backup"
+  S3_SYNC_CONFIG_BUCKET_NAME: "ccm-service-data-bucket"
+  S3_SYNC_CONFIG_REGION: "us-east-1"
+
+awsAccountTagsCollectionJobConfig:
+  enabled: true
+
+clickhouse:
+  enabled: false
+  username: "default"
+  password:
+    name: clickhouse
+    key: admin-password
+
+resources:
+  limits:
+    cpu: "1024m"
+    memory: "10Gi"
+  requests:
+    cpu: "1024m"
+    memory: "10Gi"
