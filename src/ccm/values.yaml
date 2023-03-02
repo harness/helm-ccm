@@ -324,6 +324,9 @@ lwd:
   azure:
     clientId: ""
   redisUrl: "redis://localhost:6379"
+  useSentinel: true
+  redisMaster: "harness-redis"
+  redisSentinelAddrs: "redis-sentinel-harness-announce-0.{{ .Release.Namespace }}:26379,redis://redis-sentinel-harness-announce-1.{{ .Release.Namespace }}:26379,redis://redis-sentinel-harness-announce-2.{{ .Release.Namespace  }}:26379"
   nameOverride: ""
   fullnameOverride: ""
   serviceAccount:
@@ -394,6 +397,9 @@ lwd-autocud:
   azure:
     clientId: ""
   redisUrl: "redis://localhost:6379"
+  useSentinel: true
+  redisMaster: "harness-redis"
+  redisSentinelAddrs: "redis-sentinel-harness-announce-0.{{ .Release.Namespace }}:26379,redis://redis-sentinel-harness-announce-1.{{ .Release.Namespace }}:26379,redis://redis-sentinel-harness-announce-2.{{ .Release.Namespace  }}:26379"
   nameOverride: ""
   fullnameOverride: ""
   serviceAccount:
@@ -516,6 +522,9 @@ lwd-worker:
   azure:
     clientId: ""
   redisUrl: "redis://localhost:6379"
+  useSentinel: true
+  redisMaster: "harness-redis"
+  redisSentinelAddrs: "redis-sentinel-harness-announce-0.{{ .Release.Namespace }}:26379,redis://redis-sentinel-harness-announce-1.{{ .Release.Namespace }}:26379,redis://redis-sentinel-harness-announce-2.{{ .Release.Namespace  }}:26379"
   nameOverride: ""
   fullnameOverride: ""
   serviceAccount:
