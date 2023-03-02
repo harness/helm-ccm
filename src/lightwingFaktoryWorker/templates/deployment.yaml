@@ -31,13 +31,6 @@ spec:
       serviceAccountName: {{ include "lwd-worker.serviceAccountName" . }}
       securityContext:
         {{- toYaml .Values.podSecurityContext | nindent 8 }}
-      initContainers:
-      - name: wait-for-lwd
-        image: {{ include "common.images.image" (dict "imageRoot" .Values.waitForInitContainer.image "global" .Values.global) }}
-        imagePullPolicy: IfNotPresent
-        args:
-          - "pod"
-          - "-lapp=lwd"
       containers:
         - name: lwd-worker
           securityContext:
@@ -57,6 +50,12 @@ spec:
           env:
             - name: LIGHTWING_CACHE_ADDR
               value: {{ .Values.redisUrl }}
+            - name: LIGHTWING_CACHE_SENTINEL
+              value: {{ .Values.useSentinel }}
+            - name: LIGHTWING_CACHE_REDIS_MASTER
+              value: {{ .Values.redisMaster }}
+            - name: LIGHTWING_CACHE_SENTINEL_ADDRS
+              value: {{ .Values.redisSentinelAddrs }}
             - name: LIGHTWING_CLOUD-CONNECTOR_TYPE
               value: "harness"
             - name: LIGHTWING_CLOUD-CONNECTOR_REMOTE_HOST
