@@ -35,5 +35,5 @@ dependencies:
 - name: lwd-autocud
   repository: file://../lightwingAutocud
   version: 0.1.1
-digest: sha256:1ea7812f771be0f67d2f5334ee70bb5403f5acd1e9da0d17d87f3c2c3bd81785
-generated: "2023-03-01T18:09:56.622715+05:30"
+digest: sha256:1043459d2ebce6291fd89ac157e6e4684353d5551ad2d4c811e21813af0754d7
+generated: "2023-03-02T09:32:00.111517+05:30"

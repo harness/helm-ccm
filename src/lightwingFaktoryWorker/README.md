@@ -38,7 +38,7 @@ A Helm chart for Kubernetes
 | image.pullPolicy | string | `"IfNotPresent"` |  |
 | image.registry | string | `"docker.io"` |  |
 | image.repository | string | `"harness/lightwing-signed"` |  |
-| image.tag | string | `"main-1.1.791"` |  |
+| image.tag | string | `"main-1.1.1117"` |  |
 | ingress.className | string | `"nginx"` |  |
 | java.memory | string | `"4096m"` |  |
 | java.memoryLimit | string | `"4096m"` |  |

@@ -49,6 +49,9 @@ spec:
               port: 8000
             initialDelaySeconds: 60
             periodSeconds: 10
+          env:
+          - name: USE_WORKLOAD_IDENTITY
+            value: {{ .Values.workloadIdentity.enabled | quote }}
           volumeMounts:
           - name: secret-mount
             mountPath: /config
