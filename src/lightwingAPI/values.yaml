@@ -34,7 +34,7 @@ image:
   registry: docker.io
   repository: harness/lightwing-signed
   pullPolicy: IfNotPresent
-  tag: "main-1.1.791"
+  tag: "main-1.1.1117"
   digest: ""
 # image pull secrets to use for lightwing image
   imagePullSecrets: []

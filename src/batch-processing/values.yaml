@@ -130,6 +130,9 @@ clickhouse:
     name: clickhouse
     key: admin-password
 
+workloadIdentity:
+  enabled: "false"
+
 resources:
   limits:
     cpu: "1024m"

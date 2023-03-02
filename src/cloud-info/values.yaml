@@ -80,6 +80,9 @@ CLOUD_INFO_GCP_CREDS: ""
 
 CLOUD_INFO_CONFIG: ""
 
+workloadIdentity:
+  enabled: "false"
+
 resources:
   limits:
     cpu: "2048m"

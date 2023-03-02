@@ -12,6 +12,8 @@ global:
   imagePullSecrets: []
   lwd:
     enabled: false
+    autocud:
+      enabled: false
 
 anomaly-detection:
   replicaCount: 2
@@ -141,6 +143,8 @@ batch-processing:
     password:
       name: clickhouse
       key: admin-password
+  workloadIdentity:
+    enabled: "false"
   resources:
     limits:
       cpu: "1024m"
@@ -189,6 +193,8 @@ cloud-info:
   affinity: {}
   CLOUD_INFO_GCP_CREDS: ""
   CLOUD_INFO_CONFIG: ""
+  workloadIdentity:
+    enabled: "false"
   resources:
     limits:
       cpu: "2048m"
@@ -625,6 +631,8 @@ nextgen-ce:
     password:
       name: clickhouse
       key: admin-password
+  workloadIdentity:
+    enabled: "false"
   resources:
     limits:
       cpu: 2
