@@ -1,7 +1,7 @@
 dependencies:
 - name: nextgen-ce
   repository: file://../nextgen-ce
-  version: 0.1.15
+  version: 0.1.16
 - name: event-service
   repository: file://../event-service
   version: 0.1.4
@@ -10,13 +10,13 @@ dependencies:
   version: 0.1.8
 - name: cloud-info
   repository: file://../cloud-info
-  version: 0.1.15
+  version: 0.1.16
 - name: telescopes
   repository: file://../telescopes
   version: 0.1.12
 - name: batch-processing
   repository: file://../batch-processing
-  version: 0.1.10
+  version: 0.1.11
 - name: ng-ce-ui
   repository: file://../ng-ce-ui
   version: 0.1.0
@@ -28,12 +28,12 @@ dependencies:
   version: 0.1.6
 - name: lwd
   repository: file://../lightwingAPI
-  version: 0.1.6
+  version: 0.1.7
 - name: lwd-worker
   repository: file://../lightwingFaktoryWorker
-  version: 0.1.3
+  version: 0.1.4
 - name: lwd-autocud
   repository: file://../lightwingAutocud
   version: 0.1.1
-digest: sha256:1043459d2ebce6291fd89ac157e6e4684353d5551ad2d4c811e21813af0754d7
-generated: "2023-03-02T09:32:00.111517+05:30"
+digest: sha256:c8c64824792118f346f5600193b280a48d1e49a170ad43bf2fa47c9445cafc94
+generated: "2023-03-02T09:42:45.199402+05:30"
