@@ -65,9 +65,10 @@ aws:
 azure:
   clientId: ""
 
-redisUrl: "redis://localhost:6379"
-useSentinel: "true"
-redisMaster: "harness-redis"
+redis:
+  redisUrl: "redis://localhost:6379"
+  useSentinel: "true"
+  redisMaster: "harness-redis"
 
 nameOverride: ""
 fullnameOverride: ""

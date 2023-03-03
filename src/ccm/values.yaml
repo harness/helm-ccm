@@ -297,7 +297,7 @@ lwd:
     registry: docker.io
     repository: harness/lightwing-signed
     pullPolicy: IfNotPresent
-    tag: "main-1.1.791"
+    tag: "main-1.1.1117"
     digest: ""
   waitForInitContainer:
     image:
@@ -323,9 +323,10 @@ lwd:
     region: "us-east-1"
   azure:
     clientId: ""
-  redisUrl: "redis://localhost:6379"
-  useSentinel: true
-  redisMaster: "harness-redis"
+  redis:
+    redisUrl: "redis://localhost:6379"
+    useSentinel: "true"
+    redisMaster: "harness-redis"
   nameOverride: ""
   fullnameOverride: ""
   serviceAccount:
@@ -395,9 +396,10 @@ lwd-autocud:
     region: "us-east-1"
   azure:
     clientId: ""
-  redisUrl: "redis://localhost:6379"
-  useSentinel: true
-  redisMaster: "harness-redis"
+  redis:
+    redisUrl: "redis://localhost:6379"
+    useSentinel: "true"
+    redisMaster: "harness-redis"
   nameOverride: ""
   fullnameOverride: ""
   serviceAccount:
@@ -493,7 +495,7 @@ lwd-worker:
     registry: docker.io
     repository: harness/lightwing-signed
     pullPolicy: IfNotPresent
-    tag: "main-1.1.791"
+    tag: "main-1.1.1117"
     digest: ""
   waitForInitContainer:
     image:
@@ -519,9 +521,10 @@ lwd-worker:
     region: "us-east-1"
   azure:
     clientId: ""
-  redisUrl: "redis://localhost:6379"
-  useSentinel: true
-  redisMaster: "harness-redis"
+  redis:
+    redisUrl: "redis://localhost:6379"
+    useSentinel: true
+    redisMaster: "harness-redis"
   nameOverride: ""
   fullnameOverride: ""
   serviceAccount:
