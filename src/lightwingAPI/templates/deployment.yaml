@@ -76,7 +76,7 @@ spec:
             - name: LIGHTWING_CACHE_REDIS_MASTER
               value: {{ .Values.redisMaster }}
             - name: LIGHTWING_CACHE_SENTINEL_ADDRS
-              value: {{ .Values.redisSentinelAddrs }}
+              value: "redis-sentinel-harness-announce-0.{{ .Release.Namespace }}:26379,redis://redis-sentinel-harness-announce-1.{{ .Release.Namespace }}:26379,redis://redis-sentinel-harness-announce-2.{{ .Release.Namespace  }}:26379"
             - name: LIGHTWING_CLOUD-CONNECTOR_TYPE
               value: "harness"
             - name: LIGHTWING_CLOUD-CONNECTOR_REMOTE_HOST
