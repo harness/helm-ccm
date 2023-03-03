@@ -2,7 +2,7 @@
 
 A Helm chart for Harness Cloud Cost Management (CCM) module
 
-![Version: 0.4.8](https://img.shields.io/badge/Version-0.4.8-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square) ![AppVersion: 1.546.0](https://img.shields.io/badge/AppVersion-1.546.0-informational?style=flat-square)
+![Version: 0.4.9](https://img.shields.io/badge/Version-0.4.9-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square) ![AppVersion: 1.546.0](https://img.shields.io/badge/AppVersion-1.546.0-informational?style=flat-square)
 
 ## Usage
 
@@ -12,7 +12,7 @@ Use the following dependency to add this chart repository to your Helm installat
 dependencies:
     - name: ccm
       repository: https://harness.github.io/helm-ccm
-      version: 0.4.8
+      version: 0.4.9
 ```
 
 ## Values
@@ -260,9 +260,9 @@ dependencies:
 | lwd-autocud.podSecurityContext | object | `{}` |  |
 | lwd-autocud.postgresPassword.key | string | `"postgres-password"` |  |
 | lwd-autocud.postgresPassword.name | string | `"postgres"` |  |
-| lwd-autocud.redisMaster | string | `"harness-redis"` |  |
-| lwd-autocud.redisSentinelAddrs | string | `"redis-sentinel-harness-announce-0.{{ .Release.Namespace }}:26379,redis://redis-sentinel-harness-announce-1.{{ .Release.Namespace }}:26379,redis://redis-sentinel-harness-announce-2.{{ .Release.Namespace  }}:26379"` |  |
-| lwd-autocud.redisUrl | string | `"redis://localhost:6379"` |  |
+| lwd-autocud.redis.redisMaster | string | `"harness-redis"` |  |
+| lwd-autocud.redis.redisUrl | string | `"redis://localhost:6379"` |  |
+| lwd-autocud.redis.useSentinel | string | `"true"` |  |
 | lwd-autocud.replicaCount | int | `2` |  |
 | lwd-autocud.resources.limits.cpu | int | `2` |  |
 | lwd-autocud.resources.limits.memory | string | `"4Gi"` |  |
@@ -275,7 +275,6 @@ dependencies:
 | lwd-autocud.serviceAccount.create | bool | `false` |  |
 | lwd-autocud.serviceAccount.name | string | `"harness-default"` |  |
 | lwd-autocud.tolerations | list | `[]` |  |
-| lwd-autocud.useSentinel | bool | `true` |  |
 | lwd-autocud.waitForInitContainer.image.digest | string | `""` |  |
 | lwd-autocud.waitForInitContainer.image.pullPolicy | string | `"IfNotPresent"` |  |
 | lwd-autocud.waitForInitContainer.image.registry | string | `"docker.io"` |  |
@@ -331,7 +330,7 @@ dependencies:
 | lwd-worker.image.pullPolicy | string | `"IfNotPresent"` |  |
 | lwd-worker.image.registry | string | `"docker.io"` |  |
 | lwd-worker.image.repository | string | `"harness/lightwing-signed"` |  |
-| lwd-worker.image.tag | string | `"main-1.1.791"` |  |
+| lwd-worker.image.tag | string | `"main-1.1.1117"` |  |
 | lwd-worker.ingress.className | string | `"nginx"` |  |
 | lwd-worker.java.memory | string | `"4096m"` |  |
 | lwd-worker.java.memoryLimit | string | `"4096m"` |  |
@@ -351,9 +350,9 @@ dependencies:
 | lwd-worker.podSecurityContext | object | `{}` |  |
 | lwd-worker.postgresPassword.key | string | `"postgres-password"` |  |
 | lwd-worker.postgresPassword.name | string | `"postgres"` |  |
-| lwd-worker.redisMaster | string | `"harness-redis"` |  |
-| lwd-worker.redisSentinelAddrs | string | `"redis-sentinel-harness-announce-0.{{ .Release.Namespace }}:26379,redis://redis-sentinel-harness-announce-1.{{ .Release.Namespace }}:26379,redis://redis-sentinel-harness-announce-2.{{ .Release.Namespace  }}:26379"` |  |
-| lwd-worker.redisUrl | string | `"redis://localhost:6379"` |  |
+| lwd-worker.redis.redisMaster | string | `"harness-redis"` |  |
+| lwd-worker.redis.redisUrl | string | `"redis://localhost:6379"` |  |
+| lwd-worker.redis.useSentinel | bool | `true` |  |
 | lwd-worker.replicaCount | int | `3` |  |
 | lwd-worker.resources.limits.cpu | int | `2` |  |
 | lwd-worker.resources.limits.memory | string | `"4Gi"` |  |
@@ -366,7 +365,6 @@ dependencies:
 | lwd-worker.serviceAccount.create | bool | `false` |  |
 | lwd-worker.serviceAccount.name | string | `"harness-default"` |  |
 | lwd-worker.tolerations | list | `[]` |  |
-| lwd-worker.useSentinel | bool | `true` |  |
 | lwd-worker.waitForInitContainer.image.digest | string | `""` |  |
 | lwd-worker.waitForInitContainer.image.pullPolicy | string | `"IfNotPresent"` |  |
 | lwd-worker.waitForInitContainer.image.registry | string | `"docker.io"` |  |
@@ -387,7 +385,7 @@ dependencies:
 | lwd.image.pullPolicy | string | `"IfNotPresent"` |  |
 | lwd.image.registry | string | `"docker.io"` |  |
 | lwd.image.repository | string | `"harness/lightwing-signed"` |  |
-| lwd.image.tag | string | `"main-1.1.791"` |  |
+| lwd.image.tag | string | `"main-1.1.1117"` |  |
 | lwd.ingress.className | string | `"nginx"` |  |
 | lwd.java.memory | string | `"4096m"` |  |
 | lwd.java.memoryLimit | string | `"4096m"` |  |
@@ -407,9 +405,9 @@ dependencies:
 | lwd.podSecurityContext | object | `{}` |  |
 | lwd.postgresPassword.key | string | `"postgres-password"` |  |
 | lwd.postgresPassword.name | string | `"postgres"` |  |
-| lwd.redisMaster | string | `"harness-redis"` |  |
-| lwd.redisSentinelAddrs | string | `"redis-sentinel-harness-announce-0.{{ .Release.Namespace }}:26379,redis://redis-sentinel-harness-announce-1.{{ .Release.Namespace }}:26379,redis://redis-sentinel-harness-announce-2.{{ .Release.Namespace  }}:26379"` |  |
-| lwd.redisUrl | string | `"redis://localhost:6379"` |  |
+| lwd.redis.redisMaster | string | `"harness-redis"` |  |
+| lwd.redis.redisUrl | string | `"redis://localhost:6379"` |  |
+| lwd.redis.useSentinel | string | `"true"` |  |
 | lwd.replicaCount | int | `2` |  |
 | lwd.resources.limits.cpu | int | `2` |  |
 | lwd.resources.limits.memory | string | `"4Gi"` |  |
@@ -422,7 +420,6 @@ dependencies:
 | lwd.serviceAccount.create | bool | `false` |  |
 | lwd.serviceAccount.name | string | `"harness-default"` |  |
 | lwd.tolerations | list | `[]` |  |
-| lwd.useSentinel | bool | `true` |  |
 | lwd.waitForInitContainer.image.digest | string | `""` |  |
 | lwd.waitForInitContainer.image.pullPolicy | string | `"IfNotPresent"` |  |
 | lwd.waitForInitContainer.image.registry | string | `"docker.io"` |  |

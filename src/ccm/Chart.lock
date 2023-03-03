@@ -28,12 +28,12 @@ dependencies:
   version: 0.1.6
 - name: lwd
   repository: file://../lightwingAPI
-  version: 0.1.8
+  version: 0.1.9
 - name: lwd-worker
   repository: file://../lightwingFaktoryWorker
-  version: 0.1.5
+  version: 0.1.6
 - name: lwd-autocud
   repository: file://../lightwingAutocud
-  version: 0.1.2
-digest: sha256:0761158c285758ed52d17e1fba0d8624ecfaabeea7df7db7298e106282a11b86
-generated: "2023-03-02T17:08:53.376735+05:30"
+  version: 0.1.3
+digest: sha256:62370faa5261c3a1689ab47ce72ce88179baf8a973c6a7e05d4e127f589c59af
+generated: "2023-03-02T23:07:38.099431+05:30"
