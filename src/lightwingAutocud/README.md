@@ -1,6 +1,6 @@
 # lwd-autocud
 
-![Version: 0.1.2](https://img.shields.io/badge/Version-0.1.2-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square) ![AppVersion: 1.773.0](https://img.shields.io/badge/AppVersion-1.773.0-informational?style=flat-square)
+![Version: 0.1.3](https://img.shields.io/badge/Version-0.1.3-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square) ![AppVersion: 1.773.0](https://img.shields.io/badge/AppVersion-1.773.0-informational?style=flat-square)
 
 A Helm chart for Kubernetes
 
@@ -62,9 +62,9 @@ A Helm chart for Kubernetes
 | podSecurityContext | object | `{}` |  |
 | postgresPassword.key | string | `"postgres-password"` |  |
 | postgresPassword.name | string | `"postgres"` |  |
-| redisMaster | string | `"harness-redis"` |  |
-| redisSentinelAddrs | string | `"redis-sentinel-harness-announce-0.{{ .Release.Namespace }}:26379,redis://redis-sentinel-harness-announce-1.{{ .Release.Namespace }}:26379,redis://redis-sentinel-harness-announce-2.{{ .Release.Namespace  }}:26379"` |  |
-| redisUrl | string | `"redis://localhost:6379"` |  |
+| redis.redisMaster | string | `"harness-redis"` |  |
+| redis.redisUrl | string | `"redis://localhost:6379"` |  |
+| redis.useSentinel | string | `"true"` |  |
 | replicaCount | int | `2` |  |
 | resources.limits.cpu | int | `2` |  |
 | resources.limits.memory | string | `"4Gi"` |  |
@@ -77,7 +77,6 @@ A Helm chart for Kubernetes
 | serviceAccount.create | bool | `false` |  |
 | serviceAccount.name | string | `"harness-default"` |  |
 | tolerations | list | `[]` |  |
-| useSentinel | bool | `true` |  |
 | waitForInitContainer.image.digest | string | `""` |  |
 | waitForInitContainer.image.imagePullSecrets | list | `[]` |  |
 | waitForInitContainer.image.pullPolicy | string | `"IfNotPresent"` |  |
