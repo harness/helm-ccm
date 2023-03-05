@@ -310,14 +310,13 @@ lwd:
     name: postgres
     key: postgres-password
   lwdSecrets:
-    secretName: lwd-secrets
-    faktoryPassword: FAKTORY_PASSWORD
-    lightwingAwsmasterAccessKey: LIGHTWING_AWSMASTER_ACCESS_KEY
-    lightwingAwsmasterSecretKey: LIGHTWING_AWSMASTER_SECRET_KEY
-    lightwingAwsGovmasterAccessKey: LIGHTWING_AWS-GOV-MASTER_ACCESS_KEY
-    lightwingAwsGovmasterSecretKey: LIGHTWING_AWS-GOV-MASTER_SECRET_KEY
-    lightwingCloudConnectorAzureClientSecret: LIGHTWING_CLOUD-CONNECTOR_AZURE_CLIENT_SECRET
-    lightwingMetricsSegment: LIGHTWING_METRICS_SEGMENT
+    faktoryPassword: ""
+    lightwingAwsmasterAccessKey: ""
+    lightwingAwsmasterSecretKey: ""
+    lightwingAwsGovmasterAccessKey: ""
+    lightwingAwsGovmasterSecretKey: ""
+    lightwingCloudConnectorAzureClientSecret: ""
+    lightwingMetricsSegment: ""
   ce-batch-gcp-credentials: ""
   aws:
     region: "us-east-1"

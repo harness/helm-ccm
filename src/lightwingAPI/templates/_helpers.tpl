@@ -71,6 +71,16 @@ Create the name of the service account to use
 - { name: APP_DB_MIGRATION_DATASOURCE, value: "{{ printf "postgres://postgres:$(DB_PASSWORD)@postgres:5432" }}" }
 {{- end }}
 
+{{- define "lwd.generateLwdSecrets" }}
+    FAKTORY_PASSWORD: {{ include "harnesscommon.secrets.passwords.manage" (dict "secret" "lwd-secrets" "key" "FAKTORY_PASSWORD" "providedValues" (list "lwdSecrets.faktoryPassword") "length" 10 "context" $) }}
+    LIGHTWING_AWSMASTER_ACCESS_KEY: {{ include "harnesscommon.secrets.passwords.manage" (dict "secret" "lwd-secrets" "key" "LIGHTWING_AWSMASTER_ACCESS_KEY" "providedValues" (list "lwdSecrets.lightwingAwsmasterAccessKey") "length" 10 "context" $) }}
+    LIGHTWING_AWSMASTER_SECRET_KEY: {{ include "harnesscommon.secrets.passwords.manage" (dict "secret" "lwd-secrets" "key" "LIGHTWING_AWSMASTER_SECRET_KEY" "providedValues" (list "lwdSecrets.lightwingAwsmasterSecretKey") "length" 10 "context" $) }}
+    LIGHTWING_AWS-GOV-MASTER_ACCESS_KEY: {{ include "harnesscommon.secrets.passwords.manage" (dict "secret" "lwd-secrets" "key" "LIGHTWING_AWS-GOV-MASTER_ACCESS_KEY" "providedValues" (list "lwdSecrets.lightwingAwsGovmasterAccessKey") "length" 10 "context" $) }}
+    LIGHTWING_AWS-GOV-MASTER_SECRET_KEY: {{ include "harnesscommon.secrets.passwords.manage" (dict "secret" "lwd-secrets" "key" "LIGHTWING_AWS-GOV-MASTER_SECRET_KEY" "providedValues" (list "lwdSecrets.lightwingAwsGovmasterSecretKey") "length" 10 "context" $) }}
+    LIGHTWING_CLOUD-CONNECTOR_AZURE_CLIENT_SECRET: {{ include "harnesscommon.secrets.passwords.manage" (dict "secret" "lwd-secrets" "key" "LIGHTWING_CLOUD-CONNECTOR_AZURE_CLIENT_SECRET" "providedValues" (list "lwdSecrets.lightwingCloudConnectorAzureClientSecret") "length" 10 "context" $) }}
+    LIGHTWING_METRICS_SEGMENT: {{ include "harnesscommon.secrets.passwords.manage" (dict "secret" "lwd-secrets" "key" "LIGHTWING_METRICS_SEGMENT" "providedValues" (list "lwdSecrets.lightwingMetricsSegment") "length" 10 "context" $) }}
+{{- end }}
+
 {{- define "lwd.generateMountSecrets" }}
     ce-batch-gcp-credentials: {{ include "harnesscommon.secrets.passwords.manage" (dict "secret" "lwd-secret-mount" "key" "ce-batch-gcp-credentials" "providedValues" (list "ce-batch-gcp-credentials") "length" 10 "context" $) }}
 {{- end }}

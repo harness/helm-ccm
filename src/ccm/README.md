@@ -2,7 +2,7 @@
 
 A Helm chart for Harness Cloud Cost Management (CCM) module
 
-![Version: 0.4.11](https://img.shields.io/badge/Version-0.4.11-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square) ![AppVersion: 1.546.0](https://img.shields.io/badge/AppVersion-1.546.0-informational?style=flat-square)
+![Version: 0.4.12](https://img.shields.io/badge/Version-0.4.12-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square) ![AppVersion: 1.546.0](https://img.shields.io/badge/AppVersion-1.546.0-informational?style=flat-square)
 
 ## Usage
 
@@ -12,7 +12,7 @@ Use the following dependency to add this chart repository to your Helm installat
 dependencies:
     - name: ccm
       repository: https://harness.github.io/helm-ccm
-      version: 0.4.11
+      version: 0.4.12
 ```
 
 ## Values
@@ -389,14 +389,13 @@ dependencies:
 | lwd.ingress.className | string | `"nginx"` |  |
 | lwd.java.memory | string | `"4096m"` |  |
 | lwd.java.memoryLimit | string | `"4096m"` |  |
-| lwd.lwdSecrets.faktoryPassword | string | `"FAKTORY_PASSWORD"` |  |
-| lwd.lwdSecrets.lightwingAwsGovmasterAccessKey | string | `"LIGHTWING_AWS-GOV-MASTER_ACCESS_KEY"` |  |
-| lwd.lwdSecrets.lightwingAwsGovmasterSecretKey | string | `"LIGHTWING_AWS-GOV-MASTER_SECRET_KEY"` |  |
-| lwd.lwdSecrets.lightwingAwsmasterAccessKey | string | `"LIGHTWING_AWSMASTER_ACCESS_KEY"` |  |
-| lwd.lwdSecrets.lightwingAwsmasterSecretKey | string | `"LIGHTWING_AWSMASTER_SECRET_KEY"` |  |
-| lwd.lwdSecrets.lightwingCloudConnectorAzureClientSecret | string | `"LIGHTWING_CLOUD-CONNECTOR_AZURE_CLIENT_SECRET"` |  |
-| lwd.lwdSecrets.lightwingMetricsSegment | string | `"LIGHTWING_METRICS_SEGMENT"` |  |
-| lwd.lwdSecrets.secretName | string | `"lwd-secrets"` |  |
+| lwd.lwdSecrets.faktoryPassword | string | `""` |  |
+| lwd.lwdSecrets.lightwingAwsGovmasterAccessKey | string | `""` |  |
+| lwd.lwdSecrets.lightwingAwsGovmasterSecretKey | string | `""` |  |
+| lwd.lwdSecrets.lightwingAwsmasterAccessKey | string | `""` |  |
+| lwd.lwdSecrets.lightwingAwsmasterSecretKey | string | `""` |  |
+| lwd.lwdSecrets.lightwingCloudConnectorAzureClientSecret | string | `""` |  |
+| lwd.lwdSecrets.lightwingMetricsSegment | string | `""` |  |
 | lwd.maxSurge | string | `"100%"` |  |
 | lwd.maxUnavailable | int | `0` |  |
 | lwd.nameOverride | string | `""` |  |

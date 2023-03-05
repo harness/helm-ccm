@@ -38,12 +38,6 @@ spec:
         args:
           - "pod"
           - "-lapp=postgres"
-      - name: wait-for-lwd-migrate
-        image: {{ include "common.images.image" (dict "imageRoot" .Values.waitForInitContainer.image "global" .Values.global) }}
-        imagePullPolicy: IfNotPresent
-        args:
-          - "pod"
-          - "-lapp=lwd-migrate"
       containers:
         - name: lwd
           securityContext:
@@ -68,6 +62,9 @@ spec:
             timeoutSeconds: 5
             periodSeconds: 15
             failureThreshold: 6
+          envFrom:
+            - secretRef:
+                name: lwd-secrets
           env:
             - name: LIGHTWING_CACHE_ADDR
               value: {{ .Values.redis.redisUrl }}
@@ -103,38 +100,8 @@ spec:
               value: {{ .Values.LIGHTWING_GCPCOST_PROJECT }}
             - name: LIGHTWING_CLOUD-CONNECTOR_REMOTE_API_TOKEN_SECRET
               value: IC04LYMBf1lDP5oeY4hupxd4HJhLmN6azUku3xEbeE3SUx5G3ZYzhbiwVtK4i7AmqyU9OZkwB4v8E9qM
-            - name: LIGHTWING_AWSMASTER_SECRET_KEY
-              valueFrom:
-                secretKeyRef:
-                  name: {{ .Values.lwdSecrets.secretName }}
-                  key: {{ .Values.lwdSecrets.lightwingAwsmasterSecretKey }}
-            - name: LIGHTWING_AWSMASTER_ACCESS_KEY
-              valueFrom:
-                secretKeyRef:
-                  name: {{ .Values.lwdSecrets.secretName }}
-                  key: {{ .Values.lwdSecrets.lightwingAwsmasterAccessKey }}
             - name: LIGHTWING_CLOUD-CONNECTOR_IDENTITY_SERVICE_SECRET
               value: HVSKUYqD4e5Rxu12hFDdCJKGM64sxgEynvdDhaOHaTHhwwn0K4Ttr0uoOxSsEVYNrUU=
-            - name: LIGHTWING_CLOUD-CONNECTOR_AZURE_CLIENT_SECRET
-              valueFrom:
-                secretKeyRef:
-                  name: {{ .Values.lwdSecrets.secretName }}
-                  key: {{ .Values.lwdSecrets.lightwingCloudConnectorAzureClientSecret }}
-            - name: LIGHTWING_AWS-GOV-MASTER_SECRET_KEY
-              valueFrom:
-                secretKeyRef:
-                  name: {{ .Values.lwdSecrets.secretName }}
-                  key: {{ .Values.lwdSecrets.lightwingAwsGovmasterSecretKey }}
-            - name: LIGHTWING_AWS-GOV-MASTER_ACCESS_KEY
-              valueFrom:
-                secretKeyRef:
-                  name: {{ .Values.lwdSecrets.secretName }}
-                  key: {{ .Values.lwdSecrets.lightwingAwsGovmasterAccessKey }}
-            - name: LIGHTWING_METRICS_SEGMENT
-              valueFrom:
-                secretKeyRef:
-                  name: {{ .Values.lwdSecrets.secretName }}
-                  key: {{ .Values.lwdSecrets.lightwingMetricsSegment }}
             - name: DB_PASSWORD
               valueFrom:
                 secretKeyRef:
@@ -142,11 +109,6 @@ spec:
                   key: {{ .Values.postgresPassword.key }}
             - name: LIGHTWING_DB_CONNECTION
               value: "host=postgres.{{ .Release.Namespace }}.svc.cluster.local user=postgres password=$(DB_PASSWORD) dbname=postgres sslmode=disable"
-            - name: FAKTORY_PASSWORD
-              valueFrom:
-                secretKeyRef:
-                  name: {{ .Values.lwdSecrets.secretName }}
-                  key: {{ .Values.lwdSecrets.faktoryPassword }}
             - name: FAKTORY_URL
               value: tcp://$(FAKTORY_PASSWORD):@lwd-faktory.{{ .Release.Namespace }}.svc.cluster.local:7419
           volumeMounts:

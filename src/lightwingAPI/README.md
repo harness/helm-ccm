@@ -1,6 +1,6 @@
 # lwd
 
-![Version: 0.1.9](https://img.shields.io/badge/Version-0.1.9-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square) ![AppVersion: 1.773.0](https://img.shields.io/badge/AppVersion-1.773.0-informational?style=flat-square)
+![Version: 0.1.10](https://img.shields.io/badge/Version-0.1.10-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square) ![AppVersion: 1.773.0](https://img.shields.io/badge/AppVersion-1.773.0-informational?style=flat-square)
 
 A Helm chart for Kubernetes
 
@@ -46,14 +46,13 @@ A Helm chart for Kubernetes
 | ingress.className | string | `"nginx"` |  |
 | java.memory | string | `"4096m"` |  |
 | java.memoryLimit | string | `"4096m"` |  |
-| lwdSecrets.faktoryPassword | string | `"FAKTORY_PASSWORD"` |  |
-| lwdSecrets.lightwingAwsGovmasterAccessKey | string | `"LIGHTWING_AWS-GOV-MASTER_ACCESS_KEY"` |  |
-| lwdSecrets.lightwingAwsGovmasterSecretKey | string | `"LIGHTWING_AWS-GOV-MASTER_SECRET_KEY"` |  |
-| lwdSecrets.lightwingAwsmasterAccessKey | string | `"LIGHTWING_AWSMASTER_ACCESS_KEY"` |  |
-| lwdSecrets.lightwingAwsmasterSecretKey | string | `"LIGHTWING_AWSMASTER_SECRET_KEY"` |  |
-| lwdSecrets.lightwingCloudConnectorAzureClientSecret | string | `"LIGHTWING_CLOUD-CONNECTOR_AZURE_CLIENT_SECRET"` |  |
+| lwdSecrets.faktoryPassword | string | `""` |  |
+| lwdSecrets.lightwingAwsGovmasterAccessKey | string | `""` |  |
+| lwdSecrets.lightwingAwsGovmasterSecretKey | string | `""` |  |
+| lwdSecrets.lightwingAwsmasterAccessKey | string | `""` |  |
+| lwdSecrets.lightwingAwsmasterSecretKey | string | `""` |  |
+| lwdSecrets.lightwingCloudConnectorAzureClientSecret | string | `nil` |  |
 | lwdSecrets.lightwingMetricsSegment | string | `"LIGHTWING_METRICS_SEGMENT"` |  |
-| lwdSecrets.secretName | string | `"lwd-secrets"` |  |
 | maxSurge | string | `"100%"` |  |
 | maxUnavailable | int | `0` |  |
 | nameOverride | string | `""` |  |
