@@ -59,8 +59,8 @@ lwdSecrets:
   lightwingAwsmasterSecretKey: ""
   lightwingAwsGovmasterAccessKey: ""
   lightwingAwsGovmasterSecretKey: ""
-  lightwingCloudConnectorAzureClientSecret: 
-  lightwingMetricsSegment: LIGHTWING_METRICS_SEGMENT
+  lightwingCloudConnectorAzureClientSecret: ""
+  lightwingMetricsSegment: ""
 
 ce-batch-gcp-credentials: ""
 

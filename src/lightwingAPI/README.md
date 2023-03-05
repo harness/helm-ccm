@@ -51,8 +51,8 @@ A Helm chart for Kubernetes
 | lwdSecrets.lightwingAwsGovmasterSecretKey | string | `""` |  |
 | lwdSecrets.lightwingAwsmasterAccessKey | string | `""` |  |
 | lwdSecrets.lightwingAwsmasterSecretKey | string | `""` |  |
-| lwdSecrets.lightwingCloudConnectorAzureClientSecret | string | `nil` |  |
-| lwdSecrets.lightwingMetricsSegment | string | `"LIGHTWING_METRICS_SEGMENT"` |  |
+| lwdSecrets.lightwingCloudConnectorAzureClientSecret | string | `""` |  |
+| lwdSecrets.lightwingMetricsSegment | string | `""` |  |
 | maxSurge | string | `"100%"` |  |
 | maxUnavailable | int | `0` |  |
 | nameOverride | string | `""` |  |
