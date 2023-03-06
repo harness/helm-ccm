@@ -16,6 +16,9 @@ spec:
         spec:
           containers:
           - name: lightwing-ingest-price-list
+            envFrom:
+              - secretRef:
+                  name: lwd-secrets
             image: {{ include "common.images.image" (dict "imageRoot" .Values.image "global" .Values.global) }}
             command: ["lwd", "ingest-price-list", "--verbose"]
             env:
@@ -26,25 +29,10 @@ spec:
                     key: {{ .Values.postgresPassword.key }}
               - name: LIGHTWING_DB_CONNECTION
                 value: "host=postgres.{{ .Release.Namespace }}.svc.cluster.local user=postgres password=$(DB_PASSWORD) dbname=postgres sslmode=disable"
-              - name: FAKTORY_PASSWORD
-                valueFrom:
-                  secretKeyRef:
-                    name: {{ .Values.lwdSecrets.secretName }}
-                    key: {{ .Values.lwdSecrets.faktoryPassword }}
               - name: FAKTORY_URL
                 value: tcp://$(FAKTORY_PASSWORD):@lwd-faktory.{{ .Release.Namespace }}.svc.cluster.local:7419
               - name: LIGHTWING_CACHE_ADDR
                 value: {{ .Values.redisUrl }}
-              - name: LIGHTWING_AWSMASTER_ACCESS_KEY
-                valueFrom:
-                  secretKeyRef:
-                    name: {{ .Values.lwdSecrets.secretName }}
-                    key: {{ .Values.lwdSecrets.lightwingAwsmasterAccessKey }}
-              - name: LIGHTWING_AWSMASTER_SECRET_KEY
-                valueFrom:
-                  secretKeyRef:
-                    name: {{ .Values.lwdSecrets.secretName }}
-                    key: {{ .Values.lwdSecrets.lightwingAwsmasterSecretKey }}
               - name: LIGHTWING_AWSMASTER_REGION
                 value: {{ .Values.aws.region }}
               - name: LIGHTWING_CLOUD-CONNECTOR_TYPE
@@ -57,28 +45,8 @@ spec:
                 value: HVSKUYqD4e5Rxu12hFDdCJKGM64sxgEynvdDhaOHaTHhwwn0K4Ttr0uoOxSsEVYNrUU=
               - name: LIGHTWING_CLOUD-CONNECTOR_AZURE_CLIENT_ID
                 value: {{ .Values.azure.clientId }}
-              - name: LIGHTWING_CLOUD-CONNECTOR_AZURE_CLIENT_SECRET
-                valueFrom:
-                  secretKeyRef:
-                    name: {{ .Values.lwdSecrets.secretName }}
-                    key: {{ .Values.lwdSecrets.lightwingCloudConnectorAzureClientSecret }}
               - name: LIGHTWING_CLOUD-CONNECTOR_REMOTE_API_TOKEN_SECRET
                 value: IC04LYMBf1lDP5oeY4hupxd4HJhLmN6azUku3xEbeE3SUx5G3ZYzhbiwVtK4i7AmqyU9OZkwB4v8E9qM
-              - name: LIGHTWING_METRICS_SEGMENT
-                valueFrom:
-                  secretKeyRef:
-                    name: {{ .Values.lwdSecrets.secretName }}
-                    key: {{ .Values.lwdSecrets.lightwingMetricsSegment }}
-              - name: LIGHTWING_AWS-GOV-MASTER_ACCESS_KEY
-                valueFrom:
-                  secretKeyRef:
-                    name: {{ .Values.lwdSecrets.secretName }}
-                    key: {{ .Values.lwdSecrets.lightwingAwsGovmasterAccessKey }}
-              - name: LIGHTWING_AWS-GOV-MASTER_SECRET_KEY
-                valueFrom:
-                  secretKeyRef:
-                    name: {{ .Values.lwdSecrets.secretName }}
-                    key: {{ .Values.lwdSecrets.lightwingAwsGovmasterSecretKey }}
           restartPolicy: Never
 ---
 apiVersion: batch/v1
@@ -98,7 +66,10 @@ spec:
       template:
         spec:
           containers:
-          - name: lightwing-compute-svaings
+          - name: lightwing-compute-savings
+            envFrom:
+              - secretRef:
+                  name: lwd-secrets
             image: {{ include "common.images.image" (dict "imageRoot" .Values.image "global" .Values.global) }}
             command: ["lwd", "compute-savings", "--verbose"]
             env:
@@ -109,25 +80,10 @@ spec:
                     key: {{ .Values.postgresPassword.key }}
               - name: LIGHTWING_DB_CONNECTION
                 value: "host=postgres.{{ .Release.Namespace }}.svc.cluster.local user=postgres password=$(DB_PASSWORD) dbname=postgres sslmode=disable"
-              - name: FAKTORY_PASSWORD
-                valueFrom:
-                  secretKeyRef:
-                    name: {{ .Values.lwdSecrets.secretName }}
-                    key: {{ .Values.lwdSecrets.faktoryPassword }}
               - name: FAKTORY_URL
                 value: tcp://$(FAKTORY_PASSWORD):@lwd-faktory.{{ .Release.Namespace }}.svc.cluster.local:7419
               - name: LIGHTWING_CACHE_ADDR
                 value: {{ .Values.redisUrl }}
-              - name: LIGHTWING_AWSMASTER_ACCESS_KEY
-                valueFrom:
-                  secretKeyRef:
-                    name: {{ .Values.lwdSecrets.secretName }}
-                    key: {{ .Values.lwdSecrets.lightwingAwsmasterAccessKey }}
-              - name: LIGHTWING_AWSMASTER_SECRET_KEY
-                valueFrom:
-                  secretKeyRef:
-                    name: {{ .Values.lwdSecrets.secretName }}
-                    key: {{ .Values.lwdSecrets.lightwingAwsmasterSecretKey }}
               - name: LIGHTWING_AWSMASTER_REGION
                 value: {{ .Values.aws.region }}
               - name: LIGHTWING_CLOUD-CONNECTOR_TYPE
@@ -140,32 +96,12 @@ spec:
                 value: HVSKUYqD4e5Rxu12hFDdCJKGM64sxgEynvdDhaOHaTHhwwn0K4Ttr0uoOxSsEVYNrUU=
               - name: LIGHTWING_CLOUD-CONNECTOR_AZURE_CLIENT_ID
                 value: {{ .Values.azure.clientId }}
-              - name: LIGHTWING_CLOUD-CONNECTOR_AZURE_CLIENT_SECRET
-                valueFrom:
-                  secretKeyRef:
-                    name: {{ .Values.lwdSecrets.secretName }}
-                    key: {{ .Values.lwdSecrets.lightwingCloudConnectorAzureClientSecret }}
               - name: LIGHTWING_CLOUD-CONNECTOR_REMOTE_API_TOKEN_SECRET
                 value: IC04LYMBf1lDP5oeY4hupxd4HJhLmN6azUku3xEbeE3SUx5G3ZYzhbiwVtK4i7AmqyU9OZkwB4v8E9qM
-              - name: LIGHTWING_METRICS_SEGMENT
-                valueFrom:
-                  secretKeyRef:
-                    name: {{ .Values.lwdSecrets.secretName }}
-                    key: {{ .Values.lwdSecrets.lightwingMetricsSegment }}
               - name: LIGHTWING_GCPCOST_SVC_ACC_KEY_PATH
                 value: "/opt/harness/svc/ce_batch_gcp_credentials.json"
               - name: LIGHTWING_GCPCOST_PROJECT
                 value: {{ .Values.LIGHTWING_GCPCOST_PROJECT }}
-              - name: LIGHTWING_AWS-GOV-MASTER_ACCESS_KEY
-                valueFrom:
-                  secretKeyRef:
-                    name: {{ .Values.lwdSecrets.secretName }}
-                    key: {{ .Values.lwdSecrets.lightwingAwsGovmasterAccessKey }}
-              - name: LIGHTWING_AWS-GOV-MASTER_SECRET_KEY
-                valueFrom:
-                  secretKeyRef:
-                    name: {{ .Values.lwdSecrets.secretName }}
-                    key: {{ .Values.lwdSecrets.lightwingAwsGovmasterSecretKey }}
             volumeMounts:
             - name: secret-mount
               mountPath: /opt/harness/svc
@@ -196,6 +132,9 @@ spec:
         spec:
           containers:
           - name: lightwing-extract-coverage
+            envFrom:
+              - secretRef:
+                  name: lwd-secrets
             image: {{ include "common.images.image" (dict "imageRoot" .Values.image "global" .Values.global) }}
             command: ["lwd", "extract-coverage", "--verbose"]
             env:
@@ -206,40 +145,10 @@ spec:
                     key: {{ .Values.postgresPassword.key }}
               - name: LIGHTWING_DB_CONNECTION
                 value: "host=postgres.{{ .Release.Namespace }}.svc.cluster.local user=postgres password=$(DB_PASSWORD) dbname=postgres sslmode=disable"
-              - name: FAKTORY_PASSWORD
-                valueFrom:
-                  secretKeyRef:
-                    name: {{ .Values.lwdSecrets.secretName }}
-                    key: {{ .Values.lwdSecrets.faktoryPassword }}
               - name: FAKTORY_URL
                 value: tcp://$(FAKTORY_PASSWORD):@lwd-faktory.{{ .Release.Namespace }}.svc.cluster.local:7419
               - name: LIGHTWING_CACHE_ADDR
                 value: {{ .Values.redisUrl }}
-              - name: LIGHTWING_AWSMASTER_ACCESS_KEY
-                valueFrom:
-                  secretKeyRef:
-                    name: {{ .Values.lwdSecrets.secretName }}
-                    key: {{ .Values.lwdSecrets.lightwingAwsmasterAccessKey }}
-              - name: LIGHTWING_AWSMASTER_SECRET_KEY
-                valueFrom:
-                  secretKeyRef:
-                    name: {{ .Values.lwdSecrets.secretName }}
-                    key: {{ .Values.lwdSecrets.lightwingAwsmasterSecretKey }}
               - name: LIGHTWING_AWSMASTER_REGION
                 value: {{ .Values.aws.region }}
-              - name: LIGHTWING_METRICS_SEGMENT
-                valueFrom:
-                  secretKeyRef:
-                    name: {{ .Values.lwdSecrets.secretName }}
-                    key: {{ .Values.lwdSecrets.lightwingMetricsSegment }}
-              - name: LIGHTWING_AWS-GOV-MASTER_ACCESS_KEY
-                valueFrom:
-                  secretKeyRef:
-                    name: {{ .Values.lwdSecrets.secretName }}
-                    key: {{ .Values.lwdSecrets.lightwingAwsGovmasterAccessKey }}
-              - name: LIGHTWING_AWS-GOV-MASTER_SECRET_KEY
-                valueFrom:
-                  secretKeyRef:
-                    name: {{ .Values.lwdSecrets.secretName }}
-                    key: {{ .Values.lwdSecrets.lightwingAwsGovmasterSecretKey }}
           restartPolicy: Never
