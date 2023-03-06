@@ -53,6 +53,9 @@ spec:
       - name: lwd
         image: {{ include "common.images.image" (dict "imageRoot" .Values.image "global" .Values.global) }}
         command: ["lwd","rebuild-search-index"]
+        envFrom:
+          - secretRef:
+              name: lwd-secrets
         env:
           - name: DB_PASSWORD
             valueFrom:
@@ -61,11 +64,6 @@ spec:
                 key: {{ .Values.postgresPassword.key }}
           - name: LIGHTWING_DB_CONNECTION
             value: "host=postgres.{{ .Release.Namespace }}.svc.cluster.local user=postgres password=$(DB_PASSWORD) dbname=postgres sslmode=disable"
-          - name: FAKTORY_PASSWORD
-            valueFrom:
-              secretKeyRef:
-                name: {{ .Values.lwdSecrets.secretName }}
-                key: {{ .Values.lwdSecrets.faktoryPassword }}
           - name: FAKTORY_URL
             value: tcp://$(FAKTORY_PASSWORD):@lwd-faktory.{{ .Release.Namespace }}.svc.cluster.local:7419
           - name: LIGHTWING_CACHE_ADDR
@@ -82,32 +80,12 @@ spec:
             value: IC04LYMBf1lDP5oeY4hupxd4HJhLmN6azUku3xEbeE3SUx5G3ZYzhbiwVtK4i7AmqyU9OZkwB4v8E9qM
           - name: LIGHTWING_APIHOST
             value: {{ .Values.global.loadbalancerURL }}/lw/api
-          - name: LIGHTWING_AWSMASTER_ACCESS_KEY
-            valueFrom:
-              secretKeyRef:
-                name: {{ .Values.lwdSecrets.secretName }}
-                key: {{ .Values.lwdSecrets.lightwingAwsmasterAccessKey }}
-          - name: LIGHTWING_AWSMASTER_SECRET_KEY
-            valueFrom:
-              secretKeyRef:
-                name: {{ .Values.lwdSecrets.secretName }}
-                key: {{ .Values.lwdSecrets.lightwingAwsmasterSecretKey }}
           - name: LIGHTWING_AWSMASTER_REGION
             value: {{ .Values.aws.region }}
           - name: LIGHTWING_CLOUD-CONNECTOR_IDENTITY_SERVICE_SECRET
             value: HVSKUYqD4e5Rxu12hFDdCJKGM64sxgEynvdDhaOHaTHhwwn0K4Ttr0uoOxSsEVYNrUU=
           - name: LIGHTWING_CLOUD-CONNECTOR_AZURE_CLIENT_ID
             value: {{ .Values.azure.clientId }}
-          - name: LIGHTWING_CLOUD-CONNECTOR_AZURE_CLIENT_SECRET
-            valueFrom:
-              secretKeyRef:
-                name: {{ .Values.lwdSecrets.secretName }}
-                key: {{ .Values.lwdSecrets.lightwingCloudConnectorAzureClientSecret }}
-          - name: LIGHTWING_METRICS_SEGMENT
-            valueFrom:
-              secretKeyRef:
-                name: {{ .Values.lwdSecrets.secretName }}
-                key: {{ .Values.lwdSecrets.lightwingMetricsSegment }}
           - name: LIGHTWING_GCPCOST_SVC_ACC_KEY_PATH
             value: "/opt/harness/svc/ce_batch_gcp_credentials.json"
           - name: LIGHTWING_GCPCOST_PROJECT
