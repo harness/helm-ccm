@@ -28,7 +28,7 @@ spec:
                     name: {{ .Values.postgresPassword.name }}
                     key: {{ .Values.postgresPassword.key }}
               - name: LIGHTWING_DB_CONNECTION
-                value: "host=postgres.{{ .Release.Namespace }}.svc.cluster.local user=postgres password=$(DB_PASSWORD) dbname=postgres sslmode=disable"
+                value: "host=postgres.{{ .Release.Namespace }}.svc.cluster.local user=postgres password=$(DB_PASSWORD) dbname=lightwing sslmode=disable"
               - name: FAKTORY_URL
                 value: tcp://$(FAKTORY_PASSWORD):@lwd-faktory.{{ .Release.Namespace }}.svc.cluster.local:7419
               - name: LIGHTWING_CACHE_ADDR
@@ -79,7 +79,7 @@ spec:
                     name: {{ .Values.postgresPassword.name }}
                     key: {{ .Values.postgresPassword.key }}
               - name: LIGHTWING_DB_CONNECTION
-                value: "host=postgres.{{ .Release.Namespace }}.svc.cluster.local user=postgres password=$(DB_PASSWORD) dbname=postgres sslmode=disable"
+                value: "host=postgres.{{ .Release.Namespace }}.svc.cluster.local user=postgres password=$(DB_PASSWORD) dbname=lightwing sslmode=disable"
               - name: FAKTORY_URL
                 value: tcp://$(FAKTORY_PASSWORD):@lwd-faktory.{{ .Release.Namespace }}.svc.cluster.local:7419
               - name: LIGHTWING_CACHE_ADDR
@@ -144,7 +144,7 @@ spec:
                     name: {{ .Values.postgresPassword.name }}
                     key: {{ .Values.postgresPassword.key }}
               - name: LIGHTWING_DB_CONNECTION
-                value: "host=postgres.{{ .Release.Namespace }}.svc.cluster.local user=postgres password=$(DB_PASSWORD) dbname=postgres sslmode=disable"
+                value: "host=postgres.{{ .Release.Namespace }}.svc.cluster.local user=postgres password=$(DB_PASSWORD) dbname=lightwing sslmode=disable"
               - name: FAKTORY_URL
                 value: tcp://$(FAKTORY_PASSWORD):@lwd-faktory.{{ .Release.Namespace }}.svc.cluster.local:7419
               - name: LIGHTWING_CACHE_ADDR
