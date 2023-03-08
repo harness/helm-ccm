@@ -144,7 +144,7 @@ batch-processing:
       name: clickhouse
       key: admin-password
   workloadIdentity:
-    enabled: "false"
+    enabled: false
   resources:
     limits:
       cpu: "1024m"
@@ -194,7 +194,7 @@ cloud-info:
   CLOUD_INFO_GCP_CREDS: ""
   CLOUD_INFO_CONFIG: ""
   workloadIdentity:
-    enabled: "false"
+    enabled: false
   resources:
     limits:
       cpu: "2048m"
@@ -224,10 +224,6 @@ event-service:
       pullPolicy: IfNotPresent
       tag: "latest"
       digest: ""
-  eventSvcServiceAccounts:
-    ceGCPHomeProjectCreds:
-      name: placeHolderName
-      key: placeHolderKey
   mongoSecrets:
     userName:
       name: harness-secrets
@@ -239,7 +235,6 @@ event-service:
     password:
       name: harness-secrets
       key: timescaledbPostgresPassword
-  ce-gcp-home-project-creds: ""
   nameOverride: ""
   fullnameOverride: ""
   ngServiceAccount: "test"
@@ -640,7 +635,7 @@ nextgen-ce:
       name: clickhouse
       key: admin-password
   workloadIdentity:
-    enabled: "false"
+    enabled: false
   resources:
     limits:
       cpu: 2

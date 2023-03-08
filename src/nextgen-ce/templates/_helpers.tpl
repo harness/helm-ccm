@@ -81,7 +81,9 @@ Create the name of the service account to use
 {{- end }}
 
 {{- define "nextgen-ce.generateMountSecrets" }}
+    {{- if not .Values.workloadIdentity.enabled }}
     ceng-gcp-credentials: {{ include "harnesscommon.secrets.passwords.manage" (dict "secret" "ceng-secret-mount" "key" "ceng-gcp-credentials" "providedValues" (list "ceng-gcp-credentials") "length" 10 "context" $) }}
+    {{- end }}
 {{- end }}
 
 {{- define "nextgen-ce.pullSecrets" -}}

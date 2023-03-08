@@ -72,7 +72,9 @@ Create the name of the service account to use
 {{- end }}
 
 {{- define "cloud-info.generateMountSecrets" }}
+    {{- if not .Values.workloadIdentity.enabled }}
     gcp-creds: {{ include "harnesscommon.secrets.passwords.manage" (dict "secret" "cloud-info-secret-mount" "key" "gcp-creds" "providedValues" (list "CLOUD_INFO_GCP_CREDS") "length" 10 "context" $) }}
+    {{- end }}
     config-file: {{ include "harnesscommon.secrets.passwords.manage" (dict "secret" "cloud-info-secret-mount" "key" "config-file" "providedValues" (list "CLOUD_INFO_CONFIG") "length" 10 "context" $) }}
 {{- end }}
 
