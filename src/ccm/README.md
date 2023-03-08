@@ -2,7 +2,7 @@
 
 A Helm chart for Harness Cloud Cost Management (CCM) module
 
-![Version: 0.4.15](https://img.shields.io/badge/Version-0.4.15-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square) ![AppVersion: 1.546.0](https://img.shields.io/badge/AppVersion-1.546.0-informational?style=flat-square)
+![Version: 0.4.16](https://img.shields.io/badge/Version-0.4.16-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square) ![AppVersion: 1.546.0](https://img.shields.io/badge/AppVersion-1.546.0-informational?style=flat-square)
 
 ## Usage
 
@@ -12,7 +12,7 @@ Use the following dependency to add this chart repository to your Helm installat
 dependencies:
     - name: ccm
       repository: https://harness.github.io/helm-ccm
-      version: 0.4.15
+      version: 0.4.16
 ```
 
 ## Values
@@ -116,7 +116,7 @@ dependencies:
 | batch-processing.waitForInitContainer.image.registry | string | `"docker.io"` |  |
 | batch-processing.waitForInitContainer.image.repository | string | `"harness/helm-init-container"` |  |
 | batch-processing.waitForInitContainer.image.tag | string | `"latest"` |  |
-| batch-processing.workloadIdentity.enabled | string | `"false"` |  |
+| batch-processing.workloadIdentity.enabled | bool | `false` |  |
 | clickhouse.defaultConfigurationOverrides | string | `"<clickhouse>\n  <!-- Macros -->\n  <macros>\n    <shard from_env=\"CLICKHOUSE_SHARD_ID\"></shard>\n    <replica from_env=\"CLICKHOUSE_REPLICA_ID\"></replica>\n    <layer>{{ include \"common.names.fullname\" . }}</layer>\n  </macros>\n  <!-- Log Level -->\n  <logger>\n    <level>{{ .Values.logLevel }}</level>\n  </logger>\n  {{- if or (ne (int .Values.shards) 1) (ne (int .Values.replicaCount) 1)}}\n  <!-- Cluster configuration - Any update of the shards and replicas requires helm upgrade -->\n  <remote_servers>\n    <default>\n      {{- $shards := $.Values.shards | int }}\n      {{- range $shard, $e := until $shards }}\n      <shard>\n          <internal_replication>false</internal_replication>\n          {{- $replicas := $.Values.replicaCount | int }}\n          {{- range $i, $_e := until $replicas }}\n          <replica>\n              <host>{{ printf \"%s-shard%d-%d.%s.%s.svc.%s\" (include \"common.names.fullname\" $ ) $shard $i (include \"clickhouse.headlessServiceName\" $) (include \"common.names.namespace\" $) $.Values.clusterDomain }}</host>\n              <port>{{ $.Values.service.ports.tcp }}</port>\n          </replica>\n          {{- end }}\n      </shard>\n      {{- end }}\n    </default>\n  </remote_servers>\n  {{- end }}\n  {{- if .Values.keeper.enabled }}\n  <!-- keeper configuration -->\n  <keeper_server>\n    {{/*ClickHouse keeper configuration using the helm chart */}}\n    <tcp_port>{{ $.Values.containerPorts.keeper }}</tcp_port>\n    {{- if .Values.tls.enabled }}\n    <tcp_port_secure>{{ $.Values.containerPorts.keeperSecure }}</tcp_port_secure>\n    {{- end }}\n    <server_id from_env=\"KEEPER_SERVER_ID\"></server_id>\n    <log_storage_path>/bitnami/clickhouse/keeper/coordination/log</log_storage_path>\n    <snapshot_storage_path>/bitnami/clickhouse/keeper/coordination/snapshots</snapshot_storage_path>\n\n    <coordination_settings>\n        <operation_timeout_ms>10000</operation_timeout_ms>\n        <session_timeout_ms>30000</session_timeout_ms>\n        <raft_logs_level>trace</raft_logs_level>\n    </coordination_settings>\n\n    <raft_configuration>\n    {{- $nodes := .Values.replicaCount | int }}\n    {{- range $node, $e := until $nodes }}\n    <server>\n      <id>{{ $node | int }}</id>\n      <hostname from_env=\"{{ printf \"KEEPER_NODE_%d\" $node }}\"></hostname>\n      <port>{{ $.Values.service.ports.keeperInter }}</port>\n    </server>\n    {{- end }}\n    </raft_configuration>\n  </keeper_server>\n  {{- end }}\n  {{- if or .Values.keeper.enabled .Values.zookeeper.enabled .Values.externalZookeeper.servers }}\n  <!-- Zookeeper configuration -->\n  <zookeeper>\n    {{- if or .Values.keeper.enabled }}\n    {{- $nodes := .Values.replicaCount | int }}\n    {{- range $node, $e := until $nodes }}\n    <node>\n      <host from_env=\"{{ printf \"KEEPER_NODE_%d\" $node }}\"></host>\n      <port>{{ $.Values.service.ports.keeper }}</port>\n    </node>\n    {{- end }}\n    {{- else if .Values.zookeeper.enabled }}\n    {{/* Zookeeper configuration using the helm chart */}}\n    {{- $nodes := .Values.zookeeper.replicaCount | int }}\n    {{- range $node, $e := until $nodes }}\n    <node>\n      <host from_env=\"{{ printf \"KEEPER_NODE_%d\" $node }}\"></host>\n      <port>{{ $.Values.zookeeper.service.ports.client }}</port>\n    </node>\n    {{- end }}\n    {{- else if .Values.externalZookeeper.servers }}\n    {{/* Zookeeper configuration using an external instance */}}\n    {{- range $node :=.Values.externalZookeeper.servers }}\n    <node>\n      <host>{{ $node }}</host>\n      <port>{{ $.Values.externalZookeeper.port }}</port>\n    </node>\n    {{- end }}\n    {{- end }}\n  </zookeeper>\n  {{- end }}\n  {{- if .Values.tls.enabled }}\n  <!-- TLS configuration -->\n  <tcp_port_secure from_env=\"CLICKHOUSE_TCP_SECURE_PORT\"></tcp_port_secure>\n  <openSSL>\n      <server>\n          {{- $certFileName := default \"tls.crt\" .Values.tls.certFilename }}\n          {{- $keyFileName := default \"tls.key\" .Values.tls.certKeyFilename }}\n          <certificateFile>/bitnami/clickhouse/certs/{{$certFileName}}</certificateFile>\n          <privateKeyFile>/bitnami/clickhouse/certs/{{$keyFileName}}</privateKeyFile>\n          <verificationMode>none</verificationMode>\n          <cacheSessions>true</cacheSessions>\n          <disableProtocols>sslv2,sslv3</disableProtocols>\n          <preferServerCiphers>true</preferServerCiphers>\n          {{- if or .Values.tls.autoGenerated .Values.tls.certCAFilename }}\n          {{- $caFileName := default \"ca.crt\" .Values.tls.certFilename }}\n          <caConfig>/bitnami/clickhouse/certs/{{$caFileName}}</caConfig>\n          {{- else }}\n          <loadDefaultCAFile>true</loadDefaultCAFile>\n          {{- end }}\n      </server>\n      <client>\n          <loadDefaultCAFile>true</loadDefaultCAFile>\n          <cacheSessions>true</cacheSessions>\n          <disableProtocols>sslv2,sslv3</disableProtocols>\n          <preferServerCiphers>true</preferServerCiphers>\n          <verificationMode>none</verificationMode>\n          <invalidCertificateHandler>\n              <name>AcceptCertificateHandler</name>\n          </invalidCertificateHandler>\n      </client>\n  </openSSL>\n  {{- end }}\n  {{- if .Values.metrics.enabled }}\n  <!-- Prometheus metrics -->\n  <prometheus>\n      <endpoint>/metrics</endpoint>\n      <port from_env=\"CLICKHOUSE_METRICS_PORT\"></port>\n      <metrics>true</metrics>\n      <events>true</events>\n      <asynchronous_metrics>true</asynchronous_metrics>\n  </prometheus>\n  {{- end }}\n</clickhouse>\n"` |  |
 | clickhouse.enabled | bool | `false` |  |
 | clickhouse.fullnameOverride | string | `"clickhouse"` |  |
@@ -166,16 +166,13 @@ dependencies:
 | cloud-info.serviceAccount.create | bool | `false` |  |
 | cloud-info.serviceAccount.name | string | `"harness-default"` |  |
 | cloud-info.tolerations | list | `[]` |  |
-| cloud-info.workloadIdentity.enabled | string | `"false"` |  |
+| cloud-info.workloadIdentity.enabled | bool | `false` |  |
 | event-service.affinity | object | `{}` |  |
 | event-service.autoscaling.enabled | bool | `true` |  |
 | event-service.autoscaling.maxReplicas | int | `2` |  |
 | event-service.autoscaling.minReplicas | int | `1` |  |
 | event-service.autoscaling.targetCPUUtilizationPercentage | int | `80` |  |
-| event-service.ce-gcp-home-project-creds | string | `""` |  |
 | event-service.defaultInternalImageConnector | string | `"test"` |  |
-| event-service.eventSvcServiceAccounts.ceGCPHomeProjectCreds.key | string | `"placeHolderKey"` |  |
-| event-service.eventSvcServiceAccounts.ceGCPHomeProjectCreds.name | string | `"placeHolderName"` |  |
 | event-service.fullnameOverride | string | `""` |  |
 | event-service.image.digest | string | `""` |  |
 | event-service.image.pullPolicy | string | `"Always"` |  |
@@ -489,7 +486,7 @@ dependencies:
 | nextgen-ce.waitForInitContainer.image.registry | string | `"docker.io"` |  |
 | nextgen-ce.waitForInitContainer.image.repository | string | `"harness/helm-init-container"` |  |
 | nextgen-ce.waitForInitContainer.image.tag | string | `"latest"` |  |
-| nextgen-ce.workloadIdentity.enabled | string | `"false"` |  |
+| nextgen-ce.workloadIdentity.enabled | bool | `false` |  |
 | ng-ce-ui.affinity | object | `{}` |  |
 | ng-ce-ui.autoscaling.enabled | bool | `false` |  |
 | ng-ce-ui.autoscaling.maxReplicas | int | `2` |  |

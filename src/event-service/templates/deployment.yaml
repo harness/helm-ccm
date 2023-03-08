@@ -90,16 +90,6 @@ spec:
               value: postgres
             - name: TIMESCALEDB_URI
               value: 'jdbc:postgresql://timescaledb-single-chart.{{ .Release.Namespace }}:5432/harness'
-          volumeMounts:
-          - name: secret-mount
-            mountPath: /opt/harness/svc
-      volumes:
-      - name: secret-mount
-        secret:
-          secretName: eventsvc-secret-mount
-          items:
-          - key: ce-gcp-home-project-creds
-            path: ce-gcp-home-project-creds.json
       affinity:
         podAntiAffinity:
           requiredDuringSchedulingIgnoredDuringExecution:

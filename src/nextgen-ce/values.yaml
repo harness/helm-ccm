@@ -135,7 +135,7 @@ clickhouse:
     key: admin-password
 
 workloadIdentity:
-  enabled: "false"
+  enabled: false
 
 resources:
   limits:

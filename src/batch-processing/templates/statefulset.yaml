@@ -106,10 +106,12 @@ spec:
         secret:
           secretName: batch-processing-secret-mount
           items:
+          {{- if not .Values.workloadIdentity.enabled }}
           - key: ce-batch-gcp-credentials
             path: ce_batch_gcp_credentials.json
           - key: ce-gcp-home-project-creds
             path: ce-gcp-home-project-creds.json
+          {{- end }}
           - key: cloud-data-store
             path: cloud_data_store.json
       affinity:

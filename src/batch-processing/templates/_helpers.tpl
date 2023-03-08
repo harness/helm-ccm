@@ -77,8 +77,10 @@ Create the name of the service account to use
 {{- end }}
 
 {{- define "batch-processing.generateMountSecrets" }}
+    {{- if not .Values.workloadIdentity.enabled }}
     ce-batch-gcp-credentials: {{ include "harnesscommon.secrets.passwords.manage" (dict "secret" "batch-processing-secret-mount" "key" "ce-batch-gcp-credentials" "providedValues" (list "ceBatchGCPCredentials") "length" 10 "context" $) }}
     ce-gcp-home-project-creds: {{ include "harnesscommon.secrets.passwords.manage" (dict "secret" "batch-processing-secret-mount" "key" "ce-gcp-home-project-creds" "providedValues" (list "ceGCPHomeProjectCreds") "length" 10 "context" $) }}
+    {{- end }}
     cloud-data-store: {{ include "harnesscommon.secrets.passwords.manage" (dict "secret" "batch-processing-secret-mount" "key" "cloud-data-store" "providedValues" (list "storageObjectAdmin") "length" 10 "context" $) }}
 {{- end }}
 

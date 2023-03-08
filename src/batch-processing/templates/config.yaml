@@ -10,9 +10,11 @@ data:
   ISOLATED_REPLICA: {{ .Values.isolatedReplica | quote }}
   MONGO_INDEX_MANAGER_MODE: "AUTO"
   EVEMTS_MONGO_INDEX_MANAGER_MODE: "AUTO"
+  {{- if not .Values.workloadIdentity.enabled }}
   GOOGLE_CREDENTIALS_PATH: "/opt/harness/svc/ce_batch_gcp_credentials.json"
   CE_GCP_CREDENTIALS_PATH: "/opt/harness/svc/ce_batch_gcp_credentials.json"
   GOOGLE_APPLICATION_CREDENTIALS: "/opt/harness/svc/ce_gcp_home_project_creds.json"
+  {{- end }}
   S3_SYNC_CONFIG_BUCKET_NAME: {{ .Values.cloudProviderConfig.S3_SYNC_CONFIG_BUCKET_NAME  | quote}}
   S3_SYNC_CONFIG_REGION: {{ .Values.cloudProviderConfig.S3_SYNC_CONFIG_REGION  | quote}}
   UI_SERVER_URL: {{.Values.global.loadbalancerURL}}

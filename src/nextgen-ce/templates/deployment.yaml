@@ -107,9 +107,12 @@ spec:
                   name: {{ .Values.clickhouse.password.name }}
                   key: {{ .Values.clickhouse.password.key }}
             {{- end }}
+          {{- if not .Values.workloadIdentity.enabled }}
           volumeMounts:
           - name: secret-mount
             mountPath: /opt/harness/svc
+          {{- end }}
+      {{- if not .Values.workloadIdentity.enabled }}
       volumes:
       - name: secret-mount
         secret:
@@ -117,6 +120,7 @@ spec:
           items:
           - key: ceng-gcp-credentials
             path: ceng_gcp_credentials.json
+      {{- end }}
       affinity:
         podAntiAffinity:
           requiredDuringSchedulingIgnoredDuringExecution:

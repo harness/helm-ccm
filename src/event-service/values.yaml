@@ -52,11 +52,6 @@ waitForInitContainer:
 # image pull secrets to use for helm-init-container image
     imagePullSecrets: []
 
-eventSvcServiceAccounts:
-  ceGCPHomeProjectCreds:
-    name: placeHolderName
-    key: placeHolderKey
-
 mongoSecrets:
   userName:
     name: harness-secrets
@@ -69,8 +64,6 @@ timescaleSecret:
   password:
     name: harness-secrets
     key: timescaledbPostgresPassword
-
-ce-gcp-home-project-creds: ""
 
 nameOverride: ""
 fullnameOverride: ""

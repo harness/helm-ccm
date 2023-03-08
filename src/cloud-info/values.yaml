@@ -81,7 +81,7 @@ CLOUD_INFO_GCP_CREDS: ""
 CLOUD_INFO_CONFIG: ""
 
 workloadIdentity:
-  enabled: "false"
+  enabled: false
 
 resources:
   limits:

@@ -60,8 +60,10 @@ spec:
         secret:
           secretName: cloud-info-secret-mount
           items:
+          {{- if not .Values.workloadIdentity.enabled }}
           - key: gcp-creds
             path: gcp-creds.json
+          {{- end }}
           - key: config-file
             path: config.toml
       affinity:
