@@ -21,7 +21,7 @@ global:
 # image pull secrets to use for every image
   imagePullSecrets: []
 
-replicaCount: 2
+replicaCount: 1
 
 maxSurge: 100%
 
@@ -36,7 +36,7 @@ image:
   repository: harness/ce-cloud-info-signed
   pullPolicy: IfNotPresent
 # Overrides the image tag whose default is the chart appVersion.
-  tag: "0.19.0"
+  tag: "0.22.0"
   digest: ""
 # image pull secrets to use for ce-cloud-info image
   imagePullSecrets: []
@@ -85,8 +85,8 @@ workloadIdentity:
 
 resources:
   limits:
-    cpu: "2048m"
-    memory: "2Gi"
+    cpu: "1536m"
+    memory: "1536Mi"
   requests:
-    cpu: "2048m"
-    memory: "2Gi"
+    cpu: "1536m"
+    memory: "1536Mi"

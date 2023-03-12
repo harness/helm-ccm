@@ -38,7 +38,7 @@ image:
   repository: harness/ce-nextgen-signed
   pullPolicy: IfNotPresent
 # Overrides the image tag whose default is the chart appVersion.
-  tag: "78300-000"
+  tag: "78700-000"
   digest: ""
 # image pull secrets to use for ce-nextgen image
   imagePullSecrets: []
@@ -48,7 +48,7 @@ imageClickhouseEnabled:
   repository: harness/ce-nextgen-signed
   pullPolicy: Always
 # Overrides the image tag whose default is the chart appVersion.
-  tag: "9000363-000"
+  tag: "78700-000"
   digest: ""
 # image pull secrets to use for ce-nextgen image
   imagePullSecrets: []
@@ -126,6 +126,7 @@ cloudProviderConfig:
   AWS_GOV_CLOUD_ACCOUNT_ID: "147449478367"
   AWS_GOV_CLOUD_REGION_NAME: "us-gov-west-1"
   AWS_GOV_CLOUD_TEMPLATE_LINK: "https://continuous-efficiency.s3.us-east-2.amazonaws.com/setup/v1/ng/HarnessAWSTemplate.yaml"
+  GCP_SERVICE_ACCOUNT_EMAIL: "placeHolder"
 
 clickhouse:
   enabled: false
@@ -139,8 +140,8 @@ workloadIdentity:
 
 resources:
   limits:
-    cpu: 2
-    memory: "5Gi"
+    cpu: 1
+    memory: "4Gi"
   requests:
-    cpu: 2
-    memory: "5Gi"
+    cpu: 1
+    memory: "4Gi"

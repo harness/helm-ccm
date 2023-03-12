@@ -39,7 +39,7 @@ A Helm chart for Kubernetes
 | image.pullPolicy | string | `"IfNotPresent"` |  |
 | image.registry | string | `"docker.io"` |  |
 | image.repository | string | `"harness/ce-cloud-info-signed"` |  |
-| image.tag | string | `"0.19.0"` |  |
+| image.tag | string | `"0.22.0"` |  |
 | ingress.className | string | `"nginx"` |  |
 | java.memory | string | `"4096m"` |  |
 | java.memoryLimit | string | `"4096m"` |  |
@@ -49,11 +49,11 @@ A Helm chart for Kubernetes
 | nodeSelector | object | `{}` |  |
 | podAnnotations | object | `{}` |  |
 | podSecurityContext | object | `{}` |  |
-| replicaCount | int | `2` |  |
-| resources.limits.cpu | string | `"2048m"` |  |
-| resources.limits.memory | string | `"2Gi"` |  |
-| resources.requests.cpu | string | `"2048m"` |  |
-| resources.requests.memory | string | `"2Gi"` |  |
+| replicaCount | int | `1` |  |
+| resources.limits.cpu | string | `"1536m"` |  |
+| resources.limits.memory | string | `"1536Mi"` |  |
+| resources.requests.cpu | string | `"1536m"` |  |
+| resources.requests.memory | string | `"1536Mi"` |  |
 | securityContext | object | `{}` |  |
 | service.port | int | `8082` |  |
 | service.targetPort | int | `8000` |  |

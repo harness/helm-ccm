@@ -30,7 +30,7 @@ image:
   repository: harness/batch-processing-signed
   pullPolicy: Always
 # Overrides the image tag whose default is the chart appVersion.
-  tag: "78200-000"
+  tag: "78605-000"
   digest: ""
 # image pull secrets to use for batch-processing image
   imagePullSecrets: []
@@ -40,7 +40,7 @@ imageClickhouseEnabled:
   repository: harness/batch-processing-signed
   pullPolicy: Always
 # Overrides the image tag whose default is the chart appVersion.
-  tag: "80002"
+  tag: "78605-000"
   digest: ""
 # image pull secrets to use for batch-processing image
   imagePullSecrets: []
