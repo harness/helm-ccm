@@ -1,5 +1,20 @@
 apiVersion: v1
 entries:
+  anomaly-detection:
+  - apiVersion: v2
+    appVersion: 1.773.0
+    created: "2023-03-12T03:48:43.318220238Z"
+    dependencies:
+    - name: harness-common
+      repository: https://harness.github.io/helm-common
+      version: 1.x.x
+    description: A Helm chart for Kubernetes
+    digest: 58e767743774e37dd7e11fce9bb675a7da8358e05631824151f5aa87e2dd3683
+    name: anomaly-detection
+    type: application
+    urls:
+    - https://github.com/harness/helm-ccm/releases/download/anomaly-detection-0.1.8/anomaly-detection-0.1.8.tgz
+    version: 0.1.8
   batch-processing:
   - apiVersion: v2
     appVersion: 1.773.0
@@ -19,6 +34,58 @@ entries:
     - https://github.com/harness/helm-ccm/releases/download/batch-processing-0.1.11/batch-processing-0.1.11.tgz
     version: 0.1.11
   ccm:
+  - apiVersion: v2
+    appVersion: 1.546.0
+    created: "2023-03-12T03:48:43.669713505Z"
+    dependencies:
+    - name: nextgen-ce
+      repository: file://../nextgen-ce
+      version: 0.1.x
+    - name: event-service
+      repository: file://../event-service
+      version: 0.1.x
+    - name: anomaly-detection
+      repository: file://../anomaly-detection
+      version: 0.1.x
+    - name: cloud-info
+      repository: file://../cloud-info
+      version: 0.1.x
+    - name: telescopes
+      repository: file://../telescopes
+      version: 0.1.x
+    - name: batch-processing
+      repository: file://../batch-processing
+      version: 0.1.x
+    - name: ng-ce-ui
+      repository: file://../ng-ce-ui
+      version: 0.1.x
+    - condition: clickhouse.enabled
+      name: clickhouse
+      repository: https://charts.bitnami.com/bitnami
+      version: 2.1.0
+    - condition: global.lwd.enabled
+      name: lwd-faktory
+      repository: file://../lightwingFaktory
+      version: 0.1.x
+    - condition: global.lwd.enabled
+      name: lwd
+      repository: file://../lightwingAPI
+      version: 0.1.x
+    - condition: global.lwd.enabled
+      name: lwd-worker
+      repository: file://../lightwingFaktoryWorker
+      version: 0.1.x
+    - condition: global.lwd.autocud.enabled
+      name: lwd-autocud
+      repository: file://../lightwingAutocud
+      version: 0.1.x
+    description: A Helm chart for Harness Cloud Cost Management (CCM) module
+    digest: 8059af62f1fe3ebd73b49bb1a88d96bc846429f36663218ea485ebd5d3d05927
+    name: ccm
+    type: application
+    urls:
+    - https://github.com/harness/helm-ccm/releases/download/ccm-0.4.17/ccm-0.4.17.tgz
+    version: 0.4.17
   - apiVersion: v2
     appVersion: 1.546.0
     created: "2023-03-08T10:03:16.913623223Z"
@@ -1678,4 +1745,19 @@ entries:
     urls:
     - https://github.com/harness/helm-ccm/releases/download/nextgen-ce-0.1.16/nextgen-ce-0.1.16.tgz
     version: 0.1.16
-generated: "2023-03-08T10:03:17.563436709Z"
+  ng-ce-ui:
+  - apiVersion: v2
+    appVersion: 1.773.0
+    created: "2023-03-12T03:48:44.258810123Z"
+    dependencies:
+    - name: harness-common
+      repository: https://harness.github.io/helm-common
+      version: 1.x.x
+    description: A Helm chart for Kubernetes
+    digest: b5c585f135567a80775f01d0d539935b798870328df6f7d03f64e20b07ecc81b
+    name: ng-ce-ui
+    type: application
+    urls:
+    - https://github.com/harness/helm-ccm/releases/download/ng-ce-ui-0.1.0/ng-ce-ui-0.1.0.tgz
+    version: 0.1.0
+generated: "2023-03-12T03:48:44.259417831Z"
