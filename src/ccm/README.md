@@ -2,7 +2,7 @@
 
 A Helm chart for Harness Cloud Cost Management (CCM) module
 
-![Version: 0.4.16](https://img.shields.io/badge/Version-0.4.16-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square) ![AppVersion: 1.546.0](https://img.shields.io/badge/AppVersion-1.546.0-informational?style=flat-square)
+![Version: 0.4.17](https://img.shields.io/badge/Version-0.4.17-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square) ![AppVersion: 1.546.0](https://img.shields.io/badge/AppVersion-1.546.0-informational?style=flat-square)
 
 ## Usage
 
@@ -12,7 +12,7 @@ Use the following dependency to add this chart repository to your Helm installat
 dependencies:
     - name: ccm
       repository: https://harness.github.io/helm-ccm
-      version: 0.4.16
+      version: 0.4.17
 ```
 
 ## Values
@@ -39,11 +39,11 @@ dependencies:
 | anomaly-detection.nodeSelector | object | `{}` |  |
 | anomaly-detection.podAnnotations | object | `{}` |  |
 | anomaly-detection.podSecurityContext | object | `{}` |  |
-| anomaly-detection.replicaCount | int | `2` |  |
-| anomaly-detection.resources.limits.cpu | string | `"1024m"` |  |
-| anomaly-detection.resources.limits.memory | string | `"2Gi"` |  |
-| anomaly-detection.resources.requests.cpu | string | `"1024m"` |  |
-| anomaly-detection.resources.requests.memory | string | `"2Gi"` |  |
+| anomaly-detection.replicaCount | int | `1` |  |
+| anomaly-detection.resources.limits.cpu | string | `"512m"` |  |
+| anomaly-detection.resources.limits.memory | string | `"512Mi"` |  |
+| anomaly-detection.resources.requests.cpu | string | `"512m"` |  |
+| anomaly-detection.resources.requests.memory | string | `"512Mi"` |  |
 | anomaly-detection.securityContext | object | `{}` |  |
 | anomaly-detection.service.port | int | `8081` |  |
 | anomaly-detection.service.type | string | `"ClusterIP"` |  |
@@ -76,12 +76,12 @@ dependencies:
 | batch-processing.image.pullPolicy | string | `"Always"` |  |
 | batch-processing.image.registry | string | `"docker.io"` |  |
 | batch-processing.image.repository | string | `"harness/batch-processing-signed"` |  |
-| batch-processing.image.tag | string | `"78200-000"` |  |
+| batch-processing.image.tag | string | `"78605-000"` |  |
 | batch-processing.imageClickhouseEnabled.digest | string | `""` |  |
 | batch-processing.imageClickhouseEnabled.pullPolicy | string | `"Always"` |  |
 | batch-processing.imageClickhouseEnabled.registry | string | `"docker.io"` |  |
 | batch-processing.imageClickhouseEnabled.repository | string | `"harness/batch-processing-signed"` |  |
-| batch-processing.imageClickhouseEnabled.tag | string | `"80002"` |  |
+| batch-processing.imageClickhouseEnabled.tag | string | `"78605-000"` |  |
 | batch-processing.isolatedReplica | int | `0` |  |
 | batch-processing.java.memory | string | `"7168"` |  |
 | batch-processing.mongoSecrets.password.key | string | `"mongodb-root-password"` |  |
@@ -123,12 +123,12 @@ dependencies:
 | clickhouse.image.tag | string | `"22.11.2-debian-11-r0"` |  |
 | clickhouse.persistence.size | string | `"1Ti"` |  |
 | clickhouse.replicaCount | int | `1` |  |
-| clickhouse.resources.limits.cpu | int | `16` |  |
+| clickhouse.resources.limits.cpu | int | `6` |  |
 | clickhouse.resources.limits.memory | string | `"8Gi"` |  |
-| clickhouse.resources.requests.cpu | int | `16` |  |
+| clickhouse.resources.requests.cpu | int | `6` |  |
 | clickhouse.resources.requests.memory | string | `"8Gi"` |  |
 | clickhouse.shards | int | `1` |  |
-| clickhouse.zookeeper.enabled | bool | `true` |  |
+| clickhouse.zookeeper.enabled | bool | `false` |  |
 | clickhouse.zookeeper.fullnameOverride | string | `"clickhouse-zookeeper"` |  |
 | clickhouse.zookeeper.replicaCount | int | `1` |  |
 | cloud-info.CLOUD_INFO_CONFIG | string | `""` |  |
@@ -143,7 +143,7 @@ dependencies:
 | cloud-info.image.pullPolicy | string | `"IfNotPresent"` |  |
 | cloud-info.image.registry | string | `"docker.io"` |  |
 | cloud-info.image.repository | string | `"harness/ce-cloud-info-signed"` |  |
-| cloud-info.image.tag | string | `"0.19.0"` |  |
+| cloud-info.image.tag | string | `"0.22.0"` |  |
 | cloud-info.ingress.className | string | `"nginx"` |  |
 | cloud-info.java.memory | string | `"4096m"` |  |
 | cloud-info.java.memoryLimit | string | `"4096m"` |  |
@@ -153,11 +153,11 @@ dependencies:
 | cloud-info.nodeSelector | object | `{}` |  |
 | cloud-info.podAnnotations | object | `{}` |  |
 | cloud-info.podSecurityContext | object | `{}` |  |
-| cloud-info.replicaCount | int | `2` |  |
-| cloud-info.resources.limits.cpu | string | `"2048m"` |  |
-| cloud-info.resources.limits.memory | string | `"2Gi"` |  |
-| cloud-info.resources.requests.cpu | string | `"2048m"` |  |
-| cloud-info.resources.requests.memory | string | `"2Gi"` |  |
+| cloud-info.replicaCount | int | `1` |  |
+| cloud-info.resources.limits.cpu | string | `"1536m"` |  |
+| cloud-info.resources.limits.memory | string | `"1536Mi"` |  |
+| cloud-info.resources.requests.cpu | string | `"1536m"` |  |
+| cloud-info.resources.requests.memory | string | `"1536Mi"` |  |
 | cloud-info.securityContext | object | `{}` |  |
 | cloud-info.service.port | int | `8082` |  |
 | cloud-info.service.targetPort | int | `8000` |  |
@@ -193,7 +193,7 @@ dependencies:
 | event-service.podAnnotations | object | `{}` |  |
 | event-service.podSecurityContext | object | `{}` |  |
 | event-service.redislabsCATruststore | string | `"test"` |  |
-| event-service.replicaCount | int | `2` |  |
+| event-service.replicaCount | int | `1` |  |
 | event-service.resources.limits.cpu | string | `"512m"` |  |
 | event-service.resources.limits.memory | string | `"1840Mi"` |  |
 | event-service.resources.requests.cpu | string | `"512m"` |  |
@@ -447,12 +447,12 @@ dependencies:
 | nextgen-ce.image.pullPolicy | string | `"IfNotPresent"` |  |
 | nextgen-ce.image.registry | string | `"docker.io"` |  |
 | nextgen-ce.image.repository | string | `"harness/ce-nextgen-signed"` |  |
-| nextgen-ce.image.tag | string | `"78300-000"` |  |
+| nextgen-ce.image.tag | string | `"78700-000"` |  |
 | nextgen-ce.imageClickhouseEnabled.digest | string | `""` |  |
 | nextgen-ce.imageClickhouseEnabled.pullPolicy | string | `"Always"` |  |
 | nextgen-ce.imageClickhouseEnabled.registry | string | `"docker.io"` |  |
 | nextgen-ce.imageClickhouseEnabled.repository | string | `"harness/ce-nextgen-signed"` |  |
-| nextgen-ce.imageClickhouseEnabled.tag | string | `"9000363-000"` |  |
+| nextgen-ce.imageClickhouseEnabled.tag | string | `"78700-000"` |  |
 | nextgen-ce.ingress.className | string | `"nginx"` |  |
 | nextgen-ce.java.memory | string | `"4096m"` |  |
 | nextgen-ce.java.memoryLimit | string | `"4096m"` |  |
@@ -467,10 +467,10 @@ dependencies:
 | nextgen-ce.podAnnotations | object | `{}` |  |
 | nextgen-ce.podSecurityContext | object | `{}` |  |
 | nextgen-ce.replicaCount | int | `2` |  |
-| nextgen-ce.resources.limits.cpu | int | `2` |  |
-| nextgen-ce.resources.limits.memory | string | `"5Gi"` |  |
-| nextgen-ce.resources.requests.cpu | int | `2` |  |
-| nextgen-ce.resources.requests.memory | string | `"5Gi"` |  |
+| nextgen-ce.resources.limits.cpu | int | `1` |  |
+| nextgen-ce.resources.limits.memory | string | `"4Gi"` |  |
+| nextgen-ce.resources.requests.cpu | int | `1` |  |
+| nextgen-ce.resources.requests.memory | string | `"4Gi"` |  |
 | nextgen-ce.securityContext | object | `{}` |  |
 | nextgen-ce.service.port | int | `6340` |  |
 | nextgen-ce.service.type | string | `"ClusterIP"` |  |
@@ -497,7 +497,7 @@ dependencies:
 | ng-ce-ui.image.pullPolicy | string | `"Always"` |  |
 | ng-ce-ui.image.registry | string | `"docker.io"` |  |
 | ng-ce-ui.image.repository | string | `"harness/ng-ce-ui"` |  |
-| ng-ce-ui.image.tag | string | `"0.23.8"` |  |
+| ng-ce-ui.image.tag | string | `"0.26.3"` |  |
 | ng-ce-ui.ingress.className | string | `"nginx"` |  |
 | ng-ce-ui.maxSurge | string | `"100%"` |  |
 | ng-ce-ui.maxUnavailable | int | `0` |  |

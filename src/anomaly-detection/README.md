@@ -42,11 +42,11 @@ A Helm chart for Kubernetes
 | nodeSelector | object | `{}` |  |
 | podAnnotations | object | `{}` |  |
 | podSecurityContext | object | `{}` |  |
-| replicaCount | int | `2` |  |
-| resources.limits.cpu | string | `"1024m"` |  |
-| resources.limits.memory | string | `"2Gi"` |  |
-| resources.requests.cpu | string | `"1024m"` |  |
-| resources.requests.memory | string | `"2Gi"` |  |
+| replicaCount | int | `1` |  |
+| resources.limits.cpu | string | `"512m"` |  |
+| resources.limits.memory | string | `"512Mi"` |  |
+| resources.requests.cpu | string | `"512m"` |  |
+| resources.requests.memory | string | `"512Mi"` |  |
 | securityContext | object | `{}` |  |
 | service.port | int | `8081` |  |
 | service.type | string | `"ClusterIP"` |  |

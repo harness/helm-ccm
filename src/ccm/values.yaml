@@ -16,7 +16,7 @@ global:
       enabled: false
 
 anomaly-detection:
-  replicaCount: 2
+  replicaCount: 1
   maxSurge: 100%
   maxUnavailable: 0
   java:
@@ -53,11 +53,11 @@ anomaly-detection:
   affinity: {}
   resources:
     limits:
-      cpu: "1024m"
-      memory: "2Gi"
+      cpu: "512m"
+      memory: "512Mi"
     requests:
-      cpu: "1024m"
-      memory: "2Gi"
+      cpu: "512m"
+      memory: "512Mi"
 
 batch-processing:
   replicaCount: 1
@@ -70,14 +70,14 @@ batch-processing:
     repository: harness/batch-processing-signed
     pullPolicy: Always
     # Overrides the image tag whose default is the chart appVersion.
-    tag: "78200-000"
+    tag: "78605-000"
     digest: ""
   imageClickhouseEnabled:
     registry: docker.io
     repository: harness/batch-processing-signed
     pullPolicy: Always
     # Overrides the image tag whose default is the chart appVersion.
-    tag: "80002"
+    tag: "78605-000"
     digest: ""
   waitForInitContainer:
     image:
@@ -154,7 +154,7 @@ batch-processing:
       memory: "10Gi"
 
 cloud-info:
-  replicaCount: 2
+  replicaCount: 1
   maxSurge: 100%
   maxUnavailable: 0
   java:
@@ -165,7 +165,7 @@ cloud-info:
     repository: harness/ce-cloud-info-signed
     pullPolicy: IfNotPresent
     # Overrides the image tag whose default is the chart appVersion.
-    tag: "0.19.0"
+    tag: "0.22.0"
     digest: ""
   nameOverride: ""
   fullnameOverride: ""
@@ -197,14 +197,14 @@ cloud-info:
     enabled: false
   resources:
     limits:
-      cpu: "2048m"
-      memory: "2Gi"
+      cpu: "1536m"
+      memory: "1536Mi"
     requests:
-      cpu: "2048m"
-      memory: "2Gi"
+      cpu: "1536m"
+      memory: "1536Mi"
 
 event-service:
-  replicaCount: 2
+  replicaCount: 1
   stackDriverLoggingEnabled: false
   maxSurge: 100%
   maxUnavailable: 0
@@ -564,14 +564,14 @@ nextgen-ce:
     repository: harness/ce-nextgen-signed
     pullPolicy: IfNotPresent
     # Overrides the image tag whose default is the chart appVersion.
-    tag: "78300-000"
+    tag: "78700-000"
     digest: ""
   imageClickhouseEnabled:
     registry: docker.io
     repository: harness/ce-nextgen-signed
     pullPolicy: Always
     # Overrides the image tag whose default is the chart appVersion.
-    tag: "9000363-000"
+    tag: "78700-000"
     digest: ""
   waitForInitContainer:
     image:
@@ -638,11 +638,11 @@ nextgen-ce:
     enabled: false
   resources:
     limits:
-      cpu: 2
-      memory: "5Gi"
+      cpu: 1
+      memory: "4Gi"
     requests:
-      cpu: 2
-      memory: "5Gi"
+      cpu: 1
+      memory: "4Gi"
 
 ng-ce-ui:
   replicaCount: 2
@@ -653,7 +653,7 @@ ng-ce-ui:
     repository: harness/ng-ce-ui
     pullPolicy: Always
     # Overrides the image tag whose default is the chart appVersion.
-    tag: "0.23.8"
+    tag: "0.26.3"
     digest: ""
   nameOverride: ""
   fullnameOverride: ""
@@ -743,10 +743,10 @@ clickhouse:
     tag: 22.11.2-debian-11-r0
   resources:
     limits:
-      cpu: 16
+      cpu: 6
       memory: "8Gi"
     requests:
-      cpu: 16
+      cpu: 6
       memory: "8Gi"
   persistence:
     size: 1Ti
@@ -889,6 +889,6 @@ clickhouse:
   replicaCount: 1
   shards: 1
   zookeeper:
-    enabled: true
+    enabled: false
     fullnameOverride: "clickhouse-zookeeper"
     replicaCount: 1
