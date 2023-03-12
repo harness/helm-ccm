@@ -628,6 +628,7 @@ nextgen-ce:
     AWS_GOV_CLOUD_ACCOUNT_ID: "147449478367"
     AWS_GOV_CLOUD_REGION_NAME: "us-gov-west-1"
     AWS_GOV_CLOUD_TEMPLATE_LINK: "https://continuous-efficiency.s3.us-east-2.amazonaws.com/setup/v1/ng/HarnessAWSTemplate.yaml"
+    GCP_SERVICE_ACCOUNT_EMAIL: "placeHolder"
   clickhouse:
     enabled: false
     username: "default"

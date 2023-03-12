@@ -442,6 +442,7 @@ dependencies:
 | nextgen-ce.cloudProviderConfig.AWS_GOV_CLOUD_TEMPLATE_LINK | string | `"https://continuous-efficiency.s3.us-east-2.amazonaws.com/setup/v1/ng/HarnessAWSTemplate.yaml"` |  |
 | nextgen-ce.cloudProviderConfig.AZURE_APP_CLIENT_ID | string | `"0211763d-24fb-4d63-865d-92f86f77e908"` |  |
 | nextgen-ce.cloudProviderConfig.GCP_PROJECT_ID | string | `"placeHolder"` |  |
+| nextgen-ce.cloudProviderConfig.GCP_SERVICE_ACCOUNT_EMAIL | string | `"placeHolder"` |  |
 | nextgen-ce.fullnameOverride | string | `""` |  |
 | nextgen-ce.image.digest | string | `""` |  |
 | nextgen-ce.image.pullPolicy | string | `"IfNotPresent"` |  |
