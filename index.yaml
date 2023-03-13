@@ -36,6 +36,58 @@ entries:
   ccm:
   - apiVersion: v2
     appVersion: 1.546.0
+    created: "2023-03-13T18:47:24.026053844Z"
+    dependencies:
+    - name: nextgen-ce
+      repository: file://../nextgen-ce
+      version: 0.2.x
+    - name: event-service
+      repository: file://../event-service
+      version: 0.2.x
+    - name: anomaly-detection
+      repository: file://../anomaly-detection
+      version: 0.2.x
+    - name: cloud-info
+      repository: file://../cloud-info
+      version: 0.2.x
+    - name: telescopes
+      repository: file://../telescopes
+      version: 0.2.x
+    - name: batch-processing
+      repository: file://../batch-processing
+      version: 0.2.x
+    - name: ng-ce-ui
+      repository: file://../ng-ce-ui
+      version: 0.2.x
+    - condition: clickhouse.enabled
+      name: clickhouse
+      repository: https://charts.bitnami.com/bitnami
+      version: 2.1.0
+    - condition: global.lwd.enabled
+      name: lwd-faktory
+      repository: file://../lightwingFaktory
+      version: 0.2.x
+    - condition: global.lwd.enabled
+      name: lwd
+      repository: file://../lightwingAPI
+      version: 0.2.x
+    - condition: global.lwd.enabled
+      name: lwd-worker
+      repository: file://../lightwingFaktoryWorker
+      version: 0.2.x
+    - condition: global.lwd.autocud.enabled
+      name: lwd-autocud
+      repository: file://../lightwingAutocud
+      version: 0.2.x
+    description: A Helm chart for Harness Cloud Cost Management (CCM) module
+    digest: b7b9c9a032e0e62da50f7ffd1f7aba44fc2b8821c17c3cdbd9ecc40a50c57e54
+    name: ccm
+    type: application
+    urls:
+    - https://github.com/harness/helm-ccm/releases/download/ccm-0.5.1/ccm-0.5.1.tgz
+    version: 0.5.1
+  - apiVersion: v2
+    appVersion: 1.546.0
     created: "2023-03-12T03:48:43.669713505Z"
     dependencies:
     - name: nextgen-ce
@@ -1760,4 +1812,4 @@ entries:
     urls:
     - https://github.com/harness/helm-ccm/releases/download/ng-ce-ui-0.1.0/ng-ce-ui-0.1.0.tgz
     version: 0.1.0
-generated: "2023-03-12T03:48:44.259417831Z"
+generated: "2023-03-13T18:47:24.026501044Z"
