@@ -24,9 +24,9 @@ spec:
   - name: lwd-faktory
     match:
     - uri:
-        prefix: /lw/faktory
-    - uri:
         prefix: /lw/faktory/
+    - uri:
+        prefix: /lw/faktory
     rewrite:
       uri: /
     route:

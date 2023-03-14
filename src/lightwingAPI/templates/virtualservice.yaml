@@ -24,9 +24,9 @@ spec:
   - name: lwd
     match:
     - uri:
-        prefix: /lw/api
-    - uri:
         prefix: /lw/api/
+    - uri:
+        prefix: /lw/api
     rewrite:
       uri: /
     route:
