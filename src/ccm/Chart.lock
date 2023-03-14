@@ -1,39 +1,39 @@
 dependencies:
 - name: nextgen-ce
   repository: file://../nextgen-ce
-  version: 0.1.16
+  version: 0.2.0
 - name: event-service
   repository: file://../event-service
-  version: 0.1.4
+  version: 0.2.0
 - name: anomaly-detection
   repository: file://../anomaly-detection
-  version: 0.1.8
+  version: 0.2.0
 - name: cloud-info
   repository: file://../cloud-info
-  version: 0.1.16
+  version: 0.2.0
 - name: telescopes
   repository: file://../telescopes
-  version: 0.1.12
+  version: 0.2.0
 - name: batch-processing
   repository: file://../batch-processing
-  version: 0.1.11
+  version: 0.2.0
 - name: ng-ce-ui
   repository: file://../ng-ce-ui
-  version: 0.1.0
+  version: 0.2.0
 - name: clickhouse
   repository: https://charts.bitnami.com/bitnami
   version: 2.1.0
 - name: lwd-faktory
   repository: file://../lightwingFaktory
-  version: 0.1.7
+  version: 0.2.0
 - name: lwd
   repository: file://../lightwingAPI
-  version: 0.1.11
+  version: 0.2.0
 - name: lwd-worker
   repository: file://../lightwingFaktoryWorker
-  version: 0.1.6
+  version: 0.2.0
 - name: lwd-autocud
   repository: file://../lightwingAutocud
-  version: 0.1.4
-digest: sha256:ad44cca1a7780724d01548302612b6262bf41cb4a98d3cd23c80e08d73cb36cc
-generated: "2023-03-14T13:47:35.601288+05:30"
+  version: 0.2.0
+digest: sha256:10ecb8af71e0b148d8a579c323888bbde54549d68491f0d712f4aa8982a96d85
+generated: "2023-03-14T00:16:32.789612+05:30"
