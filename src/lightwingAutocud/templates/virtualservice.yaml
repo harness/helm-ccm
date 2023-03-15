@@ -24,9 +24,9 @@ spec:
   - name: lwd-autocud
     match:
     - uri:
-        prefix: /lw/co/api
-    - uri:
         prefix: /lw/co/api/
+    - uri:
+        prefix: /lw/co/api
     rewrite:
       uri: /
     route:
