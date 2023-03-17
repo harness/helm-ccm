@@ -34,4 +34,8 @@ spec:
         port:
           number: {{ .Values.service.api.port }}
         host: lwd-faktory
+    headers:
+      request:
+        add:
+          X-Script-Name: /lw/faktory
 {{ end }}

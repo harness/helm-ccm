@@ -125,7 +125,7 @@ spec:
                   name: {{ .Values.lwdWorkerSecrets.secretName }}
                   key: {{ .Values.lwdWorkerSecrets.faktoryPassword }}
             - name: FAKTORY_URL
-              value: tcp://$(FAKTORY_PASSWORD):@lwd-faktory.{{ .Release.Namespace }}.svc.cluster.local:7419
+              value: tcp://:$(FAKTORY_PASSWORD)@lwd-faktory.{{ .Release.Namespace }}.svc.cluster.local:7419
           volumeMounts:
           - name: secret-mount
             mountPath: /opt/harness/svc

@@ -110,7 +110,7 @@ spec:
             - name: LIGHTWING_DB_CONNECTION
               value: "host=postgres.{{ .Release.Namespace }}.svc.cluster.local user=postgres password=$(DB_PASSWORD) dbname=lightwing sslmode=disable"
             - name: FAKTORY_URL
-              value: tcp://$(FAKTORY_PASSWORD):@lwd-faktory.{{ .Release.Namespace }}.svc.cluster.local:7419
+              value: tcp://:$(FAKTORY_PASSWORD)@lwd-faktory.{{ .Release.Namespace }}.svc.cluster.local:7419
           volumeMounts:
           - name: secret-mount
             mountPath: /opt/harness/svc
