@@ -36,6 +36,58 @@ entries:
   ccm:
   - apiVersion: v2
     appVersion: 1.546.0
+    created: "2023-03-17T06:51:19.534897862Z"
+    dependencies:
+    - name: nextgen-ce
+      repository: file://../nextgen-ce
+      version: 0.2.x
+    - name: event-service
+      repository: file://../event-service
+      version: 0.2.x
+    - name: anomaly-detection
+      repository: file://../anomaly-detection
+      version: 0.2.x
+    - name: cloud-info
+      repository: file://../cloud-info
+      version: 0.2.x
+    - name: telescopes
+      repository: file://../telescopes
+      version: 0.2.x
+    - name: batch-processing
+      repository: file://../batch-processing
+      version: 0.2.x
+    - name: ng-ce-ui
+      repository: file://../ng-ce-ui
+      version: 0.2.x
+    - condition: clickhouse.enabled
+      name: clickhouse
+      repository: https://charts.bitnami.com/bitnami
+      version: 2.1.0
+    - condition: global.lwd.enabled
+      name: lwd-faktory
+      repository: file://../lightwingFaktory
+      version: 0.2.x
+    - condition: global.lwd.enabled
+      name: lwd
+      repository: file://../lightwingAPI
+      version: 0.2.x
+    - condition: global.lwd.enabled
+      name: lwd-worker
+      repository: file://../lightwingFaktoryWorker
+      version: 0.2.x
+    - condition: global.lwd.autocud.enabled
+      name: lwd-autocud
+      repository: file://../lightwingAutocud
+      version: 0.2.x
+    description: A Helm chart for Harness Cloud Cost Management (CCM) module
+    digest: 0ba8c1219e8ef76eba15cf5da8a39806acc3e9a560cffe5d454df8cda70f44b6
+    name: ccm
+    type: application
+    urls:
+    - https://github.com/harness/helm-ccm/releases/download/ccm-0.5.4/ccm-0.5.4.tgz
+    version: 0.5.4
+  - apiVersion: v2
+    appVersion: 1.546.0
     created: "2023-03-15T13:02:27.301546744Z"
     dependencies:
     - name: nextgen-ce
@@ -1678,6 +1730,23 @@ entries:
   lwd:
   - apiVersion: v2
     appVersion: 1.773.0
+    created: "2023-03-17T06:51:19.720731143Z"
+    dependencies:
+    - name: harness-common
+      repository: https://harness.github.io/helm-common
+      version: 1.x.x
+    - name: common
+      repository: https://charts.bitnami.com/bitnami
+      version: 2.x.x
+    description: A Helm chart for Kubernetes
+    digest: 61d96d1504c9719b6fae7d789b3a5f9856fca51fa22eb35b0525d4ada8448f52
+    name: lwd
+    type: application
+    urls:
+    - https://github.com/harness/helm-ccm/releases/download/lwd-0.2.2/lwd-0.2.2.tgz
+    version: 0.2.2
+  - apiVersion: v2
+    appVersion: 1.773.0
     created: "2023-03-15T13:02:27.426141084Z"
     dependencies:
     - name: harness-common
@@ -1816,6 +1885,20 @@ entries:
   lwd-faktory:
   - apiVersion: v2
     appVersion: 1.773.0
+    created: "2023-03-17T06:51:19.906960324Z"
+    dependencies:
+    - name: harness-common
+      repository: https://harness.github.io/helm-common
+      version: 1.x.x
+    description: A Helm chart for Kubernetes
+    digest: 09e94cff2f2c0da865471b3714094460d182909bd8a75232ec133623c04acc80
+    name: lwd-faktory
+    type: application
+    urls:
+    - https://github.com/harness/helm-ccm/releases/download/lwd-faktory-0.2.3/lwd-faktory-0.2.3.tgz
+    version: 0.2.3
+  - apiVersion: v2
+    appVersion: 1.773.0
     created: "2023-03-15T13:02:27.703179899Z"
     dependencies:
     - name: harness-common
@@ -1829,6 +1912,23 @@ entries:
     - https://github.com/harness/helm-ccm/releases/download/lwd-faktory-0.2.2/lwd-faktory-0.2.2.tgz
     version: 0.2.2
   lwd-worker:
+  - apiVersion: v2
+    appVersion: 1.773.0
+    created: "2023-03-17T06:51:20.057335752Z"
+    dependencies:
+    - name: harness-common
+      repository: https://harness.github.io/helm-common
+      version: 1.x.x
+    - name: common
+      repository: https://charts.bitnami.com/bitnami
+      version: 2.x.x
+    description: A Helm chart for Kubernetes
+    digest: 1c48d82288b10cdc37149c13ad0bdd518238db06f726e1551aa63ce3716533fa
+    name: lwd-worker
+    type: application
+    urls:
+    - https://github.com/harness/helm-ccm/releases/download/lwd-worker-0.2.1/lwd-worker-0.2.1.tgz
+    version: 0.2.1
   - apiVersion: v2
     appVersion: 1.773.0
     created: "2023-03-03T05:43:27.178646146Z"
@@ -1913,4 +2013,4 @@ entries:
     urls:
     - https://github.com/harness/helm-ccm/releases/download/ng-ce-ui-0.1.0/ng-ce-ui-0.1.0.tgz
     version: 0.1.0
-generated: "2023-03-15T13:02:27.703735508Z"
+generated: "2023-03-17T06:51:20.058157853Z"
