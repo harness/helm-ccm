@@ -32,7 +32,7 @@ spec:
     route:
     - destination:
         port:
-          number: {{ .Values.service.api.port }}
+          number: {{ .Values.service.dashboard.port }}
         host: lwd-faktory
     headers:
       request:

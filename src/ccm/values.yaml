@@ -517,7 +517,7 @@ lwd-worker:
     clientId: ""
   redis:
     redisUrl: "redis://localhost:6379"
-    useSentinel: true
+    useSentinel: "true"
     redisMaster: "harness-redis"
   nameOverride: ""
   fullnameOverride: ""
