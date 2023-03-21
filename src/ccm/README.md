@@ -2,7 +2,7 @@
 
 A Helm chart for Harness Cloud Cost Management (CCM) module
 
-![Version: 0.5.4](https://img.shields.io/badge/Version-0.5.4-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square) ![AppVersion: 1.546.0](https://img.shields.io/badge/AppVersion-1.546.0-informational?style=flat-square)
+![Version: 0.5.5](https://img.shields.io/badge/Version-0.5.5-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square) ![AppVersion: 1.546.0](https://img.shields.io/badge/AppVersion-1.546.0-informational?style=flat-square)
 
 ## Usage
 
@@ -12,7 +12,7 @@ Use the following dependency to add this chart repository to your Helm installat
 dependencies:
     - name: ccm
       repository: https://harness.github.io/helm-ccm
-      version: 0.5.4
+      version: 0.5.5
 ```
 
 ## Values
@@ -349,7 +349,7 @@ dependencies:
 | lwd-worker.postgresPassword.name | string | `"postgres"` |  |
 | lwd-worker.redis.redisMaster | string | `"harness-redis"` |  |
 | lwd-worker.redis.redisUrl | string | `"redis://localhost:6379"` |  |
-| lwd-worker.redis.useSentinel | bool | `true` |  |
+| lwd-worker.redis.useSentinel | string | `"true"` |  |
 | lwd-worker.replicaCount | int | `3` |  |
 | lwd-worker.resources.limits.cpu | int | `2` |  |
 | lwd-worker.resources.limits.memory | string | `"4Gi"` |  |
