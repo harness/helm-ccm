@@ -15,7 +15,6 @@ A Helm chart for Kubernetes
 
 | Key | Type | Default | Description |
 |-----|------|---------|-------------|
-| LIGHTWING_GCPCOST_PROJECT | string | `"placeHolder"` |  |
 | affinity | object | `{}` |  |
 | autoscaling.enabled | bool | `false` |  |
 | autoscaling.maxReplicas | int | `2` |  |
@@ -26,6 +25,7 @@ A Helm chart for Kubernetes
 | azure.clientId | string | `""` |  |
 | ce-batch-gcp-credentials | string | `""` |  |
 | fullnameOverride | string | `""` |  |
+| global.ccm.gcpProjectId | string | `"placeHolder"` |  |
 | global.imagePullSecrets | list | `[]` |  |
 | global.ingress.className | string | `"harness"` |  |
 | global.ingress.enabled | bool | `false` |  |

@@ -20,6 +20,8 @@ global:
       hosts:
 # image pull secrets to use for every image
   imagePullSecrets: []
+  ccm:
+    gcpProjectId: "placeHolder"
 replicaCount: 2
 
 maxSurge: 100%
@@ -108,8 +110,6 @@ nodeSelector: {}
 tolerations: []
 
 affinity: {}
-
-LIGHTWING_GCPCOST_PROJECT: "placeHolder"
 
 resources:
   limits:

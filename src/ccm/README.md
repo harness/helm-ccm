@@ -2,7 +2,7 @@
 
 A Helm chart for Harness Cloud Cost Management (CCM) module
 
-![Version: 0.5.5](https://img.shields.io/badge/Version-0.5.5-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square) ![AppVersion: 1.546.0](https://img.shields.io/badge/AppVersion-1.546.0-informational?style=flat-square)
+![Version: 0.5.6](https://img.shields.io/badge/Version-0.5.6-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square) ![AppVersion: 1.546.0](https://img.shields.io/badge/AppVersion-1.546.0-informational?style=flat-square)
 
 ## Usage
 
@@ -12,7 +12,7 @@ Use the following dependency to add this chart repository to your Helm installat
 dependencies:
     - name: ccm
       repository: https://harness.github.io/helm-ccm
-      version: 0.5.5
+      version: 0.5.6
 ```
 
 ## Values
@@ -68,7 +68,6 @@ dependencies:
 | batch-processing.cloudProviderConfig.CLUSTER_DATA_GCS_BACKUP_BUCKET | string | `"clusterdata-onprem-backup"` |  |
 | batch-processing.cloudProviderConfig.CLUSTER_DATA_GCS_BUCKET | string | `"clusterdata-onprem"` |  |
 | batch-processing.cloudProviderConfig.DATA_PIPELINE_CONFIG_GCS_BASE_PATH | string | `"gs://awscustomerbillingdata-onprem"` |  |
-| batch-processing.cloudProviderConfig.GCP_PROJECT_ID | string | `"placeHolder"` |  |
 | batch-processing.cloudProviderConfig.S3_SYNC_CONFIG_BUCKET_NAME | string | `"ccm-service-data-bucket"` |  |
 | batch-processing.cloudProviderConfig.S3_SYNC_CONFIG_REGION | string | `"us-east-1"` |  |
 | batch-processing.fullnameOverride | string | `""` |  |
@@ -214,6 +213,7 @@ dependencies:
 | event-service.waitForInitContainer.image.registry | string | `"docker.io"` |  |
 | event-service.waitForInitContainer.image.repository | string | `"harness/helm-init-container"` |  |
 | event-service.waitForInitContainer.image.tag | string | `"latest"` |  |
+| global.ccm.gcpProjectId | string | `"placeHolder"` |  |
 | global.imagePullSecrets | list | `[]` |  |
 | global.istio.enabled | bool | `false` |  |
 | global.istio.gateway.create | bool | `false` |  |
@@ -222,7 +222,6 @@ dependencies:
 | global.lwd.autocud.enabled | bool | `false` |  |
 | global.lwd.enabled | bool | `false` |  |
 | global.smtpCreateSecret.enabled | bool | `false` |  |
-| lwd-autocud.LIGHTWING_GCPCOST_PROJECT | string | `"placeHolder"` |  |
 | lwd-autocud.affinity | object | `{}` |  |
 | lwd-autocud.autoscaling.enabled | bool | `false` |  |
 | lwd-autocud.autoscaling.maxReplicas | int | `2` |  |
@@ -312,7 +311,6 @@ dependencies:
 | lwd-faktory.serviceAccount.create | bool | `false` |  |
 | lwd-faktory.serviceAccount.name | string | `"harness-default"` |  |
 | lwd-faktory.tolerations | list | `[]` |  |
-| lwd-worker.LIGHTWING_GCPCOST_PROJECT | string | `"placeHolder"` |  |
 | lwd-worker.affinity | object | `{}` |  |
 | lwd-worker.autoscaling.enabled | bool | `false` |  |
 | lwd-worker.autoscaling.maxReplicas | int | `2` |  |
@@ -367,7 +365,6 @@ dependencies:
 | lwd-worker.waitForInitContainer.image.registry | string | `"docker.io"` |  |
 | lwd-worker.waitForInitContainer.image.repository | string | `"harness/helm-init-container"` |  |
 | lwd-worker.waitForInitContainer.image.tag | string | `"latest"` |  |
-| lwd.LIGHTWING_GCPCOST_PROJECT | string | `"placeHolder"` |  |
 | lwd.affinity | object | `{}` |  |
 | lwd.autoscaling.enabled | bool | `false` |  |
 | lwd.autoscaling.maxReplicas | int | `2` |  |
@@ -441,7 +438,6 @@ dependencies:
 | nextgen-ce.cloudProviderConfig.AWS_GOV_CLOUD_REGION_NAME | string | `"us-gov-west-1"` |  |
 | nextgen-ce.cloudProviderConfig.AWS_GOV_CLOUD_TEMPLATE_LINK | string | `"https://continuous-efficiency.s3.us-east-2.amazonaws.com/setup/v1/ng/HarnessAWSTemplate.yaml"` |  |
 | nextgen-ce.cloudProviderConfig.AZURE_APP_CLIENT_ID | string | `"0211763d-24fb-4d63-865d-92f86f77e908"` |  |
-| nextgen-ce.cloudProviderConfig.GCP_PROJECT_ID | string | `"placeHolder"` |  |
 | nextgen-ce.cloudProviderConfig.GCP_SERVICE_ACCOUNT_EMAIL | string | `"placeHolder"` |  |
 | nextgen-ce.fullnameOverride | string | `""` |  |
 | nextgen-ce.image.digest | string | `""` |  |

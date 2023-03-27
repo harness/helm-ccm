@@ -13,6 +13,8 @@ global:
       secretName: ''
   smtpCreateSecret:
     enabled: false
+  ccm:
+    gcpProjectId: "placeHolder"
 # image pull secrets to use for every image
   imagePullSecrets: []
 
@@ -113,7 +115,6 @@ tolerations: []
 affinity: {}
 
 cloudProviderConfig:
-  GCP_PROJECT_ID: "placeHolder"
   DATA_PIPELINE_CONFIG_GCS_BASE_PATH: "gs://awscustomerbillingdata-onprem"
   CLUSTER_DATA_GCS_BUCKET: "clusterdata-onprem"
   CLUSTER_DATA_GCS_BACKUP_BUCKET: "clusterdata-onprem-backup"

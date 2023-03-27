@@ -14,6 +14,8 @@ global:
     enabled: false
     autocud:
       enabled: false
+  ccm:
+    gcpProjectId: "placeHolder"
 
 anomaly-detection:
   replicaCount: 1
@@ -129,7 +131,6 @@ batch-processing:
   tolerations: []
   affinity: {}
   cloudProviderConfig:
-    GCP_PROJECT_ID: "placeHolder"
     DATA_PIPELINE_CONFIG_GCS_BASE_PATH: "gs://awscustomerbillingdata-onprem"
     CLUSTER_DATA_GCS_BUCKET: "clusterdata-onprem"
     CLUSTER_DATA_GCS_BACKUP_BUCKET: "clusterdata-onprem-backup"
@@ -344,7 +345,6 @@ lwd:
   nodeSelector: {}
   tolerations: []
   affinity: {}
-  LIGHTWING_GCPCOST_PROJECT: "placeHolder"
   resources:
     limits:
       cpu: 2
@@ -417,7 +417,6 @@ lwd-autocud:
   nodeSelector: {}
   tolerations: []
   affinity: {}
-  LIGHTWING_GCPCOST_PROJECT: "placeHolder"
   resources:
     limits:
       cpu: 2
@@ -542,7 +541,6 @@ lwd-worker:
   nodeSelector: {}
   tolerations: []
   affinity: {}
-  LIGHTWING_GCPCOST_PROJECT: "placeHolder"
   resources:
     limits:
       cpu: 2
@@ -623,7 +621,6 @@ nextgen-ce:
   tolerations: []
   affinity: {}
   cloudProviderConfig:
-    GCP_PROJECT_ID: "placeHolder"
     AZURE_APP_CLIENT_ID: "0211763d-24fb-4d63-865d-92f86f77e908"
     AWS_GOV_CLOUD_ACCOUNT_ID: "147449478367"
     AWS_GOV_CLOUD_REGION_NAME: "us-gov-west-1"

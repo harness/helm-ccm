@@ -20,6 +20,8 @@ global:
       hosts:
 # image pull secrets to use for every image
   imagePullSecrets: []
+  ccm:
+    gcpProjectId: "placeHolder"
 
 replicaCount: 2
 
@@ -121,7 +123,6 @@ tolerations: []
 affinity: {}
 
 cloudProviderConfig:
-  GCP_PROJECT_ID: "placeHolder"
   AZURE_APP_CLIENT_ID: "0211763d-24fb-4d63-865d-92f86f77e908"
   AWS_GOV_CLOUD_ACCOUNT_ID: "147449478367"
   AWS_GOV_CLOUD_REGION_NAME: "us-gov-west-1"
