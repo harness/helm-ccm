@@ -75,9 +75,9 @@ spec:
             - name: LIGHTWING_GCP_CLOUD_SCHEDULER_SERVICE_ACC_KEY_PATH
               value: "/opt/harness/svc/ce_batch_gcp_credentials.json"
             - name: LIGHTWING_GCP_CLOUD_SCHEDULER_PARENT_PATH
-              value: projects/{{ .Values.LIGHTWING_GCPCOST_PROJECT }}/locations/us-central1
+              value: projects/{{ .Values.global.ccm.gcpProjectId }}/locations/us-central1
             - name: LIGHTWING_GCPCOST_PROJECT
-              value: {{ .Values.LIGHTWING_GCPCOST_PROJECT }}
+              value: {{ .Values.global.ccm.gcpProjectId }}
             - name: LIGHTWING_CLOUD-CONNECTOR_REMOTE_API_TOKEN_SECRET
               value: IC04LYMBf1lDP5oeY4hupxd4HJhLmN6azUku3xEbeE3SUx5G3ZYzhbiwVtK4i7AmqyU9OZkwB4v8E9qM
             - name: LIGHTWING_AWSMASTER_SECRET_KEY

@@ -25,7 +25,7 @@ data:
   {{- end }}
   STACK_DRIVER_LOGGING_ENABLED: {{ .Values.stackDriverLoggingEnabled  | quote}}
   EVENTS_MONGO_INDEX_MANAGER_MODE: "AUTO"
-  GCP_PROJECT_ID: {{ .Values.cloudProviderConfig.GCP_PROJECT_ID  | quote}}
+  GCP_PROJECT_ID: {{ .Values.global.ccm.gcpProjectId  | quote}}
   AZURE_APP_CLIENT_ID: {{ .Values.cloudProviderConfig.AZURE_APP_CLIENT_ID  | quote}}
   AZURE_ENABLE_FILE_CHECK_AT_SOURCE: "true"
   AWS_GOV_CLOUD_ACCOUNT_ID: {{ .Values.cloudProviderConfig.AWS_GOV_CLOUD_ACCOUNT_ID  | quote}}

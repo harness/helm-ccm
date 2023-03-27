@@ -28,14 +28,14 @@ data:
   NG_MANAGER_SERVICE_HTTP_CLIENT_CONFIG_BASE_URL: "http://ng-manager.{{ .Release.Namespace }}.svc.cluster.local:7090/"
   CE_NG_SERVICE_HTTP_CLIENT_CONFIG_BASE_URL: "http://nextgen-ce.{{ .Release.Namespace }}.svc.cluster.local:6340/ccm/api/"
   CONNECTOR_HEALTH_UPDATE_CRON: "0 0 10 * * ?"
-  GCP_PROJECT_ID: {{ .Values.cloudProviderConfig.GCP_PROJECT_ID  | quote}}
+  GCP_PROJECT_ID: {{ .Values.global.ccm.gcpProjectId  | quote}}
   CLUSTER_DATA_GCS_BUCKET: {{ .Values.cloudProviderConfig.CLUSTER_DATA_GCS_BUCKET  | quote}}
   CLUSTER_DATA_GCS_BACKUP_BUCKET: {{ .Values.cloudProviderConfig.CLUSTER_DATA_GCS_BACKUP_BUCKET  | quote}}
   GCP_USE_NEW_PIPELINE: "true"
   AWS_USE_NEW_PIPELINE: "true"
   GCP_SYNC_ENABLED: "true"
   CONNECTOR_HEALTH_UPDATE_JOB_ENABLED: "true"
-  DATA_PIPELINE_CONFIG_GCP_PROJECT_ID: {{ .Values.cloudProviderConfig.GCP_PROJECT_ID  | quote}}
+  DATA_PIPELINE_CONFIG_GCP_PROJECT_ID: {{ .Values.global.ccm.gcpProjectId  | quote}}
   DATA_PIPELINE_CONFIG_GCS_BASE_PATH: {{ .Values.cloudProviderConfig.DATA_PIPELINE_CONFIG_GCS_BASE_PATH  | quote}}
   STACK_DRIVER_LOGGING_ENABLED: {{ .Values.stackDriverLoggingEnabled | quote }}
   NEXT_GEN_MANAGER_SECRET: IC04LYMBf1lDP5oeY4hupxd4HJhLmN6azUku3xEbeE3SUx5G3ZYzhbiwVtK4i7AmqyU9OZkwB4v8E9qM

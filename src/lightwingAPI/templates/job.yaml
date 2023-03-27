@@ -89,7 +89,7 @@ spec:
           - name: LIGHTWING_GCPCOST_SVC_ACC_KEY_PATH
             value: "/opt/harness/svc/ce_batch_gcp_credentials.json"
           - name: LIGHTWING_GCPCOST_PROJECT
-            value: {{ .Values.LIGHTWING_GCPCOST_PROJECT }}
+            value: {{ .Values.global.ccm.gcpProjectId }}
       restartPolicy: Never
       {{- with .Values.nodeSelector }}
       nodeSelector:

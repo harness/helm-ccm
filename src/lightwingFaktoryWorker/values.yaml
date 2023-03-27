@@ -13,6 +13,8 @@ global:
       secretName: ''
 # image pull secrets to use for every image
   imagePullSecrets: []
+  ccm:
+    gcpProjectId: "placeHolder"
 
 replicaCount: 3
 
@@ -103,8 +105,6 @@ nodeSelector: {}
 tolerations: []
 
 affinity: {}
-
-LIGHTWING_GCPCOST_PROJECT: "placeHolder"
 
 resources:
   limits:
