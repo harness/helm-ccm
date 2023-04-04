@@ -50,7 +50,7 @@ spec:
       containers:
         - name: nextgen-ce
           securityContext:
-            {{- toYaml .Values.securityContext | nindent 12 }}
+            {{- toYaml .Values.securityContext | indent 12 }}
           {{- if .Values.clickhouse.enabled }}
           image: {{ include "common.images.image" (dict "imageRoot" .Values.imageClickhouseEnabled "global" .Values.global) }}
           {{- else }}
