@@ -31,12 +31,14 @@ spec:
       securityContext:
         {{- toYaml .Values.podSecurityContext | nindent 8 }}
       initContainers:
+      {{- if .Values.global.database.mongo.installed }}
       - name: wait-for-mongo
         image: {{ include "common.images.image" (dict "imageRoot" .Values.waitForInitContainer.image "global" .Values.global) }}
         imagePullPolicy: IfNotPresent
         args:
           - "pod"
           - "-lapp=mongodb-replicaset"
+      {{- end }}    
       - name: wait-for-timescale
         image: {{ include "common.images.image" (dict "imageRoot" .Values.waitForInitContainer.image "global" .Values.global) }}
         imagePullPolicy: IfNotPresent
@@ -67,20 +69,11 @@ spec:
             - configMapRef:
                 name: event-service
           env:
-            - name: MONGODB_USERNAME
-              valueFrom:
-                secretKeyRef:
-                  name: {{ .Values.mongoSecrets.userName.name }}
-                  key: {{ .Values.mongoSecrets.userName.key }}
-            - name: MONGODB_PASSWORD
-              valueFrom:
-                secretKeyRef:
-                  name: {{ .Values.mongoSecrets.password.name }}
-                  key: {{ .Values.mongoSecrets.password.key }}
+            {{- include "harnesscommon.dbconnection.mongoEnv" . | indent 12 }}
             - name: EVENTS_MONGO_URI
-              value: {{ include "harnesscommon.database.mongo" (dict "database" "events" "context" $) }}
+              value: {{ include "harnesscommon.dbconnection.mongoConnection" (dict "database" "events" "context" $) }}
             - name: MONGO_URI
-              value: {{ include "harnesscommon.database.mongo" (dict "database" "harness" "context" $) }}
+              value: {{ include "harnesscommon.dbconnection.mongoConnection" (dict "database" "harness" "context" $) }}
             - name : TIMESCALEDB_PASSWORD
               valueFrom:
                 secretKeyRef:
