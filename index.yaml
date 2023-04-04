@@ -2118,6 +2118,23 @@ entries:
   nextgen-ce:
   - apiVersion: v2
     appVersion: 1.773.0
+    created: "2023-04-04T21:16:45.007220117Z"
+    dependencies:
+    - name: harness-common
+      repository: https://harness.github.io/helm-common
+      version: 1.x.x
+    - name: common
+      repository: https://charts.bitnami.com/bitnami
+      version: 2.x.x
+    description: A Helm chart for Kubernetes
+    digest: 468d7815f9c3791b918474851d4bb509e6ce3b1cddd420f605f7b9dbd1dff341
+    name: nextgen-ce
+    type: application
+    urls:
+    - https://github.com/harness/helm-ccm/releases/download/nextgen-ce-0.2.1/nextgen-ce-0.2.1.tgz
+    version: 0.2.1
+  - apiVersion: v2
+    appVersion: 1.773.0
     created: "2023-03-27T09:22:44.536503559Z"
     dependencies:
     - name: harness-common
@@ -2165,4 +2182,4 @@ entries:
     urls:
     - https://github.com/harness/helm-ccm/releases/download/ng-ce-ui-0.1.0/ng-ce-ui-0.1.0.tgz
     version: 0.1.0
-generated: "2023-03-27T09:22:44.536934759Z"
+generated: "2023-04-04T21:16:45.007788713Z"
