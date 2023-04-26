@@ -651,7 +651,7 @@ ng-ce-ui:
     repository: harness/ng-ce-ui
     pullPolicy: Always
     # Overrides the image tag whose default is the chart appVersion.
-    tag: "0.26.3"
+    tag: "0.26.4"
     digest: ""
   nameOverride: ""
   fullnameOverride: ""
