@@ -2,7 +2,7 @@
 
 A Helm chart for Harness Cloud Cost Management (CCM) module
 
-![Version: 0.5.6](https://img.shields.io/badge/Version-0.5.6-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square) ![AppVersion: 1.546.0](https://img.shields.io/badge/AppVersion-1.546.0-informational?style=flat-square)
+![Version: 0.5.7](https://img.shields.io/badge/Version-0.5.7-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square) ![AppVersion: 1.546.0](https://img.shields.io/badge/AppVersion-1.546.0-informational?style=flat-square)
 
 ## Usage
 
@@ -12,7 +12,7 @@ Use the following dependency to add this chart repository to your Helm installat
 dependencies:
     - name: ccm
       repository: https://harness.github.io/helm-ccm
-      version: 0.5.6
+      version: 0.5.7
 ```
 
 ## Values
@@ -494,7 +494,7 @@ dependencies:
 | ng-ce-ui.image.pullPolicy | string | `"Always"` |  |
 | ng-ce-ui.image.registry | string | `"docker.io"` |  |
 | ng-ce-ui.image.repository | string | `"harness/ng-ce-ui"` |  |
-| ng-ce-ui.image.tag | string | `"0.26.3"` |  |
+| ng-ce-ui.image.tag | string | `"0.26.4"` |  |
 | ng-ce-ui.ingress.className | string | `"nginx"` |  |
 | ng-ce-ui.maxSurge | string | `"100%"` |  |
 | ng-ce-ui.maxUnavailable | int | `0` |  |
