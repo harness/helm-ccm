@@ -64,7 +64,6 @@ anomaly-detection:
 batch-processing:
   replicaCount: 1
   isolatedReplica: 0
-  stackDriverLoggingEnabled: false
   java:
     memory: "7168"
   image:
@@ -206,7 +205,6 @@ cloud-info:
 
 event-service:
   replicaCount: 1
-  stackDriverLoggingEnabled: false
   maxSurge: 100%
   maxUnavailable: 0
   java:
@@ -551,7 +549,6 @@ lwd-worker:
 
 nextgen-ce:
   replicaCount: 2
-  stackDriverLoggingEnabled: false
   maxSurge: 100%
   maxUnavailable: 0
   java:

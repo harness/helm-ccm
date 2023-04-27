@@ -54,12 +54,12 @@ global:
     virtualService:
       gateways:
       hosts:
-# image pull secrets to use for every image
+  # image pull secrets to use for every image
   imagePullSecrets: []
+  stackDriverLoggingEnabled: false
 
 replicaCount: 1
 
-stackDriverLoggingEnabled: false
 
 maxSurge: 100%
 
