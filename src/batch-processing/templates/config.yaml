@@ -37,7 +37,7 @@ data:
   CONNECTOR_HEALTH_UPDATE_JOB_ENABLED: "true"
   DATA_PIPELINE_CONFIG_GCP_PROJECT_ID: {{ .Values.global.ccm.gcpProjectId  | quote}}
   DATA_PIPELINE_CONFIG_GCS_BASE_PATH: {{ .Values.cloudProviderConfig.DATA_PIPELINE_CONFIG_GCS_BASE_PATH  | quote}}
-  STACK_DRIVER_LOGGING_ENABLED: {{ .Values.stackDriverLoggingEnabled | quote }}
+  STACK_DRIVER_LOGGING_ENABLED: {{ .Values.global.stackDriverLoggingEnabled | quote }}
   NEXT_GEN_MANAGER_SECRET: IC04LYMBf1lDP5oeY4hupxd4HJhLmN6azUku3xEbeE3SUx5G3ZYzhbiwVtK4i7AmqyU9OZkwB4v8E9qM
   CE_NG_SERVICE_SECRET: IC04LYMBf1lDP5oeY4hupxd4HJhLmN6azUku3xEbeE3SUx5G3ZYzhbiwVtK4i7AmqyU9OZkwB4v8E9qM
   CLICKHOUSE_ENABLED: {{ .Values.clickhouse.enabled | quote }}

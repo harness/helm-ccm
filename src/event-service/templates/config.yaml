@@ -8,5 +8,5 @@ data:
   MONGO_INDEX_MANAGER_MODE: "AUTO"
   EVEMTS_MONGO_INDEX_MANAGER_MODE: "AUTO"
   DEPLOY_MODE: "KUBERNETES_ONPREM"
-  STACK_DRIVER_LOGGING_ENABLED: {{ .Values.stackDriverLoggingEnabled | quote }}
+  STACK_DRIVER_LOGGING_ENABLED: {{ .Values.global.stackDriverLoggingEnabled | quote }}
   MEMORY: {{ .Values.java.memory | quote }}
