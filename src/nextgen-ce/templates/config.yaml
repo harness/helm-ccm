@@ -51,3 +51,6 @@ data:
   {{- end }}
   USE_WORKLOAD_IDENTITY: {{ .Values.workloadIdentity.enabled | quote }}
   GCP_SERVICE_ACCOUNT_EMAIL: {{ .Values.cloudProviderConfig.GCP_SERVICE_ACCOUNT_EMAIL | quote }}
+  {{- if .Values.additionalConfigs }}
+  {{- toYaml .Values.additionalConfigs | nindent 2 }}
+  {{- end }}
