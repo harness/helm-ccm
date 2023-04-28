@@ -15,6 +15,7 @@ A Helm chart for Kubernetes
 
 | Key | Type | Default | Description |
 |-----|------|---------|-------------|
+| additionalConfigs | object | `{}` |  |
 | affinity | object | `{}` |  |
 | autoscaling.enabled | bool | `false` |  |
 | autoscaling.maxReplicas | int | `2` |  |
@@ -38,6 +39,27 @@ A Helm chart for Kubernetes
 | cloudProviderConfig.GCP_SERVICE_ACCOUNT_EMAIL | string | `"placeHolder"` |  |
 | fullnameOverride | string | `""` |  |
 | global.ccm.gcpProjectId | string | `"placeHolder"` |  |
+| global.database.mongo.extraArgs | string | `""` |  |
+| global.database.mongo.hosts | list | `[]` | provide default values if mongo.installed is set to false |
+| global.database.mongo.installed | bool | `true` |  |
+| global.database.mongo.passwordKey | string | `""` |  |
+| global.database.mongo.protocol | string | `"mongodb"` |  |
+| global.database.mongo.secretName | string | `""` |  |
+| global.database.mongo.userKey | string | `""` |  |
+| global.database.postgres.extraArgs | string | `""` |  |
+| global.database.postgres.hosts[0] | string | `"postgres:5432"` |  |
+| global.database.postgres.installed | bool | `true` |  |
+| global.database.postgres.passwordKey | string | `""` |  |
+| global.database.postgres.protocol | string | `"postgres"` |  |
+| global.database.postgres.secretName | string | `""` |  |
+| global.database.postgres.userKey | string | `""` |  |
+| global.database.timescaledb.extraArgs | string | `""` |  |
+| global.database.timescaledb.hosts | list | `["timescaledb-single-chart:5432"]` | provide default values if mongo.installed is set to false |
+| global.database.timescaledb.installed | bool | `true` |  |
+| global.database.timescaledb.passwordKey | string | `""` |  |
+| global.database.timescaledb.protocol | string | `"jdbc:postgresql"` |  |
+| global.database.timescaledb.secretName | string | `""` |  |
+| global.database.timescaledb.userKey | string | `""` |  |
 | global.imagePullSecrets | list | `[]` |  |
 | global.ingress.className | string | `"harness"` |  |
 | global.ingress.enabled | bool | `false` |  |
@@ -49,6 +71,7 @@ A Helm chart for Kubernetes
 | global.istio.virtualService.gateways | string | `nil` |  |
 | global.istio.virtualService.hosts | string | `nil` |  |
 | global.loadbalancerURL | string | `"https://test"` |  |
+| global.stackDriverLoggingEnabled | bool | `false` |  |
 | image.digest | string | `""` |  |
 | image.imagePullSecrets | list | `[]` |  |
 | image.pullPolicy | string | `"IfNotPresent"` |  |
@@ -85,7 +108,6 @@ A Helm chart for Kubernetes
 | serviceAccount.annotations | object | `{}` |  |
 | serviceAccount.create | bool | `false` |  |
 | serviceAccount.name | string | `"harness-default"` |  |
-| stackDriverLoggingEnabled | bool | `false` |  |
 | timescaleSecret.password.key | string | `"timescaledbPostgresPassword"` |  |
 | timescaleSecret.password.name | string | `"harness-secrets"` |  |
 | tolerations | list | `[]` |  |

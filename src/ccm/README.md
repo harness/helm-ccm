@@ -51,6 +51,7 @@ dependencies:
 | anomaly-detection.serviceAccount.create | bool | `false` |  |
 | anomaly-detection.serviceAccount.name | string | `"harness-default"` |  |
 | anomaly-detection.tolerations | list | `[]` |  |
+| batch-processing.additionalConfigs | object | `{}` |  |
 | batch-processing.affinity | object | `{}` |  |
 | batch-processing.autoscaling.enabled | bool | `false` |  |
 | batch-processing.autoscaling.maxReplicas | int | `2` |  |
@@ -105,7 +106,6 @@ dependencies:
 | batch-processing.smtp.host | string | `""` |  |
 | batch-processing.smtp.password | string | `""` |  |
 | batch-processing.smtp.user | string | `""` |  |
-| batch-processing.stackDriverLoggingEnabled | bool | `false` |  |
 | batch-processing.storageObjectAdmin | string | `""` |  |
 | batch-processing.timescaleSecret.password.key | string | `"timescaledbPostgresPassword"` |  |
 | batch-processing.timescaleSecret.password.name | string | `"harness-secrets"` |  |
@@ -166,6 +166,7 @@ dependencies:
 | cloud-info.serviceAccount.name | string | `"harness-default"` |  |
 | cloud-info.tolerations | list | `[]` |  |
 | cloud-info.workloadIdentity.enabled | bool | `false` |  |
+| event-service.additionalConfigs | object | `{}` |  |
 | event-service.affinity | object | `{}` |  |
 | event-service.autoscaling.enabled | bool | `true` |  |
 | event-service.autoscaling.maxReplicas | int | `2` |  |
@@ -204,7 +205,6 @@ dependencies:
 | event-service.serviceAccount.annotations | object | `{}` |  |
 | event-service.serviceAccount.create | bool | `false` |  |
 | event-service.serviceAccount.name | string | `"harness-default"` |  |
-| event-service.stackDriverLoggingEnabled | bool | `false` |  |
 | event-service.timescaleSecret.password.key | string | `"timescaledbPostgresPassword"` |  |
 | event-service.timescaleSecret.password.name | string | `"harness-secrets"` |  |
 | event-service.tolerations | list | `[]` |  |
@@ -222,6 +222,7 @@ dependencies:
 | global.lwd.autocud.enabled | bool | `false` |  |
 | global.lwd.enabled | bool | `false` |  |
 | global.smtpCreateSecret.enabled | bool | `false` |  |
+| global.stackDriverLoggingEnabled | bool | `false` |  |
 | lwd-autocud.affinity | object | `{}` |  |
 | lwd-autocud.autoscaling.enabled | bool | `false` |  |
 | lwd-autocud.autoscaling.maxReplicas | int | `2` |  |
@@ -418,6 +419,7 @@ dependencies:
 | lwd.waitForInitContainer.image.registry | string | `"docker.io"` |  |
 | lwd.waitForInitContainer.image.repository | string | `"harness/helm-init-container"` |  |
 | lwd.waitForInitContainer.image.tag | string | `"latest"` |  |
+| nextgen-ce.additionalConfigs | object | `{}` |  |
 | nextgen-ce.affinity | object | `{}` |  |
 | nextgen-ce.autoscaling.enabled | bool | `false` |  |
 | nextgen-ce.autoscaling.maxReplicas | int | `2` |  |
@@ -474,7 +476,6 @@ dependencies:
 | nextgen-ce.serviceAccount.annotations | object | `{}` |  |
 | nextgen-ce.serviceAccount.create | bool | `false` |  |
 | nextgen-ce.serviceAccount.name | string | `"harness-default"` |  |
-| nextgen-ce.stackDriverLoggingEnabled | bool | `false` |  |
 | nextgen-ce.timescaleSecret.password.key | string | `"timescaledbPostgresPassword"` |  |
 | nextgen-ce.timescaleSecret.password.name | string | `"harness-secrets"` |  |
 | nextgen-ce.tolerations | list | `[]` |  |
