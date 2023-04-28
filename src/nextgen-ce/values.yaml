@@ -54,14 +54,14 @@ global:
     virtualService:
       gateways:
       hosts:
-# image pull secrets to use for every image
+  # image pull secrets to use for every image
   imagePullSecrets: []
+  stackDriverLoggingEnabled: false
   ccm:
     gcpProjectId: "placeHolder"
 
 replicaCount: 2
 
-stackDriverLoggingEnabled: false
 
 maxSurge: 100%
 
@@ -182,3 +182,5 @@ resources:
   requests:
     cpu: 1
     memory: "4Gi"
+
+additionalConfigs: {}

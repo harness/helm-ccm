@@ -51,14 +51,15 @@ global:
     enabled: false
   ccm:
     gcpProjectId: "placeHolder"
-# image pull secrets to use for every image
+  # image pull secrets to use for every image
   imagePullSecrets: []
+  stackDriverLoggingEnabled: false
 
 replicaCount: 1
 
 isolatedReplica: 0
 
-stackDriverLoggingEnabled: false
+
 
 java:
   memory: "7168"
@@ -177,3 +178,5 @@ resources:
   requests:
     cpu: "1024m"
     memory: "10Gi"
+
+additionalConfigs: {}
