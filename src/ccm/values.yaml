@@ -10,6 +10,7 @@ global:
       hosts:
   # image pull secrets to use for every image
   imagePullSecrets: []
+  stackDriverLoggingEnabled: false
   lwd:
     enabled: false
     autocud:
@@ -152,6 +153,7 @@ batch-processing:
     requests:
       cpu: "1024m"
       memory: "10Gi"
+  additionalConfigs: {}
 
 cloud-info:
   replicaCount: 1
@@ -279,6 +281,7 @@ event-service:
   nodeSelector: {}
   tolerations: []
   affinity: {}
+  additionalConfigs: {}
 
 lwd:
   replicaCount: 2
@@ -638,6 +641,7 @@ nextgen-ce:
     requests:
       cpu: 1
       memory: "4Gi"
+  additionalConfigs: {}
 
 ng-ce-ui:
   replicaCount: 2
