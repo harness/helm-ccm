@@ -35,5 +35,8 @@ dependencies:
 - name: lwd-autocud
   repository: file://../lightwingAutocud
   version: 0.2.1
-digest: sha256:3ae1841d0f172d5d145f0b7cc5eb3f927d54e7978c6c68afee5196c27e1e3157
-generated: "2023-03-21T13:38:45.93804+05:30"
+- name: dkron
+  repository: file://../dkron
+  version: 0.2.0
+digest: sha256:a96fcdfb64aad030ee5fa61c03ad1569231026939690b9365d41ab99348be9a3
+generated: "2023-05-03T23:33:18.264549+05:30"
