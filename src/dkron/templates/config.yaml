@@ -10,7 +10,7 @@ data:
     server: true
     bootstrap-expect: 1
     data-dir: /dkron/dkrondata
-    retry-join: ["provider=k8s namespace={{.Release.namespace}} label_selector=\"app=dkron\""]
+    retry-join: ["provider=k8s namespace={{ .Release.Namespace }} label_selector=\"app=dkron\""]
     log-level: debug
     serf-reconnect-timeout: 5s
     disable-usage-stats: true
