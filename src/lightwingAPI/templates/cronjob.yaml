@@ -102,6 +102,18 @@ spec:
                 value: "/opt/harness/svc/ce_batch_gcp_credentials.json"
               - name: LIGHTWING_GCPCOST_PROJECT
                 value: {{ .Values.global.ccm.gcpProjectId }}
+              {{- if .Values.clickhouse.enabled }}
+              - name: LIGHTWING_CLICKHOUSE_ENABLED
+                value: {{ .Values.clickhouse.enabled | quote}}
+              - name: LIGHTWING_CLICKHOUSE_HOST
+                value: {{ .Values.clickhouse.host }}
+              - name: LIGHTWING_CLICKHOUSE_PORT
+                value: {{ .Values.clickhouse.port }}
+              - name: LIGHTWING_CLICKHOUSE_DATABASE
+                value: {{ .Values.clickhouse.database }}
+              - name: LIGHTWING_CLICKHOUSE_USERNAME
+                value: {{ .Values.clickhouse.username }}
+              {{- end }} 
             volumeMounts:
             - name: secret-mount
               mountPath: /opt/harness/svc

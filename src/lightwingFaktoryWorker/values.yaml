@@ -58,6 +58,7 @@ lwdWorkerSecrets:
   lightwingAwsGovmasterSecretKey: LIGHTWING_AWS-GOV-MASTER_SECRET_KEY
   lightwingCloudConnectorAzureClientSecret: LIGHTWING_CLOUD-CONNECTOR_AZURE_CLIENT_SECRET
   lightwingMetricsSegment: LIGHTWING_METRICS_SEGMENT
+  clickHousePassword: LIGHTWING_CLICKHOUSE_PASSWORD
 
 ce-batch-gcp-credentials: ""
 
@@ -71,6 +72,13 @@ redis:
   redisUrl: "redis://localhost:6379"
   useSentinel: "true"
   redisMaster: "harness-redis"
+
+clickhouse:
+  enabled: "false"
+  host: ""
+  port: 9000
+  database: "ccm"
+  username: "default"
 
 nameOverride: ""
 fullnameOverride: ""

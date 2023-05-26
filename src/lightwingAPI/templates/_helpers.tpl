@@ -79,6 +79,9 @@ Create the name of the service account to use
     LIGHTWING_AWS-GOV-MASTER_SECRET_KEY: {{ include "harnesscommon.secrets.passwords.manage" (dict "secret" "lwd-secrets" "key" "LIGHTWING_AWS-GOV-MASTER_SECRET_KEY" "providedValues" (list "lwdSecrets.lightwingAwsGovmasterSecretKey") "length" 10 "context" $) }}
     LIGHTWING_CLOUD-CONNECTOR_AZURE_CLIENT_SECRET: {{ include "harnesscommon.secrets.passwords.manage" (dict "secret" "lwd-secrets" "key" "LIGHTWING_CLOUD-CONNECTOR_AZURE_CLIENT_SECRET" "providedValues" (list "lwdSecrets.lightwingCloudConnectorAzureClientSecret") "length" 10 "context" $) }}
     LIGHTWING_METRICS_SEGMENT: {{ include "harnesscommon.secrets.passwords.manage" (dict "secret" "lwd-secrets" "key" "LIGHTWING_METRICS_SEGMENT" "providedValues" (list "lwdSecrets.lightwingMetricsSegment") "length" 10 "context" $) }}
+    {{- if .Values.clickhouse.enabled }}
+    LIGHTWING_CLICKHOUSE_PASSWORD: {{ include "harnesscommon.secrets.passwords.manage" (dict "secret" "lwd-secrets" "key" "LIGHTWING_CLICKHOUSE_PASSWORD" "providedValues" (list "lwdSecrets.clickhousePassword") "length" 10 "context" $) }}
+    {{- end }}  
 {{- end }}
 
 {{- define "lwd.generateMountSecrets" }}

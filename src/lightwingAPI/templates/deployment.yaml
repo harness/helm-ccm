@@ -102,6 +102,18 @@ spec:
               value: IC04LYMBf1lDP5oeY4hupxd4HJhLmN6azUku3xEbeE3SUx5G3ZYzhbiwVtK4i7AmqyU9OZkwB4v8E9qM
             - name: LIGHTWING_CLOUD-CONNECTOR_IDENTITY_SERVICE_SECRET
               value: HVSKUYqD4e5Rxu12hFDdCJKGM64sxgEynvdDhaOHaTHhwwn0K4Ttr0uoOxSsEVYNrUU=
+            {{- if .Values.clickhouse.enabled }}
+            - name: LIGHTWING_CLICKHOUSE_ENABLED
+              value: {{ .Values.clickhouse.enabled | quote}}
+            - name: LIGHTWING_CLICKHOUSE_HOST
+              value: {{ .Values.clickhouse.host }}
+            - name: LIGHTWING_CLICKHOUSE_PORT
+              value: {{ .Values.clickhouse.port }}
+            - name: LIGHTWING_CLICKHOUSE_DATABASE
+              value: {{ .Values.clickhouse.database }}
+            - name: LIGHTWING_CLICKHOUSE_USERNAME
+              value: {{ .Values.clickhouse.username }}
+            {{- end }}  
             - name: DB_PASSWORD
               valueFrom:
                 secretKeyRef:

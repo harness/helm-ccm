@@ -55,8 +55,16 @@ postgresPassword:
   name: postgres
   key: postgres-password
 
+clickhouse:
+  enabled: "false"
+  host: ""
+  port: 9000
+  database: "ccm"
+  username: "default"
+
 lwdSecrets:
   faktoryPassword: ""
+  clickhousePassword: ""
   lightwingAwsmasterAccessKey: ""
   lightwingAwsmasterSecretKey: ""
   lightwingAwsGovmasterAccessKey: ""
