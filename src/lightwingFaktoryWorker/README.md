@@ -1,6 +1,6 @@
 # lwd-worker
 
-![Version: 0.3.0](https://img.shields.io/badge/Version-0.3.0-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square) ![AppVersion: 1.773.0](https://img.shields.io/badge/AppVersion-1.773.0-informational?style=flat-square)
+![Version: 0.3.1](https://img.shields.io/badge/Version-0.3.1-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square) ![AppVersion: 1.773.0](https://img.shields.io/badge/AppVersion-1.773.0-informational?style=flat-square)
 
 A Helm chart for Kubernetes
 
@@ -24,6 +24,11 @@ A Helm chart for Kubernetes
 | aws.region | string | `"us-east-1"` |  |
 | azure.clientId | string | `""` |  |
 | ce-batch-gcp-credentials | string | `""` |  |
+| clickhouse.database | string | `"ccm"` |  |
+| clickhouse.enabled | string | `"false"` |  |
+| clickhouse.host | string | `""` |  |
+| clickhouse.port | int | `9000` |  |
+| clickhouse.username | string | `"default"` |  |
 | fullnameOverride | string | `""` |  |
 | global.ccm.gcpProjectId | string | `"placeHolder"` |  |
 | global.imagePullSecrets | list | `[]` |  |
@@ -42,6 +47,7 @@ A Helm chart for Kubernetes
 | ingress.className | string | `"nginx"` |  |
 | java.memory | string | `"4096m"` |  |
 | java.memoryLimit | string | `"4096m"` |  |
+| lwdWorkerSecrets.clickHousePassword | string | `"LIGHTWING_CLICKHOUSE_PASSWORD"` |  |
 | lwdWorkerSecrets.faktoryPassword | string | `"FAKTORY_PASSWORD"` |  |
 | lwdWorkerSecrets.lightwingAwsGovmasterAccessKey | string | `"LIGHTWING_AWS-GOV-MASTER_ACCESS_KEY"` |  |
 | lwdWorkerSecrets.lightwingAwsGovmasterSecretKey | string | `"LIGHTWING_AWS-GOV-MASTER_SECRET_KEY"` |  |
