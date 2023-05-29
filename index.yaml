@@ -3,6 +3,20 @@ entries:
   anomaly-detection:
   - apiVersion: v2
     appVersion: 1.773.0
+    created: "2023-05-29T16:19:10.585104412Z"
+    dependencies:
+    - name: harness-common
+      repository: https://harness.github.io/helm-common
+      version: 1.x.x
+    description: A Helm chart for Kubernetes
+    digest: f996c533dce17a52415cd71701a5a9fad28ea718c4688e7a571a003331c1d9c7
+    name: anomaly-detection
+    type: application
+    urls:
+    - https://github.com/harness/helm-ccm/releases/download/anomaly-detection-0.3.1/anomaly-detection-0.3.1.tgz
+    version: 0.3.1
+  - apiVersion: v2
+    appVersion: 1.773.0
     created: "2023-04-26T16:24:46.609745021Z"
     dependencies:
     - name: harness-common
@@ -30,6 +44,23 @@ entries:
     - https://github.com/harness/helm-ccm/releases/download/anomaly-detection-0.1.8/anomaly-detection-0.1.8.tgz
     version: 0.1.8
   batch-processing:
+  - apiVersion: v2
+    appVersion: 1.773.0
+    created: "2023-05-29T16:19:10.741237741Z"
+    dependencies:
+    - name: harness-common
+      repository: https://harness.github.io/helm-common
+      version: 1.x.x
+    - name: common
+      repository: https://charts.bitnami.com/bitnami
+      version: 2.x.x
+    description: A Helm chart for Kubernetes
+    digest: 85e62acf5681b57a2c1dff20be1bad95c57a743cb67afc5fa5a5471ccbe41e29
+    name: batch-processing
+    type: application
+    urls:
+    - https://github.com/harness/helm-ccm/releases/download/batch-processing-0.3.1/batch-processing-0.3.1.tgz
+    version: 0.3.1
   - apiVersion: v2
     appVersion: 1.773.0
     created: "2023-04-26T16:24:46.778917671Z"
@@ -99,6 +130,58 @@ entries:
     - https://github.com/harness/helm-ccm/releases/download/batch-processing-0.1.11/batch-processing-0.1.11.tgz
     version: 0.1.11
   ccm:
+  - apiVersion: v2
+    appVersion: 1.546.0
+    created: "2023-05-29T16:19:11.002160784Z"
+    dependencies:
+    - name: nextgen-ce
+      repository: file://../nextgen-ce
+      version: 0.3.x
+    - name: event-service
+      repository: file://../event-service
+      version: 0.3.x
+    - name: anomaly-detection
+      repository: file://../anomaly-detection
+      version: 0.3.x
+    - name: cloud-info
+      repository: file://../cloud-info
+      version: 0.3.x
+    - name: telescopes
+      repository: file://../telescopes
+      version: 0.3.x
+    - name: batch-processing
+      repository: file://../batch-processing
+      version: 0.3.x
+    - name: ng-ce-ui
+      repository: file://../ng-ce-ui
+      version: 0.3.x
+    - condition: clickhouse.enabled
+      name: clickhouse
+      repository: https://charts.bitnami.com/bitnami
+      version: 2.1.0
+    - condition: global.lwd.enabled
+      name: lwd-faktory
+      repository: file://../lightwingFaktory
+      version: 0.3.x
+    - condition: global.lwd.enabled
+      name: lwd
+      repository: file://../lightwingAPI
+      version: 0.3.x
+    - condition: global.lwd.enabled
+      name: lwd-worker
+      repository: file://../lightwingFaktoryWorker
+      version: 0.3.x
+    - condition: global.lwd.autocud.enabled
+      name: lwd-autocud
+      repository: file://../lightwingAutocud
+      version: 0.3.x
+    description: A Helm chart for Harness Cloud Cost Management (CCM) module
+    digest: f59fa85f1f79edc61316796ea289d774759597e63b3e96f5a75e5ac832f99500
+    name: ccm
+    type: application
+    urls:
+    - https://github.com/harness/helm-ccm/releases/download/ccm-0.6.3/ccm-0.6.3.tgz
+    version: 0.6.3
   - apiVersion: v2
     appVersion: 1.546.0
     created: "2023-05-26T13:41:57.430760079Z"
@@ -2023,6 +2106,23 @@ entries:
   cloud-info:
   - apiVersion: v2
     appVersion: 1.773.0
+    created: "2023-05-29T16:19:11.189316255Z"
+    dependencies:
+    - name: harness-common
+      repository: https://harness.github.io/helm-common
+      version: 1.x.x
+    - name: common
+      repository: https://charts.bitnami.com/bitnami
+      version: 2.x.x
+    description: A Helm chart for Kubernetes
+    digest: 43bcbe6ba270d5275127d017eae72210e5a5e92ad30c3f8be2f5d1d107fa4afa
+    name: cloud-info
+    type: application
+    urls:
+    - https://github.com/harness/helm-ccm/releases/download/cloud-info-0.3.1/cloud-info-0.3.1.tgz
+    version: 0.3.1
+  - apiVersion: v2
+    appVersion: 1.773.0
     created: "2023-04-26T16:24:47.183020584Z"
     dependencies:
     - name: harness-common
@@ -2076,6 +2176,23 @@ entries:
   event-service:
   - apiVersion: v2
     appVersion: 1.773.0
+    created: "2023-05-29T16:19:11.388438006Z"
+    dependencies:
+    - name: harness-common
+      repository: https://harness.github.io/helm-common
+      version: 1.x.x
+    - name: common
+      repository: https://charts.bitnami.com/bitnami
+      version: 2.x.x
+    description: A Helm chart for Kubernetes
+    digest: 79062d9611b3a5133de5e99d2c7578b6b4baa6ee503a19737404aec1ea25e26d
+    name: event-service
+    type: application
+    urls:
+    - https://github.com/harness/helm-ccm/releases/download/event-service-0.3.1/event-service-0.3.1.tgz
+    version: 0.3.1
+  - apiVersion: v2
+    appVersion: 1.773.0
     created: "2023-04-26T16:24:47.336689066Z"
     dependencies:
     - name: harness-common
@@ -2126,6 +2243,23 @@ entries:
     - https://github.com/harness/helm-ccm/releases/download/event-service-0.1.4/event-service-0.1.4.tgz
     version: 0.1.4
   lwd:
+  - apiVersion: v2
+    appVersion: 1.773.0
+    created: "2023-05-29T16:19:11.575123421Z"
+    dependencies:
+    - name: harness-common
+      repository: https://harness.github.io/helm-common
+      version: 1.x.x
+    - name: common
+      repository: https://charts.bitnami.com/bitnami
+      version: 2.x.x
+    description: A Helm chart for Kubernetes
+    digest: 1a4bc845aa58d44ab291b768fce7c96c392a02e09a22882d18ab1065b303065d
+    name: lwd
+    type: application
+    urls:
+    - https://github.com/harness/helm-ccm/releases/download/lwd-0.3.1/lwd-0.3.1.tgz
+    version: 0.3.1
   - apiVersion: v2
     appVersion: 1.773.0
     created: "2023-04-26T16:24:47.514285536Z"
@@ -2248,6 +2382,23 @@ entries:
   lwd-autocud:
   - apiVersion: v2
     appVersion: 1.773.0
+    created: "2023-05-29T16:19:11.758213355Z"
+    dependencies:
+    - name: harness-common
+      repository: https://harness.github.io/helm-common
+      version: 1.x.x
+    - name: common
+      repository: https://charts.bitnami.com/bitnami
+      version: 2.x.x
+    description: A Helm chart for Kubernetes
+    digest: 01ad7820f5ad62e0eb99565a2737859a80963ae488acfb55837cf2a7a4de5805
+    name: lwd-autocud
+    type: application
+    urls:
+    - https://github.com/harness/helm-ccm/releases/download/lwd-autocud-0.3.1/lwd-autocud-0.3.1.tgz
+    version: 0.3.1
+  - apiVersion: v2
+    appVersion: 1.773.0
     created: "2023-04-26T16:24:47.684643516Z"
     dependencies:
     - name: harness-common
@@ -2317,6 +2468,20 @@ entries:
   lwd-faktory:
   - apiVersion: v2
     appVersion: 1.773.0
+    created: "2023-05-29T16:19:11.939155509Z"
+    dependencies:
+    - name: harness-common
+      repository: https://harness.github.io/helm-common
+      version: 1.x.x
+    description: A Helm chart for Kubernetes
+    digest: 4727fb3364e5b5310dfb8ca5e5c40fd0905192795019e35982375610784fd34c
+    name: lwd-faktory
+    type: application
+    urls:
+    - https://github.com/harness/helm-ccm/releases/download/lwd-faktory-0.3.1/lwd-faktory-0.3.1.tgz
+    version: 0.3.1
+  - apiVersion: v2
+    appVersion: 1.773.0
     created: "2023-04-26T16:24:47.8612428Z"
     dependencies:
     - name: harness-common
@@ -2372,6 +2537,23 @@ entries:
     - https://github.com/harness/helm-ccm/releases/download/lwd-faktory-0.2.2/lwd-faktory-0.2.2.tgz
     version: 0.2.2
   lwd-worker:
+  - apiVersion: v2
+    appVersion: 1.773.0
+    created: "2023-05-29T16:19:12.096062441Z"
+    dependencies:
+    - name: harness-common
+      repository: https://harness.github.io/helm-common
+      version: 1.x.x
+    - name: common
+      repository: https://charts.bitnami.com/bitnami
+      version: 2.x.x
+    description: A Helm chart for Kubernetes
+    digest: 4d3d69dcf024426ae42277697a4d073cdc140a841ca1bccf9abebbb193ac7bf3
+    name: lwd-worker
+    type: application
+    urls:
+    - https://github.com/harness/helm-ccm/releases/download/lwd-worker-0.3.1/lwd-worker-0.3.1.tgz
+    version: 0.3.1
   - apiVersion: v2
     appVersion: 1.773.0
     created: "2023-04-26T16:24:48.030452892Z"
@@ -2460,6 +2642,23 @@ entries:
   nextgen-ce:
   - apiVersion: v2
     appVersion: 1.773.0
+    created: "2023-05-29T16:19:12.271738204Z"
+    dependencies:
+    - name: harness-common
+      repository: https://harness.github.io/helm-common
+      version: 1.x.x
+    - name: common
+      repository: https://charts.bitnami.com/bitnami
+      version: 2.x.x
+    description: A Helm chart for Kubernetes
+    digest: f1ebf90bf471b2ae13d03726b7537b89333d946a344b6b5cfdad8f3e246732d5
+    name: nextgen-ce
+    type: application
+    urls:
+    - https://github.com/harness/helm-ccm/releases/download/nextgen-ce-0.3.1/nextgen-ce-0.3.1.tgz
+    version: 0.3.1
+  - apiVersion: v2
+    appVersion: 1.773.0
     created: "2023-04-26T16:24:48.180245988Z"
     dependencies:
     - name: harness-common
@@ -2529,6 +2728,20 @@ entries:
   ng-ce-ui:
   - apiVersion: v2
     appVersion: 1.773.0
+    created: "2023-05-29T16:19:12.467260523Z"
+    dependencies:
+    - name: harness-common
+      repository: https://harness.github.io/helm-common
+      version: 1.x.x
+    description: A Helm chart for Kubernetes
+    digest: 4c567a7f4dcdd4fa3252e9e53af7d55b0c152fdfad24c3a83390f3eed550479f
+    name: ng-ce-ui
+    type: application
+    urls:
+    - https://github.com/harness/helm-ccm/releases/download/ng-ce-ui-0.3.1/ng-ce-ui-0.3.1.tgz
+    version: 0.3.1
+  - apiVersion: v2
+    appVersion: 1.773.0
     created: "2023-04-26T16:24:48.384046872Z"
     dependencies:
     - name: harness-common
@@ -2558,6 +2771,20 @@ entries:
   telescopes:
   - apiVersion: v2
     appVersion: 1.773.0
+    created: "2023-05-29T16:19:12.638499441Z"
+    dependencies:
+    - name: harness-common
+      repository: https://harness.github.io/helm-common
+      version: 1.x.x
+    description: A Helm chart for Kubernetes
+    digest: 8bcfb055aacbb7fdb4e831153ee088a38bec98f3b04e4eb90853add25e125ae1
+    name: telescopes
+    type: application
+    urls:
+    - https://github.com/harness/helm-ccm/releases/download/telescopes-0.3.1/telescopes-0.3.1.tgz
+    version: 0.3.1
+  - apiVersion: v2
+    appVersion: 1.773.0
     created: "2023-04-26T16:24:48.531161297Z"
     dependencies:
     - name: harness-common
@@ -2570,4 +2797,4 @@ entries:
     urls:
     - https://github.com/harness/helm-ccm/releases/download/telescopes-0.3.0/telescopes-0.3.0.tgz
     version: 0.3.0
-generated: "2023-05-26T13:41:57.922191402Z"
+generated: "2023-05-29T16:19:12.639469156Z"
