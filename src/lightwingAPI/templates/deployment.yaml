@@ -65,6 +65,8 @@ spec:
           envFrom:
             - secretRef:
                 name: lwd-secrets
+            - configMapRef:
+                name: lwd-config
           env:
             - name: LIGHTWING_CACHE_ADDR
               value: {{ .Values.redis.redisUrl }}
@@ -103,16 +105,11 @@ spec:
             - name: LIGHTWING_CLOUD-CONNECTOR_IDENTITY_SERVICE_SECRET
               value: HVSKUYqD4e5Rxu12hFDdCJKGM64sxgEynvdDhaOHaTHhwwn0K4Ttr0uoOxSsEVYNrUU=
             {{- if .Values.clickhouse.enabled }}
-            - name: LIGHTWING_CLICKHOUSE_ENABLED
-              value: {{ .Values.clickhouse.enabled | quote}}
-            - name: LIGHTWING_CLICKHOUSE_HOST
-              value: {{ .Values.clickhouse.host }}
-            - name: LIGHTWING_CLICKHOUSE_PORT
-              value: {{ .Values.clickhouse.port }}
-            - name: LIGHTWING_CLICKHOUSE_DATABASE
-              value: {{ .Values.clickhouse.database }}
-            - name: LIGHTWING_CLICKHOUSE_USERNAME
-              value: {{ .Values.clickhouse.username }}
+            - name: LIGHTWING_CLICKHOUSE_PASSWORD
+              valueFrom:
+                secretKeyRef:
+                  name: {{ .Values.clickhouse.password.name }}
+                  key: {{ .Values.clickhouse.password.key }}
             {{- end }}  
             - name: DB_PASSWORD
               valueFrom:

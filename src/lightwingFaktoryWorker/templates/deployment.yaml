@@ -47,6 +47,9 @@ spec:
             timeoutSeconds: 5
             periodSeconds: 15
             failureThreshold: 20
+          envFrom:
+            - configMapRef:
+                name: lwd-config
           env:
             - name: LIGHTWING_CACHE_ADDR
               value: {{ .Values.redis.redisUrl }}
@@ -81,21 +84,11 @@ spec:
             - name: LIGHTWING_CLOUD-CONNECTOR_REMOTE_API_TOKEN_SECRET
               value: IC04LYMBf1lDP5oeY4hupxd4HJhLmN6azUku3xEbeE3SUx5G3ZYzhbiwVtK4i7AmqyU9OZkwB4v8E9qM
             {{- if .Values.clickhouse.enabled }}
-            - name: LIGHTWING_CLICKHOUSE_ENABLED
-              value: {{ .Values.clickhouse.enabled | quote}}
-            - name: LIGHTWING_CLICKHOUSE_HOST
-              value: {{ .Values.clickhouse.host }}
-            - name: LIGHTWING_CLICKHOUSE_PORT
-              value: {{ .Values.clickhouse.port }}
-            - name: LIGHTWING_CLICKHOUSE_DATABASE
-              value: {{ .Values.clickhouse.database }}
-            - name: LIGHTWING_CLICKHOUSE_USERNAME
-              value: {{ .Values.clickhouse.username }}
             - name: LIGHTWING_CLICKHOUSE_PASSWORD
               valueFrom:
                 secretKeyRef:
-                  name: {{ .Values.lwdWorkerSecrets.secretName }}
-                  key: {{ .Values.lwdWorkerSecrets.clickHousePassword }}
+                  name: {{ .Values.clickhouse.password.name }}
+                  key: {{ .Values.clickhouse.password.key }}
             {{- end }}         
             - name: LIGHTWING_AWSMASTER_SECRET_KEY
               valueFrom:

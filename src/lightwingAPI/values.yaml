@@ -61,10 +61,12 @@ clickhouse:
   port: 9000
   database: "ccm"
   username: "default"
+  password:
+    name: clickhouse
+    key: admin-password
 
 lwdSecrets:
   faktoryPassword: ""
-  clickhousePassword: ""
   lightwingAwsmasterAccessKey: ""
   lightwingAwsmasterSecretKey: ""
   lightwingAwsGovmasterAccessKey: ""

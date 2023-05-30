@@ -58,7 +58,6 @@ lwdWorkerSecrets:
   lightwingAwsGovmasterSecretKey: LIGHTWING_AWS-GOV-MASTER_SECRET_KEY
   lightwingCloudConnectorAzureClientSecret: LIGHTWING_CLOUD-CONNECTOR_AZURE_CLIENT_SECRET
   lightwingMetricsSegment: LIGHTWING_METRICS_SEGMENT
-  clickHousePassword: LIGHTWING_CLICKHOUSE_PASSWORD
 
 ce-batch-gcp-credentials: ""
 
@@ -79,6 +78,9 @@ clickhouse:
   port: 9000
   database: "ccm"
   username: "default"
+  password:
+    name: clickhouse
+    key: admin-password
 
 nameOverride: ""
 fullnameOverride: ""
