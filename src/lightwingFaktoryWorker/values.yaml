@@ -72,6 +72,16 @@ redis:
   useSentinel: "true"
   redisMaster: "harness-redis"
 
+clickhouse:
+  enabled: "false"
+  host: ""
+  port: 9000
+  database: "ccm"
+  username: "default"
+  password:
+    name: clickhouse
+    key: admin-password
+
 nameOverride: ""
 fullnameOverride: ""
 

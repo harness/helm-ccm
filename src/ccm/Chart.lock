@@ -28,15 +28,15 @@ dependencies:
   version: 0.3.0
 - name: lwd
   repository: file://../lightwingAPI
-  version: 0.3.0
+  version: 0.3.1
 - name: lwd-worker
   repository: file://../lightwingFaktoryWorker
-  version: 0.3.0
+  version: 0.3.1
 - name: lwd-autocud
   repository: file://../lightwingAutocud
   version: 0.3.0
 - name: dkron
   repository: file://../dkron
   version: 0.2.0
-digest: sha256:2b32fca2b683aaa763547ddd9da4dc238bef5f772a5959785462f2dfd20f623f
-generated: "2023-05-05T16:42:29.306346+05:30"
+digest: sha256:b0f1c16be19c8d58b061400634cfc6d2801730cdb490f4b3105f30631fb97be1
+generated: "2023-05-26T23:03:36.350341+05:30"
