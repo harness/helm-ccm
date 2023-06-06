@@ -83,7 +83,6 @@ affinity: {}
 
 resources:
   limits:
-    cpu: "512m"
     memory: "1Gi"
   requests:
     cpu: "512m"
