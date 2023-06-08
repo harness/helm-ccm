@@ -56,7 +56,6 @@ anomaly-detection:
   affinity: {}
   resources:
     limits:
-      cpu: "512m"
       memory: "512Mi"
     requests:
       cpu: "512m"
@@ -148,7 +147,6 @@ batch-processing:
     enabled: false
   resources:
     limits:
-      cpu: "1024m"
       memory: "10Gi"
     requests:
       cpu: "1024m"
@@ -199,7 +197,6 @@ cloud-info:
     enabled: false
   resources:
     limits:
-      cpu: "1536m"
       memory: "1536Mi"
     requests:
       cpu: "1536m"
@@ -267,7 +264,6 @@ event-service:
     className: nginx
   resources:
     limits:
-      cpu: "512m"
       memory: "1840Mi"
     requests:
       cpu: "512m"
@@ -348,7 +344,6 @@ lwd:
   affinity: {}
   resources:
     limits:
-      cpu: 2
       memory: "4Gi"
     requests:
       cpu: 2
@@ -420,7 +415,6 @@ lwd-autocud:
   affinity: {}
   resources:
     limits:
-      cpu: 2
       memory: "4Gi"
     requests:
       cpu: 2
@@ -472,7 +466,6 @@ lwd-faktory:
     accessModes: "ReadWriteOnce"
   resources:
     limits:
-      cpu: 2
       memory: "4Gi"
     requests:
       cpu: 2
@@ -544,7 +537,6 @@ lwd-worker:
   affinity: {}
   resources:
     limits:
-      cpu: 2
       memory: "4Gi"
     requests:
       cpu: 2
@@ -636,7 +628,6 @@ nextgen-ce:
     enabled: false
   resources:
     limits:
-      cpu: 1
       memory: "4Gi"
     requests:
       cpu: 1
@@ -679,7 +670,6 @@ ng-ce-ui:
   affinity: {}
   resources:
     limits:
-      cpu: 1
       memory: "512Mi"
     requests:
       cpu: 1
@@ -729,7 +719,6 @@ telescopes:
   affinity: {}
   resources:
     limits:
-      cpu: "512m"
       memory: "1Gi"
     requests:
       cpu: "512m"
@@ -742,7 +731,6 @@ clickhouse:
     tag: 22.11.2-debian-11-r0
   resources:
     limits:
-      cpu: 6
       memory: "8Gi"
     requests:
       cpu: 6

@@ -141,7 +141,6 @@ ingress:
 
 resources:
   limits:
-    cpu: "512m"
     memory: "1840Mi"
   requests:
     cpu: "512m"

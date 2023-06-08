@@ -85,7 +85,6 @@ workloadIdentity:
 
 resources:
   limits:
-    cpu: "1536m"
     memory: "1536Mi"
   requests:
     cpu: "1536m"
