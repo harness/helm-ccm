@@ -18,9 +18,10 @@ A Helm chart for Kubernetes
 | additionalConfigs | object | `{}` |  |
 | affinity | object | `{}` |  |
 | autoscaling.enabled | bool | `false` |  |
-| autoscaling.maxReplicas | int | `2` |  |
+| autoscaling.maxReplicas | int | `100` |  |
 | autoscaling.minReplicas | int | `1` |  |
-| autoscaling.targetCPUUtilizationPercentage | int | `80` |  |
+| autoscaling.targetCPU | string | `""` |  |
+| autoscaling.targetMemory | string | `""` |  |
 | awsAccountTagsCollectionJobConfig.enabled | bool | `true` |  |
 | awsSecret.S3_SYNC_CONFIG_ACCESSKEY | string | `""` |  |
 | awsSecret.S3_SYNC_CONFIG_SECRETKEY | string | `""` |  |

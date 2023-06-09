@@ -17,10 +17,10 @@ A Helm chart for Kubernetes
 |-----|------|---------|-------------|
 | affinity | object | `{}` |  |
 | autoscaling.enabled | bool | `false` |  |
-| autoscaling.maxReplicas | int | `2` |  |
+| autoscaling.maxReplicas | int | `100` |  |
 | autoscaling.minReplicas | int | `1` |  |
-| autoscaling.targetCPUUtilizationPercentage | int | `80` |  |
-| autoscaling.targetMemoryUtilizationPercentage | int | `80` |  |
+| autoscaling.targetCPU | string | `""` |  |
+| autoscaling.targetMemory | string | `""` |  |
 | aws.region | string | `"us-east-1"` |  |
 | azure.clientId | string | `""` |  |
 | ce-batch-gcp-credentials | string | `""` |  |
