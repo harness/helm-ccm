@@ -17,10 +17,11 @@ A Helm chart for Kubernetes
 |-----|------|---------|-------------|
 | additionalConfigs | object | `{}` |  |
 | affinity | object | `{}` |  |
-| autoscaling.enabled | bool | `true` |  |
-| autoscaling.maxReplicas | int | `2` |  |
+| autoscaling.enabled | bool | `false` |  |
+| autoscaling.maxReplicas | int | `100` |  |
 | autoscaling.minReplicas | int | `1` |  |
-| autoscaling.targetCPUUtilizationPercentage | int | `80` |  |
+| autoscaling.targetCPU | string | `""` |  |
+| autoscaling.targetMemory | string | `""` |  |
 | defaultInternalImageConnector | string | `"test"` |  |
 | fullnameOverride | string | `""` |  |
 | global.database.mongo.extraArgs | string | `""` |  |

@@ -2,7 +2,7 @@
 
 A Helm chart for Harness Cloud Cost Management (CCM) module
 
-![Version: 0.7.0](https://img.shields.io/badge/Version-0.7.0-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square) ![AppVersion: 1.546.0](https://img.shields.io/badge/AppVersion-1.546.0-informational?style=flat-square)
+![Version: 0.7.2](https://img.shields.io/badge/Version-0.7.2-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square) ![AppVersion: 1.546.0](https://img.shields.io/badge/AppVersion-1.546.0-informational?style=flat-square)
 
 ## Usage
 
@@ -12,7 +12,7 @@ Use the following dependency to add this chart repository to your Helm installat
 dependencies:
     - name: ccm
       repository: https://harness.github.io/helm-ccm
-      version: 0.7.0
+      version: 0.7.2
 ```
 
 ## Values
@@ -21,9 +21,10 @@ dependencies:
 |-----|------|---------|-------------|
 | anomaly-detection.affinity | object | `{}` |  |
 | anomaly-detection.autoscaling.enabled | bool | `false` |  |
-| anomaly-detection.autoscaling.maxReplicas | int | `4` |  |
-| anomaly-detection.autoscaling.minReplicas | int | `2` |  |
-| anomaly-detection.autoscaling.targetCPUUtilizationPercentage | int | `70` |  |
+| anomaly-detection.autoscaling.maxReplicas | int | `100` |  |
+| anomaly-detection.autoscaling.minReplicas | int | `1` |  |
+| anomaly-detection.autoscaling.targetCPU | string | `""` |  |
+| anomaly-detection.autoscaling.targetMemory | string | `""` |  |
 | anomaly-detection.fullnameOverride | string | `""` |  |
 | anomaly-detection.image.digest | string | `""` |  |
 | anomaly-detection.image.pullPolicy | string | `"IfNotPresent"` |  |
@@ -54,9 +55,10 @@ dependencies:
 | batch-processing.additionalConfigs | object | `{}` |  |
 | batch-processing.affinity | object | `{}` |  |
 | batch-processing.autoscaling.enabled | bool | `false` |  |
-| batch-processing.autoscaling.maxReplicas | int | `2` |  |
+| batch-processing.autoscaling.maxReplicas | int | `100` |  |
 | batch-processing.autoscaling.minReplicas | int | `1` |  |
-| batch-processing.autoscaling.targetCPUUtilizationPercentage | int | `80` |  |
+| batch-processing.autoscaling.targetCPU | string | `""` |  |
+| batch-processing.autoscaling.targetMemory | string | `""` |  |
 | batch-processing.awsAccountTagsCollectionJobConfig.enabled | bool | `true` |  |
 | batch-processing.awsSecret.S3_SYNC_CONFIG_ACCESSKEY | string | `""` |  |
 | batch-processing.awsSecret.S3_SYNC_CONFIG_SECRETKEY | string | `""` |  |
@@ -134,9 +136,10 @@ dependencies:
 | cloud-info.CLOUD_INFO_GCP_CREDS | string | `""` |  |
 | cloud-info.affinity | object | `{}` |  |
 | cloud-info.autoscaling.enabled | bool | `false` |  |
-| cloud-info.autoscaling.maxReplicas | int | `2` |  |
+| cloud-info.autoscaling.maxReplicas | int | `100` |  |
 | cloud-info.autoscaling.minReplicas | int | `1` |  |
-| cloud-info.autoscaling.targetCPUUtilizationPercentage | int | `80` |  |
+| cloud-info.autoscaling.targetCPU | string | `""` |  |
+| cloud-info.autoscaling.targetMemory | string | `""` |  |
 | cloud-info.fullnameOverride | string | `""` |  |
 | cloud-info.image.digest | string | `""` |  |
 | cloud-info.image.pullPolicy | string | `"IfNotPresent"` |  |
@@ -168,10 +171,11 @@ dependencies:
 | cloud-info.workloadIdentity.enabled | bool | `false` |  |
 | event-service.additionalConfigs | object | `{}` |  |
 | event-service.affinity | object | `{}` |  |
-| event-service.autoscaling.enabled | bool | `true` |  |
-| event-service.autoscaling.maxReplicas | int | `2` |  |
+| event-service.autoscaling.enabled | bool | `false` |  |
+| event-service.autoscaling.maxReplicas | int | `100` |  |
 | event-service.autoscaling.minReplicas | int | `1` |  |
-| event-service.autoscaling.targetCPUUtilizationPercentage | int | `80` |  |
+| event-service.autoscaling.targetCPU | string | `""` |  |
+| event-service.autoscaling.targetMemory | string | `""` |  |
 | event-service.defaultInternalImageConnector | string | `"test"` |  |
 | event-service.fullnameOverride | string | `""` |  |
 | event-service.image.digest | string | `""` |  |
@@ -225,10 +229,10 @@ dependencies:
 | global.stackDriverLoggingEnabled | bool | `false` |  |
 | lwd-autocud.affinity | object | `{}` |  |
 | lwd-autocud.autoscaling.enabled | bool | `false` |  |
-| lwd-autocud.autoscaling.maxReplicas | int | `2` |  |
+| lwd-autocud.autoscaling.maxReplicas | int | `100` |  |
 | lwd-autocud.autoscaling.minReplicas | int | `1` |  |
-| lwd-autocud.autoscaling.targetCPUUtilizationPercentage | int | `80` |  |
-| lwd-autocud.autoscaling.targetMemoryUtilizationPercentage | int | `80` |  |
+| lwd-autocud.autoscaling.targetCPU | string | `""` |  |
+| lwd-autocud.autoscaling.targetMemory | string | `""` |  |
 | lwd-autocud.aws.region | string | `"us-east-1"` |  |
 | lwd-autocud.azure.clientId | string | `""` |  |
 | lwd-autocud.ce-batch-gcp-credentials | string | `""` |  |
@@ -279,9 +283,10 @@ dependencies:
 | lwd-autocud.waitForInitContainer.image.tag | string | `"latest"` |  |
 | lwd-faktory.affinity | object | `{}` |  |
 | lwd-faktory.autoscaling.enabled | bool | `false` |  |
-| lwd-faktory.autoscaling.maxReplicas | int | `2` |  |
+| lwd-faktory.autoscaling.maxReplicas | int | `100` |  |
 | lwd-faktory.autoscaling.minReplicas | int | `1` |  |
-| lwd-faktory.autoscaling.targetCPUUtilizationPercentage | int | `80` |  |
+| lwd-faktory.autoscaling.targetCPU | string | `""` |  |
+| lwd-faktory.autoscaling.targetMemory | string | `""` |  |
 | lwd-faktory.faktory.password.key | string | `"FAKTORY_PASSWORD"` |  |
 | lwd-faktory.faktory.password.name | string | `"lwd-secrets"` |  |
 | lwd-faktory.fullnameOverride | string | `""` |  |
@@ -314,10 +319,10 @@ dependencies:
 | lwd-faktory.tolerations | list | `[]` |  |
 | lwd-worker.affinity | object | `{}` |  |
 | lwd-worker.autoscaling.enabled | bool | `false` |  |
-| lwd-worker.autoscaling.maxReplicas | int | `2` |  |
+| lwd-worker.autoscaling.maxReplicas | int | `100` |  |
 | lwd-worker.autoscaling.minReplicas | int | `1` |  |
-| lwd-worker.autoscaling.targetCPUUtilizationPercentage | int | `80` |  |
-| lwd-worker.autoscaling.targetMemoryUtilizationPercentage | int | `80` |  |
+| lwd-worker.autoscaling.targetCPU | string | `""` |  |
+| lwd-worker.autoscaling.targetMemory | string | `""` |  |
 | lwd-worker.aws.region | string | `"us-east-1"` |  |
 | lwd-worker.azure.clientId | string | `""` |  |
 | lwd-worker.ce-batch-gcp-credentials | string | `""` |  |
@@ -368,10 +373,10 @@ dependencies:
 | lwd-worker.waitForInitContainer.image.tag | string | `"latest"` |  |
 | lwd.affinity | object | `{}` |  |
 | lwd.autoscaling.enabled | bool | `false` |  |
-| lwd.autoscaling.maxReplicas | int | `2` |  |
+| lwd.autoscaling.maxReplicas | int | `100` |  |
 | lwd.autoscaling.minReplicas | int | `1` |  |
-| lwd.autoscaling.targetCPUUtilizationPercentage | int | `80` |  |
-| lwd.autoscaling.targetMemoryUtilizationPercentage | int | `80` |  |
+| lwd.autoscaling.targetCPU | string | `""` |  |
+| lwd.autoscaling.targetMemory | string | `""` |  |
 | lwd.aws.region | string | `"us-east-1"` |  |
 | lwd.azure.clientId | string | `""` |  |
 | lwd.ce-batch-gcp-credentials | string | `""` |  |
@@ -422,9 +427,10 @@ dependencies:
 | nextgen-ce.additionalConfigs | object | `{}` |  |
 | nextgen-ce.affinity | object | `{}` |  |
 | nextgen-ce.autoscaling.enabled | bool | `false` |  |
-| nextgen-ce.autoscaling.maxReplicas | int | `2` |  |
+| nextgen-ce.autoscaling.maxReplicas | int | `100` |  |
 | nextgen-ce.autoscaling.minReplicas | int | `1` |  |
-| nextgen-ce.autoscaling.targetCPUUtilizationPercentage | int | `80` |  |
+| nextgen-ce.autoscaling.targetCPU | string | `""` |  |
+| nextgen-ce.autoscaling.targetMemory | string | `""` |  |
 | nextgen-ce.awsSecret.AWS_ACCESS_KEY | string | `""` |  |
 | nextgen-ce.awsSecret.AWS_ACCOUNT_ID | string | `""` |  |
 | nextgen-ce.awsSecret.AWS_DESTINATION_BUCKET | string | `""` |  |
@@ -487,9 +493,10 @@ dependencies:
 | nextgen-ce.workloadIdentity.enabled | bool | `false` |  |
 | ng-ce-ui.affinity | object | `{}` |  |
 | ng-ce-ui.autoscaling.enabled | bool | `false` |  |
-| ng-ce-ui.autoscaling.maxReplicas | int | `2` |  |
+| ng-ce-ui.autoscaling.maxReplicas | int | `100` |  |
 | ng-ce-ui.autoscaling.minReplicas | int | `1` |  |
-| ng-ce-ui.autoscaling.targetCPUUtilizationPercentage | int | `80` |  |
+| ng-ce-ui.autoscaling.targetCPU | string | `""` |  |
+| ng-ce-ui.autoscaling.targetMemory | string | `""` |  |
 | ng-ce-ui.fullnameOverride | string | `""` |  |
 | ng-ce-ui.image.digest | string | `""` |  |
 | ng-ce-ui.image.pullPolicy | string | `"Always"` |  |
@@ -518,9 +525,10 @@ dependencies:
 | ng-ce-ui.tolerations | list | `[]` |  |
 | telescopes.affinity | object | `{}` |  |
 | telescopes.autoscaling.enabled | bool | `false` |  |
-| telescopes.autoscaling.maxReplicas | int | `2` |  |
+| telescopes.autoscaling.maxReplicas | int | `100` |  |
 | telescopes.autoscaling.minReplicas | int | `1` |  |
-| telescopes.autoscaling.targetCPUUtilizationPercentage | int | `80` |  |
+| telescopes.autoscaling.targetCPU | string | `""` |  |
+| telescopes.autoscaling.targetMemory | string | `""` |  |
 | telescopes.fullnameOverride | string | `""` |  |
 | telescopes.image.digest | string | `""` |  |
 | telescopes.image.pullPolicy | string | `"IfNotPresent"` |  |

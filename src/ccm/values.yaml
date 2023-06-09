@@ -48,9 +48,10 @@ anomaly-detection:
     className: nginx
   autoscaling:
     enabled: false
-    minReplicas: 2
-    maxReplicas: 4
-    targetCPUUtilizationPercentage: 70
+    minReplicas: 1
+    maxReplicas: 100
+    targetCPU: ""
+    targetMemory: ""
   nodeSelector: {}
   tolerations: []
   affinity: {}
@@ -124,9 +125,9 @@ batch-processing:
   autoscaling:
     enabled: false
     minReplicas: 1
-    maxReplicas: 2
-    targetCPUUtilizationPercentage: 80
-    # targetMemoryUtilizationPercentage: 80
+    maxReplicas: 100
+    targetCPU: ""
+    targetMemory: ""
   nodeSelector: {}
   tolerations: []
   affinity: {}
@@ -187,9 +188,9 @@ cloud-info:
   autoscaling:
     enabled: false
     minReplicas: 1
-    maxReplicas: 2
-    targetCPUUtilizationPercentage: 80
-    # targetMemoryUtilizationPercentage: 80
+    maxReplicas: 100
+    targetCPU: ""
+    targetMemory: ""
   nodeSelector: {}
   tolerations: []
   affinity: {}
@@ -273,11 +274,11 @@ event-service:
       cpu: "512m"
       memory: "1840Mi"
   autoscaling:
-    enabled: true
+    enabled: false
     minReplicas: 1
-    maxReplicas: 2
-    targetCPUUtilizationPercentage: 80
-    # targetMemoryUtilizationPercentage: 80
+    maxReplicas: 100
+    targetCPU: ""
+    targetMemory: ""
   nodeSelector: {}
   tolerations: []
   affinity: {}
@@ -340,9 +341,9 @@ lwd:
   autoscaling:
     enabled: false
     minReplicas: 1
-    maxReplicas: 2
-    targetCPUUtilizationPercentage: 80
-    targetMemoryUtilizationPercentage: 80
+    maxReplicas: 100
+    targetCPU: ""
+    targetMemory: ""
   nodeSelector: {}
   tolerations: []
   affinity: {}
@@ -412,9 +413,9 @@ lwd-autocud:
   autoscaling:
     enabled: false
     minReplicas: 1
-    maxReplicas: 2
-    targetCPUUtilizationPercentage: 80
-    targetMemoryUtilizationPercentage: 80
+    maxReplicas: 100
+    targetCPU: ""
+    targetMemory: ""
   nodeSelector: {}
   tolerations: []
   affinity: {}
@@ -461,8 +462,9 @@ lwd-faktory:
   autoscaling:
     enabled: false
     minReplicas: 1
-    maxReplicas: 2
-    targetCPUUtilizationPercentage: 80
+    maxReplicas: 100
+    targetCPU: ""
+    targetMemory: ""
   nodeSelector: {}
   tolerations: []
   affinity: {}
@@ -536,9 +538,9 @@ lwd-worker:
   autoscaling:
     enabled: false
     minReplicas: 1
-    maxReplicas: 2
-    targetCPUUtilizationPercentage: 80
-    targetMemoryUtilizationPercentage: 80
+    maxReplicas: 100
+    targetCPU: ""
+    targetMemory: ""
   nodeSelector: {}
   tolerations: []
   affinity: {}
@@ -614,9 +616,9 @@ nextgen-ce:
   autoscaling:
     enabled: false
     minReplicas: 1
-    maxReplicas: 2
-    targetCPUUtilizationPercentage: 80
-    # targetMemoryUtilizationPercentage: 80
+    maxReplicas: 100
+    targetCPU: ""
+    targetMemory: ""
   nodeSelector: {}
   tolerations: []
   affinity: {}
@@ -672,8 +674,9 @@ ng-ce-ui:
   autoscaling:
     enabled: false
     minReplicas: 1
-    maxReplicas: 2
-    targetCPUUtilizationPercentage: 80
+    maxReplicas: 100
+    targetCPU: ""
+    targetMemory: ""
   nodeSelector: {}
   tolerations: []
   affinity: {}
@@ -721,9 +724,9 @@ telescopes:
   autoscaling:
     enabled: false
     minReplicas: 1
-    maxReplicas: 2
-    targetCPUUtilizationPercentage: 80
-    # targetMemoryUtilizationPercentage: 80
+    maxReplicas: 100
+    targetCPU: ""
+    targetMemory: ""
   nodeSelector: {}
   tolerations: []
   affinity: {}
