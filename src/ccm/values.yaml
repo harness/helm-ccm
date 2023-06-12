@@ -17,6 +17,17 @@ global:
       enabled: false
   ccm:
     gcpProjectId: "placeHolder"
+  database:
+    redis:
+      installed: true
+      protocol: "redis"
+      # --  provide default values if redis.installed is set to false
+      hosts:
+        - redis:6379
+      secretName: "redis-secret"
+      userKey: "redis-user"
+      passwordKey: "redis-password"
+      extraArgs: ""
 
 anomaly-detection:
   replicaCount: 1
