@@ -1,5 +1,5 @@
 {{- if .Values.autoscaling.enabled }}
-apiVersion: autoscaling/v1
+apiVersion: {{ include "harnesscommon.capabilities.hpa.apiVersion" ( dict "context" $ ) }}
 kind: HorizontalPodAutoscaler
 metadata:
   name: lwd-autocud
@@ -13,9 +13,7 @@ spec:
     name: lwd-autocud
   minReplicas: {{ .Values.autoscaling.minReplicas }}
   maxReplicas: {{ .Values.autoscaling.maxReplicas }}
-  {{- if .Values.autoscaling.targetCPUUtilizationPercentage }}
-  targetCPUUtilizationPercentage : {{ .Values.autoscaling.targetCPUUtilizationPercentage }}
-  {{ end }}
+  {{ include "harnesscommon.hpa.metrics.apiVersion" . }}
   {{- if .Values.autoscaling.targetMemoryUtilizationPercentage }}
   targetMemoryUtilizationPercentage : {{ .Values.autoscaling.targetMemoryUtilizationPercentage }}
   {{ end }}
