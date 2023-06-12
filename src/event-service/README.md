@@ -61,7 +61,7 @@ A Helm chart for Kubernetes
 | image.pullPolicy | string | `"Always"` |  |
 | image.registry | string | `"docker.io"` |  |
 | image.repository | string | `"harness/event-service-signed"` |  |
-| image.tag | string | `"77317"` |  |
+| image.tag | string | `"79404-000"` |  |
 | ingress.className | string | `"nginx"` |  |
 | java.memory | int | `1024` |  |
 | maxSurge | string | `"100%"` |  |
