@@ -24,6 +24,11 @@ A Helm chart for Kubernetes
 | aws.region | string | `"us-east-1"` |  |
 | azure.clientId | string | `""` |  |
 | ce-batch-gcp-credentials | string | `""` |  |
+| clickhouse.database | string | `"ccm"` |  |
+| clickhouse.enabled | string | `"false"` |  |
+| clickhouse.host | string | `""` |  |
+| clickhouse.port | int | `9000` |  |
+| clickhouse.username | string | `"default"` |  |
 | fullnameOverride | string | `""` |  |
 | global.ccm.gcpProjectId | string | `"placeHolder"` |  |
 | global.imagePullSecrets | list | `[]` |  |
@@ -46,6 +51,7 @@ A Helm chart for Kubernetes
 | ingress.className | string | `"nginx"` |  |
 | java.memory | string | `"4096m"` |  |
 | java.memoryLimit | string | `"4096m"` |  |
+| lwdSecrets.clickhousePassword | string | `""` |  |
 | lwdSecrets.faktoryPassword | string | `""` |  |
 | lwdSecrets.lightwingAwsGovmasterAccessKey | string | `""` |  |
 | lwdSecrets.lightwingAwsGovmasterSecretKey | string | `""` |  |

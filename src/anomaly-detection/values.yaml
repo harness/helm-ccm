@@ -29,7 +29,7 @@ image:
   repository: harness/ce-anomaly-detection-signed
   pullPolicy: IfNotPresent
 # Overrides the image tag whose default is the chart appVersion.
-  tag: "12"
+  tag: "70029"
   digest: ""
 # image pull secrets to use for ce-anomaly-detection image
   imagePullSecrets: []

@@ -65,6 +65,8 @@ spec:
           envFrom:
             - secretRef:
                 name: lwd-secrets
+            - configMapRef:
+                name: lwd-config
           env:
             - name: LIGHTWING_CACHE_ADDR
               value: {{ .Values.redis.redisUrl }}
@@ -102,6 +104,13 @@ spec:
               value: IC04LYMBf1lDP5oeY4hupxd4HJhLmN6azUku3xEbeE3SUx5G3ZYzhbiwVtK4i7AmqyU9OZkwB4v8E9qM
             - name: LIGHTWING_CLOUD-CONNECTOR_IDENTITY_SERVICE_SECRET
               value: HVSKUYqD4e5Rxu12hFDdCJKGM64sxgEynvdDhaOHaTHhwwn0K4Ttr0uoOxSsEVYNrUU=
+            {{- if .Values.clickhouse.enabled }}
+            - name: LIGHTWING_CLICKHOUSE_PASSWORD
+              valueFrom:
+                secretKeyRef:
+                  name: {{ .Values.clickhouse.password.name }}
+                  key: {{ .Values.clickhouse.password.key }}
+            {{- end }}  
             - name: DB_PASSWORD
               valueFrom:
                 secretKeyRef:
@@ -111,6 +120,8 @@ spec:
               value: "host=postgres.{{ .Release.Namespace }}.svc.cluster.local user=postgres password=$(DB_PASSWORD) dbname=lightwing sslmode=disable"
             - name: FAKTORY_URL
               value: tcp://:$(FAKTORY_PASSWORD)@lwd-faktory.{{ .Release.Namespace }}.svc.cluster.local:7419
+            - name: LIGHTWING_DKRON_HOST
+              value: http://dkron.{{ .Release.Namespace }}.svc.cluster.local:8080
           volumeMounts:
           - name: secret-mount
             mountPath: /opt/harness/svc

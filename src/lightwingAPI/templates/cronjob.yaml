@@ -70,6 +70,8 @@ spec:
             envFrom:
               - secretRef:
                   name: lwd-secrets
+              - configMapRef:
+                  name: lwd-config
             image: {{ include "common.images.image" (dict "imageRoot" .Values.image "global" .Values.global) }}
             command: ["lwd", "compute-savings", "--verbose"]
             env:
@@ -102,6 +104,13 @@ spec:
                 value: "/opt/harness/svc/ce_batch_gcp_credentials.json"
               - name: LIGHTWING_GCPCOST_PROJECT
                 value: {{ .Values.global.ccm.gcpProjectId }}
+              {{- if .Values.clickhouse.enabled }}
+              - name: LIGHTWING_CLICKHOUSE_PASSWORD
+                valueFrom:
+                  secretKeyRef:
+                    name: {{ .Values.clickhouse.password.name }}
+                    key: {{ .Values.clickhouse.password.key }}
+              {{- end }} 
             volumeMounts:
             - name: secret-mount
               mountPath: /opt/harness/svc
