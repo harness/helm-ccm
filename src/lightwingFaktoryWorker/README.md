@@ -27,6 +27,8 @@ A Helm chart for Kubernetes
 | clickhouse.database | string | `"ccm"` |  |
 | clickhouse.enabled | string | `"false"` |  |
 | clickhouse.host | string | `""` |  |
+| clickhouse.password.key | string | `"admin-password"` |  |
+| clickhouse.password.name | string | `"clickhouse"` |  |
 | clickhouse.port | int | `9000` |  |
 | clickhouse.username | string | `"default"` |  |
 | fullnameOverride | string | `""` |  |
@@ -47,7 +49,6 @@ A Helm chart for Kubernetes
 | ingress.className | string | `"nginx"` |  |
 | java.memory | string | `"4096m"` |  |
 | java.memoryLimit | string | `"4096m"` |  |
-| lwdWorkerSecrets.clickHousePassword | string | `"LIGHTWING_CLICKHOUSE_PASSWORD"` |  |
 | lwdWorkerSecrets.faktoryPassword | string | `"FAKTORY_PASSWORD"` |  |
 | lwdWorkerSecrets.lightwingAwsGovmasterAccessKey | string | `"LIGHTWING_AWS-GOV-MASTER_ACCESS_KEY"` |  |
 | lwdWorkerSecrets.lightwingAwsGovmasterSecretKey | string | `"LIGHTWING_AWS-GOV-MASTER_SECRET_KEY"` |  |
