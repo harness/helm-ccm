@@ -218,6 +218,13 @@ dependencies:
 | event-service.waitForInitContainer.image.repository | string | `"harness/helm-init-container"` |  |
 | event-service.waitForInitContainer.image.tag | string | `"latest"` |  |
 | global.ccm.gcpProjectId | string | `"placeHolder"` |  |
+| global.database.redis.extraArgs | string | `""` |  |
+| global.database.redis.hosts | list | `["redis:6379"]` | provide default values if redis.installed is set to false |
+| global.database.redis.installed | bool | `true` |  |
+| global.database.redis.passwordKey | string | `"redis-password"` |  |
+| global.database.redis.protocol | string | `"redis"` |  |
+| global.database.redis.secretName | string | `"redis-secret"` |  |
+| global.database.redis.userKey | string | `"redis-user"` |  |
 | global.imagePullSecrets | list | `[]` |  |
 | global.istio.enabled | bool | `false` |  |
 | global.istio.gateway.create | bool | `false` |  |
