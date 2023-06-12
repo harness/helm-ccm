@@ -2301,6 +2301,23 @@ entries:
   lwd:
   - apiVersion: v2
     appVersion: 1.773.0
+    created: "2023-06-12T07:20:19.514253135Z"
+    dependencies:
+    - name: harness-common
+      repository: https://harness.github.io/helm-common
+      version: 1.x.x
+    - name: common
+      repository: https://charts.bitnami.com/bitnami
+      version: 2.x.x
+    description: A Helm chart for Kubernetes
+    digest: 256af3d89b75549c7d490ba490de1232a35433bb89848363a5dd9b5fed5c395c
+    name: lwd
+    type: application
+    urls:
+    - https://github.com/harness/helm-ccm/releases/download/lwd-0.4.0/lwd-0.4.0.tgz
+    version: 0.4.0
+  - apiVersion: v2
+    appVersion: 1.773.0
     created: "2023-05-29T16:19:11.575123421Z"
     dependencies:
     - name: harness-common
@@ -2595,6 +2612,23 @@ entries:
   lwd-worker:
   - apiVersion: v2
     appVersion: 1.773.0
+    created: "2023-06-12T07:20:19.654484219Z"
+    dependencies:
+    - name: harness-common
+      repository: https://harness.github.io/helm-common
+      version: 1.x.x
+    - name: common
+      repository: https://charts.bitnami.com/bitnami
+      version: 2.x.x
+    description: A Helm chart for Kubernetes
+    digest: 3e2c790e38f4718f546e2b548346e4195dc524ac699c22f06ba7114f92035854
+    name: lwd-worker
+    type: application
+    urls:
+    - https://github.com/harness/helm-ccm/releases/download/lwd-worker-0.4.0/lwd-worker-0.4.0.tgz
+    version: 0.4.0
+  - apiVersion: v2
+    appVersion: 1.773.0
     created: "2023-05-29T16:19:12.096062441Z"
     dependencies:
     - name: harness-common
@@ -2853,4 +2887,4 @@ entries:
     urls:
     - https://github.com/harness/helm-ccm/releases/download/telescopes-0.3.0/telescopes-0.3.0.tgz
     version: 0.3.0
-generated: "2023-06-12T07:13:00.3026299Z"
+generated: "2023-06-12T07:20:19.654916729Z"
