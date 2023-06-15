@@ -4,7 +4,7 @@ dependencies:
   version: 0.4.0
 - name: event-service
   repository: file://../event-service
-  version: 0.4.0
+  version: 0.4.1
 - name: anomaly-detection
   repository: file://../anomaly-detection
   version: 0.4.0
@@ -38,5 +38,5 @@ dependencies:
 - name: dkron
   repository: file://../dkron
   version: 0.2.0
-digest: sha256:986544404fddc628706b73532d011f5dcbab5483a29733389fc2d1362f186539
-generated: "2023-06-12T12:42:29.059373+05:30"
+digest: sha256:d8b821fdc9cb5727b6df17219455d6e5e698fd372462993fbb1878f3cc06fbfd
+generated: "2023-06-15T04:12:45.104632-04:00"
