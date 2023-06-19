@@ -51,7 +51,7 @@ spec:
             initialDelaySeconds: 300
             timeoutSeconds: 5
             periodSeconds: 40
-            failureThreshold: 
+            failureThreshold: 20
         {{- if .Values.lifecycleHooks }}
           lifecycle: {{- include "harnesscommon.tplvalues.render" (dict "value" .Values.lifecycleHooks "context" $) | nindent 12 }}
         {{- end }}
