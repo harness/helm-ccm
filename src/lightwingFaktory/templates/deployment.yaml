@@ -57,11 +57,20 @@ spec:
                 secretKeyRef:
                   name: {{ .Values.faktory.password.name }}
                   key: {{ .Values.faktory.password.key }}
+          {{- if .Values.lifecycleHooks }}
+          lifecycle: {{- include "harnesscommon.tplvalues.render" (dict "value" .Values.lifecycleHooks "context" $) | nindent 12 }}
+          {{- end }}
           volumeMounts:
+        {{- if .Values.extraVolumeMounts }}
+        {{- include "harnesscommon.tplvalues.render" (dict "value" .Values.extraVolumeMounts "context" $) | nindent 10 }}
+        {{- end }}
           - name: lwd-faktory-mount
             mountPath: /var/lib/faktory
       restartPolicy: Always
       volumes:
+      {{- if .Values.extraVolumes }}
+      {{- include "harnesscommon.tplvalues.render" ( dict "value" .Values.extraVolumes "context" $ ) | nindent 6 }}
+      {{- end }}
       - name: lwd-faktory-mount
         persistentVolumeClaim:
           claimName: lwd-faktory
