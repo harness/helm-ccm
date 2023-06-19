@@ -90,3 +90,24 @@ resources:
   requests:
     cpu: "1536m"
     memory: "1536Mi"
+
+# extraVolumes:
+#   - name: volume-test
+#     configMap:
+#       name: test-config
+#       # readOnly: true
+extraVolumes: []
+
+# extraVolumeMounts:
+#   - name: volume-test
+#     mountPath: /opt/harness/config
+extraVolumeMounts: []
+
+lifecycleHooks: {}
+# lifecycleHooks:
+#   postStart:
+#     exec:
+#       command:
+#   preStop:
+#     exec:
+#       command:
