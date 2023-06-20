@@ -2,7 +2,7 @@
 
 A Helm chart for Harness Cloud Cost Management (CCM) module
 
-![Version: 0.7.2](https://img.shields.io/badge/Version-0.7.2-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square) ![AppVersion: 1.546.0](https://img.shields.io/badge/AppVersion-1.546.0-informational?style=flat-square)
+![Version: 0.7.3](https://img.shields.io/badge/Version-0.7.3-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square) ![AppVersion: 1.546.0](https://img.shields.io/badge/AppVersion-1.546.0-informational?style=flat-square)
 
 ## Usage
 
@@ -12,7 +12,7 @@ Use the following dependency to add this chart repository to your Helm installat
 dependencies:
     - name: ccm
       repository: https://harness.github.io/helm-ccm
-      version: 0.7.2
+      version: 0.7.3
 ```
 
 ## Values
@@ -30,7 +30,7 @@ dependencies:
 | anomaly-detection.image.pullPolicy | string | `"IfNotPresent"` |  |
 | anomaly-detection.image.registry | string | `"docker.io"` |  |
 | anomaly-detection.image.repository | string | `"harness/ce-anomaly-detection-signed"` |  |
-| anomaly-detection.image.tag | string | `"12"` |  |
+| anomaly-detection.image.tag | string | `"70029"` |  |
 | anomaly-detection.ingress.className | string | `"nginx"` |  |
 | anomaly-detection.java.memory | string | `"4096m"` |  |
 | anomaly-detection.java.memoryLimit | string | `"4096m"` |  |
@@ -78,12 +78,12 @@ dependencies:
 | batch-processing.image.pullPolicy | string | `"Always"` |  |
 | batch-processing.image.registry | string | `"docker.io"` |  |
 | batch-processing.image.repository | string | `"harness/batch-processing-signed"` |  |
-| batch-processing.image.tag | string | `"78605-000"` |  |
+| batch-processing.image.tag | string | `"79404-000"` |  |
 | batch-processing.imageClickhouseEnabled.digest | string | `""` |  |
 | batch-processing.imageClickhouseEnabled.pullPolicy | string | `"Always"` |  |
 | batch-processing.imageClickhouseEnabled.registry | string | `"docker.io"` |  |
 | batch-processing.imageClickhouseEnabled.repository | string | `"harness/batch-processing-signed"` |  |
-| batch-processing.imageClickhouseEnabled.tag | string | `"78605-000"` |  |
+| batch-processing.imageClickhouseEnabled.tag | string | `"79404-000"` |  |
 | batch-processing.isolatedReplica | int | `0` |  |
 | batch-processing.java.memory | string | `"7168"` |  |
 | batch-processing.mongoSecrets.password.key | string | `"mongodb-root-password"` |  |
@@ -145,7 +145,7 @@ dependencies:
 | cloud-info.image.pullPolicy | string | `"IfNotPresent"` |  |
 | cloud-info.image.registry | string | `"docker.io"` |  |
 | cloud-info.image.repository | string | `"harness/ce-cloud-info-signed"` |  |
-| cloud-info.image.tag | string | `"0.22.0"` |  |
+| cloud-info.image.tag | string | `"10302"` |  |
 | cloud-info.ingress.className | string | `"nginx"` |  |
 | cloud-info.java.memory | string | `"4096m"` |  |
 | cloud-info.java.memoryLimit | string | `"4096m"` |  |
@@ -182,7 +182,7 @@ dependencies:
 | event-service.image.pullPolicy | string | `"Always"` |  |
 | event-service.image.registry | string | `"docker.io"` |  |
 | event-service.image.repository | string | `"harness/event-service-signed"` |  |
-| event-service.image.tag | string | `"77317"` |  |
+| event-service.image.tag | string | `"79404-000"` |  |
 | event-service.ingress.className | string | `"nginx"` |  |
 | event-service.java.memory | int | `1024` |  |
 | event-service.maxSurge | string | `"100%"` |  |
@@ -218,6 +218,13 @@ dependencies:
 | event-service.waitForInitContainer.image.repository | string | `"harness/helm-init-container"` |  |
 | event-service.waitForInitContainer.image.tag | string | `"latest"` |  |
 | global.ccm.gcpProjectId | string | `"placeHolder"` |  |
+| global.database.redis.extraArgs | string | `""` |  |
+| global.database.redis.hosts | list | `["redis:6379"]` | provide default values if redis.installed is set to false |
+| global.database.redis.installed | bool | `true` |  |
+| global.database.redis.passwordKey | string | `"redis-password"` |  |
+| global.database.redis.protocol | string | `"redis"` |  |
+| global.database.redis.secretName | string | `"redis-secret"` |  |
+| global.database.redis.userKey | string | `"redis-user"` |  |
 | global.imagePullSecrets | list | `[]` |  |
 | global.istio.enabled | bool | `false` |  |
 | global.istio.gateway.create | bool | `false` |  |
@@ -452,12 +459,12 @@ dependencies:
 | nextgen-ce.image.pullPolicy | string | `"IfNotPresent"` |  |
 | nextgen-ce.image.registry | string | `"docker.io"` |  |
 | nextgen-ce.image.repository | string | `"harness/ce-nextgen-signed"` |  |
-| nextgen-ce.image.tag | string | `"78700-000"` |  |
+| nextgen-ce.image.tag | string | `"79505-000"` |  |
 | nextgen-ce.imageClickhouseEnabled.digest | string | `""` |  |
 | nextgen-ce.imageClickhouseEnabled.pullPolicy | string | `"Always"` |  |
 | nextgen-ce.imageClickhouseEnabled.registry | string | `"docker.io"` |  |
 | nextgen-ce.imageClickhouseEnabled.repository | string | `"harness/ce-nextgen-signed"` |  |
-| nextgen-ce.imageClickhouseEnabled.tag | string | `"78700-000"` |  |
+| nextgen-ce.imageClickhouseEnabled.tag | string | `"79505-000"` |  |
 | nextgen-ce.ingress.className | string | `"nginx"` |  |
 | nextgen-ce.java.memory | string | `"4096m"` |  |
 | nextgen-ce.java.memoryLimit | string | `"4096m"` |  |
@@ -502,7 +509,7 @@ dependencies:
 | ng-ce-ui.image.pullPolicy | string | `"Always"` |  |
 | ng-ce-ui.image.registry | string | `"docker.io"` |  |
 | ng-ce-ui.image.repository | string | `"harness/ng-ce-ui"` |  |
-| ng-ce-ui.image.tag | string | `"0.26.4"` |  |
+| ng-ce-ui.image.tag | string | `"0.34.3"` |  |
 | ng-ce-ui.ingress.className | string | `"nginx"` |  |
 | ng-ce-ui.maxSurge | string | `"100%"` |  |
 | ng-ce-ui.maxUnavailable | int | `0` |  |
@@ -534,7 +541,7 @@ dependencies:
 | telescopes.image.pullPolicy | string | `"IfNotPresent"` |  |
 | telescopes.image.registry | string | `"docker.io"` |  |
 | telescopes.image.repository | string | `"harness/telescopes-signed"` |  |
-| telescopes.image.tag | string | `"10100"` |  |
+| telescopes.image.tag | string | `"10300"` |  |
 | telescopes.ingress.className | string | `"nginx"` |  |
 | telescopes.java.memory | string | `"4096m"` |  |
 | telescopes.java.memoryLimit | string | `"4096m"` |  |

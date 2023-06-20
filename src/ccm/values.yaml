@@ -17,6 +17,17 @@ global:
       enabled: false
   ccm:
     gcpProjectId: "placeHolder"
+  database:
+    redis:
+      installed: true
+      protocol: "redis"
+      # --  provide default values if redis.installed is set to false
+      hosts:
+        - redis:6379
+      secretName: "redis-secret"
+      userKey: "redis-user"
+      passwordKey: "redis-password"
+      extraArgs: ""
 
 anomaly-detection:
   replicaCount: 1
@@ -30,7 +41,7 @@ anomaly-detection:
     repository: harness/ce-anomaly-detection-signed
     pullPolicy: IfNotPresent
     # Overrides the image tag whose default is the chart appVersion.
-    tag: "12"
+    tag: "70029"
     digest: ""
   nameOverride: ""
   fullnameOverride: ""
@@ -73,14 +84,14 @@ batch-processing:
     repository: harness/batch-processing-signed
     pullPolicy: Always
     # Overrides the image tag whose default is the chart appVersion.
-    tag: "78605-000"
+    tag: "79404-000"
     digest: ""
   imageClickhouseEnabled:
     registry: docker.io
     repository: harness/batch-processing-signed
     pullPolicy: Always
     # Overrides the image tag whose default is the chart appVersion.
-    tag: "78605-000"
+    tag: "79404-000"
     digest: ""
   waitForInitContainer:
     image:
@@ -168,7 +179,7 @@ cloud-info:
     repository: harness/ce-cloud-info-signed
     pullPolicy: IfNotPresent
     # Overrides the image tag whose default is the chart appVersion.
-    tag: "0.22.0"
+    tag: "10302"
     digest: ""
   nameOverride: ""
   fullnameOverride: ""
@@ -217,7 +228,7 @@ event-service:
     repository: harness/event-service-signed
     pullPolicy: Always
     # Overrides the image tag whose default is the chart appVersion.
-    tag: "77317"
+    tag: "79404-000"
     digest: ""
   waitForInitContainer:
     image:
@@ -564,14 +575,14 @@ nextgen-ce:
     repository: harness/ce-nextgen-signed
     pullPolicy: IfNotPresent
     # Overrides the image tag whose default is the chart appVersion.
-    tag: "78700-000"
+    tag: "79505-000"
     digest: ""
   imageClickhouseEnabled:
     registry: docker.io
     repository: harness/ce-nextgen-signed
     pullPolicy: Always
     # Overrides the image tag whose default is the chart appVersion.
-    tag: "78700-000"
+    tag: "79505-000"
     digest: ""
   waitForInitContainer:
     image:
@@ -654,7 +665,7 @@ ng-ce-ui:
     repository: harness/ng-ce-ui
     pullPolicy: Always
     # Overrides the image tag whose default is the chart appVersion.
-    tag: "0.26.4"
+    tag: "0.34.3"
     digest: ""
   nameOverride: ""
   fullnameOverride: ""
@@ -698,7 +709,7 @@ telescopes:
     repository: harness/telescopes-signed
     pullPolicy: IfNotPresent
     # Overrides the image tag whose default is the chart appVersion.
-    tag: "10100"
+    tag: "10300"
     digest: ""
   waitForInitContainer:
     image:

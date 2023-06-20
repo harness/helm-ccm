@@ -1,0 +1,16 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: lwd-config
+  namespace: {{ .Release.Namespace }}
+data:
+  {{- if .Values.clickhouse.enabled }}
+  LIGHTWING_CLICKHOUSE_ENABLED: {{ .Values.clickhouse.enabled | quote}}
+  LIGHTWING_CLICKHOUSE_HOST: {{ .Values.clickhouse.host }}
+  LIGHTWING_CLICKHOUSE_PORT: {{ .Values.clickhouse.port | quote }}
+  LIGHTWING_CLICKHOUSE_DATABASE: {{ .Values.clickhouse.database }}
+  LIGHTWING_CLICKHOUSE_USERNAME: {{ .Values.clickhouse.username }}
+  {{- end }}
+  {{- if .Values.additionalConfigs }}
+  {{- toYaml .Values.additionalConfigs | nindent 2 }}
+  {{- end }}

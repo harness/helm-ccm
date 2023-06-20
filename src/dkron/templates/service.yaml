@@ -1,0 +1,33 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: dkron
+  namespace: {{ .Release.Namespace }}
+  labels:
+    {{- include "dkron.labels" . | nindent 4 }}
+spec:
+  type: {{ .Values.service.type }}
+  ports:
+    - port: 8080
+      targetPort: 8080
+      protocol: TCP
+      name: http
+  selector:
+    {{- include "dkron.selectorLabels" . | nindent 4 }}
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: dkron-lb
+  namespace: {{ .Release.Namespace }}
+  labels:
+    {{- include "dkron.labels" . | nindent 4 }}
+spec:
+  type: LoadBalancer
+  ports:
+  - name: http
+    port: 8080
+    protocol: TCP
+    targetPort: 8080
+  selector:
+    {{- include "dkron.selectorLabels" . | nindent 4 }}

@@ -97,6 +97,8 @@ spec:
                   name: {{ .Values.global.database.timescaledb.certName }}
                   key: {{ .Values.global.database.timescaledb.certKey }}
             {{- end }}
+          resources:
+            {{- toYaml .Values.resources | nindent 12 }}
       affinity:
         podAntiAffinity:
           requiredDuringSchedulingIgnoredDuringExecution:

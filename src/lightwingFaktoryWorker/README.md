@@ -24,6 +24,13 @@ A Helm chart for Kubernetes
 | aws.region | string | `"us-east-1"` |  |
 | azure.clientId | string | `""` |  |
 | ce-batch-gcp-credentials | string | `""` |  |
+| clickhouse.database | string | `"ccm"` |  |
+| clickhouse.enabled | string | `"false"` |  |
+| clickhouse.host | string | `""` |  |
+| clickhouse.password.key | string | `"admin-password"` |  |
+| clickhouse.password.name | string | `"clickhouse"` |  |
+| clickhouse.port | int | `9000` |  |
+| clickhouse.username | string | `"default"` |  |
 | fullnameOverride | string | `""` |  |
 | global.ccm.gcpProjectId | string | `"placeHolder"` |  |
 | global.imagePullSecrets | list | `[]` |  |
