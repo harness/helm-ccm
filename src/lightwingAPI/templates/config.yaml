@@ -7,7 +7,7 @@ data:
   {{- if .Values.clickhouse.enabled }}
   LIGHTWING_CLICKHOUSE_ENABLED: {{ .Values.clickhouse.enabled | quote}}
   LIGHTWING_CLICKHOUSE_HOST: {{ .Values.clickhouse.host }}
-  LIGHTWING_CLICKHOUSE_PORT: {{ .Values.clickhouse.port }}
+  LIGHTWING_CLICKHOUSE_PORT: {{ .Values.clickhouse.port | quote }}
   LIGHTWING_CLICKHOUSE_DATABASE: {{ .Values.clickhouse.database }}
   LIGHTWING_CLICKHOUSE_USERNAME: {{ .Values.clickhouse.username }}
   {{- end }}

@@ -139,6 +139,8 @@ spec:
           volumeMounts:
           - name: secret-mount
             mountPath: /opt/harness/svc
+          resources:
+            {{- toYaml .Values.resources | nindent 12 }}
       volumes:
       - name: secret-mount
         secret:
