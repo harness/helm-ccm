@@ -31,6 +31,8 @@ A Helm chart for Kubernetes
 | clickhouse.password.name | string | `"clickhouse"` |  |
 | clickhouse.port | int | `9000` |  |
 | clickhouse.username | string | `"default"` |  |
+| extraVolumeMounts | list | `[]` |  |
+| extraVolumes | list | `[]` |  |
 | fullnameOverride | string | `""` |  |
 | global.ccm.gcpProjectId | string | `"placeHolder"` |  |
 | global.imagePullSecrets | list | `[]` |  |
@@ -53,6 +55,7 @@ A Helm chart for Kubernetes
 | ingress.className | string | `"nginx"` |  |
 | java.memory | string | `"4096m"` |  |
 | java.memoryLimit | string | `"4096m"` |  |
+| lifecycleHooks | object | `{}` |  |
 | lwdSecrets.faktoryPassword | string | `""` |  |
 | lwdSecrets.lightwingAwsGovmasterAccessKey | string | `""` |  |
 | lwdSecrets.lightwingAwsGovmasterSecretKey | string | `""` |  |
@@ -72,7 +75,6 @@ A Helm chart for Kubernetes
 | redis.redisUrl | string | `"redis://localhost:6379"` |  |
 | redis.useSentinel | string | `"true"` |  |
 | replicaCount | int | `2` |  |
-| resources.limits.cpu | int | `2` |  |
 | resources.limits.memory | string | `"4Gi"` |  |
 | resources.requests.cpu | int | `2` |  |
 | resources.requests.memory | string | `"4Gi"` |  |
