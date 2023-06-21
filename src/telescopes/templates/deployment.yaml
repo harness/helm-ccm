@@ -51,6 +51,8 @@ spec:
           volumeMounts:
           {{- include "harnesscommon.tplvalues.render" (dict "value" .Values.extraVolumeMounts "context" $) | nindent 12 }}
           {{- end }}
+          resources:
+            {{- toYaml .Values.resources | nindent 12 }}
       affinity:
         podAntiAffinity:
           requiredDuringSchedulingIgnoredDuringExecution:

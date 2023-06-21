@@ -39,6 +39,16 @@ global:
       userKey: ""
       passwordKey: ""
       extraArgs: ""
+    redis:
+      installed: true
+      protocol: "redis"
+      # --  provide default values if redis.installed is set to false
+      hosts:
+        - redis:6379
+      secretName: "redis-secret"
+      userKey: "redis-user"
+      passwordKey: "redis-password"
+      extraArgs: ""
   ingress:
     enabled: false
     className: harness
@@ -177,7 +187,6 @@ workloadIdentity:
 
 resources:
   limits:
-    cpu: 1
     memory: "4Gi"
   requests:
     cpu: 1

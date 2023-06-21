@@ -66,6 +66,8 @@ spec:
         {{- end }}
           - name: lwd-faktory-mount
             mountPath: /var/lib/faktory
+          resources:
+            {{- toYaml .Values.resources | nindent 12 }}
       restartPolicy: Always
       volumes:
       {{- if .Values.extraVolumes }}

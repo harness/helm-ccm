@@ -145,6 +145,8 @@ spec:
         {{- if .Values.extraVolumeMounts }}
           {{- include "harnesscommon.tplvalues.render" (dict "value" .Values.extraVolumeMounts "context" $) | nindent 10 }}
         {{- end }}
+          resources:
+            {{- toYaml .Values.resources | nindent 12 }}
       volumes:
       {{- if .Values.extraVolumes }}
         {{- include "harnesscommon.tplvalues.render" ( dict "value" .Values.extraVolumes "context" $ ) | nindent 6 }}
