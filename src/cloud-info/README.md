@@ -22,6 +22,8 @@ A Helm chart for Kubernetes
 | autoscaling.maxReplicas | int | `2` |  |
 | autoscaling.minReplicas | int | `1` |  |
 | autoscaling.targetCPUUtilizationPercentage | int | `80` |  |
+| extraVolumeMounts | list | `[]` |  |
+| extraVolumes | list | `[]` |  |
 | fullnameOverride | string | `""` |  |
 | global.imagePullSecrets | list | `[]` |  |
 | global.ingress.className | string | `"harness"` |  |
@@ -43,6 +45,7 @@ A Helm chart for Kubernetes
 | ingress.className | string | `"nginx"` |  |
 | java.memory | string | `"4096m"` |  |
 | java.memoryLimit | string | `"4096m"` |  |
+| lifecycleHooks | object | `{}` |  |
 | maxSurge | string | `"100%"` |  |
 | maxUnavailable | int | `0` |  |
 | nameOverride | string | `""` |  |
@@ -50,7 +53,6 @@ A Helm chart for Kubernetes
 | podAnnotations | object | `{}` |  |
 | podSecurityContext | object | `{}` |  |
 | replicaCount | int | `1` |  |
-| resources.limits.cpu | string | `"1536m"` |  |
 | resources.limits.memory | string | `"1536Mi"` |  |
 | resources.requests.cpu | string | `"1536m"` |  |
 | resources.requests.memory | string | `"1536Mi"` |  |

@@ -91,12 +91,21 @@ spec:
                   name: {{ .Values.clickhouse.password.name }}
                   key: {{ .Values.clickhouse.password.key }}
             {{- end }}
+          {{- if .Values.lifecycleHooks }}
+          lifecycle: {{- include "harnesscommon.tplvalues.render" (dict "value" .Values.lifecycleHooks "context" $) | nindent 12 }}
+          {{- end }}
           volumeMounts:
+          {{- if .Values.extraVolumeMounts }}
+          {{- include "harnesscommon.tplvalues.render" (dict "value" .Values.extraVolumeMounts "context" $) | nindent 10 }}
+          {{- end }}
           - name: secret-mount
             mountPath: /opt/harness/svc
           resources:
             {{- toYaml .Values.resources | nindent 12 }}
       volumes:
+      {{- if .Values.extraVolumes }}
+      {{- include "harnesscommon.tplvalues.render" ( dict "value" .Values.extraVolumes "context" $ ) | nindent 6 }}
+      {{- end }}
       - name: secret-mount
         secret:
           secretName: batch-processing-secret-mount

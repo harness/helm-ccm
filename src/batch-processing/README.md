@@ -36,6 +36,8 @@ A Helm chart for Kubernetes
 | cloudProviderConfig.DATA_PIPELINE_CONFIG_GCS_BASE_PATH | string | `"gs://awscustomerbillingdata-onprem"` |  |
 | cloudProviderConfig.S3_SYNC_CONFIG_BUCKET_NAME | string | `"ccm-service-data-bucket"` |  |
 | cloudProviderConfig.S3_SYNC_CONFIG_REGION | string | `"us-east-1"` |  |
+| extraVolumeMounts | list | `[]` |  |
+| extraVolumes | list | `[]` |  |
 | fullnameOverride | string | `""` |  |
 | global.ccm.gcpProjectId | string | `"placeHolder"` |  |
 | global.database.mongo.extraArgs | string | `""` |  |
@@ -82,6 +84,7 @@ A Helm chart for Kubernetes
 | imageClickhouseEnabled.tag | string | `"79404-000"` |  |
 | isolatedReplica | int | `0` |  |
 | java.memory | string | `"7168"` |  |
+| lifecycleHooks | object | `{}` |  |
 | mongoSecrets.password.key | string | `"mongodb-root-password"` |  |
 | mongoSecrets.password.name | string | `"mongodb-replicaset-chart"` |  |
 | mongoSecrets.userName.key | string | `"mongodbUsername"` |  |
@@ -91,7 +94,6 @@ A Helm chart for Kubernetes
 | podAnnotations | object | `{}` |  |
 | podSecurityContext | object | `{}` |  |
 | replicaCount | int | `1` |  |
-| resources.limits.cpu | string | `"1024m"` |  |
 | resources.limits.memory | string | `"10Gi"` |  |
 | resources.requests.cpu | string | `"1024m"` |  |
 | resources.requests.memory | string | `"10Gi"` |  |
