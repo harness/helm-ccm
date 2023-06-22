@@ -24,6 +24,8 @@ A Helm chart for Kubernetes
 | aws.region | string | `"us-east-1"` |  |
 | azure.clientId | string | `""` |  |
 | ce-batch-gcp-credentials | string | `""` |  |
+| extraVolumeMounts | list | `[]` |  |
+| extraVolumes | list | `[]` |  |
 | fullnameOverride | string | `""` |  |
 | global.ccm.gcpProjectId | string | `"placeHolder"` |  |
 | global.imagePullSecrets | list | `[]` |  |
@@ -46,6 +48,7 @@ A Helm chart for Kubernetes
 | ingress.className | string | `"nginx"` |  |
 | java.memory | string | `"4096m"` |  |
 | java.memoryLimit | string | `"4096m"` |  |
+| lifecycleHooks | object | `{}` |  |
 | lwdAutocudSecrets.faktoryPassword | string | `"FAKTORY_PASSWORD"` |  |
 | lwdAutocudSecrets.lightwingAwsGovmasterAccessKey | string | `"LIGHTWING_AWS-GOV-MASTER_ACCESS_KEY"` |  |
 | lwdAutocudSecrets.lightwingAwsGovmasterSecretKey | string | `"LIGHTWING_AWS-GOV-MASTER_SECRET_KEY"` |  |
@@ -66,7 +69,6 @@ A Helm chart for Kubernetes
 | redis.redisUrl | string | `"redis://localhost:6379"` |  |
 | redis.useSentinel | string | `"true"` |  |
 | replicaCount | int | `2` |  |
-| resources.limits.cpu | int | `2` |  |
 | resources.limits.memory | string | `"4Gi"` |  |
 | resources.requests.cpu | int | `2` |  |
 | resources.requests.memory | string | `"4Gi"` |  |
