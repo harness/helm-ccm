@@ -1,6 +1,6 @@
 # lwd-autocud
 
-![Version: 0.3.0](https://img.shields.io/badge/Version-0.3.0-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square) ![AppVersion: 1.773.0](https://img.shields.io/badge/AppVersion-1.773.0-informational?style=flat-square)
+![Version: 0.4.0](https://img.shields.io/badge/Version-0.4.0-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square) ![AppVersion: 1.773.0](https://img.shields.io/badge/AppVersion-1.773.0-informational?style=flat-square)
 
 A Helm chart for Kubernetes
 
@@ -17,13 +17,15 @@ A Helm chart for Kubernetes
 |-----|------|---------|-------------|
 | affinity | object | `{}` |  |
 | autoscaling.enabled | bool | `false` |  |
-| autoscaling.maxReplicas | int | `2` |  |
+| autoscaling.maxReplicas | int | `100` |  |
 | autoscaling.minReplicas | int | `1` |  |
-| autoscaling.targetCPUUtilizationPercentage | int | `80` |  |
-| autoscaling.targetMemoryUtilizationPercentage | int | `80` |  |
+| autoscaling.targetCPU | string | `""` |  |
+| autoscaling.targetMemory | string | `""` |  |
 | aws.region | string | `"us-east-1"` |  |
 | azure.clientId | string | `""` |  |
 | ce-batch-gcp-credentials | string | `""` |  |
+| extraVolumeMounts | list | `[]` |  |
+| extraVolumes | list | `[]` |  |
 | fullnameOverride | string | `""` |  |
 | global.ccm.gcpProjectId | string | `"placeHolder"` |  |
 | global.imagePullSecrets | list | `[]` |  |
@@ -46,6 +48,7 @@ A Helm chart for Kubernetes
 | ingress.className | string | `"nginx"` |  |
 | java.memory | string | `"4096m"` |  |
 | java.memoryLimit | string | `"4096m"` |  |
+| lifecycleHooks | object | `{}` |  |
 | lwdAutocudSecrets.faktoryPassword | string | `"FAKTORY_PASSWORD"` |  |
 | lwdAutocudSecrets.lightwingAwsGovmasterAccessKey | string | `"LIGHTWING_AWS-GOV-MASTER_ACCESS_KEY"` |  |
 | lwdAutocudSecrets.lightwingAwsGovmasterSecretKey | string | `"LIGHTWING_AWS-GOV-MASTER_SECRET_KEY"` |  |
@@ -66,7 +69,6 @@ A Helm chart for Kubernetes
 | redis.redisUrl | string | `"redis://localhost:6379"` |  |
 | redis.useSentinel | string | `"true"` |  |
 | replicaCount | int | `2` |  |
-| resources.limits.cpu | int | `2` |  |
 | resources.limits.memory | string | `"4Gi"` |  |
 | resources.requests.cpu | int | `2` |  |
 | resources.requests.memory | string | `"4Gi"` |  |

@@ -17,6 +17,17 @@ global:
       enabled: false
   ccm:
     gcpProjectId: "placeHolder"
+  database:
+    redis:
+      installed: true
+      protocol: "redis"
+      # --  provide default values if redis.installed is set to false
+      hosts:
+        - redis:6379
+      secretName: "redis-secret"
+      userKey: "redis-user"
+      passwordKey: "redis-password"
+      extraArgs: ""
 
 anomaly-detection:
   replicaCount: 1
@@ -30,7 +41,7 @@ anomaly-detection:
     repository: harness/ce-anomaly-detection-signed
     pullPolicy: IfNotPresent
     # Overrides the image tag whose default is the chart appVersion.
-    tag: "12"
+    tag: "70029"
     digest: ""
   nameOverride: ""
   fullnameOverride: ""
@@ -48,15 +59,15 @@ anomaly-detection:
     className: nginx
   autoscaling:
     enabled: false
-    minReplicas: 2
-    maxReplicas: 4
-    targetCPUUtilizationPercentage: 70
+    minReplicas: 1
+    maxReplicas: 100
+    targetCPU: ""
+    targetMemory: ""
   nodeSelector: {}
   tolerations: []
   affinity: {}
   resources:
     limits:
-      cpu: "512m"
       memory: "512Mi"
     requests:
       cpu: "512m"
@@ -72,14 +83,14 @@ batch-processing:
     repository: harness/batch-processing-signed
     pullPolicy: Always
     # Overrides the image tag whose default is the chart appVersion.
-    tag: "78605-000"
+    tag: "79501-000"
     digest: ""
   imageClickhouseEnabled:
     registry: docker.io
     repository: harness/batch-processing-signed
     pullPolicy: Always
     # Overrides the image tag whose default is the chart appVersion.
-    tag: "78605-000"
+    tag: "79501-000"
     digest: ""
   waitForInitContainer:
     image:
@@ -124,9 +135,9 @@ batch-processing:
   autoscaling:
     enabled: false
     minReplicas: 1
-    maxReplicas: 2
-    targetCPUUtilizationPercentage: 80
-    # targetMemoryUtilizationPercentage: 80
+    maxReplicas: 100
+    targetCPU: ""
+    targetMemory: ""
   nodeSelector: {}
   tolerations: []
   affinity: {}
@@ -148,7 +159,6 @@ batch-processing:
     enabled: false
   resources:
     limits:
-      cpu: "1024m"
       memory: "10Gi"
     requests:
       cpu: "1024m"
@@ -167,7 +177,7 @@ cloud-info:
     repository: harness/ce-cloud-info-signed
     pullPolicy: IfNotPresent
     # Overrides the image tag whose default is the chart appVersion.
-    tag: "0.22.0"
+    tag: "10302"
     digest: ""
   nameOverride: ""
   fullnameOverride: ""
@@ -187,9 +197,9 @@ cloud-info:
   autoscaling:
     enabled: false
     minReplicas: 1
-    maxReplicas: 2
-    targetCPUUtilizationPercentage: 80
-    # targetMemoryUtilizationPercentage: 80
+    maxReplicas: 100
+    targetCPU: ""
+    targetMemory: ""
   nodeSelector: {}
   tolerations: []
   affinity: {}
@@ -199,7 +209,6 @@ cloud-info:
     enabled: false
   resources:
     limits:
-      cpu: "1536m"
       memory: "1536Mi"
     requests:
       cpu: "1536m"
@@ -216,7 +225,7 @@ event-service:
     repository: harness/event-service-signed
     pullPolicy: Always
     # Overrides the image tag whose default is the chart appVersion.
-    tag: "77317"
+    tag: "79404-000"
     digest: ""
   waitForInitContainer:
     image:
@@ -267,17 +276,16 @@ event-service:
     className: nginx
   resources:
     limits:
-      cpu: "512m"
       memory: "1840Mi"
     requests:
       cpu: "512m"
       memory: "1840Mi"
   autoscaling:
-    enabled: true
+    enabled: false
     minReplicas: 1
-    maxReplicas: 2
-    targetCPUUtilizationPercentage: 80
-    # targetMemoryUtilizationPercentage: 80
+    maxReplicas: 100
+    targetCPU: ""
+    targetMemory: ""
   nodeSelector: {}
   tolerations: []
   affinity: {}
@@ -340,15 +348,14 @@ lwd:
   autoscaling:
     enabled: false
     minReplicas: 1
-    maxReplicas: 2
-    targetCPUUtilizationPercentage: 80
-    targetMemoryUtilizationPercentage: 80
+    maxReplicas: 100
+    targetCPU: ""
+    targetMemory: ""
   nodeSelector: {}
   tolerations: []
   affinity: {}
   resources:
     limits:
-      cpu: 2
       memory: "4Gi"
     requests:
       cpu: 2
@@ -412,15 +419,14 @@ lwd-autocud:
   autoscaling:
     enabled: false
     minReplicas: 1
-    maxReplicas: 2
-    targetCPUUtilizationPercentage: 80
-    targetMemoryUtilizationPercentage: 80
+    maxReplicas: 100
+    targetCPU: ""
+    targetMemory: ""
   nodeSelector: {}
   tolerations: []
   affinity: {}
   resources:
     limits:
-      cpu: 2
       memory: "4Gi"
     requests:
       cpu: 2
@@ -461,8 +467,9 @@ lwd-faktory:
   autoscaling:
     enabled: false
     minReplicas: 1
-    maxReplicas: 2
-    targetCPUUtilizationPercentage: 80
+    maxReplicas: 100
+    targetCPU: ""
+    targetMemory: ""
   nodeSelector: {}
   tolerations: []
   affinity: {}
@@ -472,7 +479,6 @@ lwd-faktory:
     accessModes: "ReadWriteOnce"
   resources:
     limits:
-      cpu: 2
       memory: "4Gi"
     requests:
       cpu: 2
@@ -536,15 +542,14 @@ lwd-worker:
   autoscaling:
     enabled: false
     minReplicas: 1
-    maxReplicas: 2
-    targetCPUUtilizationPercentage: 80
-    targetMemoryUtilizationPercentage: 80
+    maxReplicas: 100
+    targetCPU: ""
+    targetMemory: ""
   nodeSelector: {}
   tolerations: []
   affinity: {}
   resources:
     limits:
-      cpu: 2
       memory: "4Gi"
     requests:
       cpu: 2
@@ -562,14 +567,14 @@ nextgen-ce:
     repository: harness/ce-nextgen-signed
     pullPolicy: IfNotPresent
     # Overrides the image tag whose default is the chart appVersion.
-    tag: "78700-000"
+    tag: "79601-000"
     digest: ""
   imageClickhouseEnabled:
     registry: docker.io
     repository: harness/ce-nextgen-signed
     pullPolicy: Always
     # Overrides the image tag whose default is the chart appVersion.
-    tag: "78700-000"
+    tag: "79601-000"
     digest: ""
   waitForInitContainer:
     image:
@@ -614,9 +619,9 @@ nextgen-ce:
   autoscaling:
     enabled: false
     minReplicas: 1
-    maxReplicas: 2
-    targetCPUUtilizationPercentage: 80
-    # targetMemoryUtilizationPercentage: 80
+    maxReplicas: 100
+    targetCPU: ""
+    targetMemory: ""
   nodeSelector: {}
   tolerations: []
   affinity: {}
@@ -636,7 +641,6 @@ nextgen-ce:
     enabled: false
   resources:
     limits:
-      cpu: 1
       memory: "4Gi"
     requests:
       cpu: 1
@@ -652,7 +656,7 @@ ng-ce-ui:
     repository: harness/ng-ce-ui
     pullPolicy: Always
     # Overrides the image tag whose default is the chart appVersion.
-    tag: "0.26.4"
+    tag: "0.35.2"
     digest: ""
   nameOverride: ""
   fullnameOverride: ""
@@ -672,14 +676,14 @@ ng-ce-ui:
   autoscaling:
     enabled: false
     minReplicas: 1
-    maxReplicas: 2
-    targetCPUUtilizationPercentage: 80
+    maxReplicas: 100
+    targetCPU: ""
+    targetMemory: ""
   nodeSelector: {}
   tolerations: []
   affinity: {}
   resources:
     limits:
-      cpu: 1
       memory: "512Mi"
     requests:
       cpu: 1
@@ -695,7 +699,7 @@ telescopes:
     repository: harness/telescopes-signed
     pullPolicy: IfNotPresent
     # Overrides the image tag whose default is the chart appVersion.
-    tag: "10100"
+    tag: "10300"
     digest: ""
   waitForInitContainer:
     image:
@@ -721,15 +725,14 @@ telescopes:
   autoscaling:
     enabled: false
     minReplicas: 1
-    maxReplicas: 2
-    targetCPUUtilizationPercentage: 80
-    # targetMemoryUtilizationPercentage: 80
+    maxReplicas: 100
+    targetCPU: ""
+    targetMemory: ""
   nodeSelector: {}
   tolerations: []
   affinity: {}
   resources:
     limits:
-      cpu: "512m"
       memory: "1Gi"
     requests:
       cpu: "512m"
@@ -742,7 +745,6 @@ clickhouse:
     tag: 22.11.2-debian-11-r0
   resources:
     limits:
-      cpu: 6
       memory: "8Gi"
     requests:
       cpu: 6

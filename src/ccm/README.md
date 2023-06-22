@@ -2,7 +2,7 @@
 
 A Helm chart for Harness Cloud Cost Management (CCM) module
 
-![Version: 0.6.3](https://img.shields.io/badge/Version-0.6.3-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square) ![AppVersion: 1.546.0](https://img.shields.io/badge/AppVersion-1.546.0-informational?style=flat-square)
+![Version: 0.7.4](https://img.shields.io/badge/Version-0.7.4-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square) ![AppVersion: 1.546.0](https://img.shields.io/badge/AppVersion-1.546.0-informational?style=flat-square)
 
 ## Usage
 
@@ -12,7 +12,7 @@ Use the following dependency to add this chart repository to your Helm installat
 dependencies:
     - name: ccm
       repository: https://harness.github.io/helm-ccm
-      version: 0.6.3
+      version: 0.7.4
 ```
 
 ## Values
@@ -21,15 +21,16 @@ dependencies:
 |-----|------|---------|-------------|
 | anomaly-detection.affinity | object | `{}` |  |
 | anomaly-detection.autoscaling.enabled | bool | `false` |  |
-| anomaly-detection.autoscaling.maxReplicas | int | `4` |  |
-| anomaly-detection.autoscaling.minReplicas | int | `2` |  |
-| anomaly-detection.autoscaling.targetCPUUtilizationPercentage | int | `70` |  |
+| anomaly-detection.autoscaling.maxReplicas | int | `100` |  |
+| anomaly-detection.autoscaling.minReplicas | int | `1` |  |
+| anomaly-detection.autoscaling.targetCPU | string | `""` |  |
+| anomaly-detection.autoscaling.targetMemory | string | `""` |  |
 | anomaly-detection.fullnameOverride | string | `""` |  |
 | anomaly-detection.image.digest | string | `""` |  |
 | anomaly-detection.image.pullPolicy | string | `"IfNotPresent"` |  |
 | anomaly-detection.image.registry | string | `"docker.io"` |  |
 | anomaly-detection.image.repository | string | `"harness/ce-anomaly-detection-signed"` |  |
-| anomaly-detection.image.tag | string | `"12"` |  |
+| anomaly-detection.image.tag | string | `"70029"` |  |
 | anomaly-detection.ingress.className | string | `"nginx"` |  |
 | anomaly-detection.java.memory | string | `"4096m"` |  |
 | anomaly-detection.java.memoryLimit | string | `"4096m"` |  |
@@ -40,7 +41,6 @@ dependencies:
 | anomaly-detection.podAnnotations | object | `{}` |  |
 | anomaly-detection.podSecurityContext | object | `{}` |  |
 | anomaly-detection.replicaCount | int | `1` |  |
-| anomaly-detection.resources.limits.cpu | string | `"512m"` |  |
 | anomaly-detection.resources.limits.memory | string | `"512Mi"` |  |
 | anomaly-detection.resources.requests.cpu | string | `"512m"` |  |
 | anomaly-detection.resources.requests.memory | string | `"512Mi"` |  |
@@ -54,9 +54,10 @@ dependencies:
 | batch-processing.additionalConfigs | object | `{}` |  |
 | batch-processing.affinity | object | `{}` |  |
 | batch-processing.autoscaling.enabled | bool | `false` |  |
-| batch-processing.autoscaling.maxReplicas | int | `2` |  |
+| batch-processing.autoscaling.maxReplicas | int | `100` |  |
 | batch-processing.autoscaling.minReplicas | int | `1` |  |
-| batch-processing.autoscaling.targetCPUUtilizationPercentage | int | `80` |  |
+| batch-processing.autoscaling.targetCPU | string | `""` |  |
+| batch-processing.autoscaling.targetMemory | string | `""` |  |
 | batch-processing.awsAccountTagsCollectionJobConfig.enabled | bool | `true` |  |
 | batch-processing.awsSecret.S3_SYNC_CONFIG_ACCESSKEY | string | `""` |  |
 | batch-processing.awsSecret.S3_SYNC_CONFIG_SECRETKEY | string | `""` |  |
@@ -76,12 +77,12 @@ dependencies:
 | batch-processing.image.pullPolicy | string | `"Always"` |  |
 | batch-processing.image.registry | string | `"docker.io"` |  |
 | batch-processing.image.repository | string | `"harness/batch-processing-signed"` |  |
-| batch-processing.image.tag | string | `"78605-000"` |  |
+| batch-processing.image.tag | string | `"79501-000"` |  |
 | batch-processing.imageClickhouseEnabled.digest | string | `""` |  |
 | batch-processing.imageClickhouseEnabled.pullPolicy | string | `"Always"` |  |
 | batch-processing.imageClickhouseEnabled.registry | string | `"docker.io"` |  |
 | batch-processing.imageClickhouseEnabled.repository | string | `"harness/batch-processing-signed"` |  |
-| batch-processing.imageClickhouseEnabled.tag | string | `"78605-000"` |  |
+| batch-processing.imageClickhouseEnabled.tag | string | `"79501-000"` |  |
 | batch-processing.isolatedReplica | int | `0` |  |
 | batch-processing.java.memory | string | `"7168"` |  |
 | batch-processing.mongoSecrets.password.key | string | `"mongodb-root-password"` |  |
@@ -93,7 +94,6 @@ dependencies:
 | batch-processing.podAnnotations | object | `{}` |  |
 | batch-processing.podSecurityContext | object | `{}` |  |
 | batch-processing.replicaCount | int | `1` |  |
-| batch-processing.resources.limits.cpu | string | `"1024m"` |  |
 | batch-processing.resources.limits.memory | string | `"10Gi"` |  |
 | batch-processing.resources.requests.cpu | string | `"1024m"` |  |
 | batch-processing.resources.requests.memory | string | `"10Gi"` |  |
@@ -122,7 +122,6 @@ dependencies:
 | clickhouse.image.tag | string | `"22.11.2-debian-11-r0"` |  |
 | clickhouse.persistence.size | string | `"1Ti"` |  |
 | clickhouse.replicaCount | int | `1` |  |
-| clickhouse.resources.limits.cpu | int | `6` |  |
 | clickhouse.resources.limits.memory | string | `"8Gi"` |  |
 | clickhouse.resources.requests.cpu | int | `6` |  |
 | clickhouse.resources.requests.memory | string | `"8Gi"` |  |
@@ -134,15 +133,16 @@ dependencies:
 | cloud-info.CLOUD_INFO_GCP_CREDS | string | `""` |  |
 | cloud-info.affinity | object | `{}` |  |
 | cloud-info.autoscaling.enabled | bool | `false` |  |
-| cloud-info.autoscaling.maxReplicas | int | `2` |  |
+| cloud-info.autoscaling.maxReplicas | int | `100` |  |
 | cloud-info.autoscaling.minReplicas | int | `1` |  |
-| cloud-info.autoscaling.targetCPUUtilizationPercentage | int | `80` |  |
+| cloud-info.autoscaling.targetCPU | string | `""` |  |
+| cloud-info.autoscaling.targetMemory | string | `""` |  |
 | cloud-info.fullnameOverride | string | `""` |  |
 | cloud-info.image.digest | string | `""` |  |
 | cloud-info.image.pullPolicy | string | `"IfNotPresent"` |  |
 | cloud-info.image.registry | string | `"docker.io"` |  |
 | cloud-info.image.repository | string | `"harness/ce-cloud-info-signed"` |  |
-| cloud-info.image.tag | string | `"0.22.0"` |  |
+| cloud-info.image.tag | string | `"10302"` |  |
 | cloud-info.ingress.className | string | `"nginx"` |  |
 | cloud-info.java.memory | string | `"4096m"` |  |
 | cloud-info.java.memoryLimit | string | `"4096m"` |  |
@@ -153,7 +153,6 @@ dependencies:
 | cloud-info.podAnnotations | object | `{}` |  |
 | cloud-info.podSecurityContext | object | `{}` |  |
 | cloud-info.replicaCount | int | `1` |  |
-| cloud-info.resources.limits.cpu | string | `"1536m"` |  |
 | cloud-info.resources.limits.memory | string | `"1536Mi"` |  |
 | cloud-info.resources.requests.cpu | string | `"1536m"` |  |
 | cloud-info.resources.requests.memory | string | `"1536Mi"` |  |
@@ -168,17 +167,18 @@ dependencies:
 | cloud-info.workloadIdentity.enabled | bool | `false` |  |
 | event-service.additionalConfigs | object | `{}` |  |
 | event-service.affinity | object | `{}` |  |
-| event-service.autoscaling.enabled | bool | `true` |  |
-| event-service.autoscaling.maxReplicas | int | `2` |  |
+| event-service.autoscaling.enabled | bool | `false` |  |
+| event-service.autoscaling.maxReplicas | int | `100` |  |
 | event-service.autoscaling.minReplicas | int | `1` |  |
-| event-service.autoscaling.targetCPUUtilizationPercentage | int | `80` |  |
+| event-service.autoscaling.targetCPU | string | `""` |  |
+| event-service.autoscaling.targetMemory | string | `""` |  |
 | event-service.defaultInternalImageConnector | string | `"test"` |  |
 | event-service.fullnameOverride | string | `""` |  |
 | event-service.image.digest | string | `""` |  |
 | event-service.image.pullPolicy | string | `"Always"` |  |
 | event-service.image.registry | string | `"docker.io"` |  |
 | event-service.image.repository | string | `"harness/event-service-signed"` |  |
-| event-service.image.tag | string | `"77317"` |  |
+| event-service.image.tag | string | `"79404-000"` |  |
 | event-service.ingress.className | string | `"nginx"` |  |
 | event-service.java.memory | int | `1024` |  |
 | event-service.maxSurge | string | `"100%"` |  |
@@ -194,7 +194,6 @@ dependencies:
 | event-service.podSecurityContext | object | `{}` |  |
 | event-service.redislabsCATruststore | string | `"test"` |  |
 | event-service.replicaCount | int | `1` |  |
-| event-service.resources.limits.cpu | string | `"512m"` |  |
 | event-service.resources.limits.memory | string | `"1840Mi"` |  |
 | event-service.resources.requests.cpu | string | `"512m"` |  |
 | event-service.resources.requests.memory | string | `"1840Mi"` |  |
@@ -214,6 +213,13 @@ dependencies:
 | event-service.waitForInitContainer.image.repository | string | `"harness/helm-init-container"` |  |
 | event-service.waitForInitContainer.image.tag | string | `"latest"` |  |
 | global.ccm.gcpProjectId | string | `"placeHolder"` |  |
+| global.database.redis.extraArgs | string | `""` |  |
+| global.database.redis.hosts | list | `["redis:6379"]` | provide default values if redis.installed is set to false |
+| global.database.redis.installed | bool | `true` |  |
+| global.database.redis.passwordKey | string | `"redis-password"` |  |
+| global.database.redis.protocol | string | `"redis"` |  |
+| global.database.redis.secretName | string | `"redis-secret"` |  |
+| global.database.redis.userKey | string | `"redis-user"` |  |
 | global.imagePullSecrets | list | `[]` |  |
 | global.istio.enabled | bool | `false` |  |
 | global.istio.gateway.create | bool | `false` |  |
@@ -225,10 +231,10 @@ dependencies:
 | global.stackDriverLoggingEnabled | bool | `false` |  |
 | lwd-autocud.affinity | object | `{}` |  |
 | lwd-autocud.autoscaling.enabled | bool | `false` |  |
-| lwd-autocud.autoscaling.maxReplicas | int | `2` |  |
+| lwd-autocud.autoscaling.maxReplicas | int | `100` |  |
 | lwd-autocud.autoscaling.minReplicas | int | `1` |  |
-| lwd-autocud.autoscaling.targetCPUUtilizationPercentage | int | `80` |  |
-| lwd-autocud.autoscaling.targetMemoryUtilizationPercentage | int | `80` |  |
+| lwd-autocud.autoscaling.targetCPU | string | `""` |  |
+| lwd-autocud.autoscaling.targetMemory | string | `""` |  |
 | lwd-autocud.aws.region | string | `"us-east-1"` |  |
 | lwd-autocud.azure.clientId | string | `""` |  |
 | lwd-autocud.ce-batch-gcp-credentials | string | `""` |  |
@@ -261,7 +267,6 @@ dependencies:
 | lwd-autocud.redis.redisUrl | string | `"redis://localhost:6379"` |  |
 | lwd-autocud.redis.useSentinel | string | `"true"` |  |
 | lwd-autocud.replicaCount | int | `2` |  |
-| lwd-autocud.resources.limits.cpu | int | `2` |  |
 | lwd-autocud.resources.limits.memory | string | `"4Gi"` |  |
 | lwd-autocud.resources.requests.cpu | int | `2` |  |
 | lwd-autocud.resources.requests.memory | string | `"4Gi"` |  |
@@ -279,9 +284,10 @@ dependencies:
 | lwd-autocud.waitForInitContainer.image.tag | string | `"latest"` |  |
 | lwd-faktory.affinity | object | `{}` |  |
 | lwd-faktory.autoscaling.enabled | bool | `false` |  |
-| lwd-faktory.autoscaling.maxReplicas | int | `2` |  |
+| lwd-faktory.autoscaling.maxReplicas | int | `100` |  |
 | lwd-faktory.autoscaling.minReplicas | int | `1` |  |
-| lwd-faktory.autoscaling.targetCPUUtilizationPercentage | int | `80` |  |
+| lwd-faktory.autoscaling.targetCPU | string | `""` |  |
+| lwd-faktory.autoscaling.targetMemory | string | `""` |  |
 | lwd-faktory.faktory.password.key | string | `"FAKTORY_PASSWORD"` |  |
 | lwd-faktory.faktory.password.name | string | `"lwd-secrets"` |  |
 | lwd-faktory.fullnameOverride | string | `""` |  |
@@ -298,7 +304,6 @@ dependencies:
 | lwd-faktory.podAnnotations | object | `{}` |  |
 | lwd-faktory.podSecurityContext | object | `{}` |  |
 | lwd-faktory.replicaCount | int | `1` |  |
-| lwd-faktory.resources.limits.cpu | int | `2` |  |
 | lwd-faktory.resources.limits.memory | string | `"4Gi"` |  |
 | lwd-faktory.resources.requests.cpu | int | `2` |  |
 | lwd-faktory.resources.requests.memory | string | `"4Gi"` |  |
@@ -314,10 +319,10 @@ dependencies:
 | lwd-faktory.tolerations | list | `[]` |  |
 | lwd-worker.affinity | object | `{}` |  |
 | lwd-worker.autoscaling.enabled | bool | `false` |  |
-| lwd-worker.autoscaling.maxReplicas | int | `2` |  |
+| lwd-worker.autoscaling.maxReplicas | int | `100` |  |
 | lwd-worker.autoscaling.minReplicas | int | `1` |  |
-| lwd-worker.autoscaling.targetCPUUtilizationPercentage | int | `80` |  |
-| lwd-worker.autoscaling.targetMemoryUtilizationPercentage | int | `80` |  |
+| lwd-worker.autoscaling.targetCPU | string | `""` |  |
+| lwd-worker.autoscaling.targetMemory | string | `""` |  |
 | lwd-worker.aws.region | string | `"us-east-1"` |  |
 | lwd-worker.azure.clientId | string | `""` |  |
 | lwd-worker.ce-batch-gcp-credentials | string | `""` |  |
@@ -350,7 +355,6 @@ dependencies:
 | lwd-worker.redis.redisUrl | string | `"redis://localhost:6379"` |  |
 | lwd-worker.redis.useSentinel | string | `"true"` |  |
 | lwd-worker.replicaCount | int | `3` |  |
-| lwd-worker.resources.limits.cpu | int | `2` |  |
 | lwd-worker.resources.limits.memory | string | `"4Gi"` |  |
 | lwd-worker.resources.requests.cpu | int | `2` |  |
 | lwd-worker.resources.requests.memory | string | `"4Gi"` |  |
@@ -368,10 +372,10 @@ dependencies:
 | lwd-worker.waitForInitContainer.image.tag | string | `"latest"` |  |
 | lwd.affinity | object | `{}` |  |
 | lwd.autoscaling.enabled | bool | `false` |  |
-| lwd.autoscaling.maxReplicas | int | `2` |  |
+| lwd.autoscaling.maxReplicas | int | `100` |  |
 | lwd.autoscaling.minReplicas | int | `1` |  |
-| lwd.autoscaling.targetCPUUtilizationPercentage | int | `80` |  |
-| lwd.autoscaling.targetMemoryUtilizationPercentage | int | `80` |  |
+| lwd.autoscaling.targetCPU | string | `""` |  |
+| lwd.autoscaling.targetMemory | string | `""` |  |
 | lwd.aws.region | string | `"us-east-1"` |  |
 | lwd.azure.clientId | string | `""` |  |
 | lwd.ce-batch-gcp-credentials | string | `""` |  |
@@ -403,7 +407,6 @@ dependencies:
 | lwd.redis.redisUrl | string | `"redis://localhost:6379"` |  |
 | lwd.redis.useSentinel | string | `"true"` |  |
 | lwd.replicaCount | int | `2` |  |
-| lwd.resources.limits.cpu | int | `2` |  |
 | lwd.resources.limits.memory | string | `"4Gi"` |  |
 | lwd.resources.requests.cpu | int | `2` |  |
 | lwd.resources.requests.memory | string | `"4Gi"` |  |
@@ -422,9 +425,10 @@ dependencies:
 | nextgen-ce.additionalConfigs | object | `{}` |  |
 | nextgen-ce.affinity | object | `{}` |  |
 | nextgen-ce.autoscaling.enabled | bool | `false` |  |
-| nextgen-ce.autoscaling.maxReplicas | int | `2` |  |
+| nextgen-ce.autoscaling.maxReplicas | int | `100` |  |
 | nextgen-ce.autoscaling.minReplicas | int | `1` |  |
-| nextgen-ce.autoscaling.targetCPUUtilizationPercentage | int | `80` |  |
+| nextgen-ce.autoscaling.targetCPU | string | `""` |  |
+| nextgen-ce.autoscaling.targetMemory | string | `""` |  |
 | nextgen-ce.awsSecret.AWS_ACCESS_KEY | string | `""` |  |
 | nextgen-ce.awsSecret.AWS_ACCOUNT_ID | string | `""` |  |
 | nextgen-ce.awsSecret.AWS_DESTINATION_BUCKET | string | `""` |  |
@@ -446,12 +450,12 @@ dependencies:
 | nextgen-ce.image.pullPolicy | string | `"IfNotPresent"` |  |
 | nextgen-ce.image.registry | string | `"docker.io"` |  |
 | nextgen-ce.image.repository | string | `"harness/ce-nextgen-signed"` |  |
-| nextgen-ce.image.tag | string | `"78700-000"` |  |
+| nextgen-ce.image.tag | string | `"79601-000"` |  |
 | nextgen-ce.imageClickhouseEnabled.digest | string | `""` |  |
 | nextgen-ce.imageClickhouseEnabled.pullPolicy | string | `"Always"` |  |
 | nextgen-ce.imageClickhouseEnabled.registry | string | `"docker.io"` |  |
 | nextgen-ce.imageClickhouseEnabled.repository | string | `"harness/ce-nextgen-signed"` |  |
-| nextgen-ce.imageClickhouseEnabled.tag | string | `"78700-000"` |  |
+| nextgen-ce.imageClickhouseEnabled.tag | string | `"79601-000"` |  |
 | nextgen-ce.ingress.className | string | `"nginx"` |  |
 | nextgen-ce.java.memory | string | `"4096m"` |  |
 | nextgen-ce.java.memoryLimit | string | `"4096m"` |  |
@@ -466,7 +470,6 @@ dependencies:
 | nextgen-ce.podAnnotations | object | `{}` |  |
 | nextgen-ce.podSecurityContext | object | `{}` |  |
 | nextgen-ce.replicaCount | int | `2` |  |
-| nextgen-ce.resources.limits.cpu | int | `1` |  |
 | nextgen-ce.resources.limits.memory | string | `"4Gi"` |  |
 | nextgen-ce.resources.requests.cpu | int | `1` |  |
 | nextgen-ce.resources.requests.memory | string | `"4Gi"` |  |
@@ -487,15 +490,16 @@ dependencies:
 | nextgen-ce.workloadIdentity.enabled | bool | `false` |  |
 | ng-ce-ui.affinity | object | `{}` |  |
 | ng-ce-ui.autoscaling.enabled | bool | `false` |  |
-| ng-ce-ui.autoscaling.maxReplicas | int | `2` |  |
+| ng-ce-ui.autoscaling.maxReplicas | int | `100` |  |
 | ng-ce-ui.autoscaling.minReplicas | int | `1` |  |
-| ng-ce-ui.autoscaling.targetCPUUtilizationPercentage | int | `80` |  |
+| ng-ce-ui.autoscaling.targetCPU | string | `""` |  |
+| ng-ce-ui.autoscaling.targetMemory | string | `""` |  |
 | ng-ce-ui.fullnameOverride | string | `""` |  |
 | ng-ce-ui.image.digest | string | `""` |  |
 | ng-ce-ui.image.pullPolicy | string | `"Always"` |  |
 | ng-ce-ui.image.registry | string | `"docker.io"` |  |
 | ng-ce-ui.image.repository | string | `"harness/ng-ce-ui"` |  |
-| ng-ce-ui.image.tag | string | `"0.26.4"` |  |
+| ng-ce-ui.image.tag | string | `"0.35.2"` |  |
 | ng-ce-ui.ingress.className | string | `"nginx"` |  |
 | ng-ce-ui.maxSurge | string | `"100%"` |  |
 | ng-ce-ui.maxUnavailable | int | `0` |  |
@@ -504,7 +508,6 @@ dependencies:
 | ng-ce-ui.podAnnotations | object | `{}` |  |
 | ng-ce-ui.podSecurityContext | object | `{}` |  |
 | ng-ce-ui.replicaCount | int | `2` |  |
-| ng-ce-ui.resources.limits.cpu | int | `1` |  |
 | ng-ce-ui.resources.limits.memory | string | `"512Mi"` |  |
 | ng-ce-ui.resources.requests.cpu | int | `1` |  |
 | ng-ce-ui.resources.requests.memory | string | `"512Mi"` |  |
@@ -518,15 +521,16 @@ dependencies:
 | ng-ce-ui.tolerations | list | `[]` |  |
 | telescopes.affinity | object | `{}` |  |
 | telescopes.autoscaling.enabled | bool | `false` |  |
-| telescopes.autoscaling.maxReplicas | int | `2` |  |
+| telescopes.autoscaling.maxReplicas | int | `100` |  |
 | telescopes.autoscaling.minReplicas | int | `1` |  |
-| telescopes.autoscaling.targetCPUUtilizationPercentage | int | `80` |  |
+| telescopes.autoscaling.targetCPU | string | `""` |  |
+| telescopes.autoscaling.targetMemory | string | `""` |  |
 | telescopes.fullnameOverride | string | `""` |  |
 | telescopes.image.digest | string | `""` |  |
 | telescopes.image.pullPolicy | string | `"IfNotPresent"` |  |
 | telescopes.image.registry | string | `"docker.io"` |  |
 | telescopes.image.repository | string | `"harness/telescopes-signed"` |  |
-| telescopes.image.tag | string | `"10100"` |  |
+| telescopes.image.tag | string | `"10300"` |  |
 | telescopes.ingress.className | string | `"nginx"` |  |
 | telescopes.java.memory | string | `"4096m"` |  |
 | telescopes.java.memoryLimit | string | `"4096m"` |  |
@@ -535,7 +539,6 @@ dependencies:
 | telescopes.podAnnotations | object | `{}` |  |
 | telescopes.podSecurityContext | object | `{}` |  |
 | telescopes.replicaCount | int | `1` |  |
-| telescopes.resources.limits.cpu | string | `"512m"` |  |
 | telescopes.resources.limits.memory | string | `"1Gi"` |  |
 | telescopes.resources.requests.cpu | string | `"512m"` |  |
 | telescopes.resources.requests.memory | string | `"1Gi"` |  |

@@ -36,7 +36,7 @@ image:
   repository: harness/ce-cloud-info-signed
   pullPolicy: IfNotPresent
 # Overrides the image tag whose default is the chart appVersion.
-  tag: "0.22.0"
+  tag: "10302"
   digest: ""
 # image pull secrets to use for ce-cloud-info image
   imagePullSecrets: []
@@ -85,8 +85,28 @@ workloadIdentity:
 
 resources:
   limits:
-    cpu: "1536m"
     memory: "1536Mi"
   requests:
     cpu: "1536m"
     memory: "1536Mi"
+
+# extraVolumes:
+#   - name: volume-test
+#     configMap:
+#       name: test-config
+#       # readOnly: true
+extraVolumes: []
+
+# extraVolumeMounts:
+#   - name: volume-test
+#     mountPath: /opt/harness/config
+extraVolumeMounts: []
+
+lifecycleHooks: {}
+# lifecycleHooks:
+#   postStart:
+#     exec:
+#       command:
+#   preStop:
+#     exec:
+#       command:

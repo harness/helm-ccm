@@ -29,7 +29,7 @@ image:
   repository: harness/ce-anomaly-detection-signed
   pullPolicy: IfNotPresent
 # Overrides the image tag whose default is the chart appVersion.
-  tag: "12"
+  tag: "70029"
   digest: ""
 # image pull secrets to use for ce-anomaly-detection image
   imagePullSecrets: []
@@ -57,9 +57,10 @@ ingress:
 
 autoscaling:
   enabled: false
-  minReplicas: 2
-  maxReplicas: 4
-  targetCPUUtilizationPercentage: 70
+  minReplicas: 1
+  maxReplicas: 100
+  targetCPU: ""
+  targetMemory: ""
 
 nodeSelector: {}
 
@@ -69,8 +70,28 @@ affinity: {}
 
 resources:
   limits:
-    cpu: "512m"
     memory: "512Mi"
   requests:
     cpu: "512m"
     memory: "512Mi"
+
+# extraVolumes:
+#   - name: volume-test
+#     configMap:
+#       name: test-config
+#       # readOnly: true
+extraVolumes: []
+
+# extraVolumeMounts:
+#   - name: volume-test
+#     mountPath: /opt/harness/config
+extraVolumeMounts: []
+
+lifecycleHooks: {}
+# lifecycleHooks:
+#   postStart:
+#     exec:
+#       command:
+#   preStop:
+#     exec:
+#       command:

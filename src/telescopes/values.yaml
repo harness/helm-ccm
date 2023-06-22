@@ -32,7 +32,7 @@ image:
   repository: harness/telescopes-signed
   pullPolicy: IfNotPresent
 # Overrides the image tag whose default is the chart appVersion.
-  tag: "10100"
+  tag: "10300"
   digest: ""
 # image pull secrets to use for telescopes image
   imagePullSecrets: []
@@ -71,9 +71,9 @@ ingress:
 autoscaling:
   enabled: false
   minReplicas: 1
-  maxReplicas: 2
-  targetCPUUtilizationPercentage: 80
-# targetMemoryUtilizationPercentage: 80
+  maxReplicas: 100
+  targetCPU: ""
+  targetMemory: ""
 
 nodeSelector: {}
 
@@ -83,8 +83,28 @@ affinity: {}
 
 resources:
   limits:
-    cpu: "512m"
     memory: "1Gi"
   requests:
     cpu: "512m"
     memory: "1Gi"
+
+# extraVolumes:
+#   - name: volume-test
+#     configMap:
+#       name: test-config
+#       # readOnly: true
+extraVolumes: []
+
+# extraVolumeMounts:
+#   - name: volume-test
+#     mountPath: /opt/harness/config
+extraVolumeMounts: []
+
+lifecycleHooks: {}
+# lifecycleHooks:
+#   postStart:
+#     exec:
+#       command:
+#   preStop:
+#     exec:
+#       command:
