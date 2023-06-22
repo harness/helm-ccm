@@ -78,7 +78,6 @@ A Helm chart for Kubernetes
 | podSecurityContext | object | `{}` |  |
 | redislabsCATruststore | string | `"test"` |  |
 | replicaCount | int | `1` |  |
-| resources.limits.cpu | string | `"512m"` |  |
 | resources.limits.memory | string | `"1840Mi"` |  |
 | resources.requests.cpu | string | `"512m"` |  |
 | resources.requests.memory | string | `"1840Mi"` |  |

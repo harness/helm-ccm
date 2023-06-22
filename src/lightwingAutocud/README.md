@@ -66,7 +66,6 @@ A Helm chart for Kubernetes
 | redis.redisUrl | string | `"redis://localhost:6379"` |  |
 | redis.useSentinel | string | `"true"` |  |
 | replicaCount | int | `2` |  |
-| resources.limits.cpu | int | `2` |  |
 | resources.limits.memory | string | `"4Gi"` |  |
 | resources.requests.cpu | int | `2` |  |
 | resources.requests.memory | string | `"4Gi"` |  |
