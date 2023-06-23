@@ -52,6 +52,8 @@ spec:
             timeoutSeconds: 5
             periodSeconds: 40
             failureThreshold: 20
+          resources:
+            {{- toYaml .Values.resources | nindent 12 }}
       affinity:
         podAntiAffinity:
           requiredDuringSchedulingIgnoredDuringExecution:

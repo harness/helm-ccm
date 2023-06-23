@@ -44,6 +44,8 @@ spec:
           - |
             /bin/telescopes \
             --cloudinfo-address="http://cloud-info.{{ .Release.Namespace }}.svc.cluster.local:8082/api/v1"
+          resources:
+            {{- toYaml .Values.resources | nindent 12 }}
       affinity:
         podAntiAffinity:
           requiredDuringSchedulingIgnoredDuringExecution:
