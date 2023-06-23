@@ -12,52 +12,52 @@ A Helm chart for Kubernetes
 
 ## Values
 
-| Key | Type | Default                 | Description |
-|-----|------|-------------------------|-------------|
-| affinity | object | `{}`                    |  |
-| autoscaling.enabled | bool | `false`                 |  |
-| autoscaling.maxReplicas | int | `100`                   |  |
-| autoscaling.minReplicas | int | `1`                     |  |
-| autoscaling.targetCPU | string | `""`                    |  |
-| autoscaling.targetMemory | string | `""`                    |  |
-| fullnameOverride | string | `""`                    |  |
-| global.imagePullSecrets | list | `[]`                    |  |
-| global.ingress.className | string | `"harness"`             |  |
-| global.ingress.enabled | bool | `false`                 |  |
+| Key | Type | Default | Description |
+|-----|------|---------|-------------|
+| affinity | object | `{}` |  |
+| autoscaling.enabled | bool | `false` |  |
+| autoscaling.maxReplicas | int | `100` |  |
+| autoscaling.minReplicas | int | `1` |  |
+| autoscaling.targetCPU | string | `""` |  |
+| autoscaling.targetMemory | string | `""` |  |
+| fullnameOverride | string | `""` |  |
+| global.imagePullSecrets | list | `[]` |  |
+| global.ingress.className | string | `"harness"` |  |
+| global.ingress.enabled | bool | `false` |  |
 | global.ingress.hosts[0] | string | `"my-host.example.org"` |  |
-| global.ingress.tls.enabled | bool | `true`                  |  |
-| global.ingress.tls.secretName | string | `""`                    |  |
-| global.istio.enabled | bool | `false`                 |  |
-| global.istio.gateway.create | bool | `false`                 |  |
-| global.istio.virtualService.gateways | string | `nil`                   |  |
-| global.istio.virtualService.hosts | string | `nil`                   |  |
-| global.loadbalancerURL | string | `"https://test"`        |  |
-| image.digest | string | `""`                    |  |
-| image.imagePullSecrets | list | `[]`                    |  |
-| image.pullPolicy | string | `"Always"`              |  |
-| image.registry | string | `"docker.io"`           |  |
-| image.repository | string | `"harness/ng-ce-ui"`    |  |
-| image.tag | string | `"0.35.2"`              |  |
-| ingress.className | string | `"nginx"`               |  |
-| maxSurge | string | `"100%"`                |  |
-| maxUnavailable | int | `0`                     |  |
-| nameOverride | string | `""`                    |  |
-| nodeSelector | object | `{}`                    |  |
-| podAnnotations | object | `{}`                    |  |
-| podSecurityContext | object | `{}`                    |  |
-| replicaCount | int | `2`                     |  |
-| resources.limits.cpu | int | `1`                     |  |
-| resources.limits.memory | string | `"512Mi"`               |  |
-| resources.requests.cpu | int | `1`                     |  |
-| resources.requests.memory | string | `"512Mi"`               |  |
-| securityContext | object | `{}`                    |  |
-| service.port | int | `80`                    |  |
-| service.portName | string | `"ng-ce-ui-port"`       |  |
-| service.type | string | `"ClusterIP"`           |  |
-| serviceAccount.annotations | object | `{}`                    |  |
-| serviceAccount.create | bool | `false`                 |  |
-| serviceAccount.name | string | `"harness-default"`     |  |
-| tolerations | list | `[]`                    |  |
+| global.ingress.tls.enabled | bool | `true` |  |
+| global.ingress.tls.secretName | string | `""` |  |
+| global.istio.enabled | bool | `false` |  |
+| global.istio.gateway.create | bool | `false` |  |
+| global.istio.virtualService.gateways | string | `nil` |  |
+| global.istio.virtualService.hosts | string | `nil` |  |
+| global.loadbalancerURL | string | `"https://test"` |  |
+| image.digest | string | `""` |  |
+| image.imagePullSecrets | list | `[]` |  |
+| image.pullPolicy | string | `"Always"` |  |
+| image.registry | string | `"docker.io"` |  |
+| image.repository | string | `"harness/ng-ce-ui"` |  |
+| image.tag | string | `"0.35.2"` |  |
+| ingress.className | string | `"nginx"` |  |
+| maxSurge | string | `"100%"` |  |
+| maxUnavailable | int | `0` |  |
+| nameOverride | string | `""` |  |
+| nodeSelector | object | `{}` |  |
+| podAnnotations | object | `{}` |  |
+| podSecurityContext | object | `{}` |  |
+| replicaCount | int | `2` |  |
+| resources.limits.cpu | int | `1` |  |
+| resources.limits.memory | string | `"512Mi"` |  |
+| resources.requests.cpu | int | `1` |  |
+| resources.requests.memory | string | `"512Mi"` |  |
+| securityContext | object | `{}` |  |
+| service.port | int | `80` |  |
+| service.portName | string | `"ng-ce-ui-port"` |  |
+| service.type | string | `"ClusterIP"` |  |
+| serviceAccount.annotations | object | `{}` |  |
+| serviceAccount.create | bool | `false` |  |
+| serviceAccount.name | string | `"harness-default"` |  |
+| tolerations | list | `[]` |  |
 
 ----------------------------------------------
 Autogenerated from chart metadata using [helm-docs v1.11.0](https://github.com/norwoodj/helm-docs/releases/v1.11.0)
