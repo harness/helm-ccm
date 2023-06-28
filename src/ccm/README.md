@@ -2,7 +2,7 @@
 
 A Helm chart for Harness Cloud Cost Management (CCM) module
 
-![Version: 0.7.4](https://img.shields.io/badge/Version-0.7.4-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square) ![AppVersion: 1.546.0](https://img.shields.io/badge/AppVersion-1.546.0-informational?style=flat-square)
+![Version: 0.7.5](https://img.shields.io/badge/Version-0.7.5-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square) ![AppVersion: 1.546.0](https://img.shields.io/badge/AppVersion-1.546.0-informational?style=flat-square)
 
 ## Usage
 
@@ -12,7 +12,7 @@ Use the following dependency to add this chart repository to your Helm installat
 dependencies:
     - name: ccm
       repository: https://harness.github.io/helm-ccm
-      version: 0.7.4
+      version: 0.7.5
 ```
 
 ## Values
@@ -450,12 +450,12 @@ dependencies:
 | nextgen-ce.image.pullPolicy | string | `"IfNotPresent"` |  |
 | nextgen-ce.image.registry | string | `"docker.io"` |  |
 | nextgen-ce.image.repository | string | `"harness/ce-nextgen-signed"` |  |
-| nextgen-ce.image.tag | string | `"79601-000"` |  |
+| nextgen-ce.image.tag | string | `"79602-000"` |  |
 | nextgen-ce.imageClickhouseEnabled.digest | string | `""` |  |
 | nextgen-ce.imageClickhouseEnabled.pullPolicy | string | `"Always"` |  |
 | nextgen-ce.imageClickhouseEnabled.registry | string | `"docker.io"` |  |
 | nextgen-ce.imageClickhouseEnabled.repository | string | `"harness/ce-nextgen-signed"` |  |
-| nextgen-ce.imageClickhouseEnabled.tag | string | `"79601-000"` |  |
+| nextgen-ce.imageClickhouseEnabled.tag | string | `"79602-000"` |  |
 | nextgen-ce.ingress.className | string | `"nginx"` |  |
 | nextgen-ce.java.memory | string | `"4096m"` |  |
 | nextgen-ce.java.memoryLimit | string | `"4096m"` |  |
