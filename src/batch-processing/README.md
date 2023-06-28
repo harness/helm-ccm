@@ -54,6 +54,8 @@ A Helm chart for Kubernetes
 | global.database.postgres.protocol | string | `"postgres"` |  |
 | global.database.postgres.secretName | string | `""` |  |
 | global.database.postgres.userKey | string | `""` |  |
+| global.database.timescaledb.certKey | string | `""` |  |
+| global.database.timescaledb.certName | string | `""` |  |
 | global.database.timescaledb.extraArgs | string | `""` |  |
 | global.database.timescaledb.hosts | list | `["timescaledb-single-chart:5432"]` | provide default values if mongo.installed is set to false |
 | global.database.timescaledb.installed | bool | `true` |  |
