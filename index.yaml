@@ -60,6 +60,23 @@ entries:
   batch-processing:
   - apiVersion: v2
     appVersion: 1.773.0
+    created: "2023-07-03T08:45:48.338006857Z"
+    dependencies:
+    - name: harness-common
+      repository: https://harness.github.io/helm-common
+      version: 1.x.x
+    - name: common
+      repository: https://charts.bitnami.com/bitnami
+      version: 2.x.x
+    description: A Helm chart for Kubernetes
+    digest: 9dc1e213223b737e4a807dc39932dd93dc4a654e5cb9b85eacc85eddf13ec1c6
+    name: batch-processing
+    type: application
+    urls:
+    - https://github.com/harness/helm-ccm/releases/download/batch-processing-0.4.1/batch-processing-0.4.1.tgz
+    version: 0.4.1
+  - apiVersion: v2
+    appVersion: 1.773.0
     created: "2023-06-14T18:58:45.855646872Z"
     dependencies:
     - name: harness-common
@@ -3069,6 +3086,23 @@ entries:
   nextgen-ce:
   - apiVersion: v2
     appVersion: 1.773.0
+    created: "2023-07-03T08:45:48.772754574Z"
+    dependencies:
+    - name: harness-common
+      repository: https://harness.github.io/helm-common
+      version: 1.x.x
+    - name: common
+      repository: https://charts.bitnami.com/bitnami
+      version: 2.x.x
+    description: A Helm chart for Kubernetes
+    digest: 9a2399828329d962b8bcb8ec847c8d9719ac28eb6c4ab30585bafcf715e8335a
+    name: nextgen-ce
+    type: application
+    urls:
+    - https://github.com/harness/helm-ccm/releases/download/nextgen-ce-0.4.1/nextgen-ce-0.4.1.tgz
+    version: 0.4.1
+  - apiVersion: v2
+    appVersion: 1.773.0
     created: "2023-06-12T11:03:10.57774005Z"
     dependencies:
     - name: harness-common
@@ -3269,4 +3303,4 @@ entries:
     urls:
     - https://github.com/harness/helm-ccm/releases/download/telescopes-0.3.0/telescopes-0.3.0.tgz
     version: 0.3.0
-generated: "2023-06-30T05:44:31.740601553Z"
+generated: "2023-07-03T08:45:48.773510282Z"
