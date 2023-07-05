@@ -23,6 +23,8 @@ A Helm chart for Kubernetes
 | autoscaling.targetCPU | string | `""` |  |
 | autoscaling.targetMemory | string | `""` |  |
 | defaultInternalImageConnector | string | `"test"` |  |
+| extraVolumeMounts | list | `[]` |  |
+| extraVolumes | list | `[]` |  |
 | fullnameOverride | string | `""` |  |
 | global.database.mongo.extraArgs | string | `""` |  |
 | global.database.mongo.hosts | list | `[]` | provide default values if mongo.installed is set to false |
@@ -65,6 +67,7 @@ A Helm chart for Kubernetes
 | image.tag | string | `"79404-000"` |  |
 | ingress.className | string | `"nginx"` |  |
 | java.memory | int | `1024` |  |
+| lifecycleHooks | object | `{}` |  |
 | maxSurge | string | `"100%"` |  |
 | maxUnavailable | int | `0` |  |
 | mongoSecrets.password.key | string | `"mongodb-root-password"` |  |
@@ -78,7 +81,6 @@ A Helm chart for Kubernetes
 | podSecurityContext | object | `{}` |  |
 | redislabsCATruststore | string | `"test"` |  |
 | replicaCount | int | `1` |  |
-| resources.limits.cpu | string | `"512m"` |  |
 | resources.limits.memory | string | `"1840Mi"` |  |
 | resources.requests.cpu | string | `"512m"` |  |
 | resources.requests.memory | string | `"1840Mi"` |  |

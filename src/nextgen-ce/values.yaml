@@ -39,6 +39,8 @@ global:
       userKey: ""
       passwordKey: ""
       extraArgs: ""
+      certName: ""
+      certKey: ""
     redis:
       installed: true
       protocol: "redis"
@@ -187,10 +189,30 @@ workloadIdentity:
 
 resources:
   limits:
-    cpu: 1
     memory: "4Gi"
   requests:
     cpu: 1
     memory: "4Gi"
 
 additionalConfigs: {}
+
+# extraVolumes:
+#   - name: volume-test
+#     configMap:
+#       name: test-config
+#       # readOnly: true
+extraVolumes: []
+
+# extraVolumeMounts:
+#   - name: volume-test
+#     mountPath: /opt/harness/config
+extraVolumeMounts: []
+
+lifecycleHooks: {}
+# lifecycleHooks:
+#   postStart:
+#     exec:
+#       command:
+#   preStop:
+#     exec:
+#       command:

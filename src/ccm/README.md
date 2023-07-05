@@ -41,7 +41,6 @@ dependencies:
 | anomaly-detection.podAnnotations | object | `{}` |  |
 | anomaly-detection.podSecurityContext | object | `{}` |  |
 | anomaly-detection.replicaCount | int | `1` |  |
-| anomaly-detection.resources.limits.cpu | string | `"512m"` |  |
 | anomaly-detection.resources.limits.memory | string | `"512Mi"` |  |
 | anomaly-detection.resources.requests.cpu | string | `"512m"` |  |
 | anomaly-detection.resources.requests.memory | string | `"512Mi"` |  |
@@ -95,7 +94,6 @@ dependencies:
 | batch-processing.podAnnotations | object | `{}` |  |
 | batch-processing.podSecurityContext | object | `{}` |  |
 | batch-processing.replicaCount | int | `1` |  |
-| batch-processing.resources.limits.cpu | string | `"1024m"` |  |
 | batch-processing.resources.limits.memory | string | `"10Gi"` |  |
 | batch-processing.resources.requests.cpu | string | `"1024m"` |  |
 | batch-processing.resources.requests.memory | string | `"10Gi"` |  |
@@ -124,7 +122,6 @@ dependencies:
 | clickhouse.image.tag | string | `"23.3.4-debian-11-r0"` |  |
 | clickhouse.persistence.size | string | `"1Ti"` |  |
 | clickhouse.replicaCount | int | `1` |  |
-| clickhouse.resources.limits.cpu | int | `6` |  |
 | clickhouse.resources.limits.memory | string | `"8Gi"` |  |
 | clickhouse.resources.requests.cpu | int | `6` |  |
 | clickhouse.resources.requests.memory | string | `"8Gi"` |  |
@@ -156,7 +153,6 @@ dependencies:
 | cloud-info.podAnnotations | object | `{}` |  |
 | cloud-info.podSecurityContext | object | `{}` |  |
 | cloud-info.replicaCount | int | `1` |  |
-| cloud-info.resources.limits.cpu | string | `"1536m"` |  |
 | cloud-info.resources.limits.memory | string | `"1536Mi"` |  |
 | cloud-info.resources.requests.cpu | string | `"1536m"` |  |
 | cloud-info.resources.requests.memory | string | `"1536Mi"` |  |
@@ -198,7 +194,6 @@ dependencies:
 | event-service.podSecurityContext | object | `{}` |  |
 | event-service.redislabsCATruststore | string | `"test"` |  |
 | event-service.replicaCount | int | `1` |  |
-| event-service.resources.limits.cpu | string | `"512m"` |  |
 | event-service.resources.limits.memory | string | `"1840Mi"` |  |
 | event-service.resources.requests.cpu | string | `"512m"` |  |
 | event-service.resources.requests.memory | string | `"1840Mi"` |  |
@@ -272,7 +267,6 @@ dependencies:
 | lwd-autocud.redis.redisUrl | string | `"redis://localhost:6379"` |  |
 | lwd-autocud.redis.useSentinel | string | `"true"` |  |
 | lwd-autocud.replicaCount | int | `2` |  |
-| lwd-autocud.resources.limits.cpu | int | `2` |  |
 | lwd-autocud.resources.limits.memory | string | `"4Gi"` |  |
 | lwd-autocud.resources.requests.cpu | int | `2` |  |
 | lwd-autocud.resources.requests.memory | string | `"4Gi"` |  |
@@ -310,7 +304,6 @@ dependencies:
 | lwd-faktory.podAnnotations | object | `{}` |  |
 | lwd-faktory.podSecurityContext | object | `{}` |  |
 | lwd-faktory.replicaCount | int | `1` |  |
-| lwd-faktory.resources.limits.cpu | int | `2` |  |
 | lwd-faktory.resources.limits.memory | string | `"4Gi"` |  |
 | lwd-faktory.resources.requests.cpu | int | `2` |  |
 | lwd-faktory.resources.requests.memory | string | `"4Gi"` |  |
@@ -362,7 +355,6 @@ dependencies:
 | lwd-worker.redis.redisUrl | string | `"redis://localhost:6379"` |  |
 | lwd-worker.redis.useSentinel | string | `"true"` |  |
 | lwd-worker.replicaCount | int | `3` |  |
-| lwd-worker.resources.limits.cpu | int | `2` |  |
 | lwd-worker.resources.limits.memory | string | `"4Gi"` |  |
 | lwd-worker.resources.requests.cpu | int | `2` |  |
 | lwd-worker.resources.requests.memory | string | `"4Gi"` |  |
@@ -415,7 +407,6 @@ dependencies:
 | lwd.redis.redisUrl | string | `"redis://localhost:6379"` |  |
 | lwd.redis.useSentinel | string | `"true"` |  |
 | lwd.replicaCount | int | `2` |  |
-| lwd.resources.limits.cpu | int | `2` |  |
 | lwd.resources.limits.memory | string | `"4Gi"` |  |
 | lwd.resources.requests.cpu | int | `2` |  |
 | lwd.resources.requests.memory | string | `"4Gi"` |  |
@@ -479,7 +470,6 @@ dependencies:
 | nextgen-ce.podAnnotations | object | `{}` |  |
 | nextgen-ce.podSecurityContext | object | `{}` |  |
 | nextgen-ce.replicaCount | int | `2` |  |
-| nextgen-ce.resources.limits.cpu | int | `1` |  |
 | nextgen-ce.resources.limits.memory | string | `"4Gi"` |  |
 | nextgen-ce.resources.requests.cpu | int | `1` |  |
 | nextgen-ce.resources.requests.memory | string | `"4Gi"` |  |
@@ -518,7 +508,6 @@ dependencies:
 | ng-ce-ui.podAnnotations | object | `{}` |  |
 | ng-ce-ui.podSecurityContext | object | `{}` |  |
 | ng-ce-ui.replicaCount | int | `2` |  |
-| ng-ce-ui.resources.limits.cpu | int | `1` |  |
 | ng-ce-ui.resources.limits.memory | string | `"512Mi"` |  |
 | ng-ce-ui.resources.requests.cpu | int | `1` |  |
 | ng-ce-ui.resources.requests.memory | string | `"512Mi"` |  |
@@ -550,7 +539,6 @@ dependencies:
 | telescopes.podAnnotations | object | `{}` |  |
 | telescopes.podSecurityContext | object | `{}` |  |
 | telescopes.replicaCount | int | `1` |  |
-| telescopes.resources.limits.cpu | string | `"512m"` |  |
 | telescopes.resources.limits.memory | string | `"1Gi"` |  |
 | telescopes.resources.requests.cpu | string | `"512m"` |  |
 | telescopes.resources.requests.memory | string | `"1Gi"` |  |

@@ -45,7 +45,13 @@ spec:
             {{- toYaml .Values.securityContext | nindent 12 }}
           image: {{ include "common.images.image" (dict "imageRoot" .Values.image "global" .Values.global) }}
           imagePullPolicy: {{ .Values.image.pullPolicy }}
+          {{- if .Values.lifecycleHooks }}
+          lifecycle: {{- include "harnesscommon.tplvalues.render" (dict "value" .Values.lifecycleHooks "context" $) | nindent 12 }}
+          {{- end }}
           volumeMounts:
+          {{- if .Values.extraVolumeMounts }}
+          {{- include "harnesscommon.tplvalues.render" (dict "value" .Values.extraVolumeMounts "context" $) | nindent 10 }}
+          {{- end }}
           - name: dkrondata
             mountPath: /dkron/dkrondata
           - name: config
@@ -70,6 +76,9 @@ spec:
           resources:
             {{- toYaml .Values.resources | nindent 12 }}
       volumes:
+        {{- if .Values.extraVolumes }}
+        {{- include "harnesscommon.tplvalues.render" ( dict "value" .Values.extraVolumes "context" $ ) | nindent 8 }}
+        {{- end }}
         - name: config
           configMap:
             name: dkron-server

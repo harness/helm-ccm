@@ -1,6 +1,6 @@
 # batch-processing
 
-![Version: 0.4.0](https://img.shields.io/badge/Version-0.4.0-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square) ![AppVersion: 1.773.0](https://img.shields.io/badge/AppVersion-1.773.0-informational?style=flat-square)
+![Version: 0.4.1](https://img.shields.io/badge/Version-0.4.1-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square) ![AppVersion: 1.773.0](https://img.shields.io/badge/AppVersion-1.773.0-informational?style=flat-square)
 
 A Helm chart for Kubernetes
 
@@ -36,6 +36,8 @@ A Helm chart for Kubernetes
 | cloudProviderConfig.DATA_PIPELINE_CONFIG_GCS_BASE_PATH | string | `"gs://awscustomerbillingdata-onprem"` |  |
 | cloudProviderConfig.S3_SYNC_CONFIG_BUCKET_NAME | string | `"ccm-service-data-bucket"` |  |
 | cloudProviderConfig.S3_SYNC_CONFIG_REGION | string | `"us-east-1"` |  |
+| extraVolumeMounts | list | `[]` |  |
+| extraVolumes | list | `[]` |  |
 | fullnameOverride | string | `""` |  |
 | global.ccm.gcpProjectId | string | `"placeHolder"` |  |
 | global.database.mongo.extraArgs | string | `""` |  |
@@ -52,6 +54,8 @@ A Helm chart for Kubernetes
 | global.database.postgres.protocol | string | `"postgres"` |  |
 | global.database.postgres.secretName | string | `""` |  |
 | global.database.postgres.userKey | string | `""` |  |
+| global.database.timescaledb.certKey | string | `""` |  |
+| global.database.timescaledb.certName | string | `""` |  |
 | global.database.timescaledb.extraArgs | string | `""` |  |
 | global.database.timescaledb.hosts | list | `["timescaledb-single-chart:5432"]` | provide default values if mongo.installed is set to false |
 | global.database.timescaledb.installed | bool | `true` |  |
@@ -82,6 +86,7 @@ A Helm chart for Kubernetes
 | imageClickhouseEnabled.tag | string | `"79501-000"` |  |
 | isolatedReplica | int | `0` |  |
 | java.memory | string | `"7168"` |  |
+| lifecycleHooks | object | `{}` |  |
 | mongoSecrets.password.key | string | `"mongodb-root-password"` |  |
 | mongoSecrets.password.name | string | `"mongodb-replicaset-chart"` |  |
 | mongoSecrets.userName.key | string | `"mongodbUsername"` |  |
@@ -91,7 +96,6 @@ A Helm chart for Kubernetes
 | podAnnotations | object | `{}` |  |
 | podSecurityContext | object | `{}` |  |
 | replicaCount | int | `1` |  |
-| resources.limits.cpu | string | `"1024m"` |  |
 | resources.limits.memory | string | `"10Gi"` |  |
 | resources.requests.cpu | string | `"1024m"` |  |
 | resources.requests.memory | string | `"10Gi"` |  |

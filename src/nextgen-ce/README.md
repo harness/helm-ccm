@@ -1,6 +1,6 @@
 # nextgen-ce
 
-![Version: 0.4.0](https://img.shields.io/badge/Version-0.4.0-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square) ![AppVersion: 1.773.0](https://img.shields.io/badge/AppVersion-1.773.0-informational?style=flat-square)
+![Version: 0.4.1](https://img.shields.io/badge/Version-0.4.1-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square) ![AppVersion: 1.773.0](https://img.shields.io/badge/AppVersion-1.773.0-informational?style=flat-square)
 
 A Helm chart for Kubernetes
 
@@ -38,6 +38,8 @@ A Helm chart for Kubernetes
 | cloudProviderConfig.AWS_GOV_CLOUD_TEMPLATE_LINK | string | `"https://continuous-efficiency.s3.us-east-2.amazonaws.com/setup/v1/ng/HarnessAWSTemplate.yaml"` |  |
 | cloudProviderConfig.AZURE_APP_CLIENT_ID | string | `"0211763d-24fb-4d63-865d-92f86f77e908"` |  |
 | cloudProviderConfig.GCP_SERVICE_ACCOUNT_EMAIL | string | `"placeHolder"` |  |
+| extraVolumeMounts | list | `[]` |  |
+| extraVolumes | list | `[]` |  |
 | fullnameOverride | string | `""` |  |
 | global.ccm.gcpProjectId | string | `"placeHolder"` |  |
 | global.database.mongo.extraArgs | string | `""` |  |
@@ -61,6 +63,8 @@ A Helm chart for Kubernetes
 | global.database.redis.protocol | string | `"redis"` |  |
 | global.database.redis.secretName | string | `"redis-secret"` |  |
 | global.database.redis.userKey | string | `"redis-user"` |  |
+| global.database.timescaledb.certKey | string | `""` |  |
+| global.database.timescaledb.certName | string | `""` |  |
 | global.database.timescaledb.extraArgs | string | `""` |  |
 | global.database.timescaledb.hosts | list | `["timescaledb-single-chart:5432"]` | provide default values if mongo.installed is set to false |
 | global.database.timescaledb.installed | bool | `true` |  |
@@ -95,6 +99,7 @@ A Helm chart for Kubernetes
 | ingress.className | string | `"nginx"` |  |
 | java.memory | string | `"4096m"` |  |
 | java.memoryLimit | string | `"4096m"` |  |
+| lifecycleHooks | object | `{}` |  |
 | maxSurge | string | `"100%"` |  |
 | maxUnavailable | int | `0` |  |
 | mongoSecrets.password.key | string | `"mongodb-root-password"` |  |
@@ -106,7 +111,6 @@ A Helm chart for Kubernetes
 | podAnnotations | object | `{}` |  |
 | podSecurityContext | object | `{}` |  |
 | replicaCount | int | `2` |  |
-| resources.limits.cpu | int | `1` |  |
 | resources.limits.memory | string | `"4Gi"` |  |
 | resources.requests.cpu | int | `1` |  |
 | resources.requests.memory | string | `"4Gi"` |  |

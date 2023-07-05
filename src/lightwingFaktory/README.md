@@ -20,6 +20,8 @@ A Helm chart for Kubernetes
 | autoscaling.minReplicas | int | `1` |  |
 | autoscaling.targetCPU | string | `""` |  |
 | autoscaling.targetMemory | string | `""` |  |
+| extraVolumeMounts | list | `[]` |  |
+| extraVolumes | list | `[]` |  |
 | faktory.password.key | string | `"FAKTORY_PASSWORD"` |  |
 | faktory.password.name | string | `"lwd-secrets"` |  |
 | fullnameOverride | string | `""` |  |
@@ -41,6 +43,7 @@ A Helm chart for Kubernetes
 | image.repository | string | `"contribsys/faktory"` |  |
 | image.tag | string | `"1.6.1"` |  |
 | ingress.className | string | `"nginx"` |  |
+| lifecycleHooks | object | `{}` |  |
 | nameOverride | string | `""` |  |
 | nodeSelector | object | `{}` |  |
 | persistentVolume.accessModes | string | `"ReadWriteOnce"` |  |
@@ -48,7 +51,6 @@ A Helm chart for Kubernetes
 | podAnnotations | object | `{}` |  |
 | podSecurityContext | object | `{}` |  |
 | replicaCount | int | `1` |  |
-| resources.limits.cpu | int | `2` |  |
 | resources.limits.memory | string | `"4Gi"` |  |
 | resources.requests.cpu | int | `2` |  |
 | resources.requests.memory | string | `"4Gi"` |  |

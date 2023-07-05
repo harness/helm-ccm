@@ -20,6 +20,8 @@ A Helm chart for Kubernetes
 | autoscaling.minReplicas | int | `1` |  |
 | autoscaling.targetCPU | string | `""` |  |
 | autoscaling.targetMemory | string | `""` |  |
+| extraVolumeMounts | list | `[]` |  |
+| extraVolumes | list | `[]` |  |
 | fullnameOverride | string | `""` |  |
 | global.imagePullSecrets | list | `[]` |  |
 | global.ingress.className | string | `"harness"` |  |
@@ -39,6 +41,7 @@ A Helm chart for Kubernetes
 | image.repository | string | `"harness/ng-ce-ui"` |  |
 | image.tag | string | `"0.35.2"` |  |
 | ingress.className | string | `"nginx"` |  |
+| lifecycleHooks | object | `{}` |  |
 | maxSurge | string | `"100%"` |  |
 | maxUnavailable | int | `0` |  |
 | nameOverride | string | `""` |  |
@@ -46,7 +49,6 @@ A Helm chart for Kubernetes
 | podAnnotations | object | `{}` |  |
 | podSecurityContext | object | `{}` |  |
 | replicaCount | int | `2` |  |
-| resources.limits.cpu | int | `1` |  |
 | resources.limits.memory | string | `"512Mi"` |  |
 | resources.requests.cpu | int | `1` |  |
 | resources.requests.memory | string | `"512Mi"` |  |

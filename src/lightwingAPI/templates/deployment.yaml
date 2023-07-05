@@ -110,7 +110,7 @@ spec:
                 secretKeyRef:
                   name: {{ .Values.clickhouse.password.name }}
                   key: {{ .Values.clickhouse.password.key }}
-            {{- end }}  
+            {{- end }}
             - name: DB_PASSWORD
               valueFrom:
                 secretKeyRef:
@@ -122,9 +122,15 @@ spec:
               value: tcp://:$(FAKTORY_PASSWORD)@lwd-faktory.{{ .Release.Namespace }}.svc.cluster.local:7419
             - name: LIGHTWING_DKRON_HOST
               value: http://dkron.{{ .Release.Namespace }}.svc.cluster.local:8080
+          {{- if .Values.lifecycleHooks }}
+          lifecycle: {{- include "harnesscommon.tplvalues.render" (dict "value" .Values.lifecycleHooks "context" $) | nindent 12 }}
+          {{- end }}
           volumeMounts:
           - name: secret-mount
             mountPath: /opt/harness/svc
+        {{- if .Values.extraVolumeMounts }}
+          {{- include "harnesscommon.tplvalues.render" (dict "value" .Values.extraVolumeMounts "context" $) | nindent 10 }}
+        {{- end }}
           resources:
             {{- toYaml .Values.resources | nindent 12 }}
       volumes:
@@ -134,6 +140,9 @@ spec:
           items:
           - key: ce-batch-gcp-credentials
             path: ce_batch_gcp_credentials.json
+      {{- if .Values.extraVolumes }}
+        {{- include "harnesscommon.tplvalues.render" ( dict "value" .Values.extraVolumes "context" $ ) | nindent 6 }}
+      {{- end }}
       affinity:
         podAntiAffinity:
           requiredDuringSchedulingIgnoredDuringExecution:
