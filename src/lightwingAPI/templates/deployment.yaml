@@ -110,7 +110,7 @@ spec:
                 secretKeyRef:
                   name: {{ .Values.clickhouse.password.name }}
                   key: {{ .Values.clickhouse.password.key }}
-            {{- end }}  
+            {{- end }}
             - name: DB_PASSWORD
               valueFrom:
                 secretKeyRef:
