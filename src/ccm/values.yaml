@@ -83,14 +83,14 @@ batch-processing:
     repository: harness/batch-processing-signed
     pullPolicy: Always
     # Overrides the image tag whose default is the chart appVersion.
-    tag: "79501-000"
+    tag: "80001-000"
     digest: ""
   imageClickhouseEnabled:
     registry: docker.io
     repository: harness/batch-processing-signed
     pullPolicy: Always
     # Overrides the image tag whose default is the chart appVersion.
-    tag: "79501-000"
+    tag: "80001-000"
     digest: ""
   waitForInitContainer:
     image:
@@ -177,7 +177,7 @@ cloud-info:
     repository: harness/ce-cloud-info-signed
     pullPolicy: IfNotPresent
     # Overrides the image tag whose default is the chart appVersion.
-    tag: "10302"
+    tag: "10303"
     digest: ""
   nameOverride: ""
   fullnameOverride: ""
@@ -567,14 +567,14 @@ nextgen-ce:
     repository: harness/ce-nextgen-signed
     pullPolicy: IfNotPresent
     # Overrides the image tag whose default is the chart appVersion.
-    tag: "79602-000"
+    tag: "80102-000"
     digest: ""
   imageClickhouseEnabled:
     registry: docker.io
     repository: harness/ce-nextgen-signed
     pullPolicy: Always
     # Overrides the image tag whose default is the chart appVersion.
-    tag: "79602-000"
+    tag: "80102-000"
     digest: ""
   waitForInitContainer:
     image:
@@ -656,7 +656,7 @@ ng-ce-ui:
     repository: harness/ng-ce-ui
     pullPolicy: Always
     # Overrides the image tag whose default is the chart appVersion.
-    tag: "0.35.2"
+    tag: "0.40.3"
     digest: ""
   nameOverride: ""
   fullnameOverride: ""
@@ -699,7 +699,7 @@ telescopes:
     repository: harness/telescopes-signed
     pullPolicy: IfNotPresent
     # Overrides the image tag whose default is the chart appVersion.
-    tag: "10300"
+    tag: "10302"
     digest: ""
   waitForInitContainer:
     image:
