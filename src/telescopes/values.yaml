@@ -32,7 +32,7 @@ image:
   repository: harness/telescopes-signed
   pullPolicy: IfNotPresent
 # Overrides the image tag whose default is the chart appVersion.
-  tag: "10300"
+  tag: "10302"
   digest: ""
 # image pull secrets to use for telescopes image
   imagePullSecrets: []
