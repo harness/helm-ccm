@@ -1,7 +1,7 @@
 dependencies:
 - name: nextgen-ce
   repository: file://../nextgen-ce
-  version: 0.4.0
+  version: 0.4.1
 - name: event-service
   repository: file://../event-service
   version: 0.4.1
@@ -16,7 +16,7 @@ dependencies:
   version: 0.4.0
 - name: batch-processing
   repository: file://../batch-processing
-  version: 0.4.0
+  version: 0.4.1
 - name: ng-ce-ui
   repository: file://../ng-ce-ui
   version: 0.4.0
@@ -38,5 +38,5 @@ dependencies:
 - name: dkron
   repository: file://../dkron
   version: 0.2.0
-digest: sha256:d8b821fdc9cb5727b6df17219455d6e5e698fd372462993fbb1878f3cc06fbfd
-generated: "2023-06-15T04:12:45.104632-04:00"
+digest: sha256:5569761fd93578a4f76c1318c013dfda718348c4ab30a0a8418ac35aa676a550
+generated: "2023-07-28T12:38:31.248687+05:30"
