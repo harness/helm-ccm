@@ -15,6 +15,7 @@ A Helm chart for Kubernetes
 
 | Key | Type | Default | Description |
 |-----|------|---------|-------------|
+| CF_CLIENT_API_KEY | string | `"BATCH_PROCESSING_ON_PREM"` |  |
 | additionalConfigs | object | `{}` |  |
 | affinity | object | `{}` |  |
 | autoscaling.enabled | bool | `false` |  |

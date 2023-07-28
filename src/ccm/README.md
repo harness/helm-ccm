@@ -51,6 +51,7 @@ dependencies:
 | anomaly-detection.serviceAccount.create | bool | `false` |  |
 | anomaly-detection.serviceAccount.name | string | `"harness-default"` |  |
 | anomaly-detection.tolerations | list | `[]` |  |
+| batch-processing.CF_CLIENT_API_KEY | string | `"BATCH_PROCESSING_ON_PREM"` |  |
 | batch-processing.additionalConfigs | object | `{}` |  |
 | batch-processing.affinity | object | `{}` |  |
 | batch-processing.autoscaling.enabled | bool | `false` |  |
