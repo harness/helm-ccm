@@ -77,12 +77,12 @@ dependencies:
 | batch-processing.image.pullPolicy | string | `"Always"` |  |
 | batch-processing.image.registry | string | `"docker.io"` |  |
 | batch-processing.image.repository | string | `"harness/batch-processing-signed"` |  |
-| batch-processing.image.tag | string | `"80001-000"` |  |
+| batch-processing.image.tag | string | `"80002-000"` |  |
 | batch-processing.imageClickhouseEnabled.digest | string | `""` |  |
 | batch-processing.imageClickhouseEnabled.pullPolicy | string | `"Always"` |  |
 | batch-processing.imageClickhouseEnabled.registry | string | `"docker.io"` |  |
 | batch-processing.imageClickhouseEnabled.repository | string | `"harness/batch-processing-signed"` |  |
-| batch-processing.imageClickhouseEnabled.tag | string | `"80001-000"` |  |
+| batch-processing.imageClickhouseEnabled.tag | string | `"80002-000"` |  |
 | batch-processing.isolatedReplica | int | `0` |  |
 | batch-processing.java.memory | string | `"7168"` |  |
 | batch-processing.mongoSecrets.password.key | string | `"mongodb-root-password"` |  |
