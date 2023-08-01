@@ -890,6 +890,8 @@ clickhouse:
     </clickhouse>
   replicaCount: 1
   shards: 1
+  podLabels:
+    app: clickhouse
   zookeeper:
     enabled: false
     fullnameOverride: "clickhouse-zookeeper"

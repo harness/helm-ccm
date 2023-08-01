@@ -47,6 +47,14 @@ spec:
         args:
           - "pod"
           - "-lapp=timescaledb-single-chart"
+      {{- if .Values.clickhouse.enabled }}
+      - name: wait-for-clickhouse
+        image: {{ include "common.images.image" (dict "imageRoot" .Values.waitForInitContainer.image "global" .Values.global) }}
+        imagePullPolicy: IfNotPresent
+        args:
+          - "pod"
+          - "-lapp=clickhouse"
+      {{- end }}
       containers:
         - name: nextgen-ce
           securityContext:
