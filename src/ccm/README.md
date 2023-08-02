@@ -452,12 +452,12 @@ dependencies:
 | nextgen-ce.image.pullPolicy | string | `"IfNotPresent"` |  |
 | nextgen-ce.image.registry | string | `"docker.io"` |  |
 | nextgen-ce.image.repository | string | `"harness/ce-nextgen-signed"` |  |
-| nextgen-ce.image.tag | string | `"80102-000"` |  |
+| nextgen-ce.image.tag | string | `"80103-000"` |  |
 | nextgen-ce.imageClickhouseEnabled.digest | string | `""` |  |
 | nextgen-ce.imageClickhouseEnabled.pullPolicy | string | `"Always"` |  |
 | nextgen-ce.imageClickhouseEnabled.registry | string | `"docker.io"` |  |
 | nextgen-ce.imageClickhouseEnabled.repository | string | `"harness/ce-nextgen-signed"` |  |
-| nextgen-ce.imageClickhouseEnabled.tag | string | `"80102-000"` |  |
+| nextgen-ce.imageClickhouseEnabled.tag | string | `"80103-000"` |  |
 | nextgen-ce.ingress.className | string | `"nginx"` |  |
 | nextgen-ce.java.memory | string | `"4096m"` |  |
 | nextgen-ce.java.memoryLimit | string | `"4096m"` |  |
