@@ -568,14 +568,14 @@ nextgen-ce:
     repository: harness/ce-nextgen-signed
     pullPolicy: IfNotPresent
     # Overrides the image tag whose default is the chart appVersion.
-    tag: "80102-000"
+    tag: "80103-000"
     digest: ""
   imageClickhouseEnabled:
     registry: docker.io
     repository: harness/ce-nextgen-signed
     pullPolicy: Always
     # Overrides the image tag whose default is the chart appVersion.
-    tag: "80102-000"
+    tag: "80103-000"
     digest: ""
   waitForInitContainer:
     image:
