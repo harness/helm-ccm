@@ -303,7 +303,7 @@ lwd:
     registry: docker.io
     repository: harness/lightwing-signed
     pullPolicy: IfNotPresent
-    tag: "main-1.1.1117"
+    tag: "main-1.1.1225"
     digest: ""
   waitForInitContainer:
     image:
@@ -496,7 +496,7 @@ lwd-worker:
     registry: docker.io
     repository: harness/lightwing-signed
     pullPolicy: IfNotPresent
-    tag: "main-1.1.1117"
+    tag: "main-1.1.1225"
     digest: ""
   waitForInitContainer:
     image:
