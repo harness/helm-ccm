@@ -333,7 +333,7 @@ dependencies:
 | lwd-worker.image.pullPolicy | string | `"IfNotPresent"` |  |
 | lwd-worker.image.registry | string | `"docker.io"` |  |
 | lwd-worker.image.repository | string | `"harness/lightwing-signed"` |  |
-| lwd-worker.image.tag | string | `"main-1.1.1117"` |  |
+| lwd-worker.image.tag | string | `"main-1.1.1225"` |  |
 | lwd-worker.ingress.className | string | `"nginx"` |  |
 | lwd-worker.java.memory | string | `"4096m"` |  |
 | lwd-worker.java.memoryLimit | string | `"4096m"` |  |
@@ -386,7 +386,7 @@ dependencies:
 | lwd.image.pullPolicy | string | `"IfNotPresent"` |  |
 | lwd.image.registry | string | `"docker.io"` |  |
 | lwd.image.repository | string | `"harness/lightwing-signed"` |  |
-| lwd.image.tag | string | `"main-1.1.1117"` |  |
+| lwd.image.tag | string | `"main-1.1.1225"` |  |
 | lwd.ingress.className | string | `"nginx"` |  |
 | lwd.java.memory | string | `"4096m"` |  |
 | lwd.java.memoryLimit | string | `"4096m"` |  |
