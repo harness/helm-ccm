@@ -211,6 +211,62 @@ entries:
   ccm:
   - apiVersion: v2
     appVersion: 1.546.0
+    created: "2023-08-09T21:55:18.049729475Z"
+    dependencies:
+    - name: nextgen-ce
+      repository: file://../nextgen-ce
+      version: 0.5.x
+    - name: event-service
+      repository: file://../event-service
+      version: 0.5.x
+    - name: anomaly-detection
+      repository: file://../anomaly-detection
+      version: 0.5.x
+    - name: cloud-info
+      repository: file://../cloud-info
+      version: 0.5.x
+    - name: telescopes
+      repository: file://../telescopes
+      version: 0.5.x
+    - name: batch-processing
+      repository: file://../batch-processing
+      version: 0.5.x
+    - name: ng-ce-ui
+      repository: file://../ng-ce-ui
+      version: 0.5.x
+    - condition: clickhouse.enabled
+      name: clickhouse
+      repository: https://charts.bitnami.com/bitnami
+      version: 2.1.0
+    - condition: global.lwd.enabled
+      name: lwd-faktory
+      repository: file://../lightwingFaktory
+      version: 0.5.x
+    - condition: global.lwd.enabled
+      name: lwd
+      repository: file://../lightwingAPI
+      version: 0.5.x
+    - condition: global.lwd.enabled
+      name: lwd-worker
+      repository: file://../lightwingFaktoryWorker
+      version: 0.5.x
+    - condition: global.lwd.autocud.enabled
+      name: lwd-autocud
+      repository: file://../lightwingAutocud
+      version: 0.5.x
+    - condition: global.lwd.enabled
+      name: dkron
+      repository: file://../dkron
+      version: 0.3.x
+    description: A Helm chart for Harness Cloud Cost Management (CCM) module
+    digest: 892ec0fbe2b9ca43ce4857b9b30e6ca31496e1bc90921a7202c713491f9dfb3b
+    name: ccm
+    type: application
+    urls:
+    - https://github.com/harness/helm-ccm/releases/download/ccm-0.9.2/ccm-0.9.2.tgz
+    version: 0.9.2
+  - apiVersion: v2
+    appVersion: 1.546.0
     created: "2023-08-01T05:14:45.131445485Z"
     dependencies:
     - name: nextgen-ce
@@ -3551,4 +3607,4 @@ entries:
     urls:
     - https://github.com/harness/helm-ccm/releases/download/telescopes-0.3.0/telescopes-0.3.0.tgz
     version: 0.3.0
-generated: "2023-08-01T05:14:46.787024606Z"
+generated: "2023-08-09T21:55:19.770963672Z"
