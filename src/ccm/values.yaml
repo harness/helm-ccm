@@ -83,14 +83,14 @@ batch-processing:
     repository: harness/batch-processing-signed
     pullPolicy: Always
     # Overrides the image tag whose default is the chart appVersion.
-    tag: "80003-000"
+    tag: "80004-000"
     digest: ""
   imageClickhouseEnabled:
     registry: docker.io
     repository: harness/batch-processing-signed
     pullPolicy: Always
     # Overrides the image tag whose default is the chart appVersion.
-    tag: "80003-000"
+    tag: "80004-000"
     digest: ""
   waitForInitContainer:
     image:
@@ -158,6 +158,13 @@ batch-processing:
   workloadIdentity:
     enabled: false
   CF_CLIENT_API_KEY: "BATCH_PROCESSING_ON_PREM"
+  proxy:
+    enabled: false
+    host: localhost
+    port: 80
+    username: ""
+    password: ""
+    protocol: http
   resources:
     limits:
       memory: "10Gi"
@@ -208,6 +215,11 @@ cloud-info:
   CLOUD_INFO_CONFIG: ""
   workloadIdentity:
     enabled: false
+  proxy:
+    httpsProxyEnabled: false
+    httpsProxyUrl: http://localhost
+    noProxyEnabled: false
+    noProxyUrl: http://localhost
   resources:
     limits:
       memory: "1536Mi"
@@ -568,14 +580,14 @@ nextgen-ce:
     repository: harness/ce-nextgen-signed
     pullPolicy: IfNotPresent
     # Overrides the image tag whose default is the chart appVersion.
-    tag: "80103-000"
+    tag: "80104-000"
     digest: ""
   imageClickhouseEnabled:
     registry: docker.io
     repository: harness/ce-nextgen-signed
     pullPolicy: Always
     # Overrides the image tag whose default is the chart appVersion.
-    tag: "80103-000"
+    tag: "80104-000"
     digest: ""
   waitForInitContainer:
     image:
@@ -640,6 +652,13 @@ nextgen-ce:
       key: admin-password
   workloadIdentity:
     enabled: false
+  proxy:
+    enabled: false
+    host: localhost
+    port: 80
+    username: ""
+    password: ""
+    protocol: http
   resources:
     limits:
       memory: "4Gi"

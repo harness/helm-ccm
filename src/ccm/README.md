@@ -2,7 +2,7 @@
 
 A Helm chart for Harness Cloud Cost Management (CCM) module
 
-![Version: 0.9.2](https://img.shields.io/badge/Version-0.9.2-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square) ![AppVersion: 1.546.0](https://img.shields.io/badge/AppVersion-1.546.0-informational?style=flat-square)
+![Version: 0.9.3](https://img.shields.io/badge/Version-0.9.3-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square) ![AppVersion: 1.546.0](https://img.shields.io/badge/AppVersion-1.546.0-informational?style=flat-square)
 
 ## Usage
 
@@ -12,7 +12,7 @@ Use the following dependency to add this chart repository to your Helm installat
 dependencies:
     - name: ccm
       repository: https://harness.github.io/helm-ccm
-      version: 0.9.2
+      version: 0.9.3
 ```
 
 ## Values
@@ -78,12 +78,12 @@ dependencies:
 | batch-processing.image.pullPolicy | string | `"Always"` |  |
 | batch-processing.image.registry | string | `"docker.io"` |  |
 | batch-processing.image.repository | string | `"harness/batch-processing-signed"` |  |
-| batch-processing.image.tag | string | `"80003-000"` |  |
+| batch-processing.image.tag | string | `"80004-000"` |  |
 | batch-processing.imageClickhouseEnabled.digest | string | `""` |  |
 | batch-processing.imageClickhouseEnabled.pullPolicy | string | `"Always"` |  |
 | batch-processing.imageClickhouseEnabled.registry | string | `"docker.io"` |  |
 | batch-processing.imageClickhouseEnabled.repository | string | `"harness/batch-processing-signed"` |  |
-| batch-processing.imageClickhouseEnabled.tag | string | `"80003-000"` |  |
+| batch-processing.imageClickhouseEnabled.tag | string | `"80004-000"` |  |
 | batch-processing.isolatedReplica | int | `0` |  |
 | batch-processing.java.memory | string | `"7168"` |  |
 | batch-processing.mongoSecrets.password.key | string | `"mongodb-root-password"` |  |
@@ -94,6 +94,12 @@ dependencies:
 | batch-processing.nodeSelector | object | `{}` |  |
 | batch-processing.podAnnotations | object | `{}` |  |
 | batch-processing.podSecurityContext | object | `{}` |  |
+| batch-processing.proxy.enabled | bool | `false` |  |
+| batch-processing.proxy.host | string | `"localhost"` |  |
+| batch-processing.proxy.password | string | `""` |  |
+| batch-processing.proxy.port | int | `80` |  |
+| batch-processing.proxy.protocol | string | `"http"` |  |
+| batch-processing.proxy.username | string | `""` |  |
 | batch-processing.replicaCount | int | `1` |  |
 | batch-processing.resources.limits.memory | string | `"10Gi"` |  |
 | batch-processing.resources.requests.cpu | string | `"1024m"` |  |
@@ -156,6 +162,10 @@ dependencies:
 | cloud-info.nodeSelector | object | `{}` |  |
 | cloud-info.podAnnotations | object | `{}` |  |
 | cloud-info.podSecurityContext | object | `{}` |  |
+| cloud-info.proxy.httpsProxyEnabled | bool | `false` |  |
+| cloud-info.proxy.httpsProxyUrl | string | `"http://localhost"` |  |
+| cloud-info.proxy.noProxyEnabled | bool | `false` |  |
+| cloud-info.proxy.noProxyUrl | string | `"http://localhost"` |  |
 | cloud-info.replicaCount | int | `1` |  |
 | cloud-info.resources.limits.memory | string | `"1536Mi"` |  |
 | cloud-info.resources.requests.cpu | string | `"1536m"` |  |
@@ -454,12 +464,12 @@ dependencies:
 | nextgen-ce.image.pullPolicy | string | `"IfNotPresent"` |  |
 | nextgen-ce.image.registry | string | `"docker.io"` |  |
 | nextgen-ce.image.repository | string | `"harness/ce-nextgen-signed"` |  |
-| nextgen-ce.image.tag | string | `"80103-000"` |  |
+| nextgen-ce.image.tag | string | `"80104-000"` |  |
 | nextgen-ce.imageClickhouseEnabled.digest | string | `""` |  |
 | nextgen-ce.imageClickhouseEnabled.pullPolicy | string | `"Always"` |  |
 | nextgen-ce.imageClickhouseEnabled.registry | string | `"docker.io"` |  |
 | nextgen-ce.imageClickhouseEnabled.repository | string | `"harness/ce-nextgen-signed"` |  |
-| nextgen-ce.imageClickhouseEnabled.tag | string | `"80103-000"` |  |
+| nextgen-ce.imageClickhouseEnabled.tag | string | `"80104-000"` |  |
 | nextgen-ce.ingress.className | string | `"nginx"` |  |
 | nextgen-ce.java.memory | string | `"4096m"` |  |
 | nextgen-ce.java.memoryLimit | string | `"4096m"` |  |
@@ -473,6 +483,12 @@ dependencies:
 | nextgen-ce.nodeSelector | object | `{}` |  |
 | nextgen-ce.podAnnotations | object | `{}` |  |
 | nextgen-ce.podSecurityContext | object | `{}` |  |
+| nextgen-ce.proxy.enabled | bool | `false` |  |
+| nextgen-ce.proxy.host | string | `"localhost"` |  |
+| nextgen-ce.proxy.password | string | `""` |  |
+| nextgen-ce.proxy.port | int | `80` |  |
+| nextgen-ce.proxy.protocol | string | `"http"` |  |
+| nextgen-ce.proxy.username | string | `""` |  |
 | nextgen-ce.replicaCount | int | `2` |  |
 | nextgen-ce.resources.limits.memory | string | `"4Gi"` |  |
 | nextgen-ce.resources.requests.cpu | int | `1` |  |
