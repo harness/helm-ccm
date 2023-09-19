@@ -28,6 +28,21 @@ global:
       userKey: "redis-user"
       passwordKey: "redis-password"
       extraArgs: ""
+  proxy:
+    enabled: false
+    host: localhost
+    port: 80
+    username: ""
+    password: ""
+    protocol: http
+  awsServiceEndpointUrls:
+    enabled: false
+    endPointRegion: us-east-2
+    s3EndPointUrl: https://s3.us-east-2.amazonaws.com
+    stsEndPointUrl: https://sts.us-east-2.amazonaws.com
+    ec2EndPointUrl: https://ec2.us-east-2.amazonaws.com
+    ecsEndPointUrl: https://ecs.us-east-2.amazonaws.com
+    cloudwatchEndPointUrl: https://monitoring.us-east-2.amazonaws.com
 
 anomaly-detection:
   replicaCount: 1
@@ -158,21 +173,6 @@ batch-processing:
   workloadIdentity:
     enabled: false
   CF_CLIENT_API_KEY: "BATCH_PROCESSING_ON_PREM"
-  proxy:
-    enabled: false
-    host: localhost
-    port: 80
-    username: ""
-    password: ""
-    protocol: http
-  awsServiceEndpointUrls:
-    enabled: true
-    endPointRegion: us-east-2
-    s3EndPointUrl: https://s3.us-east-2.amazonaws.com
-    stsEndPointUrl: https://sts.us-east-2.amazonaws.com
-    ec2EndPointUrl: https://ec2.us-east-2.amazonaws.com
-    ecsEndPointUrl: https://ecs.us-east-2.amazonaws.com
-    cloudwatchEndPointUrl: https://monitoring.us-east-2.amazonaws.com
   resources:
     limits:
       memory: "10Gi"
@@ -588,14 +588,14 @@ nextgen-ce:
     repository: harness/ce-nextgen-signed
     pullPolicy: IfNotPresent
     # Overrides the image tag whose default is the chart appVersion.
-    tag: "80105-000"
+    tag: "80106-000"
     digest: ""
   imageClickhouseEnabled:
     registry: docker.io
     repository: harness/ce-nextgen-signed
     pullPolicy: Always
     # Overrides the image tag whose default is the chart appVersion.
-    tag: "80105-000"
+    tag: "80106-000"
     digest: ""
   waitForInitContainer:
     image:
@@ -660,21 +660,6 @@ nextgen-ce:
       key: admin-password
   workloadIdentity:
     enabled: false
-  proxy:
-    enabled: false
-    host: localhost
-    port: 80
-    username: ""
-    password: ""
-    protocol: http
-  awsServiceEndpointUrls:
-    enabled: true
-    endPointRegion: us-east-2
-    s3EndPointUrl: https://s3.us-east-2.amazonaws.com
-    stsEndPointUrl: https://sts.us-east-2.amazonaws.com
-    ec2EndPointUrl: https://ec2.us-east-2.amazonaws.com
-    ecsEndPointUrl: https://ecs.us-east-2.amazonaws.com
-    cloudwatchEndPointUrl: https://monitoring.us-east-2.amazonaws.com
   resources:
     limits:
       memory: "4Gi"
