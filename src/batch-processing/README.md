@@ -1,6 +1,6 @@
 # batch-processing
 
-![Version: 0.5.1](https://img.shields.io/badge/Version-0.5.1-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square) ![AppVersion: 0.0.80004](https://img.shields.io/badge/AppVersion-0.0.80004-informational?style=flat-square)
+![Version: 0.5.1](https://img.shields.io/badge/Version-0.5.1-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square) ![AppVersion: 0.0.80005](https://img.shields.io/badge/AppVersion-0.0.80005-informational?style=flat-square)
 
 A Helm chart for Kubernetes
 
@@ -26,6 +26,13 @@ A Helm chart for Kubernetes
 | awsAccountTagsCollectionJobConfig.enabled | bool | `true` |  |
 | awsSecret.S3_SYNC_CONFIG_ACCESSKEY | string | `""` |  |
 | awsSecret.S3_SYNC_CONFIG_SECRETKEY | string | `""` |  |
+| awsServiceEndpointUrls.cloudwatchEndPointUrl | string | `"https://monitoring.us-east-2.amazonaws.com"` |  |
+| awsServiceEndpointUrls.ec2EndPointUrl | string | `"https://ec2.us-east-2.amazonaws.com"` |  |
+| awsServiceEndpointUrls.ecsEndPointUrl | string | `"https://ecs.us-east-2.amazonaws.com"` |  |
+| awsServiceEndpointUrls.enabled | bool | `true` |  |
+| awsServiceEndpointUrls.endPointRegion | string | `"us-east-2"` |  |
+| awsServiceEndpointUrls.s3EndPointUrl | string | `"https://s3.us-east-2.amazonaws.com"` |  |
+| awsServiceEndpointUrls.stsEndPointUrl | string | `"https://sts.us-east-2.amazonaws.com"` |  |
 | ceBatchGCPCredentials | string | `""` |  |
 | ceGCPHomeProjectCreds | string | `""` |  |
 | clickhouse.enabled | bool | `false` |  |

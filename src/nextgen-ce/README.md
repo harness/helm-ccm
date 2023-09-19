@@ -1,6 +1,6 @@
 # nextgen-ce
 
-![Version: 0.5.1](https://img.shields.io/badge/Version-0.5.1-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square) ![AppVersion: 0.0.80104](https://img.shields.io/badge/AppVersion-0.0.80104-informational?style=flat-square)
+![Version: 0.5.1](https://img.shields.io/badge/Version-0.5.1-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square) ![AppVersion: 0.0.80105](https://img.shields.io/badge/AppVersion-0.0.80105-informational?style=flat-square)
 
 A Helm chart for Kubernetes
 
@@ -28,6 +28,13 @@ A Helm chart for Kubernetes
 | awsSecret.AWS_SECRET_KEY | string | `""` |  |
 | awsSecret.AWS_TEMPLATE_LINK | string | `""` |  |
 | awsSecret.CE_AWS_TEMPLATE_URL | string | `""` |  |
+| awsServiceEndpointUrls.cloudwatchEndPointUrl | string | `"https://monitoring.us-east-2.amazonaws.com"` |  |
+| awsServiceEndpointUrls.ec2EndPointUrl | string | `"https://ec2.us-east-2.amazonaws.com"` |  |
+| awsServiceEndpointUrls.ecsEndPointUrl | string | `"https://ecs.us-east-2.amazonaws.com"` |  |
+| awsServiceEndpointUrls.enabled | bool | `true` |  |
+| awsServiceEndpointUrls.endPointRegion | string | `"us-east-2"` |  |
+| awsServiceEndpointUrls.s3EndPointUrl | string | `"https://s3.us-east-2.amazonaws.com"` |  |
+| awsServiceEndpointUrls.stsEndPointUrl | string | `"https://sts.us-east-2.amazonaws.com"` |  |
 | ceng-gcp-credentials | string | `""` |  |
 | clickhouse.enabled | bool | `false` |  |
 | clickhouse.password.key | string | `"admin-password"` |  |

@@ -56,6 +56,14 @@ data:
   PROXY_PASSWORD: '{{ .Values.proxy.password }}'
   PROXY_PROTOCOL: {{ .Values.proxy.protocol }}
   {{- end }}
+  {{- if .Values.awsServiceEndpointUrls.enabled }}
+  AWS_SERVICE_ENDPOINT_URLS_ENDPOINT_REGION: {{ .Values.awsServiceEndpointUrls.endPointRegion }}
+  AWS_SERVICE_ENDPOINT_URLS_S3_ENDPOINT_URL: {{ .Values.awsServiceEndpointUrls.s3EndPointUrl }}
+  AWS_SERVICE_ENDPOINT_URLS_STS_ENDPOINT_URL: {{ .Values.awsServiceEndpointUrls.stsEndPointUrl }}
+  AWS_SERVICE_ENDPOINT_URLS_EC2_ENDPOINT_URL: {{ .Values.awsServiceEndpointUrls.ec2EndPointUrl }}
+  AWS_SERVICE_ENDPOINT_URLS_ECS_ENDPOINT_URL: {{ .Values.awsServiceEndpointUrls.ecsEndPointUrl }}
+  AWS_SERVICE_ENDPOINT_URLS_CLOUDWATCH_ENDPOINT_URL: {{ .Values.awsServiceEndpointUrls.cloudwatchEndPointUrl }}
+  {{- end }}
   {{- if .Values.additionalConfigs }}
   {{- toYaml .Values.additionalConfigs | nindent 2 }}
   {{- end }}

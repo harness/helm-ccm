@@ -181,6 +181,15 @@ proxy:
   password: ""
   protocol: http
 
+awsServiceEndpointUrls:
+  enabled: true
+  endPointRegion: us-east-2
+  s3EndPointUrl: https://s3.us-east-2.amazonaws.com
+  stsEndPointUrl: https://sts.us-east-2.amazonaws.com
+  ec2EndPointUrl: https://ec2.us-east-2.amazonaws.com
+  ecsEndPointUrl: https://ecs.us-east-2.amazonaws.com
+  cloudwatchEndPointUrl: https://monitoring.us-east-2.amazonaws.com
+
 resources:
   limits:
     memory: "10Gi"
