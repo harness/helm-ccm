@@ -2,7 +2,7 @@
 
 A Helm chart for Harness Cloud Cost Management (CCM) module
 
-![Version: 0.9.3](https://img.shields.io/badge/Version-0.9.3-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square) ![AppVersion: 1.546.0](https://img.shields.io/badge/AppVersion-1.546.0-informational?style=flat-square)
+![Version: 0.9.4](https://img.shields.io/badge/Version-0.9.4-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square) ![AppVersion: 1.546.0](https://img.shields.io/badge/AppVersion-1.546.0-informational?style=flat-square)
 
 ## Usage
 
@@ -12,7 +12,7 @@ Use the following dependency to add this chart repository to your Helm installat
 dependencies:
     - name: ccm
       repository: https://harness.github.io/helm-ccm
-      version: 0.9.3
+      version: 0.9.4
 ```
 
 ## Values
@@ -84,12 +84,12 @@ dependencies:
 | batch-processing.image.pullPolicy | string | `"Always"` |  |
 | batch-processing.image.registry | string | `"docker.io"` |  |
 | batch-processing.image.repository | string | `"harness/batch-processing-signed"` |  |
-| batch-processing.image.tag | string | `"80006-000"` |  |
+| batch-processing.image.tag | string | `"80007-000"` |  |
 | batch-processing.imageClickhouseEnabled.digest | string | `""` |  |
 | batch-processing.imageClickhouseEnabled.pullPolicy | string | `"Always"` |  |
 | batch-processing.imageClickhouseEnabled.registry | string | `"docker.io"` |  |
 | batch-processing.imageClickhouseEnabled.repository | string | `"harness/batch-processing-signed"` |  |
-| batch-processing.imageClickhouseEnabled.tag | string | `"80006-000"` |  |
+| batch-processing.imageClickhouseEnabled.tag | string | `"80007-000"` |  |
 | batch-processing.isolatedReplica | int | `0` |  |
 | batch-processing.java.memory | string | `"7168"` |  |
 | batch-processing.mongoSecrets.password.key | string | `"mongodb-root-password"` |  |
