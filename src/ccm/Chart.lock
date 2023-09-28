@@ -16,7 +16,7 @@ dependencies:
   version: 0.5.0
 - name: batch-processing
   repository: file://../batch-processing
-  version: 0.5.1
+  version: 0.5.2
 - name: ng-ce-ui
   repository: file://../ng-ce-ui
   version: 0.5.0
@@ -38,5 +38,5 @@ dependencies:
 - name: dkron
   repository: file://../dkron
   version: 0.3.0
-digest: sha256:be447e1017379b9c6ec666b55f5ca828aaf4261ace7ddd8a8a48d14bc6913a3e
-generated: "2023-09-15T11:51:11.930609+05:30"
+digest: sha256:bf1e7991164e5ecfe09f44023eccf7be44b7d78ab7491848f8bb5e2c0d09e32e
+generated: "2023-09-28T13:13:27.406658+05:30"
